@@ -1,0 +1,264 @@
+﻿Imports DTO
+Imports BUS
+Imports Utility
+
+Public Class UC_QuanLiSach
+
+#Region "Khai báo"
+
+    Private sachDTO As Sach_DTO
+    Private sachBUS As Sach_BUS
+    Private res As Result
+    Private listSach As List(Of Sach_DTO)
+
+#End Region
+
+    Private Click_txt_TimKiem As Boolean = False
+    Public Sub New()
+
+        InitializeComponent()
+
+        sachDTO = New Sach_DTO()
+        sachBUS = New Sach_BUS()
+    End Sub
+
+    Public Sub reload_GUI()
+        Me.Width = Me.Parent.Size.Width
+        Me.Height = Me.Parent.Size.Height
+
+    End Sub
+
+    Private Sub UC_QuanLiSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Me.Dock = DockStyle.Fill
+        Me.Dock = DockStyle.Fill
+        Me.AutoScroll = True
+
+
+        Reload_DataGridViewListSach()
+
+
+    End Sub
+
+
+    Private Sub Reload_DataGridViewListSach()
+
+        res = sachBUS.SelectALL_ListSach()
+
+        If (res.FlagResult = False) Then
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End If
+
+        listSach = CType(res.Obj1, List(Of Sach_DTO))
+
+        dgv_ListSach.Columns.Clear()
+
+        dgv_ListSach.DataSource = listSach
+
+
+
+
+
+        dgv_ListSach.Columns("MaSach1").HeaderText = "Mã"
+        dgv_ListSach.Columns("MaSach1").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội dung
+
+
+        dgv_ListSach.Columns("TenSach1").HeaderText = "Tên sách"
+        dgv_ListSach.Columns("TheLoai1").HeaderText = "Thể loại"
+        dgv_ListSach.Columns("TacGia1").HeaderText = "Tác giả"
+
+        dgv_ListSach.Columns("SoLuongTon1").HeaderText = "Tồn"
+        dgv_ListSach.Columns("SoLuongTon1").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội dung
+
+
+        dgv_ListSach.Columns("DonGia1").HeaderText = "Đơn giá"
+
+        Dim rong As Double = dgv_ListSach.Width
+
+
+        dgv_ListSach.Columns("MaSach1").Width = rong * 0.1
+        dgv_ListSach.Columns("TenSach1").Width = rong * 0.37 - 20
+        dgv_ListSach.Columns("TheLoai1").Width = rong * 0.15
+        dgv_ListSach.Columns("TacGia1").Width = rong * 0.2
+        dgv_ListSach.Columns("SoLuongTon1").Width = rong * 0.08
+        dgv_ListSach.Columns("DonGia1").Width = rong * 0.1
+
+
+
+
+        dgv_ListSach.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 62, 80)
+        dgv_ListSach.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+
+        dgv_ListSach.RowHeadersVisible = False
+
+        'dgv_ListSach.EnableHeadersVisualStyles = False
+
+
+    End Sub
+
+
+
+    Private Sub Reload_DataGridViewListSach1()
+
+        res = sachBUS.SelectALL_ListSach()
+
+        If (res.FlagResult = False) Then
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End If
+
+        listSach = CType(res.Obj1, List(Of Sach_DTO))
+
+        dgv_ListSach.Columns.Clear()
+        dgv_ListSach.AutoGenerateColumns = False
+        dgv_ListSach.AllowUserToAddRows = False
+
+        dgv_ListSach.DataSource = listSach
+
+
+        Dim clMaSach = New DataGridViewTextBoxColumn()
+        With clMaSach
+            .Name = "MaSach"
+            .HeaderText = "Mã sách"
+            .DataPropertyName = "MaSach1"
+        End With
+        dgv_ListSach.Columns.Add(clMaSach)
+
+
+        Dim clTenSach = New DataGridViewTextBoxColumn()
+        With clTenSach
+            .Name = "TenSach"
+            .HeaderText = "Tên sách"
+            .DataPropertyName = "TenSach1"
+        End With
+        dgv_ListSach.Columns.Add(clTenSach)
+
+        Dim clTheLoai = New DataGridViewTextBoxColumn()
+        With clTheLoai
+            .Name = "TheLoai"
+            .HeaderText = "Thể loại"
+            .DataPropertyName = "TheLoai1"
+        End With
+        dgv_ListSach.Columns.Add(clTheLoai)
+
+        '    dgv_ListSach.Refresh()
+
+
+        'Dim myCurrencyManager As CurrencyManager = Me.BindingContext(dgv_ListSach.DataSource)
+        'myCurrencyManager.Refresh()
+    End Sub
+
+    Private Sub btn_ThemSach_Click(sender As Object, e As EventArgs) Handles btn_ThemSach.Click
+        Dim f As New frm_ThemSach()
+        f.ShowDialog()
+
+        Reload_DataGridViewListSach() ' load lại dữ liệu
+
+
+    End Sub
+
+
+
+    Private Sub dgv_ListSach_SelectionChanged(sender As Object, e As EventArgs) Handles dgv_ListSach.SelectionChanged
+
+        Dim IdDongHienTai As Integer = dgv_ListSach.CurrentRow.Index
+
+        If IdDongHienTai = -1 Then
+            Return
+        End If
+
+        sachDTO = CType(dgv_ListSach.Rows(IdDongHienTai).DataBoundItem, Sach_DTO)
+
+        With sachDTO
+            txt_TenSach.Text = .TenSach1
+            txt_MaSach.Text = .MaSach1
+            txt_TacGia.Text = .TacGia1
+            txt_TheLoai.Text = .TheLoai1
+            txt_SoLuongTon.Text = .SoLuongTon1
+            txt_DonGia.Text = .DonGia1
+        End With
+
+    End Sub
+
+    Private Sub btn_CapNhat_Click(sender As Object, e As EventArgs) Handles btn_CapNhat.Click
+        Dim f As New frm_CapNhatSach(sachDTO)
+        f.ShowDialog()
+
+        Reload_DataGridViewListSach() ' load lại dữ liệu
+
+    End Sub
+
+    Private Sub btn_Xoa_Click(sender As Object, e As EventArgs) Handles btn_Xoa.Click
+
+
+        Dim resDialog As DialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If (resDialog = DialogResult.Yes) Then
+
+            Dim res As Result = sachBUS.deleteSach(sachDTO)
+
+            If (res.FlagResult = False) Then
+                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            Else
+                MessageBox.Show(res.ApplicationMessage, "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+
+                Reload_DataGridViewListSach()
+
+            End If
+
+
+
+        End If
+
+    End Sub
+
+    Private Sub txt_TimKiem_Click(sender As Object, e As EventArgs) Handles txt_TimKiem.Click
+        txt_TimKiem.Text = ""
+    End Sub
+
+    Private Sub txt_TimKiem_Leave(sender As Object, e As EventArgs) Handles txt_TimKiem.Leave
+        txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..."
+    End Sub
+
+    Private Sub txt_TimKiem_TextChanged(sender As Object, e As EventArgs) Handles txt_TimKiem.TextChanged
+
+
+        If (txt_TimKiem.Text = "") Then
+            Reload_DataGridViewListSach()
+            Return
+        End If
+
+
+        If (txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách...") Then
+            Return
+        End If
+
+
+
+        res = sachBUS.SelectALL_ListSachByStringMaSachTenSach(txt_TimKiem.Text)
+
+        If (res.FlagResult = False) Then
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End If
+
+        listSach = CType(res.Obj1, List(Of Sach_DTO))
+
+
+        ' dgv_ListSach.DataSource = listSach
+
+        '    dgv_ListSach.Rows.Clear()
+        '  dgv_ListSach.Refresh()
+
+
+
+
+        dgv_ListSach.DataSource = listSach
+
+
+
+    End Sub
+
+
+End Class

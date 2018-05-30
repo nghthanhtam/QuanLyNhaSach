@@ -49,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -71,11 +72,28 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="frm_DangNhap.Designer.vb">
+      <DependentUpon>frm_DangNhap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_DangNhap.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="frm_Main.Designer.vb">
+      <DependentUpon>frm_Main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_CapNhatSach.Designer.vb">
+      <DependentUpon>frm_CapNhatSach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_CapNhatSach.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ThemSach.Designer.vb">
+      <DependentUpon>frm_ThemSach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ThemSach.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -93,13 +111,79 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ThanhTrangThaiTren.Designer.vb">
+      <DependentUpon>ThanhTrangThaiTren.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ThanhTrangThaiTren.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_LapHoaDon.Designer.vb">
+      <DependentUpon>UC_LapHoaDon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UC_LapHoaDon.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_NhapSach.Designer.vb">
+      <DependentUpon>UC_NhapSach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UC_NhapSach.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLiSach.Designer.vb">
+      <DependentUpon>UC_QuanLiSach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLiSach.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThayDoiQuyDinh.Designer.vb">
+      <DependentUpon>UC_ThayDoiQuyDinh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ThayDoiQuyDinh.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_TraCuuSach.Designer.vb">
+      <DependentUpon>UC_TraCuuSach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UC_TraCuuSach.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frm_DangNhap.resx">
+      <DependentUpon>frm_DangNhap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Main.resx">
+      <DependentUpon>frm_Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_CapNhatSach.resx">
+      <DependentUpon>frm_CapNhatSach.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ThemSach.resx">
+      <DependentUpon>frm_ThemSach.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThanhTrangThaiTren.resx">
+      <DependentUpon>ThanhTrangThaiTren.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_LapHoaDon.resx">
+      <DependentUpon>UC_LapHoaDon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_NhapSach.resx">
+      <DependentUpon>UC_NhapSach.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLiSach.resx">
+      <DependentUpon>UC_QuanLiSach.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThayDoiQuyDinh.resx">
+      <DependentUpon>UC_ThayDoiQuyDinh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_TraCuuSach.resx">
+      <DependentUpon>UC_TraCuuSach.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +197,23 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.vbproj">
+      <Project>{041098cb-a7b4-40f2-afc8-13678b126687}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.vbproj">
+      <Project>{cd1c9cf0-c8b6-4ec2-a6f4-806607e80cbc}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.vbproj">
+      <Project>{7db65ba2-93f5-47e3-9caa-16ddb116fdeb}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
