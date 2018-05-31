@@ -202,6 +202,9 @@ Public Class UC_LapHoaDon
 
     End Sub
 
+    'buon ghe
+
+
     'aa
     ' t thêm
     'ờ
