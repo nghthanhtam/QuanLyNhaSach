@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class UC_LapHoaDon
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class UC_LapHoaDon
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lnl_NhapNgay = New System.Windows.Forms.Label()
         Me.dtp_NgayLap = New System.Windows.Forms.DateTimePicker()
@@ -30,7 +30,6 @@ Partial Class UC_LapHoaDon
         Me.txt_HoTenKH = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_MaKH = New System.Windows.Forms.TextBox()
-        Me.btn_test = New System.Windows.Forms.Button()
         CType(Me.dgv_listSach, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -106,24 +105,11 @@ Partial Class UC_LapHoaDon
         Me.txt_MaKH.Size = New System.Drawing.Size(100, 20)
         Me.txt_MaKH.TabIndex = 7
         '
-        'btn_test
-        '
-        Me.btn_test.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(133, Byte), Integer))
-        Me.btn_test.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_test.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_test.Location = New System.Drawing.Point(218, 483)
-        Me.btn_test.Name = "btn_test"
-        Me.btn_test.Size = New System.Drawing.Size(104, 37)
-        Me.btn_test.TabIndex = 8
-        Me.btn_test.Text = "Nhập"
-        Me.btn_test.UseVisualStyleBackColor = False
-        '
         'UC_LapHoaDon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Controls.Add(Me.btn_test)
         Me.Controls.Add(Me.txt_MaKH)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txt_HoTenKH)
@@ -148,5 +134,4 @@ Partial Class UC_LapHoaDon
     Friend WithEvents txt_HoTenKH As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txt_MaKH As TextBox
-    Friend WithEvents btn_test As Button
 End Class

@@ -13,19 +13,23 @@ Public Class UC_LapHoaDon
     Private hoadon As HoaDon_DTO
 
     Private khBUS As KhachHang_BUS
-    'Private chiTietHoaDonBUS As ChiTietHoaDoa_BUS
-    'Private chiTietHoaDonDTO As ChiTietHoaDoa_DTO
+    Private chiTietHoaDonBUS As ChiTietHoaDon_BUS
+    Private chiTietHoaDonDTO As ChiTietHoaDon_DTO
 
-    Private res As Result
+    Private res, res1 As Result
     Private stt As Integer
 
     Public Sub New()
+
         InitializeComponent()
         sachDTO = New Sach_DTO()
         sachBUS = New Sach_BUS()
         hoaDonDTO = New HoaDon_DTO()
         hoaDonBUS = New HoaDon_BUS()
         khBUS = New KhachHang_BUS()
+        chiTietHoaDonBUS = New ChiTietHoaDon_BUS()
+        chiTietHoaDonDTO = New ChiTietHoaDon_DTO()
+
     End Sub
 
     Public Sub reload_GUI()
@@ -37,6 +41,14 @@ Public Class UC_LapHoaDon
     Public Sub ReloadHoaDon()
         'Lấy mã hóa đơn
         res = hoaDonBUS.GetNextIncrement()
+        If (res.FlagResult = False) Then
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+
+    Public Sub ReloadChiTietHoaDon()
+        res = chiTietHoaDonBUS.GetNextIncrement()
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
@@ -98,7 +110,7 @@ Public Class UC_LapHoaDon
         Dim clSoLuongNhap = New DataGridViewTextBoxColumn()
         With clSoLuongNhap
             .Name = "SoLuongNhap"
-            .HeaderText = "Số lượng nhập"
+            .HeaderText = "Số lượng bán"
         End With
         dgv_listSach.Columns.Add(clSoLuongNhap)
 
@@ -120,11 +132,21 @@ Public Class UC_LapHoaDon
         End With
         dgv_listSach.Columns.Add(clDonGia)
 
+        Dim clThanhTien = New DataGridViewTextBoxColumn()
+        With clThanhTien
+            .Name = "ThanhTien"
+            .HeaderText = "Thành tiền"
+            .ReadOnly = True
+        End With
+        dgv_listSach.Columns.Add(clThanhTien)
 
         Dim rong As Double = dgv_listSach.Width
-        dgv_listSach.Columns("STT").Width = rong * 0.13
+        dgv_listSach.Columns("STT").Width = rong * 0.06
+        dgv_listSach.Columns("MaSach").Width = rong * 0.11
         dgv_listSach.Columns("DonGia").Width = rong * 0.11
+        dgv_listSach.Columns("TacGia").Width = rong * 0.1
         dgv_listSach.Columns("SoLuongNhap").Width = rong * 0.14
+        dgv_listSach.Columns("ThanhTien").Width = rong * 0.13
 
     End Sub
 
@@ -168,19 +190,11 @@ Public Class UC_LapHoaDon
         dgv_listSach.Item("TacGia", e.RowIndex).Value = sach.TacGia1
         dgv_listSach.Item("DonGia", e.RowIndex).Value = sach.DonGia1
 
-
     End Sub
 
 
 
     Private Sub btn_Nhap_Click(sender As Object, e As EventArgs) Handles btn_Nhap.Click
-
-
-        res = khBUS.selectTenKH_ByMaKH(CInt(txt_MaKH.Text))
-        If (res.FlagResult = False) Then
-            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
-        End If
 
         'insert vào hóa đơn
         With hoaDonDTO
@@ -196,27 +210,65 @@ Public Class UC_LapHoaDon
             MessageBox.Show(res.ApplicationMessage, "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
-
         'tự động mã hóa dơn
         ReloadHoaDon()
 
+
+        'insert vào cthd
+        res1 = hoaDonBUS.GetNextIncrement() 'lấy tự động mã hd vào cthd bằng cách lấy mã hd kế tiếp-1
+        If (res1.FlagResult = False) Then
+            MessageBox.Show(res1.ApplicationMessage + Environment.NewLine + res1.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+
+
+        Dim i As Integer
+        i = 0
+
+        Do
+            With chiTietHoaDonDTO
+                .MaHoaDon1 = CType(res1.Obj1, Integer) - 1 'mã hd = (mã hd mới) -1
+                .MaSach1 = dgv_listSach.Rows(i).Cells(1).Value
+                .SoLuongban1 = dgv_listSach.Rows(i).Cells(4).Value
+            End With
+
+            insertCTHD(chiTietHoaDonDTO)
+            ReloadChiTietHoaDon()
+            i = i + 1
+
+            If (dgv_listSach.Rows(i).Cells(1).Value Is Nothing) Then
+                Exit Do
+            End If
+
+        Loop Until (dgv_listSach.Item(i, 1).Value Is Nothing) 'ko con` ma phieu nhap
+
     End Sub
 
-    'buon ghe
+
+    Private Sub insertCTHD(x As ChiTietHoaDon_DTO)
+        res = chiTietHoaDonBUS.insertChiTietPhieuNhap(chiTietHoaDonDTO)
+        If (res.FlagResult = False) Then
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        Else
+            MessageBox.Show(res.ApplicationMessage, "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
 
 
-    'aa
-    ' t thêm
-    'ờ
+    Private Sub txt_MaKH_TextChanged(sender As Object, e As EventArgs) Handles txt_MaKH.TextChanged
 
+        If (txt_MaKH.Text = "") Then
+            txt_MaKH.Focus()
+            Return
+        End If
 
-    '
-    ' kanskdl askdnalksndkan skl nkdasnlkd 
-    '
+        res = khBUS.selectTenKH_ByMaKH(CInt(txt_MaKH.Text))
+        If (res.FlagResult = False) Then
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
 
-    'them lan 1
-
-    Private Sub btn_test_Click(sender As Object, e As EventArgs) Handles btn_test.Click
+        txt_HoTenKH.Text = CType(res.Obj1, String)
 
     End Sub
 

@@ -225,7 +225,6 @@ Public Class UC_NhapSach
 
         Loop Until (dgv_listSachNhap.Item(i, 0).Value Is Nothing) 'ko con` ma phieu nhap
 
-
     End Sub
 
 

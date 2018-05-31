@@ -36,7 +36,7 @@ Public Class HoaDon_DAL
 
 
     Public Function insertHoaDon(x As HoaDon_DTO) As Result
-        Dim query As String = "INSERT INTO [HOADON] ([MaHoaDon], [NgayLapHoaDon], [MaKhachHang])"
+        Dim query As String = "INSERT INTO [HOADON] ([NgayLapHoaDon], [MaKhachHang]) VALUES (@NgayLapHoaDon, @MaKhachHang)"
         Using conn As SqlConnection = ConnectDB.GetConnectionDB()
             Using comm As SqlCommand = conn.CreateCommand()
 
@@ -44,7 +44,6 @@ Public Class HoaDon_DAL
                     .CommandType = CommandType.Text
                     .CommandText = query
 
-                    .Parameters.AddWithValue("@MaHoaDon", x.MaHoaDon1)
                     .Parameters.AddWithValue("@NgayLapHoaDon", x.NgayLapHoaDon1)
                     .Parameters.AddWithValue("@MaKhachHang", x.MaKhachHang1)
 
