@@ -214,6 +214,8 @@ Public Class UC_LapHoaDon
     ' kanskdl askdnalksndkan skl nkdasnlkd 
     '
 
+    'them lan 1
+
     Private Sub btn_test_Click(sender As Object, e As EventArgs) Handles btn_test.Click
 
     End Sub
