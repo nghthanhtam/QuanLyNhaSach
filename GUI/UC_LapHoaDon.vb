@@ -205,6 +205,12 @@ Public Class UC_LapHoaDon
     'aa
     ' t thêm
     'ờ
+
+
+    '
+    ' kanskdl askdnalksndkan skl nkdasnlkd 
+    '
+
     Private Sub btn_test_Click(sender As Object, e As EventArgs) Handles btn_test.Click
 
     End Sub
