@@ -13,7 +13,7 @@ Public Class UC_ThayDoiQuyDinh
 
     Public Sub New()
 
-        ' This call is required by the designer.
+        ' This call is required by the designer
         InitializeComponent()
 
         thamsoBUS = New ThamSo_BUS()
