@@ -60,4 +60,5 @@ Public Class ThamSo_DTO
             SuDungQD4 = value
         End Set
     End Property
+
 End Class

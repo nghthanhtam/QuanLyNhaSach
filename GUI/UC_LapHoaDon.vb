@@ -7,10 +7,11 @@ Public Class UC_LapHoaDon
     Private sachDTO As Sach_DTO
     Private sachBUS As Sach_BUS
     Private sach As Sach_DTO
-
     Private hoaDonBUS As HoaDon_BUS
     Private hoaDonDTO As HoaDon_DTO
     Private hoadon As HoaDon_DTO
+    Private thamSoDTO As ThamSo_DTO
+    Private thamSoBUS As ThamSo_BUS
 
     Private khBUS As KhachHang_BUS
     Private chiTietHoaDonBUS As ChiTietHoaDon_BUS
@@ -29,6 +30,8 @@ Public Class UC_LapHoaDon
         khBUS = New KhachHang_BUS()
         chiTietHoaDonBUS = New ChiTietHoaDon_BUS()
         chiTietHoaDonDTO = New ChiTietHoaDon_DTO()
+        thamSoDTO = New ThamSo_DTO()
+        thamSoBUS = New ThamSo_BUS()
 
     End Sub
 
@@ -160,12 +163,14 @@ Public Class UC_LapHoaDon
             Return
         End If
 
-#Region "Kiểm tra nhập mã sách"
+#Region "Quy định"
         res = sachBUS.isValidMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
+
+
 #End Region
 
         res = sachBUS.selectSach_ByMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)

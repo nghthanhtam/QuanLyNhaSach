@@ -13,7 +13,9 @@ Public Class UC_NhapSach
 
     Private chiTietPhieuNhapBUS As ChiTIetPhieuNhap_BUS
     Private chiTietPhieuNhapDTO As ChiTIetPhieuNhap_DTO
-    'Private listctpn As List(Of ChiTIetPhieuNhap_DTO)
+
+    Private thamSoDTO As ThamSo_DTO
+    Private thamSoBUS As ThamSo_BUS
 
     Private res As Result
     Private res1 As Result
@@ -26,7 +28,8 @@ Public Class UC_NhapSach
         phieuNhapBUS = New PhieuNhapSach_BUS()
         chiTietPhieuNhapDTO = New ChiTIetPhieuNhap_DTO()
         chiTietPhieuNhapBUS = New ChiTIetPhieuNhap_BUS()
-        'listctpn = New List(Of ChiTIetPhieuNhap_DTO)
+        thamSoDTO = New ThamSo_DTO()
+        thamSoBUS = New ThamSo_BUS()
     End Sub
 
     Public Sub reload_GUI()
@@ -148,12 +151,21 @@ Public Class UC_NhapSach
             Return
         End If
 
-#Region "Kiểm tra nhập mã sách"
-        res1 = sachBUS.isValidMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
-        If (res1.FlagResult = False) Then
-            MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+#Region "Quy định"
+        If (e.ColumnIndex = 0) Then
+            res = sachBUS.isValidMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
+            If (res.FlagResult = False) Then
+                MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Return
+            End If
+        End If
 
-            Return
+        If (e.ColumnIndex = 5) Then
+            res1 = thamSoBUS.isValidSoLuongNhapToiThieu(CInt(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value))
+            If (res1.FlagResult = False) Then
+                MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Return
+            End If
         End If
 #End Region
 
@@ -219,7 +231,7 @@ Public Class UC_NhapSach
             ReloadChiTietPhieuNhap()
             i = i + 1
 
-            If (dgv_listSachNhap.Rows(i).Cells(5).Value Is Nothing) Then
+            If (dgv_listSachNhap.Rows(i).Cells(0).Value Is Nothing) Then
                 Exit Do
             End If
 
