@@ -26,25 +26,24 @@ Partial Class UC_NhapSach
         Me.lbl_NgayNhap = New System.Windows.Forms.Label()
         Me.dgv_listSachNhap = New System.Windows.Forms.DataGridView()
         Me.btn_NhapSach = New System.Windows.Forms.Button()
+        Me.btn_them = New System.Windows.Forms.Button()
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dtp_NgayNhap
         '
-        Me.dtp_NgayNhap.Location = New System.Drawing.Point(227, 32)
-        Me.dtp_NgayNhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtp_NgayNhap.Location = New System.Drawing.Point(170, 26)
         Me.dtp_NgayNhap.Name = "dtp_NgayNhap"
-        Me.dtp_NgayNhap.Size = New System.Drawing.Size(265, 22)
+        Me.dtp_NgayNhap.Size = New System.Drawing.Size(200, 20)
         Me.dtp_NgayNhap.TabIndex = 0
         '
         'lbl_NgayNhap
         '
         Me.lbl_NgayNhap.AutoSize = True
         Me.lbl_NgayNhap.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_NgayNhap.Location = New System.Drawing.Point(97, 32)
-        Me.lbl_NgayNhap.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_NgayNhap.Location = New System.Drawing.Point(73, 26)
         Me.lbl_NgayNhap.Name = "lbl_NgayNhap"
-        Me.lbl_NgayNhap.Size = New System.Drawing.Size(93, 20)
+        Me.lbl_NgayNhap.Size = New System.Drawing.Size(77, 16)
         Me.lbl_NgayNhap.TabIndex = 1
         Me.lbl_NgayNhap.Text = "Ngày nhập:"
         '
@@ -52,37 +51,54 @@ Partial Class UC_NhapSach
         '
         Me.dgv_listSachNhap.BackgroundColor = System.Drawing.SystemColors.ButtonFace
         Me.dgv_listSachNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_listSachNhap.Location = New System.Drawing.Point(20, 79)
-        Me.dgv_listSachNhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgv_listSachNhap.Location = New System.Drawing.Point(15, 64)
         Me.dgv_listSachNhap.Name = "dgv_listSachNhap"
-        Me.dgv_listSachNhap.Size = New System.Drawing.Size(942, 506)
+        Me.dgv_listSachNhap.Size = New System.Drawing.Size(706, 411)
         Me.dgv_listSachNhap.TabIndex = 2
         '
         'btn_NhapSach
         '
         Me.btn_NhapSach.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.btn_NhapSach.FlatAppearance.BorderSize = 0
+        Me.btn_NhapSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_NhapSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_NhapSach.ForeColor = System.Drawing.Color.White
-        Me.btn_NhapSach.Location = New System.Drawing.Point(101, 603)
-        Me.btn_NhapSach.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_NhapSach.Location = New System.Drawing.Point(76, 489)
         Me.btn_NhapSach.Name = "btn_NhapSach"
-        Me.btn_NhapSach.Size = New System.Drawing.Size(136, 38)
+        Me.btn_NhapSach.Size = New System.Drawing.Size(90, 33)
         Me.btn_NhapSach.TabIndex = 3
         Me.btn_NhapSach.Text = "Nhập sách"
         Me.btn_NhapSach.UseVisualStyleBackColor = False
         '
+        'btn_them
+        '
+        Me.btn_them.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.btn_them.FlatAppearance.BorderSize = 0
+        Me.btn_them.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.btn_them.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
+        Me.btn_them.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_them.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
+        Me.btn_them.ForeColor = System.Drawing.Color.White
+        Me.btn_them.Location = New System.Drawing.Point(187, 489)
+        Me.btn_them.Margin = New System.Windows.Forms.Padding(2)
+        Me.btn_them.Name = "btn_them"
+        Me.btn_them.Size = New System.Drawing.Size(81, 33)
+        Me.btn_them.TabIndex = 15
+        Me.btn_them.Text = "Thêm"
+        Me.btn_them.UseVisualStyleBackColor = False
+        '
         'UC_NhapSach
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Controls.Add(Me.btn_them)
         Me.Controls.Add(Me.btn_NhapSach)
         Me.Controls.Add(Me.dgv_listSachNhap)
         Me.Controls.Add(Me.lbl_NgayNhap)
         Me.Controls.Add(Me.dtp_NgayNhap)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "UC_NhapSach"
-        Me.Size = New System.Drawing.Size(980, 670)
+        Me.Size = New System.Drawing.Size(735, 544)
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -93,4 +109,5 @@ Partial Class UC_NhapSach
     Friend WithEvents lbl_NgayNhap As Label
     Friend WithEvents dgv_listSachNhap As DataGridView
     Friend WithEvents btn_NhapSach As Button
+    Friend WithEvents btn_them As Button
 End Class

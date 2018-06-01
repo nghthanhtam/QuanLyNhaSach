@@ -14,31 +14,31 @@ Public Class ThamSo_BUS
         thamSoDAL = New ThamSo_DAL()
     End Sub
 
-    'Public Function isValidSoLuongNhapToiThieu(text As String) As Result
+    Public Function isValidSoLuongNhapToiThieu(text As String) As Result
 
-    '    If (text.Length < 1) Then
-    '        Return New Result(False, Nothing, "Số lượng nhập tối thiểu không được bỏ trống!")
-    '    End If
-    '    If (Regex.IsMatch(text, "^[0-9]*$") = False) Then
-    '        Return New Result(False, Nothing, "Số lượng nhập tối thiểu phải là số nguyên không âm!")
-    '    End If
+        If (text.Length < 1) Then
+            Return New Result(False, Nothing, "Số lượng nhập tối thiểu không được bỏ trống!")
+        End If
+        If (Regex.IsMatch(text, "^[0-9]*$") = False) Then
+            Return New Result(False, Nothing, "Số lượng nhập tối thiểu phải là số nguyên không âm!")
+        End If
 
-    '    res = SelectAll_ThamSo()
-    '    ts = CType(res.Obj1, ThamSo_DTO)
-    '    If (Integer.Parse(text) < ts.SoLuongNhapToiThieu1) Then
-    '        Return New Result(False, Nothing, "Số lượng nhập ít nhất là 150")
-    '    End If
-
-    '    Return New Result(True)
-
-    'End Function
-
-    Public Function isValidSoLuongNhapToiThieu(so As Integer) As Result
-        If (so < 150) Then
+        res = SelectAll_ThamSo()
+        ts = CType(res.Obj1, ThamSo_DTO)
+        If (CInt(text) < ts.SoLuongNhapToiThieu1) Then
             Return New Result(False, Nothing, "Số lượng nhập ít nhất là 150")
         End If
+
         Return New Result(True)
+
     End Function
+
+    'Public Function isValidSoLuongNhapToiThieu(so As Integer) As Result
+    '    If (so < 150) Then
+    '        Return New Result(False, Nothing, "Số lượng nhập ít nhất là 150")
+    '    End If
+    '    Return New Result(True)
+    'End Function
 
     Public Function isValidSoLuongTonToiDa(text As String) As Result
         If (text.Length < 1) Then
