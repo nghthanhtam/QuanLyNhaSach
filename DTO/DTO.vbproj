@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChiTietHoaDon_DTO.vb" />
-    <Compile Include="ChiTIetPhieuNhap_DTO.vb" />
+    <Compile Include="ChiTietPhieuNhap_DTO.vb" />
     <Compile Include="HoaDon_DTO.vb" />
     <Compile Include="KhachHang_DTO.vb" />
     <Compile Include="PhieuNhapSach_DTO.vb" />
