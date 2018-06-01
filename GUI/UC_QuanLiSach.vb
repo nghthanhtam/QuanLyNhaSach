@@ -46,7 +46,7 @@ Public Class UC_QuanLiSach
 
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
+            Return
         End If
 
         listSach = CType(res.Obj1, List(Of Sach_DTO))
