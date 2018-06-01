@@ -72,6 +72,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_CapNhatKhachHang.Designer.vb">
+      <DependentUpon>frm_CapNhatKhachHang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_CapNhatKhachHang.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_DangNhap.Designer.vb">
       <DependentUpon>frm_DangNhap.vb</DependentUpon>
     </Compile>
@@ -88,6 +94,12 @@
       <DependentUpon>frm_CapNhatSach.vb</DependentUpon>
     </Compile>
     <Compile Include="frm_CapNhatSach.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ThemKhachHang.Designer.vb">
+      <DependentUpon>frm_ThemKhachHang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ThemKhachHang.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_ThemSach.Designer.vb">
@@ -129,6 +141,12 @@
     <Compile Include="UC_NhapSach.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UC_QuanLiKhachHang.Designer.vb">
+      <DependentUpon>UC_QuanLiKhachHang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLiKhachHang.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UC_QuanLiSach.Designer.vb">
       <DependentUpon>UC_QuanLiSach.vb</DependentUpon>
     </Compile>
@@ -149,6 +167,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frm_CapNhatKhachHang.resx">
+      <DependentUpon>frm_CapNhatKhachHang.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.vb</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_CapNhatSach.resx">
       <DependentUpon>frm_CapNhatSach.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ThemKhachHang.resx">
+      <DependentUpon>frm_ThemKhachHang.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ThemSach.resx">
       <DependentUpon>frm_ThemSach.vb</DependentUpon>
@@ -175,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_NhapSach.resx">
       <DependentUpon>UC_NhapSach.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLiKhachHang.resx">
+      <DependentUpon>UC_QuanLiKhachHang.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_QuanLiSach.resx">
       <DependentUpon>UC_QuanLiSach.vb</DependentUpon>

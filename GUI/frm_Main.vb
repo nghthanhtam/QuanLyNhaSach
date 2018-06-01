@@ -131,4 +131,8 @@
 
     End Sub
 
+    Private Sub btn_QuanLiKhachHang_Click(sender As Object, e As EventArgs) Handles btn_QuanLiKhachHang.Click
+        Panel_LoadUC.Controls.Clear()
+        Panel_LoadUC.Controls.Add(New UC_QuanLiKhachHang())
+    End Sub
 End Class

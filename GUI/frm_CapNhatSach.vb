@@ -10,7 +10,7 @@ Public Class frm_CapNhatSach
 
 
     Private Sub frm_SuaSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Panel_ThanhTrangThaiTren.Controls.Add(New ThanhTrangThaiTren("Thêm sách"))
+        Panel_ThanhTrangThaiTren.Controls.Add(New ThanhTrangThaiTren("Cập nhật sách"))
 
         ReloadTheLoai()
         LoadDTOtoGUI()

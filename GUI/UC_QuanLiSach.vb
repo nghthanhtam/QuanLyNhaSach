@@ -67,11 +67,18 @@ Public Class UC_QuanLiSach
         dgv_ListSach.Columns("TheLoai1").HeaderText = "Thể loại"
         dgv_ListSach.Columns("TacGia1").HeaderText = "Tác giả"
 
-        dgv_ListSach.Columns("SoLuongTon1").HeaderText = "Tồn"
-        dgv_ListSach.Columns("SoLuongTon1").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội dung
+        With dgv_ListSach.Columns("SoLuongTon1")
+            .HeaderText = "Tồn"
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội 
+        End With
+
+        With dgv_ListSach.Columns("DonGia1")
+            .HeaderText = "Đơn giá"
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+        End With
 
 
-        dgv_ListSach.Columns("DonGia1").HeaderText = "Đơn giá"
+
 
         Dim rong As Double = dgv_ListSach.Width
 
@@ -240,17 +247,10 @@ Public Class UC_QuanLiSach
 
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
+            Return
         End If
 
         listSach = CType(res.Obj1, List(Of Sach_DTO))
-
-
-        ' dgv_ListSach.DataSource = listSach
-
-        '    dgv_ListSach.Rows.Clear()
-        '  dgv_ListSach.Refresh()
-
 
 
 

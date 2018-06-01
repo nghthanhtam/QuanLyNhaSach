@@ -2,23 +2,23 @@
 
     Private MaKH As Integer
     Private HoTenKhachHang As String
-    Private TienNo As String
     Private DiaChi As String
-    Private DienThoai As Integer
-    Private Email As Double
+    Private DienThoai As String
+    Private Email As String
+    Private TienNo As Double
+
 
     Public Sub New()
 
     End Sub
 
-
-    Public Sub New(ma As Integer, hoten As String, tienno As String, diachi As String, dt As Integer, email As Double)
-        Me.MaKH1 = ma
-        Me.HoTenKhachHang1 = hoten
-        Me.TienNo1 = tienno
-        Me.DiaChi1 = diachi
-        Me.DienThoai1 = dt
-        Me.Email1 = email
+    Public Sub New(maKH As Integer, hoTenKhachHang As String, diaChi As String, dienThoai As String, email As String, tienNo As Double)
+        Me.MaKH = maKH
+        Me.HoTenKhachHang = hoTenKhachHang
+        Me.DiaChi = diaChi
+        Me.DienThoai = dienThoai
+        Me.Email = email
+        Me.TienNo = tienNo
     End Sub
 
     Public Property MaKH1 As Integer
@@ -39,11 +39,11 @@
         End Set
     End Property
 
-    Public Property TienNo1 As String
+    Public Property TienNo1 As Double
         Get
             Return TienNo
         End Get
-        Set(value As String)
+        Set(value As Double)
             TienNo = value
         End Set
     End Property
@@ -57,22 +57,21 @@
         End Set
     End Property
 
-    Public Property DienThoai1 As Integer
+    Public Property DienThoai1 As String
         Get
             Return DienThoai
         End Get
-        Set(value As Integer)
+        Set(value As String)
             DienThoai = value
         End Set
     End Property
 
-    Public Property Email1 As Double
+    Public Property Email1 As String
         Get
             Return Email
         End Get
-        Set(value As Double)
+        Set(value As String)
             Email = value
         End Set
     End Property
-
 End Class
