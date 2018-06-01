@@ -14,7 +14,7 @@
         'MessageBox.Show(Panel_LoadUC.Size.Width.ToString() + " " + Panel_LoadUC.Size.Height.ToString())
         '  MessageBox.Show(Panel_LoadUC.Location.X.ToString() + " " + Panel_LoadUC.Location.Y.ToString())
 
-
+        'sâsaas
 
 
 
