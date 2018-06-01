@@ -29,7 +29,6 @@ Public Class UC_QuanLiSach
     End Sub
 
     Private Sub UC_QuanLiSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Me.Dock = DockStyle.Fill
         Me.Dock = DockStyle.Fill
         Me.AutoScroll = True
 

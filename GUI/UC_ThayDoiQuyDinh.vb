@@ -18,6 +18,11 @@ Public Class UC_ThayDoiQuyDinh
 
         thamsoBUS = New ThamSo_BUS()
         thamsoDTO = New ThamSo_DTO()
+
+        Me.Dock = DockStyle.Fill
+        Me.AutoScroll = True
+
+
     End Sub
 
 
