@@ -121,7 +121,7 @@ Partial Class UC_QuanLiSach
         Me.txt_TheLoai.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TheLoai.Name = "txt_TheLoai"
         Me.txt_TheLoai.ReadOnly = True
-        Me.txt_TheLoai.Size = New System.Drawing.Size(204, 27)
+        Me.txt_TheLoai.Size = New System.Drawing.Size(215, 27)
         Me.txt_TheLoai.TabIndex = 7
         '
         'Label5
@@ -141,7 +141,7 @@ Partial Class UC_QuanLiSach
         Me.txt_SoLuongTon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_SoLuongTon.Name = "txt_SoLuongTon"
         Me.txt_SoLuongTon.ReadOnly = True
-        Me.txt_SoLuongTon.Size = New System.Drawing.Size(204, 27)
+        Me.txt_SoLuongTon.Size = New System.Drawing.Size(215, 27)
         Me.txt_SoLuongTon.TabIndex = 9
         '
         'Label6
@@ -161,7 +161,7 @@ Partial Class UC_QuanLiSach
         Me.txt_DonGia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_DonGia.Name = "txt_DonGia"
         Me.txt_DonGia.ReadOnly = True
-        Me.txt_DonGia.Size = New System.Drawing.Size(204, 27)
+        Me.txt_DonGia.Size = New System.Drawing.Size(215, 27)
         Me.txt_DonGia.TabIndex = 11
         '
         'dgv_ListSach

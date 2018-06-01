@@ -22,8 +22,8 @@ Partial Class UC_QuanLiKhachHang
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btn_CapNhat = New System.Windows.Forms.Button()
         Me.btn_Xoa = New System.Windows.Forms.Button()
         Me.btn_ThemKhachHang = New System.Windows.Forms.Button()
@@ -103,28 +103,28 @@ Partial Class UC_QuanLiKhachHang
         Me.dgv_ListKhachHang.AllowUserToResizeRows = False
         Me.dgv_ListKhachHang.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgv_ListKhachHang.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ListKhachHang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ListKhachHang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_ListKhachHang.EnableHeadersVisualStyles = False
         Me.dgv_ListKhachHang.Location = New System.Drawing.Point(53, 246)
         Me.dgv_ListKhachHang.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dgv_ListKhachHang.MultiSelect = False
         Me.dgv_ListKhachHang.Name = "dgv_ListKhachHang"
         Me.dgv_ListKhachHang.ReadOnly = True
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ListKhachHang.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ListKhachHang.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgv_ListKhachHang.RowTemplate.Height = 24
         Me.dgv_ListKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv_ListKhachHang.Size = New System.Drawing.Size(860, 410)
@@ -133,31 +133,31 @@ Partial Class UC_QuanLiKhachHang
         'txt_TienNo
         '
         Me.txt_TienNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_TienNo.Location = New System.Drawing.Point(701, 122)
+        Me.txt_TienNo.Location = New System.Drawing.Point(642, 122)
         Me.txt_TienNo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TienNo.Name = "txt_TienNo"
         Me.txt_TienNo.ReadOnly = True
-        Me.txt_TienNo.Size = New System.Drawing.Size(204, 27)
+        Me.txt_TienNo.Size = New System.Drawing.Size(274, 27)
         Me.txt_TienNo.TabIndex = 16
         '
         'txt_Email
         '
         Me.txt_Email.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_Email.Location = New System.Drawing.Point(701, 74)
+        Me.txt_Email.Location = New System.Drawing.Point(642, 74)
         Me.txt_Email.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_Email.Name = "txt_Email"
         Me.txt_Email.ReadOnly = True
-        Me.txt_Email.Size = New System.Drawing.Size(204, 27)
+        Me.txt_Email.Size = New System.Drawing.Size(274, 27)
         Me.txt_Email.TabIndex = 15
         '
         'txt_DienThoai
         '
         Me.txt_DienThoai.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_DienThoai.Location = New System.Drawing.Point(701, 30)
+        Me.txt_DienThoai.Location = New System.Drawing.Point(642, 30)
         Me.txt_DienThoai.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_DienThoai.Name = "txt_DienThoai"
         Me.txt_DienThoai.ReadOnly = True
-        Me.txt_DienThoai.Size = New System.Drawing.Size(204, 27)
+        Me.txt_DienThoai.Size = New System.Drawing.Size(274, 27)
         Me.txt_DienThoai.TabIndex = 14
         '
         'txt_TimKiem
@@ -177,7 +177,7 @@ Partial Class UC_QuanLiKhachHang
         Me.txt_DiaChi.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_DiaChi.Name = "txt_DiaChi"
         Me.txt_DiaChi.ReadOnly = True
-        Me.txt_DiaChi.Size = New System.Drawing.Size(381, 27)
+        Me.txt_DiaChi.Size = New System.Drawing.Size(325, 27)
         Me.txt_DiaChi.TabIndex = 13
         '
         'txt_HoTen
@@ -187,14 +187,14 @@ Partial Class UC_QuanLiKhachHang
         Me.txt_HoTen.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_HoTen.Name = "txt_HoTen"
         Me.txt_HoTen.ReadOnly = True
-        Me.txt_HoTen.Size = New System.Drawing.Size(381, 27)
+        Me.txt_HoTen.Size = New System.Drawing.Size(325, 27)
         Me.txt_HoTen.TabIndex = 12
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(571, 129)
+        Me.Label6.Location = New System.Drawing.Point(512, 129)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(69, 20)
         Me.Label6.TabIndex = 9
@@ -214,7 +214,7 @@ Partial Class UC_QuanLiKhachHang
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(571, 81)
+        Me.Label5.Location = New System.Drawing.Point(512, 81)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(56, 20)
         Me.Label5.TabIndex = 7
@@ -227,14 +227,14 @@ Partial Class UC_QuanLiKhachHang
         Me.txt_MaKhachHang.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_MaKhachHang.Name = "txt_MaKhachHang"
         Me.txt_MaKhachHang.ReadOnly = True
-        Me.txt_MaKhachHang.Size = New System.Drawing.Size(381, 27)
+        Me.txt_MaKhachHang.Size = New System.Drawing.Size(325, 27)
         Me.txt_MaKhachHang.TabIndex = 11
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(571, 37)
+        Me.Label4.Location = New System.Drawing.Point(512, 37)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(89, 20)
         Me.Label4.TabIndex = 5
