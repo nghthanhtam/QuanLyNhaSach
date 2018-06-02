@@ -160,27 +160,25 @@ Public Class UC_NhapSach
             End If
         End If
 
-        'If (e.ColumnIndex = 5) Then
-        '    res1 = thamSoBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
-        '    If (res1.FlagResult = False) Then
-        '        MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '        dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty
-        '        Return
-        '    End If
-        'End If
-
+        If (e.ColumnIndex = 5) Then
+            res1 = thamSoBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
+            If (res1.FlagResult = False) Then
+                MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Return
+            End If
+        End If
 #End Region
 
         res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
 
         If (res.FlagResult = False) Then
-                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty
-                dgv_listSachNhap.Focus()
-                Return
-            End If
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty
+            dgv_listSachNhap.Focus()
+            Return
+        End If
 
-            sach = CType(res.Obj1, Sach_DTO)
+        sach = CType(res.Obj1, Sach_DTO)
 
         'thêm dòng-cọt trong dtg
         dgv_listSachNhap.Item("TenSach", e.RowIndex).Value = sach.TenSach1

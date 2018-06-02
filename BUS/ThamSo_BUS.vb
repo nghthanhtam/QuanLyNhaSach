@@ -6,9 +6,6 @@ Imports DTO
 Public Class ThamSo_BUS
 
     Private thamSoDAL As ThamSo_DAL
-    Private thamSoBUS As ThamSo_BUS
-    Private ts As ThamSo_DTO
-    Private res As Result
 
     Public Sub New()
         thamSoDAL = New ThamSo_DAL()
@@ -23,17 +20,9 @@ Public Class ThamSo_BUS
             Return New Result(False, Nothing, "Số lượng nhập tối thiểu phải là số nguyên không âm!")
         End If
 
-        'res = SelectAll_ThamSo()
-        'ts = CType(res.Obj1, ThamSo_DTO)
-        'If (CInt(text) < ts.SoLuongNhapToiThieu1) Then
-        '    Return New Result(False, Nothing, "Số lượng nhập ít nhất là 150")
-        'End If
-
         Return New Result(True)
 
     End Function
-
-
 
     Public Function isValidSoLuongTonToiDa(text As String) As Result
         If (text.Length < 1) Then
