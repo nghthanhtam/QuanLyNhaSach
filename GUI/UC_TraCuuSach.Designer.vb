@@ -22,8 +22,8 @@ Partial Class UC_TraCuuSach
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgv_ListSach = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbb_TheLoai = New System.Windows.Forms.ComboBox()
@@ -41,31 +41,31 @@ Partial Class UC_TraCuuSach
         Me.dgv_ListSach.AllowUserToResizeRows = False
         Me.dgv_ListSach.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgv_ListSach.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ListSach.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ListSach.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_ListSach.EnableHeadersVisualStyles = False
-        Me.dgv_ListSach.Location = New System.Drawing.Point(55, 189)
+        Me.dgv_ListSach.Location = New System.Drawing.Point(55, 142)
         Me.dgv_ListSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dgv_ListSach.MultiSelect = False
         Me.dgv_ListSach.Name = "dgv_ListSach"
         Me.dgv_ListSach.ReadOnly = True
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ListSach.RowHeadersDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ListSach.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_ListSach.RowTemplate.Height = 24
         Me.dgv_ListSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv_ListSach.Size = New System.Drawing.Size(860, 468)
+        Me.dgv_ListSach.Size = New System.Drawing.Size(860, 515)
         Me.dgv_ListSach.TabIndex = 17
         '
         'Label2
@@ -83,7 +83,7 @@ Partial Class UC_TraCuuSach
         '
         Me.cbb_TheLoai.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.cbb_TheLoai.FormattingEnabled = True
-        Me.cbb_TheLoai.Location = New System.Drawing.Point(729, 68)
+        Me.cbb_TheLoai.Location = New System.Drawing.Point(730, 78)
         Me.cbb_TheLoai.Name = "cbb_TheLoai"
         Me.cbb_TheLoai.Size = New System.Drawing.Size(137, 24)
         Me.cbb_TheLoai.TabIndex = 20
@@ -91,7 +91,7 @@ Partial Class UC_TraCuuSach
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(624, 71)
+        Me.Label1.Location = New System.Drawing.Point(625, 81)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(63, 17)
         Me.Label1.TabIndex = 21
@@ -100,7 +100,7 @@ Partial Class UC_TraCuuSach
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(68, 71)
+        Me.Label3.Location = New System.Drawing.Point(69, 81)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 17)
         Me.Label3.TabIndex = 21
@@ -109,7 +109,7 @@ Partial Class UC_TraCuuSach
         'txt_TimKiem
         '
         Me.txt_TimKiem.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_TimKiem.Location = New System.Drawing.Point(142, 65)
+        Me.txt_TimKiem.Location = New System.Drawing.Point(143, 75)
         Me.txt_TimKiem.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TimKiem.Name = "txt_TimKiem"
         Me.txt_TimKiem.Size = New System.Drawing.Size(371, 27)

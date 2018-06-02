@@ -46,7 +46,6 @@ Public Class UC_TraCuuSach
     End Sub
 
 
-
     Private Sub Reload_DataGridViewListSach()
 
         'If cbb_TheLoai.Text = "" Then
@@ -145,7 +144,6 @@ Public Class UC_TraCuuSach
 
     End Sub
 
-
     Private Sub txt_TimKiem_Click(sender As Object, e As EventArgs) Handles txt_TimKiem.Click
         If txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..." Then
             txt_TimKiem.Text = ""
@@ -199,8 +197,6 @@ Public Class UC_TraCuuSach
 
     End Sub
 
-    Private Sub cbb_TheLoai_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbb_TheLoai.SelectedIndexChanged
-    End Sub
 
     Private Sub cbb_TheLoai_TextChanged(sender As Object, e As EventArgs) Handles cbb_TheLoai.TextChanged
         Reload_DataGridViewListSach()
