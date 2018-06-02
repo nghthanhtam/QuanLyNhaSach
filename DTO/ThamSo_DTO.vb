@@ -13,7 +13,7 @@ Public Class ThamSo_DTO
 
 
     Private SoLuongTonToiThieu As Integer
-    Private SoTienNoToiDa As Double
+    Private SoTienNoToiDa As Single
     Private SuDungQD4 As Boolean
 
     Public Property SoLuongNhapToiThieu1 As Integer
@@ -43,11 +43,11 @@ Public Class ThamSo_DTO
         End Set
     End Property
 
-    Public Property SoTienNoToiDa1 As Double
+    Public Property SoTienNoToiDa1 As Single
         Get
             Return SoTienNoToiDa
         End Get
-        Set(value As Double)
+        Set(value As Single)
             SoTienNoToiDa = value
         End Set
     End Property

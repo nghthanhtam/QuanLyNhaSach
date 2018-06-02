@@ -4,14 +4,14 @@
     Private TheLoai As String
     Private TacGia As String
     Private SoLuongTon As Integer
-    Private DonGia As Double
+    Private DonGia As Single
 
     Public Sub New()
 
     End Sub
 
 
-    Public Sub New(ma As Integer, ten As String, loai As String, tacGia As String, slTon As Integer, gia As Double)
+    Public Sub New(ma As Integer, ten As String, loai As String, tacGia As String, slTon As Integer, gia As Single)
         Me.MaSach = ma
         Me.TenSach = ten
         Me.TheLoai = loai
@@ -65,11 +65,11 @@
         End Set
     End Property
 
-    Public Property DonGia1 As Double
+    Public Property DonGia1 As Single
         Get
             Return DonGia
         End Get
-        Set(value As Double)
+        Set(value As Single)
             DonGia = value
         End Set
     End Property

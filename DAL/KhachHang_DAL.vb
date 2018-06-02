@@ -78,8 +78,49 @@ Public Class KhachHang_DAL
             End Using
         End Using
 
-
     End Function
+
+
+    Public Function SelectTienNo_KhachHang(iMaKH As Integer) As Result
+        Dim tienno As Single
+        Dim query As String = String.Empty
+        query &= " SELECT [TienNo]"
+        query &= " FROM [KHACHHANG]"
+        query &= " WHERE "
+        query &= " @MaKH=[MaKhachHang] "
+
+        Using conn As SqlConnection = ConnectDB.GetConnectionDB()
+            Using comm As SqlCommand = conn.CreateCommand()
+                With comm
+                    .Connection = conn
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@MaKH", iMaKH)
+                End With
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        While reader.Read
+                            tienno = reader("TienNo")
+                        End While
+                    Else
+                        Throw New Exception("Không tìm thấy tiền nợ!")
+                    End If
+
+                Catch ex As Exception
+                    conn.Close()
+                    Return New Result(False, Nothing, "Lấy thông tin tiền nợ thất bại!", ex.Message)
+                Finally
+                    conn.Close()
+                End Try
+                Return New Result(True, tienno)
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+    End Function
+
 
     Public Function SelectALL_ListSachByStringMaKHHoTenSDT(text As String) As Result
 
@@ -114,8 +155,6 @@ Public Class KhachHang_DAL
             End If
         End If
 
-
-
         Dim query As String = "SELECT * FROM [KHACHHANG] WHERE ([DienThoai] like @text) OR ( [HoTenKhachHang] like @text)   "
         Using conn As SqlConnection = ConnectDB.GetConnectionDB()
             Using comm As SqlCommand = conn.CreateCommand()
@@ -145,8 +184,8 @@ Public Class KhachHang_DAL
             End Using
         End Using
 
-
     End Function
+
 
     Public Function update(x As KhachHang_DTO) As Result
 

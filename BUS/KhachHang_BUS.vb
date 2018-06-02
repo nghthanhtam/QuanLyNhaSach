@@ -12,6 +12,10 @@ Public Class KhachHang_BUS
         khDAL = New KhachHang_DAL()
     End Sub
 
+    Public Function selectTienNo_KhachHang(x As Integer)
+        Return khDAL.SelectTienNo_KhachHang(x)
+    End Function
+
     Public Function selectTenKH_ByMaKH(x As Integer) As Result
         Return khDAL.selectTenKH_ByMaKH(x)
     End Function

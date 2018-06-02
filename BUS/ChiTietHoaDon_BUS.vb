@@ -6,6 +6,10 @@ Imports System.Text.RegularExpressions
 Public Class ChiTietHoaDon_BUS
 
     Private chiTietHoaDonDAL As ChiTietHoaDon_DAL
+    Private res As Result
+    Private thamSoBUS As New ThamSo_BUS
+    Private ts As ThamSo_DTO
+
 
     Public Sub New()
         chiTietHoaDonDAL = New ChiTietHoaDon_DAL()
@@ -20,4 +24,24 @@ Public Class ChiTietHoaDon_BUS
     End Function
 
 
+    Public Function isValidSoTienNo(x As Integer) As Result
+        res = thamSoBUS.SelectAll_ThamSo()
+        ts = CType(res.Obj1, ThamSo_DTO)
+        If (CInt(x) > ts.SoTienNoToiDa1) Then
+            Return New Result(False, Nothing, "Chỉ bán cho khách hàng nợ không quá " + ts.SoTienNoToiDa1.ToString)
+        End If
+
+        Return New Result(True)
+    End Function
+
+
+    Public Function isValidSoLuongSachTon(x As Integer) As Result
+        res = thamSoBUS.SelectAll_ThamSo()
+        ts = CType(res.Obj1, ThamSo_DTO)
+        If (CInt(x) < ts.SoLuongTonToiThieu1) Then
+            Return New Result(False, Nothing, "Sách có lượng tồn sau khi bán phải ít nhất là " + ts.SoLuongTonToiThieu1.ToString)
+        End If
+
+        Return New Result(True)
+    End Function
 End Class
