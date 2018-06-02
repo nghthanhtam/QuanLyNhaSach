@@ -161,7 +161,7 @@ Public Class UC_NhapSach
         End If
 
         If (e.ColumnIndex = 5) Then
-            res1 = thamSoBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
+            res1 = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
             If (res1.FlagResult = False) Then
                 MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Return
