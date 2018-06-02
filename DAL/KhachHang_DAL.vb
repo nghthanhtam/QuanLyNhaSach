@@ -122,7 +122,7 @@ Public Class KhachHang_DAL
     End Function
 
 
-    Public Function SelectALL_ListSachByStringMaKHHoTenSDT(text As String) As Result
+    Public Function SelectALL_ListKhachHangByStringMaKHHoTenSDT(text As String) As Result
 
         Dim listKhachHang As New List(Of KhachHang_DTO)
         listKhachHang.Clear()
@@ -244,21 +244,17 @@ Public Class KhachHang_DAL
                             khachHangDTO = New KhachHang_DTO(Integer.Parse(reader("MaKhachHang")), reader("HoTenKhachHang"), reader("DiaChi"), reader("DienThoai"), reader("Email"), Double.Parse(reader("TienNo")))
                         End While
                     Else
-                        Throw New Exception("Không tìm thấy sách!")
+                        Throw New Exception("Không tìm thấy KH!")
                     End If
 
                 Catch ex As Exception
-                    Return New Result(False, Nothing, "Lấy thông tin sách thất bại!", ex.Message)
+                    Return New Result(False, Nothing, "Lấy thông tin KH thất bại!", ex.Message)
                 Finally
                     conn.Close()
-
                 End Try
-
-                Return New Result(True, khachHangDTO)
-
             End Using
         End Using
-        Return New Result(True) ' thanh cong
+        Return New Result(True, khachHangDTO)
     End Function
 
     Public Function insert(x As KhachHang_DTO) As Result

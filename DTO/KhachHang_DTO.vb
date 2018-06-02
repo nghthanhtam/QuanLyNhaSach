@@ -5,14 +5,14 @@
     Private DiaChi As String
     Private DienThoai As String
     Private Email As String
-    Private TienNo As Single
+    Private TienNo As Double
 
 
     Public Sub New()
 
     End Sub
 
-    Public Sub New(maKH As Integer, hoTenKhachHang As String, diaChi As String, dienThoai As String, email As String, tienNo As Single)
+    Public Sub New(maKH As Integer, hoTenKhachHang As String, diaChi As String, dienThoai As String, email As String, tienNo As Double)
         Me.MaKH = maKH
         Me.HoTenKhachHang = hoTenKhachHang
         Me.DiaChi = diaChi
@@ -39,11 +39,11 @@
         End Set
     End Property
 
-    Public Property TienNo1 As Single
+    Public Property TienNo1 As Double
         Get
             Return TienNo
         End Get
-        Set(value As Single)
+        Set(value As Double)
             TienNo = value
         End Set
     End Property

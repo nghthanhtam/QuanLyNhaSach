@@ -40,6 +40,32 @@ Public Class PhieuThuTien_DAL
         End Using
     End Function
 
+    Public Function insert(x As PhieuThuTien_DTO) As Result
+        Dim query As String = "INSERT INTO [PHIEUTHUTIEN] ([MaKhachHang], [NgayThuTien], [SoTienThu]) VALUES (@MaKhachHang, @NgayThuTien, @SoTienThu)"
+        Using conn As SqlConnection = ConnectDB.GetConnectionDB()
+            Using comm As SqlCommand = conn.CreateCommand()
 
+                With comm
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@MaKhachHang", x.MaKhachHang1)
+                    .Parameters.AddWithValue("@NgayThuTien", x.NgayThuTien1)
+                    .Parameters.AddWithValue("@SoTienThu", x.SoTienThu1)
+                End With
 
+                Try
+                    conn.Open()
+                    comm.ExecuteNonQuery()
+
+                Catch ex As Exception
+                    Return New Result(False, Nothing, "Thêm phiếu thu tiền mới thất bại!", ex.Message)
+                Finally
+                    conn.Close()
+                End Try
+                Return New Result(True, Nothing, "Thêm phiếu thu tiền mới thành công!")
+
+            End Using
+        End Using
+        Return New Result(True)
+    End Function
 End Class

@@ -68,8 +68,8 @@ Public Class KhachHang_BUS
         Return New Result(True)
     End Function
 
-    Public Function SelectALL_ListSachByStringMaKHHoTenSDT(text As String) As Result
-        Return khDAL.SelectALL_ListSachByStringMaKHHoTenSDT(text)
+    Public Function SelectALL_ListKhachHangByStringMaKHHoTenSDT(text As String) As Result
+        Return khDAL.SelectALL_ListKhachHangByStringMaKHHoTenSDT(text)
     End Function
 
     Public Function deleteByKhachHang(khachHangDTO As KhachHang_DTO) As Result

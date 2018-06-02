@@ -187,7 +187,7 @@ Public Class UC_QuanLiKhachHang
 
 
 
-        res = khachHangBUS.SelectALL_ListSachByStringMaKHHoTenSDT(txt_TimKiem.Text)
+        res = khachHangBUS.SelectALL_ListKhachHangByStringMaKHHoTenSDT(txt_TimKiem.Text)
 
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
