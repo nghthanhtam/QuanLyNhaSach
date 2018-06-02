@@ -66,4 +66,12 @@
         End If
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If (Me.ParentForm.WindowState = FormWindowState.Normal) Then
+            Me.ParentForm.WindowState = FormWindowState.Maximized
+        Else
+            Me.ParentForm.WindowState = FormWindowState.Normal
+
+        End If
+    End Sub
 End Class

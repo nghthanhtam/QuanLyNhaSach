@@ -27,6 +27,7 @@ Partial Class ThanhTrangThaiTren
         Me.btn_Thoat = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txt_Title = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -34,11 +35,12 @@ Partial Class ThanhTrangThaiTren
         'Panel2
         '
         Me.Panel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.btn_Minimize)
         Me.Panel2.Controls.Add(Me.btn_Thoat)
-        Me.Panel2.Location = New System.Drawing.Point(854, 0)
+        Me.Panel2.Location = New System.Drawing.Point(760, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(122, 50)
+        Me.Panel2.Size = New System.Drawing.Size(216, 50)
         Me.Panel2.TabIndex = 0
         '
         'btn_Minimize
@@ -50,7 +52,7 @@ Partial Class ThanhTrangThaiTren
         Me.btn_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Minimize.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.btn_Minimize.ForeColor = System.Drawing.Color.White
-        Me.btn_Minimize.Location = New System.Drawing.Point(7, 0)
+        Me.btn_Minimize.Location = New System.Drawing.Point(44, 0)
         Me.btn_Minimize.Name = "btn_Minimize"
         Me.btn_Minimize.Size = New System.Drawing.Size(57, 31)
         Me.btn_Minimize.TabIndex = 2
@@ -66,7 +68,7 @@ Partial Class ThanhTrangThaiTren
         Me.btn_Thoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Thoat.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.btn_Thoat.ForeColor = System.Drawing.Color.White
-        Me.btn_Thoat.Location = New System.Drawing.Point(65, 0)
+        Me.btn_Thoat.Location = New System.Drawing.Point(159, 0)
         Me.btn_Thoat.Name = "btn_Thoat"
         Me.btn_Thoat.Size = New System.Drawing.Size(57, 31)
         Me.btn_Thoat.TabIndex = 2
@@ -95,6 +97,23 @@ Partial Class ThanhTrangThaiTren
         Me.txt_Title.TabIndex = 1
         Me.txt_Title.Text = "Phần mềm quản lí nhà sách"
         '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(101, -6)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(57, 37)
+        Me.Button1.TabIndex = 3
+        Me.Button1.Text = "□"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'ThanhTrangThaiTren
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -116,4 +135,5 @@ Partial Class ThanhTrangThaiTren
     Friend WithEvents Panel1 As Panel
     Friend WithEvents txt_Title As Label
     Friend WithEvents btn_Minimize As Button
+    Friend WithEvents Button1 As Button
 End Class
