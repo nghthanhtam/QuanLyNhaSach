@@ -68,6 +68,7 @@
     <Compile Include="HoaDon_BUS.vb" />
     <Compile Include="KhachHang_BUS.vb" />
     <Compile Include="PhieuNhapSach_BUS.vb" />
+    <Compile Include="PhieuThuTien_BUS.vb" />
     <Compile Include="Sach_BUS.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
