@@ -48,6 +48,10 @@ Public Class PhieuThuTien_BUS
         Return New Result(True)
     End Function
 
+    Public Function SelectAll_ListPhieuThuTien() As Result
+        Return phieuThuTienDAL.SelectAll_ListPhieuThuTien()
+    End Function
+
     Public Function insert(phieuThuTienDTO As PhieuThuTien_DTO) As Result
         Return phieuThuTienDAL.insert(phieuThuTienDTO)
     End Function

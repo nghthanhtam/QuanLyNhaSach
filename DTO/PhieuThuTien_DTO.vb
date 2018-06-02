@@ -4,6 +4,17 @@
     Private NgayThuTien As DateTime
     Private SoTienThu As Double
 
+    Public Sub New()
+
+    End Sub
+
+    Public Sub New(maPhieuThu As Integer, maKhachHang As Integer, ngayThuTien As Date, soTienThu As Double)
+        Me.MaPhieuThu = maPhieuThu
+        Me.MaKhachHang = maKhachHang
+        Me.NgayThuTien = ngayThuTien
+        Me.SoTienThu = soTienThu
+    End Sub
+
     Public Property MaPhieuThu1 As Integer
         Get
             Return MaPhieuThu

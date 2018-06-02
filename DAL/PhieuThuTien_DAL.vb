@@ -68,4 +68,38 @@ Public Class PhieuThuTien_DAL
         End Using
         Return New Result(True)
     End Function
+
+    Public Function SelectAll_ListPhieuThuTien() As Result
+        Dim query As String = "SELECT [MaPhieuThu],[PHIEUTHUTIEN].[MaKhachHang],[HoTenKhachHang],[NgayThuTien],[SoTienThu] FROM [PHIEUTHUTIEN],[KHACHHANG] WHERE [PHIEUTHUTIEN].[MaKhachHang] = [KHACHHANG].[MaKhachHang]"
+
+        Dim listPhieuThuTien As New List(Of Object)
+        listPhieuThuTien.Clear()
+
+        Using conn As SqlConnection = ConnectDB.GetConnectionDB()
+            Using comm As SqlCommand = conn.CreateCommand()
+
+                With comm
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                End With
+                Try
+                    conn.Open()
+                    comm.ExecuteNonQuery()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader
+                    If (reader.HasRows = True) Then
+                        While reader.Read
+                            Dim x As Object = New With {.MaPhieuThu = Integer.Parse(reader("MaPhieuThu")), .MaKhachHang = Integer.Parse(reader("MaKhachHang")), .SoTienThu = Double.Parse(reader("SoTienThu")), .NgayThuTien = DateTime.Parse(reader("NgayThuTien")), .HoTenKhachHang = reader("HoTenKhachHang")}
+                            listPhieuThuTien.Add(x)
+                        End While
+                    End If
+                Catch ex As Exception
+                    Return New Result(False, Nothing, "Lấy danh sách phiếu thu tiền thất bại!", ex.Message)
+                Finally
+                    conn.Close()
+                End Try
+                Return New Result(True, listPhieuThuTien)
+            End Using
+        End Using
+    End Function
 End Class

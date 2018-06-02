@@ -135,4 +135,10 @@
         Panel_LoadUC.Controls.Clear()
         Panel_LoadUC.Controls.Add(New UC_QuanLiKhachHang())
     End Sub
+
+    Private Sub btn_QuanLiPhieuThuTien_Click(sender As Object, e As EventArgs) Handles btn_QuanLiPhieuThuTien.Click
+        Panel_LoadUC.Controls.Clear()
+        Panel_LoadUC.Controls.Add(New UC_QuanLiPhieuThuTien())
+
+    End Sub
 End Class
