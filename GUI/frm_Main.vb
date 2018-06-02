@@ -110,6 +110,8 @@
     End Sub
 
     Private Sub btn_LapPhieuThuTien_Click(sender As Object, e As EventArgs) Handles btn_LapPhieuThuTien.Click
+        Panel_LoadUC.Controls.Clear()
+        Panel_LoadUC.Controls.Add(New UC_LapPhieuThuTien())
 
     End Sub
 

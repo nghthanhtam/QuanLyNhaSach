@@ -68,6 +68,7 @@
     <Compile Include="HoaDon_DTO.vb" />
     <Compile Include="KhachHang_DTO.vb" />
     <Compile Include="PhieuNhapSach_DTO.vb" />
+    <Compile Include="PhieuThuTien_DTO.vb" />
     <Compile Include="Sach_DTO.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

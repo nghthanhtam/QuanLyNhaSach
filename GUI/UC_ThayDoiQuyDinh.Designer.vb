@@ -25,10 +25,10 @@ Partial Class UC_ThayDoiQuyDinh
         Me.cb_SuDungQD4 = New System.Windows.Forms.CheckBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txt_SoLuongNhapToiThieu = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txt_SoLuongTonToiDa = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txt_SoLuongNhapToiThieu = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -78,13 +78,14 @@ Partial Class UC_ThayDoiQuyDinh
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Thay đổi quy định 1"
         '
-        'txt_SoLuongNhapToiThieu
+        'Label4
         '
-        Me.txt_SoLuongNhapToiThieu.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.txt_SoLuongNhapToiThieu.Location = New System.Drawing.Point(342, 38)
-        Me.txt_SoLuongNhapToiThieu.Name = "txt_SoLuongNhapToiThieu"
-        Me.txt_SoLuongNhapToiThieu.Size = New System.Drawing.Size(120, 27)
-        Me.txt_SoLuongNhapToiThieu.TabIndex = 1
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
+        Me.Label4.Location = New System.Drawing.Point(54, 79)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(175, 47)
+        Me.Label4.TabIndex = 2
+        Me.Label4.Text = "Số lượng tồn tối đa cho phép nhập thêm:"
         '
         'Label3
         '
@@ -104,14 +105,13 @@ Partial Class UC_ThayDoiQuyDinh
         Me.txt_SoLuongTonToiDa.Size = New System.Drawing.Size(120, 27)
         Me.txt_SoLuongTonToiDa.TabIndex = 1
         '
-        'Label4
+        'txt_SoLuongNhapToiThieu
         '
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.Label4.Location = New System.Drawing.Point(54, 79)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(175, 47)
-        Me.Label4.TabIndex = 2
-        Me.Label4.Text = "Số lượng tồn tối đa cho phép nhập thêm:"
+        Me.txt_SoLuongNhapToiThieu.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
+        Me.txt_SoLuongNhapToiThieu.Location = New System.Drawing.Point(342, 38)
+        Me.txt_SoLuongNhapToiThieu.Name = "txt_SoLuongNhapToiThieu"
+        Me.txt_SoLuongNhapToiThieu.Size = New System.Drawing.Size(120, 27)
+        Me.txt_SoLuongNhapToiThieu.TabIndex = 1
         '
         'GroupBox2
         '
