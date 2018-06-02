@@ -143,7 +143,7 @@ Public Class UC_NhapSach
 
 
     Private Sub dgv_listSach_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_listSachNhap.CellValueChanged
-        If (e.ColumnIndex <> 0 And e.ColumnIndex <> 5) Then
+        If (e.ColumnIndex <> 0 And e.ColumnIndex <> 5 And e.ColumnIndex <> 4) Then
             Return
         End If
 
@@ -160,19 +160,20 @@ Public Class UC_NhapSach
             End If
         End If
 
-        If (e.ColumnIndex = 5) Then
-            res1 = thamSoBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
-            If (res1.FlagResult = False) Then
-                MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Return
-            End If
-        End If
+        'If (e.ColumnIndex = 5) Then
+        '    res1 = thamSoBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
+        '    If (res1.FlagResult = False) Then
+        '        MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '        dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty
+        '        Return
+        '    End If
+        'End If
+
 #End Region
 
         res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
 
-
-            If (res.FlagResult = False) Then
+        If (res.FlagResult = False) Then
                 MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty
                 dgv_listSachNhap.Focus()
@@ -187,6 +188,13 @@ Public Class UC_NhapSach
         dgv_listSachNhap.Item("TacGia", e.RowIndex).Value = sach.TacGia1
         dgv_listSachNhap.Item("SoLuongTon", e.RowIndex).Value = sach.SoLuongTon1
         dgv_listSachNhap.Item("DonGia", e.RowIndex).Value = sach.DonGia1
+
+
+        'res = thamSoBUS.isValidSoLuongNhapToiThieu(sach.SoLuongTon1)
+        'If (res.FlagResult = False) Then
+        '    MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '    Return
+        'End If
 
     End Sub
 
