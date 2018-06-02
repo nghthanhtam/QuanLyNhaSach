@@ -102,6 +102,66 @@ Public Class Sach_DAL
     End Function
 
 
+    Public Function SelectALL_ListSachByStringMaSachTenSach_Advanced(text As String, Advanced As String) As Result
+
+        Dim listSach As New List(Of Sach_DTO)
+        listSach.Clear()
+
+        Dim textMaSach As String = text
+
+        While (textMaSach.IndexOf(" ") <> -1)
+            textMaSach = textMaSach.Replace(" ", "")
+        End While
+        text = " " + text + " "
+        While (text.IndexOf("  ") <> -1)
+            text = text.Replace("  ", " ")
+        End While
+
+        While (text.IndexOf(" ") <> -1)
+            text = text.Replace(" ", "%")
+        End While
+
+
+        Dim masach As Integer
+        If (Integer.TryParse(textMaSach, masach) = True) Then
+            Dim res As Result = selectSach_ByMaSach_Advanced(masach, Advanced)
+            If (res.FlagResult = True) Then
+                listSach.Add(CType(res.Obj1, Sach_DTO))
+                Return New Result(True, listSach)
+            End If
+        End If
+
+        Dim query As String = "SELECT * FROM [SACH] WHERE ( ([MaSach] like @textGoc) OR ( [TenSach] like @text) )  " + Advanced
+        Using conn As SqlConnection = ConnectDB.GetConnectionDB()
+            Using comm As SqlCommand = conn.CreateCommand()
+
+                With comm
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@textGoc", textMaSach)
+                    .Parameters.AddWithValue("@text", text)
+                End With
+                Try
+                    conn.Open()
+                    comm.ExecuteNonQuery()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader
+                    If (reader.HasRows = True) Then
+                        While reader.Read
+                            listSach.Add(New Sach_DTO(Integer.Parse(reader("MaSach")), reader("TenSach"), reader("TheLoai"), reader("TacGia"), Integer.Parse(reader("SoLuongTon")), Double.Parse(reader("DonGia"))))
+                        End While
+                    End If
+                Catch ex As Exception
+                    conn.Close()
+                    Return New Result(False, Nothing, "Tìm kiếm thất bại!", ex.Message)
+                Finally
+                    conn.Close()
+                End Try
+                Return New Result(True, listSach)
+             End Using
+        End Using
+    End Function
+
     Public Function SelectALL_ListSachByStringMaSachTenSach(text As String) As Result
 
         Dim listSach As New List(Of Sach_DTO)
@@ -143,8 +203,8 @@ Public Class Sach_DAL
                 With comm
                     .CommandType = CommandType.Text
                     .CommandText = query
-                        .Parameters.AddWithValue("@textGoc", textMaSach)
-                        .Parameters.AddWithValue("@text", text)
+                    .Parameters.AddWithValue("@textGoc", textMaSach)
+                    .Parameters.AddWithValue("@text", text)
                 End With
                 Try
                     conn.Open()
@@ -165,18 +225,15 @@ Public Class Sach_DAL
                 Return New Result(True, listSach)
             End Using
         End Using
-
-
     End Function
 
-
-    Public Function selectSach_ByMaSach(iMaSach As Integer) As Result
+    Public Function selectSach_ByMaSach_Advanced(iMaSach As Integer, Advanced As String) As Result
         Dim sach As Sach_DTO
         Dim query As String = String.Empty
         query &= " SELECT *"
         query &= " FROM [SACH]"
         query &= " WHERE "
-        query &= " @MaSach=[MaSach] "
+        query &= " ( @MaSach=[MaSach] )  " + Advanced
 
         Using conn As SqlConnection = ConnectDB.GetConnectionDB()
             Using comm As SqlCommand = conn.CreateCommand()
@@ -209,6 +266,10 @@ Public Class Sach_DAL
             End Using
         End Using
         Return New Result(True) ' thanh cong
+    End Function
+
+    Public Function selectSach_ByMaSach(iMaSach As Integer) As Result
+        Return selectSach_ByMaSach_Advanced(iMaSach, "")
     End Function
 
 
@@ -248,9 +309,12 @@ Public Class Sach_DAL
 
     End Function
 
-
     Public Function SelectALL_ListSach() As Result
-        Dim query As String = "SELECT * FROM [SACH]"
+        Return SelectALL_ListSach_Advanced("")
+    End Function
+
+    Public Function SelectALL_ListSach_Advanced(Advanced As String) As Result
+        Dim query As String = "SELECT * FROM [SACH] Where (1=1) " + Advanced
 
         Dim listSach As New List(Of Sach_DTO)
         listSach.Clear()

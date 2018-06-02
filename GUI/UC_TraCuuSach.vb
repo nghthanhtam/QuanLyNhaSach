@@ -49,7 +49,42 @@ Public Class UC_TraCuuSach
 
     Private Sub Reload_DataGridViewListSach()
 
-        Res = sachBUS.SelectALL_ListSach()
+        'If cbb_TheLoai.Text = "" Then
+        '    Return
+        'End If
+
+        Dim textTimKiem As String = ""
+        If (txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách...") Then
+            textTimKiem = ""
+        Else
+            textTimKiem = txt_TimKiem.Text
+        End If
+
+
+        Dim AdvancedSQL As String = ""
+#Region "lọc bằng thể loại"
+
+        If (cbb_TheLoai.Text <> "-----Tất cả-----") Then
+
+            Dim Advanced_Like_TheLoai As String = cbb_TheLoai.Text
+
+            Advanced_Like_TheLoai = " " + Advanced_Like_TheLoai + " "
+            While (Advanced_Like_TheLoai.IndexOf("  ") <> -1)
+                Advanced_Like_TheLoai = Advanced_Like_TheLoai.Replace("  ", " ")
+            End While
+
+            While (Advanced_Like_TheLoai.IndexOf(" ") <> -1)
+                Advanced_Like_TheLoai = Advanced_Like_TheLoai.Replace(" ", "%")
+            End While
+
+            AdvancedSQL &= "AND ( (     [TheLoai] = N'" + cbb_TheLoai.Text + "' ) OR (   [TheLoai] <> N'" + cbb_TheLoai.Text + "'  AND [TheLoai] like '" + Advanced_Like_TheLoai + "'  )   )"
+
+
+
+        End If
+#End Region
+
+        Res = sachBUS.SelectALL_ListSachByStringMaSachTenSach_Advanced(textTimKiem, AdvancedSQL)
 
         If (Res.FlagResult = False) Then
             MessageBox.Show(Res.ApplicationMessage + Environment.NewLine + Res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -58,97 +93,117 @@ Public Class UC_TraCuuSach
 
         listSach = CType(Res.Obj1, List(Of Sach_DTO))
 
-        dgv_ListSach.Columns.Clear()
 
+        dgv_ListSach.Columns.Clear()
         dgv_ListSach.DataSource = listSach
 
 
 
+#Region "Định dạng lại các cột"
 
+        Try
+            dgv_ListSach.Columns("MaSach1").HeaderText = "Mã"
+            dgv_ListSach.Columns("MaSach1").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội dung
 
-        dgv_ListSach.Columns("MaSach1").HeaderText = "Mã"
-        dgv_ListSach.Columns("MaSach1").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội dung
+            dgv_ListSach.Columns("TenSach1").HeaderText = "Tên sách"
+            dgv_ListSach.Columns("TheLoai1").HeaderText = "Thể loại"
+            dgv_ListSach.Columns("TacGia1").HeaderText = "Tác giả"
 
+            With dgv_ListSach.Columns("SoLuongTon1")
+                .HeaderText = "Tồn"
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội 
+            End With
 
-        dgv_ListSach.Columns("TenSach1").HeaderText = "Tên sách"
-        dgv_ListSach.Columns("TheLoai1").HeaderText = "Thể loại"
-        dgv_ListSach.Columns("TacGia1").HeaderText = "Tác giả"
-
-        With dgv_ListSach.Columns("SoLuongTon1")
-            .HeaderText = "Tồn"
-            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội 
-        End With
-
-        With dgv_ListSach.Columns("DonGia1")
-            .HeaderText = "Đơn giá"
-            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
-        End With
-
-
-
-
-        Dim rong As Double = dgv_ListSach.Width
-
-
-        dgv_ListSach.Columns("MaSach1").Width = rong * 0.1
-        dgv_ListSach.Columns("TenSach1").Width = rong * 0.37 - 20
-        dgv_ListSach.Columns("TheLoai1").Width = rong * 0.15
-        dgv_ListSach.Columns("TacGia1").Width = rong * 0.2
-        dgv_ListSach.Columns("SoLuongTon1").Width = rong * 0.08
-        dgv_ListSach.Columns("DonGia1").Width = rong * 0.1
+            With dgv_ListSach.Columns("DonGia1")
+                .HeaderText = "Đơn giá"
+                .DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
+            End With
 
 
 
 
-        dgv_ListSach.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 62, 80)
-        dgv_ListSach.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+            Dim rong As Double = dgv_ListSach.Width
 
-        dgv_ListSach.RowHeadersVisible = False
 
-        'dgv_ListSach.EnableHeadersVisualStyles = False
+            dgv_ListSach.Columns("MaSach1").Width = rong * 0.1
+            dgv_ListSach.Columns("TenSach1").Width = rong * 0.37 - 20
+            dgv_ListSach.Columns("TheLoai1").Width = rong * 0.15
+            dgv_ListSach.Columns("TacGia1").Width = rong * 0.2
+            dgv_ListSach.Columns("SoLuongTon1").Width = rong * 0.08
+            dgv_ListSach.Columns("DonGia1").Width = rong * 0.1
 
+            dgv_ListSach.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 62, 80)
+            dgv_ListSach.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+
+            dgv_ListSach.RowHeadersVisible = False
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+
+
+#End Region
 
     End Sub
 
 
     Private Sub txt_TimKiem_Click(sender As Object, e As EventArgs) Handles txt_TimKiem.Click
-        txt_TimKiem.Text = ""
+        If txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..." Then
+            txt_TimKiem.Text = ""
+
+        End If
     End Sub
 
     Private Sub txt_TimKiem_Leave(sender As Object, e As EventArgs) Handles txt_TimKiem.Leave
-        txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..."
+        If txt_TimKiem.Text = "" Then
+            txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..."
+        End If
     End Sub
 
     Private Sub txt_TimKiem_TextChanged(sender As Object, e As EventArgs) Handles txt_TimKiem.TextChanged
 
 
-        If (txt_TimKiem.Text = "") Then
-            Reload_DataGridViewListSach()
-            Return
-        End If
+        Reload_DataGridViewListSach()
 
-
-        If (txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách...") Then
-            Return
-        End If
+        Return
 
 
 
-        Res = sachBUS.SelectALL_ListSachByStringMaSachTenSach(txt_TimKiem.Text)
-
-        If (Res.FlagResult = False) Then
-            MessageBox.Show(Res.ApplicationMessage + Environment.NewLine + Res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
-        End If
-
-        listSach = CType(Res.Obj1, List(Of Sach_DTO))
 
 
+        '        If (txt_TimKiem.Text = "") Then
+        '            Reload_DataGridViewListSach()
+        '            Return
+        '        End If
 
-        dgv_ListSach.DataSource = listSach
+        '        If (txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách...") Then
+        '            Return
+        '        End If
 
+        '        Dim AdvancedSQL As String = ""
+        '#Region "lọc bằng thể loại"
+        '        If (cbb_TheLoai.Text <> "-----Tất cả-----") Then
+        '            AdvancedSQL &= "AND ([TheLoai] = N'" + cbb_TheLoai.Text + "')"
+        '        End If
+        '#End Region
 
+        '        Res = sachBUS.SelectALL_ListSachByStringMaSachTenSach_Advanced(txt_TimKiem.Text, AdvancedSQL)
+
+        '        If (Res.FlagResult = False) Then
+        '            MessageBox.Show(Res.ApplicationMessage + Environment.NewLine + Res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '            Return
+        '        End If
+
+        '        listSach = CType(Res.Obj1, List(Of Sach_DTO))
+
+        '        dgv_ListSach.DataSource = listSach
 
     End Sub
 
+    Private Sub cbb_TheLoai_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbb_TheLoai.SelectedIndexChanged
+    End Sub
+
+    Private Sub cbb_TheLoai_TextChanged(sender As Object, e As EventArgs) Handles cbb_TheLoai.TextChanged
+        Reload_DataGridViewListSach()
+
+    End Sub
 End Class
