@@ -2,6 +2,7 @@
 
 
     Private ButtonClickTr As Object = Nothing
+    Private mLastState As FormWindowState
 
 
 
@@ -20,6 +21,8 @@
 
     End Sub
 
+
+
     Public Sub New()
 
         ' This call is required by the designer.
@@ -29,15 +32,29 @@
         Me.SetStyle(ControlStyles.ResizeRedraw, True)
         ' Add any initialization after the InitializeComponent() call.
 
-
-
         Panel_LoadUC.Size = New Size(Me.Size.Width - Panel_LoadUC.Location.X, Me.Size.Height - Panel_LoadUC.Location.Y)
-
+        mLastState = Me.WindowState
 
     End Sub
 
+
+
+
     Private Sub frm_Main_Resize(sender As Object, e As EventArgs) Handles Me.Resize
 
+
+        If Me.WindowState <> mLastState Then
+
+            Panel_LoadUC.Size = New Size(Me.Width - Panel_LoadUC.Location.X, Me.Height)
+            Panel_Menu.Size = New Size(Panel_Menu.Size.Width, Me.Height)
+            Panel_ThanhTrangThaiTren.reloadThanhTrangThai()
+
+            mLastState = Me.WindowState 'cập nhật lại trạng thái WindowState
+        End If
+
+
+
+        Console.WriteLine("xxx")
 
     End Sub
 
@@ -53,37 +70,18 @@
 
             Panel_ThanhTrangThaiTren.reloadThanhTrangThai()
 
-            Dim xxx As Object = New UC_TraCuuSach()
-
-
             reloadGUI_MouseMove()
         End If
     End Sub
 
 
     Public Sub reloadGUI_MouseMove()
-        'Panel_LoadUC.Size = New Size(MousePosition.X - Panel_LoadUC.Location.X - 298, MousePosition.Y - Panel_LoadUC.Location.Y - 127)
+
 
 
         Panel_LoadUC.Size = New Size(MousePosition.X - Me.Location.X - Panel_LoadUC.Location.X, MousePosition.Y - Panel_LoadUC.Location.Y - Me.Location.Y)
 
-
-
         Panel_Menu.Size = New Size(Panel_Menu.Size.Width, MousePosition.Y - Me.Location.Y - 40)
-
-
-
-        ' Panel_LoadUC.Size = New Size(MousePosition.X - Panel_LoadUC.Location.X, MousePosition.Y - Panel_LoadUC.Location.Y - 127)
-
-        'Panel_Menu.Size = New Size(Panel_Menu.Size.Width, MousePosition.Y - Me.Location.Y)
-
-        'Debug.WriteLine("")
-        'Debug.WriteLine("Vi tri chuot: " + MousePosition.ToString)
-        'Debug.WriteLine("Vi tri app: " + Me.Location.ToString)
-
-        'Debug.WriteLine("Vi tri panel: " + Panel_LoadUC.Location.ToString)
-        'Debug.WriteLine("Size panel: " + Panel_LoadUC.Size.ToString)
-
 
 
     End Sub

@@ -61,6 +61,9 @@ Public Class Sach_BUS
         Return New Result(True)
     End Function
 
+    Public Function SelectALL_ListSach_Advanced(advanced As String) As Result
+        Return sachDAL.SelectALL_ListSach_Advanced(advanced)
+    End Function
 
     Public Function isValidDonGia(text As String) As Result
         If (text.Length < 1) Then
@@ -124,8 +127,8 @@ Public Class Sach_BUS
         Return sachDAL.selectSach_ByMaSach(iMaSach)
     End Function
 
+    Public Function SelectALL_ListSachByStringMaSachTenSach_Advanced(text As String, Advanced As String) As Result
+        Return sachDAL.SelectALL_ListSachByStringMaSachTenSach_Advanced(text, Advanced)
 
-
-
-
+    End Function
 End Class
