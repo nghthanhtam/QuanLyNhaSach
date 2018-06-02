@@ -24,6 +24,7 @@ Public Class ThamSo_BUS
 
     End Function
 
+
     Public Function isValidSoLuongTonToiDa(text As String) As Result
         If (text.Length < 1) Then
             Return New Result(False, Nothing, """Số lượng tồn tối đa cho phép nhập"" không được bỏ trống!")

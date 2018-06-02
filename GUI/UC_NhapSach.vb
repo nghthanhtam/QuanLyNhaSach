@@ -143,7 +143,7 @@ Public Class UC_NhapSach
 
 
     Private Sub dgv_listSach_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_listSachNhap.CellValueChanged
-        If (e.ColumnIndex <> 0 And e.ColumnIndex <> 5 And e.ColumnIndex <> 4) Then
+        If (e.ColumnIndex <> 0 And e.ColumnIndex <> 5) Then
             Return
         End If
 
@@ -160,25 +160,47 @@ Public Class UC_NhapSach
             End If
         End If
 
-        If (e.ColumnIndex = 5) Then
-            res1 = thamSoBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
-            If (res1.FlagResult = False) Then
-                MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        If (e.ColumnIndex = 5) Then 'nhập vào số lượng sách nhập
+            res1 = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
+            res = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(dgv_listSachNhap.Rows(e.RowIndex).Cells(4).Value)
+
+            If (res.FlagResult = True) Then
+                If (res1.FlagResult = False) Then
+                    MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = 150
+                    dgv_listSachNhap.BeginEdit(True)
+                    Return
+                End If
+
+            Else
+                'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value = 0
+                dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Style.BackColor = Color.FromArgb(255, 255, 255)
                 Return
             End If
         End If
+
+        'If Not (dgv_listSachNhap.Rows(e.RowIndex).Cells(1).Value Is Nothing) Then
+        '    res1 = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(dgv_listSachNhap.Rows(e.RowIndex).Cells(4).Value)
+        '    If (res1.FlagResult = False) Then
+        '        MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '        dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value = 0
+        '        dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Style.BackColor = Color.FromArgb(255, 255, 255)
+        '        dgv_listSachNhap.Rows(e.RowIndex).Cells(5).ReadOnly = True
+        '    End If
+        'End If
 #End Region
 
         res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
 
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty
             dgv_listSachNhap.Focus()
-            Return
-        End If
+                Return
+            End If
 
-        sach = CType(res.Obj1, Sach_DTO)
+            sach = CType(res.Obj1, Sach_DTO)
 
         'thêm dòng-cọt trong dtg
         dgv_listSachNhap.Item("TenSach", e.RowIndex).Value = sach.TenSach1
@@ -186,13 +208,6 @@ Public Class UC_NhapSach
         dgv_listSachNhap.Item("TacGia", e.RowIndex).Value = sach.TacGia1
         dgv_listSachNhap.Item("SoLuongTon", e.RowIndex).Value = sach.SoLuongTon1
         dgv_listSachNhap.Item("DonGia", e.RowIndex).Value = sach.DonGia1
-
-
-        'res = thamSoBUS.isValidSoLuongNhapToiThieu(sach.SoLuongTon1)
-        'If (res.FlagResult = False) Then
-        '    MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '    Return
-        'End If
 
     End Sub
 
