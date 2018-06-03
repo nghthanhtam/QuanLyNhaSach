@@ -2,7 +2,6 @@
 Imports Utility
 Imports DTO
 Imports System.Text.RegularExpressions
-Imports System.Data.SqlClient
 
 Public Class KhachHang_BUS
 
@@ -73,31 +72,8 @@ Public Class KhachHang_BUS
     End Function
 
     Public Function deleteByKhachHang(khachHangDTO As KhachHang_DTO) As Result
+        Return khDAL.deleteByKhachHang(khachHangDTO)
 
-        Dim query As String = "DELETE [KHACHHANG] WHERE MaKhachHang = @MaKhachHang"
-        Using conn As SqlConnection = ConnectDB.GetConnectionDB()
-            Using comm As SqlCommand = conn.CreateCommand()
-
-                With comm
-                    .CommandType = CommandType.Text
-                    .CommandText = query
-                    .Parameters.AddWithValue("@MaKhachHang", khachHangDTO.MaKH1)
-                End With
-
-                Try
-                    conn.Open()
-                    comm.ExecuteNonQuery()
-
-                Catch ex As Exception
-                    Return New Result(False, Nothing, "Xóa khách hàng thất bại!", ex.Message)
-                Finally
-                    conn.Close()
-                End Try
-                Return New Result(True, Nothing, "Xóa khách hàng thành công!")
-
-            End Using
-        End Using
-        Return New Result(True)
     End Function
 
     Public Function update(x As KhachHang_DTO) As Result

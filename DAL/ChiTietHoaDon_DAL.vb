@@ -14,6 +14,8 @@ Public Class ChiTietHoaDon_DAL
                     .CommandType = CommandType.Text
                     .CommandText = query
 
+
+
                     '.Parameters.AddWithValue("@MaChiTietHoaDon", x.MaChiTietHoaDon1)
                     .Parameters.AddWithValue("@MaHoaDon", x.MaHoaDon1)
                     .Parameters.AddWithValue("@MaSach", x.MaSach1)
@@ -46,6 +48,8 @@ Public Class ChiTietHoaDon_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With

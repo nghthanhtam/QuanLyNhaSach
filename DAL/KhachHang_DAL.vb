@@ -15,7 +15,7 @@ Public Class KhachHang_DAL
         Using conn As SqlConnection = ConnectDB.GetConnectionDB()
             Using comm As SqlCommand = conn.CreateCommand()
                 With comm
-                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@MaKH", iMaKH)
@@ -56,7 +56,7 @@ Public Class KhachHang_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
-                    .Connection = conn
+
 
                     .CommandType = CommandType.Text
                     .CommandText = query
@@ -82,6 +82,35 @@ Public Class KhachHang_DAL
 
     End Function
 
+    Public Function deleteByKhachHang(khachHangDTO As KhachHang_DTO) As Result
+
+        Dim query As String = "DELETE [KHACHHANG] WHERE MaKhachHang = @MaKhachHang"
+        Using conn As SqlConnection = ConnectDB.GetConnectionDB()
+            Using comm As SqlCommand = conn.CreateCommand()
+
+                With comm
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+
+                    .Parameters.AddWithValue("@MaKhachHang", khachHangDTO.MaKH1)
+                End With
+
+                Try
+                    conn.Open()
+                    comm.ExecuteNonQuery()
+
+                Catch ex As Exception
+                    Return New Result(False, Nothing, "Xóa khách hàng thất bại!", ex.Message)
+                Finally
+                    conn.Close()
+                End Try
+                Return New Result(True, Nothing, "Xóa khách hàng thành công!")
+
+            End Using
+        End Using
+        Return New Result(True)
+
+    End Function
 
     Public Function SelectTienNo_KhachHang(iMaKH As Integer) As Result
         Dim tienno As Single
@@ -94,7 +123,7 @@ Public Class KhachHang_DAL
         Using conn As SqlConnection = ConnectDB.GetConnectionDB()
             Using comm As SqlCommand = conn.CreateCommand()
                 With comm
-                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@MaKH", iMaKH)
@@ -162,7 +191,7 @@ Public Class KhachHang_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
-                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@text", text)
@@ -197,7 +226,7 @@ Public Class KhachHang_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
-                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@MaKhachHang", x.MaKH1)
@@ -233,7 +262,7 @@ Public Class KhachHang_DAL
         Using conn As SqlConnection = ConnectDB.GetConnectionDB()
             Using comm As SqlCommand = conn.CreateCommand()
                 With comm
-                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@MaKhachHang", maKH)
@@ -269,7 +298,7 @@ Public Class KhachHang_DAL
                 With comm
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Connection = conn
+
 
                     .Parameters.AddWithValue("@HoTenKhachHang", x.HoTenKhachHang1)
                     .Parameters.AddWithValue("@TienNo", x.TienNo1)
@@ -302,7 +331,7 @@ Public Class KhachHang_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
-                    .Connection = conn
+
 
                     .CommandType = CommandType.Text
                     .CommandText = query

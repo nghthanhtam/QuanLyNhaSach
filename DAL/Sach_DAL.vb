@@ -10,6 +10,8 @@ Public Class Sach_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
 
@@ -46,6 +48,8 @@ Public Class Sach_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With
@@ -78,6 +82,8 @@ Public Class Sach_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@MaSach", sachDTO.MaSach1)
@@ -136,6 +142,8 @@ Public Class Sach_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@textGoc", textMaSach)
@@ -158,7 +166,7 @@ Public Class Sach_DAL
                     conn.Close()
                 End Try
                 Return New Result(True, listSach)
-             End Using
+            End Using
         End Using
     End Function
 
@@ -201,6 +209,8 @@ Public Class Sach_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@textGoc", textMaSach)
@@ -238,7 +248,7 @@ Public Class Sach_DAL
         Using conn As SqlConnection = ConnectDB.GetConnectionDB()
             Using comm As SqlCommand = conn.CreateCommand()
                 With comm
-                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@MaSach", iMaSach)
@@ -280,6 +290,8 @@ Public Class Sach_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@MaSach", x.MaSach1)
@@ -323,6 +335,8 @@ Public Class Sach_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With
@@ -360,6 +374,8 @@ Public Class Sach_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With

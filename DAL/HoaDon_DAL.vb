@@ -10,6 +10,7 @@ Public Class HoaDon_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With
@@ -41,6 +42,7 @@ Public Class HoaDon_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
                     .CommandType = CommandType.Text
                     .CommandText = query
 

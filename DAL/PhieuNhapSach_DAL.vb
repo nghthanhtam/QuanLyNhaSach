@@ -11,6 +11,8 @@ Public Class PhieuNhapSach_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
 
@@ -42,6 +44,8 @@ Public Class PhieuNhapSach_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With

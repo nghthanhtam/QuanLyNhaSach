@@ -13,7 +13,7 @@ Public Class PhieuThuTien_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
-                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With
@@ -44,7 +44,7 @@ Public Class PhieuThuTien_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
-                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@MaKhachHang", x.MaKhachHang1)
@@ -83,7 +83,7 @@ Public Class PhieuThuTien_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
-                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@MaPhieuThu", MaPhieu)
@@ -123,7 +123,7 @@ Public Class PhieuThuTien_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
-                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With
