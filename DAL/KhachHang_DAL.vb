@@ -56,6 +56,8 @@ Public Class KhachHang_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With
@@ -160,6 +162,7 @@ Public Class KhachHang_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+                    .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@text", text)
@@ -194,6 +197,7 @@ Public Class KhachHang_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+                    .Connection = conn
                     .CommandType = CommandType.Text
                     .CommandText = query
                     .Parameters.AddWithValue("@MaKhachHang", x.MaKH1)
@@ -265,6 +269,7 @@ Public Class KhachHang_DAL
                 With comm
                     .CommandType = CommandType.Text
                     .CommandText = query
+                    .Connection = conn
 
                     .Parameters.AddWithValue("@HoTenKhachHang", x.HoTenKhachHang1)
                     .Parameters.AddWithValue("@TienNo", x.TienNo1)
@@ -297,6 +302,8 @@ Public Class KhachHang_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
+                    .Connection = conn
+
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With

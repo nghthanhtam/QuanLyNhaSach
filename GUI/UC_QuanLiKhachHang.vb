@@ -145,32 +145,54 @@ Public Class UC_QuanLiKhachHang
     End Sub
 
     Private Sub dgv_ListKhachHang_SelectionChanged(sender As Object, e As EventArgs) Handles dgv_ListKhachHang.SelectionChanged
-        Dim IdDongHienTai As Integer = dgv_ListKhachHang.CurrentRow.Index
 
-        If IdDongHienTai = -1 Then
+
+        If listKhachHang.Count = 0 Then
+            txt_MaKhachHang.Text = ""
+            txt_HoTen.Text = ""
+            txt_TienNo.Text = ""
+            txt_DiaChi.Text = ""
+            txt_DienThoai.Text = ""
+            txt_Email.Text = ""
             Return
         End If
 
-        khachHangDTO = CType(dgv_ListKhachHang.Rows(IdDongHienTai).DataBoundItem, KhachHang_DTO)
+        Try
+            Dim IdDongHienTai As Integer = dgv_ListKhachHang.CurrentRow.Index
 
-        With khachHangDTO
-            txt_MaKhachHang.Text = .MaKH1
-            txt_HoTen.Text = .HoTenKhachHang1
-            txt_TienNo.Text = .TienNo1.ToString
-            txt_DiaChi.Text = .DiaChi1
-            txt_DienThoai.Text = .DienThoai1
-            txt_Email.Text = .Email1
-        End With
+            If IdDongHienTai = -1 Then
+                Return
+            End If
+
+            khachHangDTO = CType(dgv_ListKhachHang.Rows(IdDongHienTai).DataBoundItem, KhachHang_DTO)
+
+            With khachHangDTO
+                txt_MaKhachHang.Text = .MaKH1
+                txt_HoTen.Text = .HoTenKhachHang1
+                txt_TienNo.Text = .TienNo1.ToString
+                txt_DiaChi.Text = .DiaChi1
+                txt_DienThoai.Text = .DienThoai1
+                txt_Email.Text = .Email1
+            End With
+        Catch ex As Exception
+
+        End Try
+
+
     End Sub
 
     Private Sub txt_TimKiem_Click(sender As Object, e As EventArgs) Handles txt_TimKiem.Click
-        txt_TimKiem.Text = ""
+        If txt_TimKiem.Text = "Tìm kiếm bằng Mã KH, Họ tên hoặc SĐT..." Then
+            txt_TimKiem.Text = ""
+
+        End If
 
     End Sub
 
     Private Sub txt_TimKiem_Leave(sender As Object, e As EventArgs) Handles txt_TimKiem.Leave
-        txt_TimKiem.Text = "Tìm kiếm bằng Mã KH, Họ tên hoặc SĐT..."
-
+        If txt_TimKiem.Text = "" Then
+            txt_TimKiem.Text = "Tìm kiếm bằng Mã KH, Họ tên hoặc SĐT..."
+        End If
     End Sub
 
     Private Sub txt_TimKiem_TextChanged(sender As Object, e As EventArgs) Handles txt_TimKiem.TextChanged
