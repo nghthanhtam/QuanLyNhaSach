@@ -41,6 +41,7 @@ Partial Class UC_QuanLiSach
         Me.btn_Xoa = New System.Windows.Forms.Button()
         Me.btn_CapNhat = New System.Windows.Forms.Button()
         Me.txt_TimKiem = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         CType(Me.dgv_ListSach, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -48,7 +49,7 @@ Partial Class UC_QuanLiSach
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(51, 37)
+        Me.Label1.Location = New System.Drawing.Point(51, 73)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(78, 20)
         Me.Label1.TabIndex = 0
@@ -57,7 +58,7 @@ Partial Class UC_QuanLiSach
         'txt_MaSach
         '
         Me.txt_MaSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_MaSach.Location = New System.Drawing.Point(155, 30)
+        Me.txt_MaSach.Location = New System.Drawing.Point(155, 66)
         Me.txt_MaSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_MaSach.Name = "txt_MaSach"
         Me.txt_MaSach.ReadOnly = True
@@ -68,7 +69,7 @@ Partial Class UC_QuanLiSach
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(51, 81)
+        Me.Label2.Location = New System.Drawing.Point(51, 117)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(83, 20)
         Me.Label2.TabIndex = 2
@@ -78,7 +79,7 @@ Partial Class UC_QuanLiSach
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(51, 129)
+        Me.Label3.Location = New System.Drawing.Point(51, 165)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(69, 20)
         Me.Label3.TabIndex = 4
@@ -87,7 +88,7 @@ Partial Class UC_QuanLiSach
         'txt_TenSach
         '
         Me.txt_TenSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_TenSach.Location = New System.Drawing.Point(155, 74)
+        Me.txt_TenSach.Location = New System.Drawing.Point(155, 110)
         Me.txt_TenSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TenSach.Name = "txt_TenSach"
         Me.txt_TenSach.ReadOnly = True
@@ -97,7 +98,7 @@ Partial Class UC_QuanLiSach
         'txt_TacGia
         '
         Me.txt_TacGia.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_TacGia.Location = New System.Drawing.Point(155, 122)
+        Me.txt_TacGia.Location = New System.Drawing.Point(155, 158)
         Me.txt_TacGia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TacGia.Name = "txt_TacGia"
         Me.txt_TacGia.ReadOnly = True
@@ -108,7 +109,7 @@ Partial Class UC_QuanLiSach
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(571, 37)
+        Me.Label4.Location = New System.Drawing.Point(571, 73)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(73, 20)
         Me.Label4.TabIndex = 6
@@ -117,7 +118,7 @@ Partial Class UC_QuanLiSach
         'txt_TheLoai
         '
         Me.txt_TheLoai.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_TheLoai.Location = New System.Drawing.Point(701, 30)
+        Me.txt_TheLoai.Location = New System.Drawing.Point(701, 66)
         Me.txt_TheLoai.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TheLoai.Name = "txt_TheLoai"
         Me.txt_TheLoai.ReadOnly = True
@@ -128,7 +129,7 @@ Partial Class UC_QuanLiSach
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(571, 81)
+        Me.Label5.Location = New System.Drawing.Point(571, 117)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(107, 20)
         Me.Label5.TabIndex = 8
@@ -137,7 +138,7 @@ Partial Class UC_QuanLiSach
         'txt_SoLuongTon
         '
         Me.txt_SoLuongTon.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_SoLuongTon.Location = New System.Drawing.Point(701, 74)
+        Me.txt_SoLuongTon.Location = New System.Drawing.Point(701, 110)
         Me.txt_SoLuongTon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_SoLuongTon.Name = "txt_SoLuongTon"
         Me.txt_SoLuongTon.ReadOnly = True
@@ -148,7 +149,7 @@ Partial Class UC_QuanLiSach
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(571, 129)
+        Me.Label6.Location = New System.Drawing.Point(571, 165)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(66, 20)
         Me.Label6.TabIndex = 10
@@ -157,7 +158,7 @@ Partial Class UC_QuanLiSach
         'txt_DonGia
         '
         Me.txt_DonGia.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_DonGia.Location = New System.Drawing.Point(701, 122)
+        Me.txt_DonGia.Location = New System.Drawing.Point(701, 158)
         Me.txt_DonGia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_DonGia.Name = "txt_DonGia"
         Me.txt_DonGia.ReadOnly = True
@@ -181,7 +182,7 @@ Partial Class UC_QuanLiSach
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_ListSach.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_ListSach.EnableHeadersVisualStyles = False
-        Me.dgv_ListSach.Location = New System.Drawing.Point(53, 246)
+        Me.dgv_ListSach.Location = New System.Drawing.Point(55, 270)
         Me.dgv_ListSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dgv_ListSach.MultiSelect = False
         Me.dgv_ListSach.Name = "dgv_ListSach"
@@ -196,7 +197,7 @@ Partial Class UC_QuanLiSach
         Me.dgv_ListSach.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_ListSach.RowTemplate.Height = 24
         Me.dgv_ListSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv_ListSach.Size = New System.Drawing.Size(860, 410)
+        Me.dgv_ListSach.Size = New System.Drawing.Size(860, 388)
         Me.dgv_ListSach.TabIndex = 16
         '
         'btn_ThemSach
@@ -208,7 +209,7 @@ Partial Class UC_QuanLiSach
         Me.btn_ThemSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_ThemSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_ThemSach.ForeColor = System.Drawing.Color.White
-        Me.btn_ThemSach.Location = New System.Drawing.Point(528, 174)
+        Me.btn_ThemSach.Location = New System.Drawing.Point(528, 210)
         Me.btn_ThemSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_ThemSach.Name = "btn_ThemSach"
         Me.btn_ThemSach.Size = New System.Drawing.Size(116, 41)
@@ -225,7 +226,7 @@ Partial Class UC_QuanLiSach
         Me.btn_Xoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Xoa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_Xoa.ForeColor = System.Drawing.Color.White
-        Me.btn_Xoa.Location = New System.Drawing.Point(808, 174)
+        Me.btn_Xoa.Location = New System.Drawing.Point(808, 210)
         Me.btn_Xoa.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Xoa.Name = "btn_Xoa"
         Me.btn_Xoa.Size = New System.Drawing.Size(108, 41)
@@ -242,7 +243,7 @@ Partial Class UC_QuanLiSach
         Me.btn_CapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_CapNhat.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_CapNhat.ForeColor = System.Drawing.Color.White
-        Me.btn_CapNhat.Location = New System.Drawing.Point(675, 174)
+        Me.btn_CapNhat.Location = New System.Drawing.Point(675, 210)
         Me.btn_CapNhat.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_CapNhat.Name = "btn_CapNhat"
         Me.btn_CapNhat.Size = New System.Drawing.Size(108, 41)
@@ -253,12 +254,23 @@ Partial Class UC_QuanLiSach
         'txt_TimKiem
         '
         Me.txt_TimKiem.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_TimKiem.Location = New System.Drawing.Point(53, 180)
+        Me.txt_TimKiem.Location = New System.Drawing.Point(53, 216)
         Me.txt_TimKiem.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TimKiem.Name = "txt_TimKiem"
         Me.txt_TimKiem.Size = New System.Drawing.Size(371, 27)
         Me.txt_TimKiem.TabIndex = 15
         Me.txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..."
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.Label7.Location = New System.Drawing.Point(34, 26)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(121, 25)
+        Me.Label7.TabIndex = 47
+        Me.Label7.Text = "Quản lí sách"
         '
         'UC_QuanLiSach
         '
@@ -266,6 +278,7 @@ Partial Class UC_QuanLiSach
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.btn_CapNhat)
         Me.Controls.Add(Me.btn_Xoa)
         Me.Controls.Add(Me.btn_ThemSach)
@@ -308,4 +321,5 @@ Partial Class UC_QuanLiSach
     Friend WithEvents btn_Xoa As Button
     Friend WithEvents btn_CapNhat As Button
     Friend WithEvents txt_TimKiem As TextBox
+    Friend WithEvents Label7 As Label
 End Class
