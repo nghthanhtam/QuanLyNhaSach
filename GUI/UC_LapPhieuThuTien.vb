@@ -219,6 +219,16 @@ Public Class UC_LapPhieuThuTien
     End Sub
 
     Private Sub dgv_ListKhachHang_SelectionChanged(sender As Object, e As EventArgs) Handles dgv_ListKhachHang.SelectionChanged
+        If listKhachHang.Count = 0 Then
+
+            txt_MaKhachHang.Text = ""
+            txt_HoTen.Text = ""
+            txt_TienNo.Text = ""
+
+            Return
+        End If
+
+
         Dim IdDongHienTai As Integer = dgv_ListKhachHang.CurrentRow.Index
         If IdDongHienTai = -1 Then
             Return

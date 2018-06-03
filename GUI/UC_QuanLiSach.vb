@@ -167,22 +167,38 @@ Public Class UC_QuanLiSach
 
     Private Sub dgv_ListSach_SelectionChanged(sender As Object, e As EventArgs) Handles dgv_ListSach.SelectionChanged
 
-        Dim IdDongHienTai As Integer = dgv_ListSach.CurrentRow.Index
-
-        If IdDongHienTai = -1 Then
+        If listSach.Count = 0 Then
+            txt_TenSach.Text = ""
+            txt_MaSach.Text = ""
+            txt_TacGia.Text = ""
+            txt_TheLoai.Text = ""
+            txt_SoLuongTon.Text = ""
+            txt_DonGia.Text = ""
             Return
         End If
 
-        sachDTO = CType(dgv_ListSach.Rows(IdDongHienTai).DataBoundItem, Sach_DTO)
+        Try
+            Dim IdDongHienTai As Integer = dgv_ListSach.CurrentRow.Index
 
-        With sachDTO
-            txt_TenSach.Text = .TenSach1
-            txt_MaSach.Text = .MaSach1
-            txt_TacGia.Text = .TacGia1
-            txt_TheLoai.Text = .TheLoai1
-            txt_SoLuongTon.Text = .SoLuongTon1
-            txt_DonGia.Text = .DonGia1
-        End With
+            If IdDongHienTai = -1 Then
+                Return
+            End If
+
+            sachDTO = CType(dgv_ListSach.Rows(IdDongHienTai).DataBoundItem, Sach_DTO)
+
+            With sachDTO
+                txt_TenSach.Text = .TenSach1
+                txt_MaSach.Text = .MaSach1
+                txt_TacGia.Text = .TacGia1
+                txt_TheLoai.Text = .TheLoai1
+                txt_SoLuongTon.Text = .SoLuongTon1
+                txt_DonGia.Text = .DonGia1
+            End With
+        Catch ex As Exception
+
+        End Try
+
+
 
     End Sub
 
@@ -220,11 +236,17 @@ Public Class UC_QuanLiSach
     End Sub
 
     Private Sub txt_TimKiem_Click(sender As Object, e As EventArgs) Handles txt_TimKiem.Click
-        txt_TimKiem.Text = ""
+        If txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..." Then
+            txt_TimKiem.Text = ""
+
+        End If
     End Sub
 
     Private Sub txt_TimKiem_Leave(sender As Object, e As EventArgs) Handles txt_TimKiem.Leave
-        txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..."
+        If txt_TimKiem.Text = "" Then
+            txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..."
+        End If
+
     End Sub
 
     Private Sub txt_TimKiem_TextChanged(sender As Object, e As EventArgs) Handles txt_TimKiem.TextChanged
