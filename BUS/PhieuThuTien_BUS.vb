@@ -48,6 +48,21 @@ Public Class PhieuThuTien_BUS
         Return New Result(True)
     End Function
 
+    Public Function IsValidMaPhieuThu(text As String) As Result
+        If (text.Length < 1) Then
+            Return New Result(False, Nothing, "Chưa nhập mã phiếu thu!")
+        End If
+        If (Regex.IsMatch(text, "^[0-9]*\.?[0-9]+$") = False) Then
+            Return New Result(False, Nothing, "Mã phiếu không hợp lệ." + Environment.NewLine + "Chỉ có thể chứa số 0-9!")
+        End If
+        Return New Result(True)
+    End Function
+
+    Public Function SelectAll_ListPhieuThuTienByMaPhieu(v As Integer) As Result
+        Return phieuThuTienDAL.SelectAll_ListPhieuThuTienByMaPhieu(v)
+
+    End Function
+
     Public Function SelectAll_ListPhieuThuTien() As Result
         Return phieuThuTienDAL.SelectAll_ListPhieuThuTien()
     End Function

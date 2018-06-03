@@ -23,6 +23,40 @@ Public Class UC_QuanLiPhieuThuTien
 
     Private Sub txt_TimKiem_TextChanged(sender As Object, e As EventArgs) Handles txt_TimKiem.TextChanged
 
+        If (txt_TimKiem.Text = "") Then
+            Reload_DataGridViewPhieuThuTien()
+            Return
+        End If
+
+
+        If (txt_TimKiem.Text = "Tìm kiếm bằng Mã Phiếu Thu") Then
+            Return
+        End If
+
+        Try
+
+            Dim MaPhieuThuINT As Integer
+            If Integer.TryParse(txt_TimKiem.Text, MaPhieuThuINT) = False Then
+                MaPhieuThuINT = -1
+            End If
+
+            res = phieuThuTienBUS.SelectAll_ListPhieuThuTienByMaPhieu(MaPhieuThuINT)
+            If (res.FlagResult = False) Then
+                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+            listPhieuThuTien = CType(res.Obj1, List(Of Object))
+
+        Catch ex As Exception
+
+        End Try
+
+
+
+
+
+        dgv_PhieuThuTien.DataSource = listPhieuThuTien
+
     End Sub
 
     Private Sub txt_TimKiem_Leave(sender As Object, e As EventArgs) Handles txt_TimKiem.Leave
@@ -30,11 +64,6 @@ Public Class UC_QuanLiPhieuThuTien
             txt_TimKiem.Text = "Tìm kiếm bằng Mã Phiếu Thu"
         End If
     End Sub
-
-
-
-
-
 
 
 
@@ -110,9 +139,9 @@ Public Class UC_QuanLiPhieuThuTien
 
         Dim rong As Double = dgv_PhieuThuTien.Width
 
-        dgv_PhieuThuTien.Columns("MaPhieuThu").Width = rong * 0.1
+        dgv_PhieuThuTien.Columns("MaPhieuThu").Width = rong * 0.13
         dgv_PhieuThuTien.Columns("MaKH").Width = rong * 0.1
-        dgv_PhieuThuTien.Columns("HoTenKhachHang").Width = rong * 0.4 - 20
+        dgv_PhieuThuTien.Columns("HoTenKhachHang").Width = rong * 0.37 - 20
         dgv_PhieuThuTien.Columns("NgayThuTien").Width = rong * 0.2
         dgv_PhieuThuTien.Columns("SoTienThu").Width = rong * 0.2
 
@@ -128,21 +157,39 @@ Public Class UC_QuanLiPhieuThuTien
 
     Private Sub dgv_PhieuThuTien_SelectionChanged(sender As Object, e As EventArgs) Handles dgv_PhieuThuTien.SelectionChanged
 
-        Dim IdDongHienTai As Integer = dgv_PhieuThuTien.CurrentRow.Index
-
-        If IdDongHienTai = -1 Then
+        If listPhieuThuTien.Count = 0 Then
+            txt_MaPhieuThu.Text = ""
+            txt_MaKhachHang.Text = ""
+            txt_HoTen.Text = ""
+            txt_SoTienThu.Text = ""
+            DateTimePicker_NgayThuTien.Value = DateTime.Now
             Return
         End If
 
-        Dim Obj As Object = CType(dgv_PhieuThuTien.Rows(IdDongHienTai).DataBoundItem, Object)
+        Dim Obj As Object
+       Try
 
-        With Obj
-            txt_MaPhieuThu.Text = .MaPhieuThu
-            txt_MaKhachHang.Text = .MaKhachHang
-            txt_HoTen.Text = .HoTenKhachHang
-            txt_SoTienThu.Text = .SoTienThu
-            DateTimePicker_NgayThuTien.Value = .NgayThuTien
-        End With
+            Dim IdDongHienTai As Integer = dgv_PhieuThuTien.CurrentRow.Index
+
+            If IdDongHienTai = -1 Then
+                Return
+            End If
+
+            Obj = CType(dgv_PhieuThuTien.Rows(IdDongHienTai).DataBoundItem, Object)
+
+            With Obj
+                txt_MaPhieuThu.Text = .MaPhieuThu
+                txt_MaKhachHang.Text = .MaKhachHang
+                txt_HoTen.Text = .HoTenKhachHang
+                txt_SoTienThu.Text = .SoTienThu
+                DateTimePicker_NgayThuTien.Value = DateTime.Parse(.NgayThuTien)
+            End With
+
+        Catch ex As Exception
+
+
+        End Try
+
 
     End Sub
 End Class
