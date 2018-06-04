@@ -38,10 +38,7 @@ Public Class UC_LapHoaDon
 
     End Sub
 
-    Public Sub reload_GUI()
-        Me.Width = Me.Parent.Size.Width
-        Me.Height = Me.Parent.Size.Height
-    End Sub
+
 
 
     Public Sub ReloadHoaDon()
