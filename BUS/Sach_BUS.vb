@@ -17,6 +17,9 @@ Public Class Sach_BUS
 
 #Region "Kiểm tra Input hợp lệ"
     Public Function isValidMaSach(ms As String) As Result
+        If (ms = String.Empty) Then
+            Return New Result(False, Nothing, "Mã sách không được bỏ trống!")
+        End If
         If (ms.Length < 1) Then
             Return New Result(False, Nothing, "Mã sách không được bỏ trống!")
         End If

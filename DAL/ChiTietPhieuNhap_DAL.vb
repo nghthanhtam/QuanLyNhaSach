@@ -24,12 +24,11 @@ Public Class ChiTietPhieuNhap_DAL
                     comm.ExecuteNonQuery()
 
                 Catch ex As Exception
-                    conn.Close()
-                    Return New Result(False, Nothing, "Thêm vào chi tiết phiếu nhập thất bại!", ex.Message)
+                    Return New Result(False, Nothing, "Thêm chi tiết phiếu nhập thất bại!", ex.Message)
                 Finally
                     conn.Close()
                 End Try
-                Return New Result(True, Nothing, "Thêm vào chi tiết phiếu nhập thành công!")
+                Return New Result(True, Nothing, "Thêm chi tiết phiếu nhập thành công!")
 
             End Using
         End Using

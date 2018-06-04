@@ -5,8 +5,8 @@ Imports Utility
 Public Class UC_NhapSach
 
     Private sachDTO As Sach_DTO
-    Private sachBUS As Sach_BUS
     Private sach As Sach_DTO
+    Private sachBUS As New Sach_BUS
 
     Private phieuNhapBUS As PhieuNhapSach_BUS
     Private phieuNhapDTO As PhieuNhapSach_DTO
@@ -21,16 +21,22 @@ Public Class UC_NhapSach
     Private res As Result
     Private res1 As Result
 
+
     Public Sub New()
         InitializeComponent()
-        sachDTO = New Sach_DTO()
-        sachBUS = New Sach_BUS()
         phieuNhapDTO = New PhieuNhapSach_DTO()
         phieuNhapBUS = New PhieuNhapSach_BUS()
         chiTietPhieuNhapDTO = New ChiTIetPhieuNhap_DTO()
         chiTietPhieuNhapBUS = New ChiTIetPhieuNhap_BUS()
-        thamSoDTO = New ThamSo_DTO()
         thamSoBUS = New ThamSo_BUS()
+        res = thamSoBUS.SelectAll_ThamSo()
+        If (res.FlagResult = False) Then
+            MessageBox.Show(res.ApplicationMessage, "Lỗi xẩy ra!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            thamSoDTO = New ThamSo_DTO()
+        Else
+            thamSoDTO = CType(res.Obj1, ThamSo_DTO)
+        End If
+
     End Sub
 
     Public Sub reload_GUI()
@@ -38,41 +44,40 @@ Public Class UC_NhapSach
         Me.Height = Me.Parent.Size.Height
     End Sub
 
-
-    Public Sub ReloadPhieuNhap()
-        ' Hiển thị mã phiếu nhập dự định
+    Public Sub reloadMaPhieuNhap()
         res = phieuNhapBUS.GetNextIncrement()
         If (res.FlagResult = False) Then
-            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
         End If
+        txt_MaPhieuNhap.Text = CType(res.Obj1, Integer)
     End Sub
 
-
-    Public Sub ReloadChiTietPhieuNhap()
-        res = chiTietPhieuNhapBUS.GetNextIncrement()
-        If (res.FlagResult = False) Then
-            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-    End Sub
-
+    'Public Sub ReloadChiTietPhieuNhap()
+    '    res = chiTietPhieuNhapBUS.GetNextIncrement()
+    '    If (res.FlagResult = False) Then
+    '        MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '    End If
+    'End Sub
 
     Private Sub UC_NhapSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         res = thamSoBUS.SelectAll_ThamSo()
         ts = CType(res.Obj1, ThamSo_DTO)
 
-
         Me.Dock = DockStyle.Fill
         Me.AutoScroll = True
 
-        Reload_DataGridViewListSach()
+        InitColumnsDataGridViewListSach()
 
         'chỉnh màu cho các ô cho phép ng dùng nhập
         dgv_listSachNhap.Columns(0).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSachNhap.Columns(5).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+
+        reloadMaPhieuNhap()
+
     End Sub
 
-
-    Private Sub Reload_DataGridViewListSach()
+    Private Sub InitColumnsDataGridViewListSach()
 
         Dim txtMaSach = New DataGridViewTextBoxColumn()
         With txtMaSach
@@ -146,120 +151,150 @@ Public Class UC_NhapSach
 
     End Sub
 
-
     Private Sub dgv_listSach_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_listSachNhap.CellValueChanged
         If (e.ColumnIndex <> 0 And e.ColumnIndex <> 5) Then
             Return
         End If
 
-        'If (dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
-        '    Return
-        'End If
+        Try
+
+            If (e.ColumnIndex = 5) Then
+
+                If dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value.ToString = String.Empty Then
+                    Return
+                End If
+
+                If (dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value = String.Empty) Then
+                    dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value = String.Empty
+                    MessageBox.Show("Bạn chưa nhập mã sách", "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return
+                End If
+            End If
+            ' khi chưa nhập mã sách mà lại 
+
 
 #Region "Quy định"
-        If (e.ColumnIndex = 0) Then
-            res = sachBUS.isValidMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
-            If (res.FlagResult = False) Then
-                MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            If (e.ColumnIndex = 0) Then
+                res = sachBUS.isValidMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
+                If (res.FlagResult = False) Then
+                    MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return
+                End If
+
+                res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
+                If (res.FlagResult = False) Then
+                    MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    dgv_listSachNhap.Focus()
+                    Return
+                End If
+                sach = CType(res.Obj1, Sach_DTO)
+
+                res = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1)
+                If (res.FlagResult = False) Then
+                    MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return
+                End If
+
+
+
+
+                'thêm dòng-cọt trong dtg
+                dgv_listSachNhap.Item("TenSach", e.RowIndex).Value = sach.TenSach1
+                dgv_listSachNhap.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
+                dgv_listSachNhap.Item("TacGia", e.RowIndex).Value = sach.TacGia1
+                dgv_listSachNhap.Item("SoLuongTon", e.RowIndex).Value = sach.SoLuongTon1
+                dgv_listSachNhap.Item("DonGia", e.RowIndex).Value = sach.DonGia1
+
+
                 Return
             End If
 
-            res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
-            If (res.FlagResult = False) Then
-                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                dgv_listSachNhap.Focus()
-                Return
+            If (e.ColumnIndex = 5) Then 'nhập vào số lượng sách nhập
+                res1 = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
+                If (res1.FlagResult = False) Then
+                    MessageBox.Show(res1.ApplicationMessage, "lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = thamSoDTO.SoLuongNhapToiThieu1
+                    Return
+                End If
             End If
-            sach = CType(res.Obj1, Sach_DTO)
-
-            res = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1)
-            If (res.FlagResult = False) Then
-                MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Return
-            End If
-        End If
-
-        If (e.ColumnIndex = 5) Then 'nhập vào số lượng sách nhập
-            res1 = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
-
-            If (res1.FlagResult = False) Then
-                MessageBox.Show(res1.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = 150
-                dgv_listSachNhap.BeginEdit(True)
-                Return
-            End If
-        End If
 #End Region
 
-        'thêm dòng-cọt trong dtg
-        dgv_listSachNhap.Item("TenSach", e.RowIndex).Value = sach.TenSach1
-        dgv_listSachNhap.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
-        dgv_listSachNhap.Item("TacGia", e.RowIndex).Value = sach.TacGia1
-        dgv_listSachNhap.Item("SoLuongTon", e.RowIndex).Value = sach.SoLuongTon1
-        dgv_listSachNhap.Item("DonGia", e.RowIndex).Value = sach.DonGia1
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+
 
     End Sub
 
-
     Private Sub btn_NhapSach_Click(sender As Object, e As EventArgs) Handles btn_NhapSach.Click
-
-        'insert vào phiếu nhập
+#Region "Thêm thông tin phiếu nhập vào PHIEUNHAP"
         With phieuNhapDTO
-            phieuNhapDTO.NgayNhap1 = DateTime.Parse(dtp_NgayNhap.Text)
+            phieuNhapDTO.NgayNhap1 = dtp_NgayNhap.Value
         End With
 
         res = phieuNhapBUS.insertPhieuNhap(phieuNhapDTO)
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
-        Else
-            MessageBox.Show(res.ApplicationMessage, "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
-
-        ReloadPhieuNhap()
-
-
-        'insert vào ctpn
-        res1 = phieuNhapBUS.GetNextIncrement() 'lấy tự động mã ctpn bằng cách lấy mã pn kế tiếp-1
-        If (res1.FlagResult = False) Then
-            MessageBox.Show(res1.ApplicationMessage + Environment.NewLine + res1.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-
-
+#End Region
 
         Dim i As Integer
         i = 0
-
         Do
             With chiTietPhieuNhapDTO
-                .MaPhieuNhap1 = CType(res1.Obj1, Integer) - 1 'ma ctpn = ma pn -1
+                .MaPhieuNhap1 = Integer.Parse(txt_MaPhieuNhap.Text)
                 .MaSach1 = dgv_listSachNhap.Rows(i).Cells(0).Value
                 .SoLuongNhap1 = dgv_listSachNhap.Rows(i).Cells(5).Value
             End With
 
-            insertCTPN(chiTietPhieuNhapDTO)
-            ReloadChiTietPhieuNhap()
-            i = i + 1
+#Region "Thêm từng dòng vào CHITIETPHIEUNHAP"
+            res = chiTietPhieuNhapBUS.insertChiTietPhieuNhap(chiTietPhieuNhapDTO)
+            If (res.FlagResult = False) Then
+                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
 
+#Region "Cập nhật lại lượng tồn của sách"
+
+#Region "Select sách "
+            Dim ResSach As Result = sachBUS.selectSach_ByMaSach(chiTietPhieuNhapDTO.MaSach1)
+            If (ResSach.FlagResult = False) Then
+                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Lỗi cập nhật lượng tồn!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+            sachDTO = CType(ResSach.Obj1, Sach_DTO)
+#End Region
+
+            sachDTO.SoLuongTon1 += chiTietPhieuNhapDTO.SoLuongNhap1 ' Cập nhật lại lượng tồn
+
+#Region "update sách"
+            ResSach = sachBUS.updateSach(sachDTO)
+            If (ResSach.FlagResult = False) Then
+                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Lỗi cập nhật lượng tồn!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+#End Region
+
+
+#End Region
+
+#End Region
+
+            i = i + 1
             If (dgv_listSachNhap.Rows(i).Cells(0).Value Is Nothing) Then
                 Exit Do
             End If
-
         Loop Until (dgv_listSachNhap.Item(i, 0).Value Is Nothing) 'ko con` ma phieu nhap
 
+        MessageBox.Show("Lập phiếu nhập sách thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        reloadMaPhieuNhap()
+        dgv_listSachNhap.Rows.Clear()
     End Sub
-
-
-    Private Sub insertCTPN(x As ChiTIetPhieuNhap_DTO)
-        res = chiTietPhieuNhapBUS.insertChiTietPhieuNhap(chiTietPhieuNhapDTO)
-        If (res.FlagResult = False) Then
-            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
-        Else
-            MessageBox.Show(res.ApplicationMessage, "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-    End Sub
-
 
 
 End Class
