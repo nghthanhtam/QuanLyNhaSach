@@ -24,15 +24,6 @@ Public Class ChiTietHoaDon_BUS
     End Function
 
 
-    Public Function isValidSoTienNo(x As Integer) As Result
-        res = thamSoBUS.SelectAll_ThamSo()
-        ts = CType(res.Obj1, ThamSo_DTO)
-        If (CInt(x) > ts.SoTienNoToiDa1) Then
-            Return New Result(False, Nothing, "Chỉ bán cho khách hàng nợ không quá " + ts.SoTienNoToiDa1.ToString)
-        End If
-
-        Return New Result(True)
-    End Function
 
 
     Public Function isValidSoLuongSachTon(x As Integer) As Result

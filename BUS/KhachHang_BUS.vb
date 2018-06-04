@@ -6,7 +6,7 @@ Imports System.Text.RegularExpressions
 Public Class KhachHang_BUS
 
     Private khDAL As KhachHang_DAL
-
+    Private res As Result
     Public Sub New()
         khDAL = New KhachHang_DAL()
     End Sub
@@ -79,5 +79,20 @@ Public Class KhachHang_BUS
     Public Function update(x As KhachHang_DTO) As Result
         Return khDAL.update(x)
 
+    End Function
+
+    Public Function KiemTraNo(v As Double) As Result
+        Dim thamsoBUS As New ThamSo_BUS
+        res = thamsoBUS.SelectAll_ThamSo()
+        If (res.FlagResult = True) Then
+            Dim thamsoDTO As ThamSo_DTO = CType(res.Obj1, ThamSo_DTO)
+            If v <= thamsoDTO.SoTienNoToiDa1 Then
+                Return New Result(True)
+            Else
+                Return New Result(False, Nothing, "Khách hàng này đang nợ hơn " + thamsoDTO.SoTienNoToiDa1.ToString)
+            End If
+        Else
+            Return New Result(False, Nothing, "Get số tiền nợ tối đa thất bại")
+        End If
     End Function
 End Class

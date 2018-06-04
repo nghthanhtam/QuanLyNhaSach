@@ -10,7 +10,6 @@ Public Class HoaDon_DAL
             Using comm As SqlCommand = conn.CreateCommand()
 
                 With comm
-
                     .CommandType = CommandType.Text
                     .CommandText = query
                 End With
@@ -25,7 +24,6 @@ Public Class HoaDon_DAL
                         End While
                     End If
                 Catch ex As Exception
-                    conn.Close()
                     Return New Result(False, Nothing, "Lấy mã hóa đơn dự định tạo thất bại!", ex.Message)
                 Finally
                     conn.Close()

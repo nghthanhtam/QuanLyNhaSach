@@ -137,11 +137,10 @@ Public Class KhachHang_DAL
                             tienno = reader("TienNo")
                         End While
                     Else
-                        Throw New Exception("Không tìm thấy tiền nợ!")
+                        Throw New Exception("Không tìm thấy khách hàng!")
                     End If
 
                 Catch ex As Exception
-                    conn.Close()
                     Return New Result(False, Nothing, "Lấy thông tin tiền nợ thất bại!", ex.Message)
                 Finally
                     conn.Close()

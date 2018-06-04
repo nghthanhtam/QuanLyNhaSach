@@ -22,6 +22,8 @@ Public Class UC_LapHoaDon
     Private res, res1 As Result
     Private stt As Integer
 
+    Private ThongBaoTienNoVuotQuyDinh As String = ""
+
     Public Sub New()
 
         InitializeComponent()
@@ -41,12 +43,13 @@ Public Class UC_LapHoaDon
 
 
 
-    Public Sub ReloadHoaDon()
+    Public Sub ReloadMaHoaDon()
         'Lấy mã hóa đơn
         res = hoaDonBUS.GetNextIncrement()
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+        txt_MaHoaDon.Text = CInt(res.Obj1)
     End Sub
 
 
@@ -62,24 +65,29 @@ Public Class UC_LapHoaDon
         Me.Dock = DockStyle.Fill
         Me.AutoScroll = True
 
-        Reload_DataGridViewListSach()
+        InitColumnsDataGridViewListSach()
 
         'chỉnh màu cho các ô cho phép ng dùng nhập
         dgv_listSach.Columns(1).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSach.Columns(4).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
 
-        txt_HoTenKH.ReadOnly = True
         dgv_listSach.Item("STT", 0).Value = 1
         stt = 1
+
+        ReloadMaHoaDon()
+
 
     End Sub
 
 
-    Private Sub Reload_DataGridViewListSach()
+    Private Sub InitColumnsDataGridViewListSach()
 
         Dim stt = New DataGridViewTextBoxColumn()
         With stt
             .Name = "STT"
             .HeaderText = "STT"
+            .ReadOnly = True
+
         End With
         dgv_listSach.Columns.Add(stt)
 
@@ -154,33 +162,52 @@ Public Class UC_LapHoaDon
     End Sub
 
 
-    Private Sub txt_MaKH_TextChanged(sender As Object, e As EventArgs) Handles txt_MaKH.TextChanged
+    Private Sub txt_MaKH_TextChanged(sender As Object, e As EventArgs) Handles txt_MaKH.TextChanged, txt_MaHoaDon.TextChanged
         'Lấy tên kh theo mã kh
         If (txt_MaKH.Text = "") Then
             txt_MaKH.Focus()
+            txt_HoTenKH.Text = ""
+            txt_SoTienNo.Text = ""
+            txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
             Return
         End If
 
+        If (sachBUS.isValidMaSach(txt_MaKH.Text).FlagResult = False) Then
+            txt_HoTenKH.Text = ""
+            txt_SoTienNo.Text = ""
+            Return
+        End If
+
+
         res = khachHangBUS.selectTenKH_ByMaKH(CInt(txt_MaKH.Text))
         If (res.FlagResult = False) Then
-            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            'MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txt_HoTenKH.Text = ""
+            txt_SoTienNo.Text = ""
+            txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
             Return
         End If
         txt_HoTenKH.Text = CType(res.Obj1, String)
         'Lấy tên kh theo mã kh
 
 
-        'kt tiền nợ của kh có > 20.000 không
-        res = khachHangBUS.selectTienNo_KhachHang(CInt(txt_MaKH.Text))
+        ' lấy thông tin tiền kh đang nợ
+        res = khachHangBUS.selectTienNo_KhachHang(CDbl(txt_MaKH.Text))
         If (res.FlagResult = False) Then
-            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
+        Else
+            txt_SoTienNo.Text = CDbl(res.Obj1)
         End If
 
-        res = chiTietHoaDonBUS.isValidSoTienNo(CType(res.Obj1, Single))
+        ' kiểm tra nợ so với QĐ
+        res = khachHangBUS.KiemTraNo(CDbl(txt_SoTienNo.Text))
         If (res.FlagResult = False) Then
-            MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            txt_SoTienNo.BackColor = Color.Red
+            ThongBaoTienNoVuotQuyDinh = res.ApplicationMessage
             Return
+        Else
+            txt_SoTienNo.Text = CInt(res.Obj1)
+            txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
         End If
     End Sub
 
@@ -190,64 +217,110 @@ Public Class UC_LapHoaDon
             Return
         End If
 
-        If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
-            Return
-        End If
+        Try
+
+
+            If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
+                Return
+            End If
+
+
+
 
 #Region "Quy định"
-        If (e.ColumnIndex = 1) Then
+            If (e.ColumnIndex = 1) Then
 
-            ''ko được sửa mã sách đã nhập trước đó
-            'If (e.RowIndex <> 0) Then
-            '    dgv_listSach.Rows(e.RowIndex - 1).Cells(1).ReadOnly = True
-            'End If
-            ''ko được sửa mã sách đã nhập trước đó
+                res = sachBUS.isValidMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
+                If (res.FlagResult = False) Then
+                    MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return
+                End If
 
-            res = sachBUS.isValidMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
-            If (res.FlagResult = False) Then
-                MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Return
+                'lấy thông tin sách theo mã đã nhập
+                res = sachBUS.selectSach_ByMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
+
+                If (res.FlagResult = False) Then
+                    MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    dgv_listSach.Focus()
+                    Return
+                End If
+
+                sach = CType(res.Obj1, Sach_DTO)
+
+
+
+                If (e.ColumnIndex = 1 And dgv_listSach.Item("STT", e.RowIndex + 1).Value Is Nothing) Then
+                    'Load tự động stt
+                    stt = stt + 1
+                    dgv_listSach.Item("STT", e.RowIndex + 1).Value = stt
+                End If
+                'thêm dòng-cọt trong dtg
+                dgv_listSach.Item("TenSach", e.RowIndex).Value = sach.TenSach1
+                dgv_listSach.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
+                dgv_listSach.Item("TacGia", e.RowIndex).Value = sach.TacGia1
+                dgv_listSach.Item("DonGia", e.RowIndex).Value = sach.DonGia1
+
             End If
 
-            'lấy thông tin sách theo mã đã nhập
-            res = sachBUS.selectSach_ByMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
 
-            If (res.FlagResult = False) Then
-                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty
-                dgv_listSach.Focus()
-                Return
+            Dim slton
+            If (e.ColumnIndex = 4) Then
+
+
+                If (dgv_listSach.Rows(e.RowIndex).Cells(1).Value = String.Empty) Then
+                    dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty
+                    MessageBox.Show("Bạn chưa nhập mã sách", "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return
+                End If
+
+
+
+                slton = sach.SoLuongTon1 - dgv_listSach.Rows(e.RowIndex).Cells(4).Value
+                res = chiTietHoaDonBUS.isValidSoLuongSachTon(slton)
+                If (res.FlagResult = False) Then
+                    MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return
+                End If
+
+                dgv_listSach.Item("ThanhTien", e.RowIndex).Value = Double.Parse(sach.DonGia1) * Integer.Parse(dgv_listSach.Item("SoLuongNhap", e.RowIndex).Value)
+
+
+
             End If
-            sach = CType(res.Obj1, Sach_DTO)
-        End If
-
-
-        Dim slton
-        If (e.ColumnIndex = 4) Then
-            slton = sach.SoLuongTon1 - dgv_listSach.Rows(e.RowIndex).Cells(4).Value
-            res = chiTietHoaDonBUS.isValidSoLuongSachTon(slton)
-            If (res.FlagResult = False) Then
-                MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Return
-            End If
-        End If
 
 #End Region
-        If (e.ColumnIndex = 1 And dgv_listSach.Item("STT", e.RowIndex + 1).Value Is Nothing) Then
-            'Load tự động stt
-            stt = stt + 1
-            dgv_listSach.Item("STT", e.RowIndex + 1).Value = stt
-        End If
-        'thêm dòng-cọt trong dtg
-        dgv_listSach.Item("TenSach", e.RowIndex).Value = sach.TenSach1
-        dgv_listSach.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
-        dgv_listSach.Item("TacGia", e.RowIndex).Value = sach.TacGia1
-        dgv_listSach.Item("DonGia", e.RowIndex).Value = sach.DonGia1
+
+
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+
 
     End Sub
 
 
     Private Sub btn_Nhap_Click(sender As Object, e As EventArgs) Handles btn_Nhap.Click
+
+        If txt_SoTienNo.BackColor = Color.Red Then
+            MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        If txt_HoTenKH.Text = String.Empty Then
+            MessageBox.Show("Bạn chưa nhập thông tin khách hàng!" + Environment.NewLine + "Hoặc thông tin khách hàng không chính xác!", "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+
+
+
+
+
+
 
         'insert vào hóa đơn
         With hoaDonDTO
@@ -264,7 +337,7 @@ Public Class UC_LapHoaDon
         End If
 
         'tự động mã hóa dơn
-        ReloadHoaDon()
+        ReloadMaHoaDon()
 
 
         'insert vào cthd
@@ -296,6 +369,11 @@ Public Class UC_LapHoaDon
 
     End Sub
 
+    Private Sub dgv_listSach_Enter(sender As Object, e As EventArgs) Handles dgv_listSach.Enter
+        If txt_SoTienNo.BackColor = Color.Red Then
+            MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
 
     Private Sub insertCTHD(x As ChiTietHoaDon_DTO)
         res = chiTietHoaDonBUS.insertChiTietPhieuNhap(chiTietHoaDonDTO)
