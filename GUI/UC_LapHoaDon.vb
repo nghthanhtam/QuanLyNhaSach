@@ -394,6 +394,36 @@ Public Class UC_LapHoaDon
 
 #End Region
 
+
+
+
+#Region "Cập nhật lại lượng tồn của sách"
+
+#Region "Select sách "
+            Dim ResSach As Result = sachBUS.selectSach_ByMaSach(chiTietHoaDonDTO.MaSach1)
+            If (ResSach.FlagResult = False) Then
+                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Lỗi cập nhật lượng tồn!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+            sachDTO = CType(ResSach.Obj1, Sach_DTO)
+#End Region
+
+            sachDTO.SoLuongTon1 -= chiTietHoaDonDTO.SoLuongban1 ' Cập nhật lại lượng tồn sau khi bán
+
+#Region "update sách"
+            ResSach = sachBUS.updateSach(sachDTO)
+            If (ResSach.FlagResult = False) Then
+                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Lỗi cập nhật lượng tồn!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+#End Region
+
+
+#End Region
+
+
+
+
 #End Region
 
 
@@ -410,6 +440,10 @@ Public Class UC_LapHoaDon
         MessageBox.Show("Lập hóa đơn thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         ReloadMaHoaDon()
         dgv_listSach.Rows.Clear()
+
+    End Sub
+
+    Private Sub btn_them_Click(sender As Object, e As EventArgs) Handles btn_them.Click
 
     End Sub
 
