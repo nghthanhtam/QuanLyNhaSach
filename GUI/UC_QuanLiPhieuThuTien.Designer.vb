@@ -104,9 +104,10 @@ Partial Class UC_QuanLiPhieuThuTien
         '
         'DateTimePicker_NgayThuTien
         '
+        Me.DateTimePicker_NgayThuTien.CustomFormat = "dd/MM/yyyy"
         Me.DateTimePicker_NgayThuTien.Enabled = False
         Me.DateTimePicker_NgayThuTien.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.DateTimePicker_NgayThuTien.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker_NgayThuTien.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePicker_NgayThuTien.Location = New System.Drawing.Point(593, 19)
         Me.DateTimePicker_NgayThuTien.Name = "DateTimePicker_NgayThuTien"
         Me.DateTimePicker_NgayThuTien.Size = New System.Drawing.Size(264, 27)

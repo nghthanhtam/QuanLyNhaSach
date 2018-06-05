@@ -52,10 +52,11 @@ Partial Class UC_LapHoaDon
         '
         'dtp_NgayLap
         '
+        Me.dtp_NgayLap.CustomFormat = "dd/MM/yyyy"
         Me.dtp_NgayLap.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.dtp_NgayLap.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp_NgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtp_NgayLap.Location = New System.Drawing.Point(234, 85)
-        Me.dtp_NgayLap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtp_NgayLap.Margin = New System.Windows.Forms.Padding(4)
         Me.dtp_NgayLap.Name = "dtp_NgayLap"
         Me.dtp_NgayLap.Size = New System.Drawing.Size(153, 27)
         Me.dtp_NgayLap.TabIndex = 1
@@ -65,7 +66,7 @@ Partial Class UC_LapHoaDon
         Me.dgv_listSach.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgv_listSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_listSach.Location = New System.Drawing.Point(37, 175)
-        Me.dgv_listSach.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgv_listSach.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv_listSach.Name = "dgv_listSach"
         Me.dgv_listSach.Size = New System.Drawing.Size(906, 405)
         Me.dgv_listSach.TabIndex = 2
@@ -78,7 +79,7 @@ Partial Class UC_LapHoaDon
         Me.btn_Nhap.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Nhap.ForeColor = System.Drawing.SystemColors.Control
         Me.btn_Nhap.Location = New System.Drawing.Point(751, 602)
-        Me.btn_Nhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_Nhap.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_Nhap.Name = "btn_Nhap"
         Me.btn_Nhap.Size = New System.Drawing.Size(165, 41)
         Me.btn_Nhap.TabIndex = 3
@@ -100,7 +101,7 @@ Partial Class UC_LapHoaDon
         '
         Me.txt_HoTenKH.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.txt_HoTenKH.Location = New System.Drawing.Point(717, 87)
-        Me.txt_HoTenKH.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_HoTenKH.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_HoTenKH.Name = "txt_HoTenKH"
         Me.txt_HoTenKH.ReadOnly = True
         Me.txt_HoTenKH.Size = New System.Drawing.Size(157, 27)
@@ -121,7 +122,7 @@ Partial Class UC_LapHoaDon
         '
         Me.txt_MaKH.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_MaKH.Location = New System.Drawing.Point(717, 48)
-        Me.txt_MaKH.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_MaKH.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_MaKH.Name = "txt_MaKH"
         Me.txt_MaKH.Size = New System.Drawing.Size(157, 27)
         Me.txt_MaKH.TabIndex = 7
@@ -216,7 +217,7 @@ Partial Class UC_LapHoaDon
         Me.Controls.Add(Me.dgv_listSach)
         Me.Controls.Add(Me.dtp_NgayLap)
         Me.Controls.Add(Me.lnl_NhapNgay)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "UC_LapHoaDon"
         Me.Size = New System.Drawing.Size(980, 670)
         CType(Me.dgv_listSach, System.ComponentModel.ISupportInitialize).EndInit()

@@ -34,10 +34,11 @@ Partial Class UC_NhapSach
         '
         'dtp_NgayNhap
         '
+        Me.dtp_NgayNhap.CustomFormat = "dd/MM/yyyy"
         Me.dtp_NgayNhap.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.dtp_NgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp_NgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtp_NgayNhap.Location = New System.Drawing.Point(597, 67)
-        Me.dtp_NgayNhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtp_NgayNhap.Margin = New System.Windows.Forms.Padding(4)
         Me.dtp_NgayNhap.Name = "dtp_NgayNhap"
         Me.dtp_NgayNhap.Size = New System.Drawing.Size(265, 27)
         Me.dtp_NgayNhap.TabIndex = 0
@@ -58,7 +59,7 @@ Partial Class UC_NhapSach
         Me.dgv_listSachNhap.BackgroundColor = System.Drawing.SystemColors.ButtonFace
         Me.dgv_listSachNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_listSachNhap.Location = New System.Drawing.Point(35, 115)
-        Me.dgv_listSachNhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgv_listSachNhap.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv_listSachNhap.Name = "dgv_listSachNhap"
         Me.dgv_listSachNhap.Size = New System.Drawing.Size(910, 479)
         Me.dgv_listSachNhap.TabIndex = 2
@@ -71,7 +72,7 @@ Partial Class UC_NhapSach
         Me.btn_NhapSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_NhapSach.ForeColor = System.Drawing.Color.White
         Me.btn_NhapSach.Location = New System.Drawing.Point(134, 611)
-        Me.btn_NhapSach.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_NhapSach.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_NhapSach.Name = "btn_NhapSach"
         Me.btn_NhapSach.Size = New System.Drawing.Size(120, 41)
         Me.btn_NhapSach.TabIndex = 3
@@ -121,7 +122,7 @@ Partial Class UC_NhapSach
         Me.Controls.Add(Me.txt_MaPhieuNhap)
         Me.Controls.Add(Me.lbl_NgayNhap)
         Me.Controls.Add(Me.dtp_NgayNhap)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "UC_NhapSach"
         Me.Size = New System.Drawing.Size(980, 670)
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).EndInit()
