@@ -95,4 +95,8 @@ Public Class KhachHang_BUS
             Return New Result(False, Nothing, "Get số tiền nợ tối đa thất bại")
         End If
     End Function
+
+    Public Function selectKhachHang_ByMaKH(maKhachHang1 As Integer) As Result
+        Return khDAL.selectKhachHang_ByMaKH(maKhachHang1)
+    End Function
 End Class

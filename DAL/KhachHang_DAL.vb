@@ -112,6 +112,47 @@ Public Class KhachHang_DAL
 
     End Function
 
+    Public Function selectKhachHang_ByMaKH(maKhachHang1 As Integer) As Result
+
+        Dim khachHangDTO As KhachHang_DTO
+        Dim query As String = String.Empty
+        query &= " SELECT *"
+        query &= " FROM [KHACHHANG]"
+        query &= " WHERE "
+        query &= " ( @MaKhachHang=[MaKhachHang] )"
+
+        Using conn As SqlConnection = ConnectDB.GetConnectionDB()
+            Using comm As SqlCommand = conn.CreateCommand()
+                With comm
+
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@MaKhachHang", maKhachHang1)
+                End With
+                Try
+                    conn.Open()
+                    Dim reader As SqlDataReader
+                    reader = comm.ExecuteReader()
+                    If reader.HasRows = True Then
+                        While reader.Read
+                            khachHangDTO = New KhachHang_DTO(Integer.Parse(reader("MaKhachHang")), reader("HoTenKhachHang"), reader("DiaChi"), reader("DienThoai"), reader("Email"), Double.Parse(reader("TienNo")))
+                        End While
+                    Else
+                        Throw New Exception("Không tìm thấy khách hàng!")
+                    End If
+
+                Catch ex As Exception
+                    Return New Result(False, Nothing, "Lấy thông tin khách hàng thất bại!", ex.Message)
+                Finally
+                    conn.Close()
+                End Try
+                Return New Result(True, khachHangDTO)
+            End Using
+        End Using
+        Return New Result(True) ' thanh cong
+
+    End Function
+
     Public Function SelectTienNo_KhachHang(iMaKH As Integer) As Result
         Dim tienno As Single
         Dim query As String = String.Empty

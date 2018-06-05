@@ -54,7 +54,6 @@ Public Class HoaDon_DAL
                     comm.ExecuteNonQuery()
 
                 Catch ex As Exception
-                    conn.Close()
                     Return New Result(False, Nothing, "Thêm hóa đơn mới thất bại!", ex.Message)
                 Finally
                     conn.Close()

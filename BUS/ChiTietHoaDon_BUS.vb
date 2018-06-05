@@ -15,7 +15,7 @@ Public Class ChiTietHoaDon_BUS
         chiTietHoaDonDAL = New ChiTietHoaDon_DAL()
     End Sub
 
-    Public Function insertChiTietPhieuNhap(x As ChiTietHoaDon_DTO) As Result
+    Public Function insertChiTietHoaDon(x As ChiTietHoaDon_DTO) As Result
         Return chiTietHoaDonDAL.insertChiTietHoaDon(x)
     End Function
 
@@ -25,12 +25,29 @@ Public Class ChiTietHoaDon_BUS
 
 
 
-
-    Public Function isValidSoLuongSachTon(x As Integer) As Result
+    ''' <summary>
+    '''  trả về false, và object là "số lượng tồn tối thiểu", nếu vi phạm QĐ
+    ''' </summary>
+    ''' <param name="SLSauTon"></param>
+    ''' <returns></returns>
+    Public Function isValidSoLuongSachTon(SLSauTon As Integer) As Result
         res = thamSoBUS.SelectAll_ThamSo()
         ts = CType(res.Obj1, ThamSo_DTO)
-        If (CInt(x) < ts.SoLuongTonToiThieu1) Then
-            Return New Result(False, Nothing, "Sách có lượng tồn sau khi bán phải ít nhất là " + ts.SoLuongTonToiThieu1.ToString)
+        If (CInt(SLSauTon) < ts.SoLuongTonToiThieu1) Then
+            Return New Result(False, ts.SoLuongTonToiThieu1, "Sách có lượng tồn sau khi bán phải ít nhất là " + ts.SoLuongTonToiThieu1.ToString)
+        End If
+        Return New Result(True)
+    End Function
+
+    Public Function isValidSoLuongBan(v As String) As Result
+        If (v = String.Empty) Then
+            Return New Result(False, Nothing, "Số lượng tồn không được bỏ trống!")
+        End If
+        If (v.Length < 1) Then
+            Return New Result(False, Nothing, "Số lượng tồn không được bỏ trống!")
+        End If
+        If (Regex.IsMatch(v, "^[0-9]*$") = False) Then
+            Return New Result(False, Nothing, "Lượng tồn phải là số nguyên lớn hơn 0!")
         End If
 
         Return New Result(True)

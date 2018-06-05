@@ -14,9 +14,6 @@ Public Class ChiTietHoaDon_DAL
                     .CommandType = CommandType.Text
                     .CommandText = query
 
-
-
-                    '.Parameters.AddWithValue("@MaChiTietHoaDon", x.MaChiTietHoaDon1)
                     .Parameters.AddWithValue("@MaHoaDon", x.MaHoaDon1)
                     .Parameters.AddWithValue("@MaSach", x.MaSach1)
                     .Parameters.AddWithValue("@SoLuongban", x.SoLuongban1)
@@ -27,7 +24,6 @@ Public Class ChiTietHoaDon_DAL
                     comm.ExecuteNonQuery()
 
                 Catch ex As Exception
-                    conn.Close()
                     Return New Result(False, Nothing, "Thêm vào chi tiết hóa đơn thất bại!", ex.Message)
                 Finally
                     conn.Close()
