@@ -289,7 +289,7 @@ Public Class UC_NhapSach
             If (dgv_listSachNhap.Rows(i).Cells(0).Value Is Nothing) Then
                 Exit Do
             End If
-        Loop Until (dgv_listSachNhap.Item(i, 0).Value Is Nothing) 'ko con` ma phieu nhap
+        Loop Until (False) 'ko con` ma phieu nhap
 
         MessageBox.Show("Lập phiếu nhập sách thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         reloadMaPhieuNhap()

@@ -26,19 +26,20 @@ Partial Class frm_Main
         Me.btn_QuanLiKhachHang = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btn_QuanLiSach = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_ThayDoiQuiDinh = New System.Windows.Forms.Button()
+        Me.btn_QuanLiPhieuThuTien = New System.Windows.Forms.Button()
         Me.btn_LapPhieuThuTien = New System.Windows.Forms.Button()
-        Me.btn_LapBaoCaoThang = New System.Windows.Forms.Button()
+        Me.btn_LapBaoCaoCongNo = New System.Windows.Forms.Button()
         Me.btn_TraCuuSach = New System.Windows.Forms.Button()
         Me.btn_LapHoaDonBanSach = New System.Windows.Forms.Button()
         Me.btn_LapPhieuNhapSach = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel_LoadUC = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.btn_QuanLiPhieuThuTien = New System.Windows.Forms.Button()
         Me.Panel_ThanhTrangThaiTren = New GUI.ThanhTrangThaiTren()
+        Me.btn_LapBaoCaoTon = New System.Windows.Forms.Button()
         Me.Panel_Menu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -47,19 +48,20 @@ Partial Class frm_Main
         '
         Me.Panel_Menu.AutoScroll = True
         Me.Panel_Menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Panel_Menu.Controls.Add(Me.btn_QuanLiKhachHang)
-        Me.Panel_Menu.Controls.Add(Me.Label3)
-        Me.Panel_Menu.Controls.Add(Me.btn_QuanLiSach)
-        Me.Panel_Menu.Controls.Add(Me.Label4)
-        Me.Panel_Menu.Controls.Add(Me.Label1)
-        Me.Panel_Menu.Controls.Add(Me.btn_ThayDoiQuiDinh)
-        Me.Panel_Menu.Controls.Add(Me.btn_QuanLiPhieuThuTien)
-        Me.Panel_Menu.Controls.Add(Me.btn_LapPhieuThuTien)
-        Me.Panel_Menu.Controls.Add(Me.btn_LapBaoCaoThang)
-        Me.Panel_Menu.Controls.Add(Me.btn_TraCuuSach)
-        Me.Panel_Menu.Controls.Add(Me.btn_LapHoaDonBanSach)
-        Me.Panel_Menu.Controls.Add(Me.btn_LapPhieuNhapSach)
+        Me.Panel_Menu.Controls.Add(Me.btn_LapBaoCaoTon)
         Me.Panel_Menu.Controls.Add(Me.Label2)
+        Me.Panel_Menu.Controls.Add(Me.btn_LapBaoCaoCongNo)
+        Me.Panel_Menu.Controls.Add(Me.btn_ThayDoiQuiDinh)
+        Me.Panel_Menu.Controls.Add(Me.btn_LapPhieuThuTien)
+        Me.Panel_Menu.Controls.Add(Me.btn_QuanLiPhieuThuTien)
+        Me.Panel_Menu.Controls.Add(Me.btn_LapPhieuNhapSach)
+        Me.Panel_Menu.Controls.Add(Me.btn_LapHoaDonBanSach)
+        Me.Panel_Menu.Controls.Add(Me.btn_QuanLiSach)
+        Me.Panel_Menu.Controls.Add(Me.btn_TraCuuSach)
+        Me.Panel_Menu.Controls.Add(Me.btn_QuanLiKhachHang)
+        Me.Panel_Menu.Controls.Add(Me.Label4)
+        Me.Panel_Menu.Controls.Add(Me.Label3)
+        Me.Panel_Menu.Controls.Add(Me.Label1)
         Me.Panel_Menu.Location = New System.Drawing.Point(0, 50)
         Me.Panel_Menu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel_Menu.Name = "Panel_Menu"
@@ -74,7 +76,7 @@ Partial Class frm_Main
         Me.btn_QuanLiKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_QuanLiKhachHang.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_QuanLiKhachHang.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_QuanLiKhachHang.Location = New System.Drawing.Point(0, 601)
+        Me.btn_QuanLiKhachHang.Location = New System.Drawing.Point(0, 283)
         Me.btn_QuanLiKhachHang.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_QuanLiKhachHang.Name = "btn_QuanLiKhachHang"
         Me.btn_QuanLiKhachHang.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
@@ -89,7 +91,7 @@ Partial Class frm_Main
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(13, 574)
+        Me.Label3.Location = New System.Drawing.Point(13, 251)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(128, 25)
@@ -104,7 +106,7 @@ Partial Class frm_Main
         Me.btn_QuanLiSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_QuanLiSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_QuanLiSach.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_QuanLiSach.Location = New System.Drawing.Point(0, 250)
+        Me.btn_QuanLiSach.Location = New System.Drawing.Point(0, 93)
         Me.btn_QuanLiSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_QuanLiSach.Name = "btn_QuanLiSach"
         Me.btn_QuanLiSach.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
@@ -114,12 +116,24 @@ Partial Class frm_Main
         Me.btn_QuanLiSach.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_QuanLiSach.UseVisualStyleBackColor = False
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(13, 337)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(144, 25)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Phiếu thu tiền"
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(13, 164)
+        Me.Label1.Location = New System.Drawing.Point(10, 9)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(62, 25)
@@ -134,7 +148,7 @@ Partial Class frm_Main
         Me.btn_ThayDoiQuiDinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_ThayDoiQuiDinh.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_ThayDoiQuiDinh.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_ThayDoiQuiDinh.Location = New System.Drawing.Point(0, 503)
+        Me.btn_ThayDoiQuiDinh.Location = New System.Drawing.Point(0, 613)
         Me.btn_ThayDoiQuiDinh.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_ThayDoiQuiDinh.Name = "btn_ThayDoiQuiDinh"
         Me.btn_ThayDoiQuiDinh.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
@@ -144,6 +158,24 @@ Partial Class frm_Main
         Me.btn_ThayDoiQuiDinh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_ThayDoiQuiDinh.UseVisualStyleBackColor = False
         '
+        'btn_QuanLiPhieuThuTien
+        '
+        Me.btn_QuanLiPhieuThuTien.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.btn_QuanLiPhieuThuTien.FlatAppearance.BorderSize = 0
+        Me.btn_QuanLiPhieuThuTien.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(104, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.btn_QuanLiPhieuThuTien.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_QuanLiPhieuThuTien.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_QuanLiPhieuThuTien.ForeColor = System.Drawing.SystemColors.Control
+        Me.btn_QuanLiPhieuThuTien.Location = New System.Drawing.Point(0, 419)
+        Me.btn_QuanLiPhieuThuTien.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btn_QuanLiPhieuThuTien.Name = "btn_QuanLiPhieuThuTien"
+        Me.btn_QuanLiPhieuThuTien.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.btn_QuanLiPhieuThuTien.Size = New System.Drawing.Size(300, 50)
+        Me.btn_QuanLiPhieuThuTien.TabIndex = 3
+        Me.btn_QuanLiPhieuThuTien.Text = "Quản lí phiếu thu tiền"
+        Me.btn_QuanLiPhieuThuTien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_QuanLiPhieuThuTien.UseVisualStyleBackColor = False
+        '
         'btn_LapPhieuThuTien
         '
         Me.btn_LapPhieuThuTien.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
@@ -152,7 +184,7 @@ Partial Class frm_Main
         Me.btn_LapPhieuThuTien.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_LapPhieuThuTien.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_LapPhieuThuTien.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_LapPhieuThuTien.Location = New System.Drawing.Point(0, 341)
+        Me.btn_LapPhieuThuTien.Location = New System.Drawing.Point(0, 369)
         Me.btn_LapPhieuThuTien.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_LapPhieuThuTien.Name = "btn_LapPhieuThuTien"
         Me.btn_LapPhieuThuTien.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
@@ -162,23 +194,23 @@ Partial Class frm_Main
         Me.btn_LapPhieuThuTien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_LapPhieuThuTien.UseVisualStyleBackColor = False
         '
-        'btn_LapBaoCaoThang
+        'btn_LapBaoCaoCongNo
         '
-        Me.btn_LapBaoCaoThang.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btn_LapBaoCaoThang.FlatAppearance.BorderSize = 0
-        Me.btn_LapBaoCaoThang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(104, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.btn_LapBaoCaoThang.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_LapBaoCaoThang.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_LapBaoCaoThang.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_LapBaoCaoThang.Location = New System.Drawing.Point(0, 449)
-        Me.btn_LapBaoCaoThang.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btn_LapBaoCaoThang.Name = "btn_LapBaoCaoThang"
-        Me.btn_LapBaoCaoThang.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.btn_LapBaoCaoThang.Size = New System.Drawing.Size(300, 50)
-        Me.btn_LapBaoCaoThang.TabIndex = 3
-        Me.btn_LapBaoCaoThang.Text = "Lập báo cáo tháng"
-        Me.btn_LapBaoCaoThang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_LapBaoCaoThang.UseVisualStyleBackColor = False
+        Me.btn_LapBaoCaoCongNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.btn_LapBaoCaoCongNo.FlatAppearance.BorderSize = 0
+        Me.btn_LapBaoCaoCongNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(104, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.btn_LapBaoCaoCongNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_LapBaoCaoCongNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_LapBaoCaoCongNo.ForeColor = System.Drawing.SystemColors.Control
+        Me.btn_LapBaoCaoCongNo.Location = New System.Drawing.Point(0, 563)
+        Me.btn_LapBaoCaoCongNo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btn_LapBaoCaoCongNo.Name = "btn_LapBaoCaoCongNo"
+        Me.btn_LapBaoCaoCongNo.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.btn_LapBaoCaoCongNo.Size = New System.Drawing.Size(300, 50)
+        Me.btn_LapBaoCaoCongNo.TabIndex = 3
+        Me.btn_LapBaoCaoCongNo.Text = "Lập báo cáo công nợ"
+        Me.btn_LapBaoCaoCongNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_LapBaoCaoCongNo.UseVisualStyleBackColor = False
         '
         'btn_TraCuuSach
         '
@@ -188,7 +220,7 @@ Partial Class frm_Main
         Me.btn_TraCuuSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_TraCuuSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_TraCuuSach.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_TraCuuSach.Location = New System.Drawing.Point(0, 195)
+        Me.btn_TraCuuSach.Location = New System.Drawing.Point(0, 43)
         Me.btn_TraCuuSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_TraCuuSach.Name = "btn_TraCuuSach"
         Me.btn_TraCuuSach.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
@@ -206,7 +238,7 @@ Partial Class frm_Main
         Me.btn_LapHoaDonBanSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_LapHoaDonBanSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_LapHoaDonBanSach.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_LapHoaDonBanSach.Location = New System.Drawing.Point(0, 110)
+        Me.btn_LapHoaDonBanSach.Location = New System.Drawing.Point(0, 193)
         Me.btn_LapHoaDonBanSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_LapHoaDonBanSach.Name = "btn_LapHoaDonBanSach"
         Me.btn_LapHoaDonBanSach.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
@@ -224,7 +256,7 @@ Partial Class frm_Main
         Me.btn_LapPhieuNhapSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_LapPhieuNhapSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_LapPhieuNhapSach.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_LapPhieuNhapSach.Location = New System.Drawing.Point(0, 60)
+        Me.btn_LapPhieuNhapSach.Location = New System.Drawing.Point(0, 143)
         Me.btn_LapPhieuNhapSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_LapPhieuNhapSach.Name = "btn_LapPhieuNhapSach"
         Me.btn_LapPhieuNhapSach.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
@@ -239,7 +271,7 @@ Partial Class frm_Main
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(13, 20)
+        Me.Label2.Location = New System.Drawing.Point(16, 479)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(181, 25)
@@ -266,36 +298,6 @@ Partial Class frm_Main
         Me.Panel_LoadUC.Size = New System.Drawing.Size(980, 670)
         Me.Panel_LoadUC.TabIndex = 0
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(13, 309)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(144, 25)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Phiếu thu tiền"
-        '
-        'btn_QuanLiPhieuThuTien
-        '
-        Me.btn_QuanLiPhieuThuTien.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.btn_QuanLiPhieuThuTien.FlatAppearance.BorderSize = 0
-        Me.btn_QuanLiPhieuThuTien.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(104, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.btn_QuanLiPhieuThuTien.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_QuanLiPhieuThuTien.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_QuanLiPhieuThuTien.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_QuanLiPhieuThuTien.Location = New System.Drawing.Point(0, 395)
-        Me.btn_QuanLiPhieuThuTien.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btn_QuanLiPhieuThuTien.Name = "btn_QuanLiPhieuThuTien"
-        Me.btn_QuanLiPhieuThuTien.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
-        Me.btn_QuanLiPhieuThuTien.Size = New System.Drawing.Size(300, 50)
-        Me.btn_QuanLiPhieuThuTien.TabIndex = 3
-        Me.btn_QuanLiPhieuThuTien.Text = "Quản lí phiếu thu tiền"
-        Me.btn_QuanLiPhieuThuTien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_QuanLiPhieuThuTien.UseVisualStyleBackColor = False
-        '
         'Panel_ThanhTrangThaiTren
         '
         Me.Panel_ThanhTrangThaiTren.AutoSize = True
@@ -303,8 +305,26 @@ Partial Class frm_Main
         Me.Panel_ThanhTrangThaiTren.Location = New System.Drawing.Point(0, 0)
         Me.Panel_ThanhTrangThaiTren.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel_ThanhTrangThaiTren.Name = "Panel_ThanhTrangThaiTren"
-        Me.Panel_ThanhTrangThaiTren.Size = New System.Drawing.Size(1280, 50)
+        Me.Panel_ThanhTrangThaiTren.Size = New System.Drawing.Size(1298, 50)
         Me.Panel_ThanhTrangThaiTren.TabIndex = 0
+        '
+        'btn_LapBaoCaoTon
+        '
+        Me.btn_LapBaoCaoTon.BackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.btn_LapBaoCaoTon.FlatAppearance.BorderSize = 0
+        Me.btn_LapBaoCaoTon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(104, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.btn_LapBaoCaoTon.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_LapBaoCaoTon.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_LapBaoCaoTon.ForeColor = System.Drawing.SystemColors.Control
+        Me.btn_LapBaoCaoTon.Location = New System.Drawing.Point(0, 513)
+        Me.btn_LapBaoCaoTon.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btn_LapBaoCaoTon.Name = "btn_LapBaoCaoTon"
+        Me.btn_LapBaoCaoTon.Padding = New System.Windows.Forms.Padding(35, 0, 0, 0)
+        Me.btn_LapBaoCaoTon.Size = New System.Drawing.Size(300, 50)
+        Me.btn_LapBaoCaoTon.TabIndex = 3
+        Me.btn_LapBaoCaoTon.Text = "Lập báo cáo tồn"
+        Me.btn_LapBaoCaoTon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_LapBaoCaoTon.UseVisualStyleBackColor = False
         '
         'frm_Main
         '
@@ -338,7 +358,7 @@ Partial Class frm_Main
     Friend WithEvents btn_LapPhieuThuTien As Button
     Friend WithEvents btn_TraCuuSach As Button
     Friend WithEvents btn_ThayDoiQuiDinh As Button
-    Friend WithEvents btn_LapBaoCaoThang As Button
+    Friend WithEvents btn_LapBaoCaoCongNo As Button
     Friend WithEvents Panel_LoadUC As Panel
     Friend WithEvents btn_QuanLiSach As Button
     Friend WithEvents Label1 As Label
@@ -346,4 +366,5 @@ Partial Class frm_Main
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents btn_QuanLiPhieuThuTien As Button
+    Friend WithEvents btn_LapBaoCaoTon As Button
 End Class

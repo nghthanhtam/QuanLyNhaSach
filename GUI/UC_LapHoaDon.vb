@@ -404,7 +404,7 @@ Public Class UC_LapHoaDon
                 Exit Do
             End If
 
-        Loop Until (dgv_listSach.Item(i, 1).Value Is Nothing) 'ko con` ma phieu nhap
+        Loop Until (False)
 
 
         MessageBox.Show("Lập hóa đơn thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)

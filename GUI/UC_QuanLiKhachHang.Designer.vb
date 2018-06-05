@@ -27,7 +27,6 @@ Partial Class UC_QuanLiKhachHang
         Me.btn_CapNhat = New System.Windows.Forms.Button()
         Me.btn_Xoa = New System.Windows.Forms.Button()
         Me.btn_ThemKhachHang = New System.Windows.Forms.Button()
-        Me.dgv_ListKhachHang = New System.Windows.Forms.DataGridView()
         Me.txt_TienNo = New System.Windows.Forms.TextBox()
         Me.txt_Email = New System.Windows.Forms.TextBox()
         Me.txt_DienThoai = New System.Windows.Forms.TextBox()
@@ -42,6 +41,7 @@ Partial Class UC_QuanLiKhachHang
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.dgv_ListKhachHang = New System.Windows.Forms.DataGridView()
         CType(Me.dgv_ListKhachHang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -95,41 +95,6 @@ Partial Class UC_QuanLiKhachHang
         Me.btn_ThemKhachHang.TabIndex = 18
         Me.btn_ThemKhachHang.Text = "Thêm KH"
         Me.btn_ThemKhachHang.UseVisualStyleBackColor = False
-        '
-        'dgv_ListKhachHang
-        '
-        Me.dgv_ListKhachHang.AllowUserToAddRows = False
-        Me.dgv_ListKhachHang.AllowUserToDeleteRows = False
-        Me.dgv_ListKhachHang.AllowUserToResizeColumns = False
-        Me.dgv_ListKhachHang.AllowUserToResizeRows = False
-        Me.dgv_ListKhachHang.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.dgv_ListKhachHang.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ListKhachHang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgv_ListKhachHang.EnableHeadersVisualStyles = False
-        Me.dgv_ListKhachHang.Location = New System.Drawing.Point(54, 258)
-        Me.dgv_ListKhachHang.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.dgv_ListKhachHang.MultiSelect = False
-        Me.dgv_ListKhachHang.Name = "dgv_ListKhachHang"
-        Me.dgv_ListKhachHang.ReadOnly = True
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ListKhachHang.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_ListKhachHang.RowTemplate.Height = 24
-        Me.dgv_ListKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgv_ListKhachHang.Size = New System.Drawing.Size(860, 393)
-        Me.dgv_ListKhachHang.TabIndex = 6
         '
         'txt_TienNo
         '
@@ -272,6 +237,41 @@ Partial Class UC_QuanLiKhachHang
         Me.Label7.TabIndex = 46
         Me.Label7.Text = "Quản lí khách hàng"
         '
+        'dgv_ListKhachHang
+        '
+        Me.dgv_ListKhachHang.AllowUserToAddRows = False
+        Me.dgv_ListKhachHang.AllowUserToDeleteRows = False
+        Me.dgv_ListKhachHang.AllowUserToResizeColumns = False
+        Me.dgv_ListKhachHang.AllowUserToResizeRows = False
+        Me.dgv_ListKhachHang.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgv_ListKhachHang.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ListKhachHang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgv_ListKhachHang.EnableHeadersVisualStyles = False
+        Me.dgv_ListKhachHang.Location = New System.Drawing.Point(54, 258)
+        Me.dgv_ListKhachHang.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.dgv_ListKhachHang.MultiSelect = False
+        Me.dgv_ListKhachHang.Name = "dgv_ListKhachHang"
+        Me.dgv_ListKhachHang.ReadOnly = True
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ListKhachHang.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgv_ListKhachHang.RowTemplate.Height = 24
+        Me.dgv_ListKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgv_ListKhachHang.Size = New System.Drawing.Size(860, 393)
+        Me.dgv_ListKhachHang.TabIndex = 6
+        '
         'UC_QuanLiKhachHang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -306,7 +306,6 @@ Partial Class UC_QuanLiKhachHang
     Friend WithEvents btn_CapNhat As Button
     Friend WithEvents btn_Xoa As Button
     Friend WithEvents btn_ThemKhachHang As Button
-    Friend WithEvents dgv_ListKhachHang As DataGridView
     Friend WithEvents txt_TienNo As TextBox
     Friend WithEvents txt_Email As TextBox
     Friend WithEvents txt_DienThoai As TextBox
@@ -321,4 +320,5 @@ Partial Class UC_QuanLiKhachHang
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents dgv_ListKhachHang As DataGridView
 End Class

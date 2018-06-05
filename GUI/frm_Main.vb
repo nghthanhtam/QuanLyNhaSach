@@ -17,7 +17,7 @@
 
         'sâsaas
 
-
+        Panel_LoadUC.Controls.Add(New UC_QuanLiSach())
 
     End Sub
 
@@ -115,9 +115,6 @@
 
     End Sub
 
-    Private Sub btn_LapBaoCaoThang_Click(sender As Object, e As EventArgs) Handles btn_LapBaoCaoThang.Click
-
-    End Sub
 
     Private Sub btn_ThayDoiQuiDinh_Click(sender As Object, e As EventArgs) Handles btn_ThayDoiQuiDinh.Click
         Panel_LoadUC.Controls.Clear()
@@ -140,5 +137,10 @@
         Panel_LoadUC.Controls.Clear()
         Panel_LoadUC.Controls.Add(New UC_QuanLiPhieuThuTien())
 
+    End Sub
+
+    Private Sub btn_LapBaoCaoTon_Click(sender As Object, e As EventArgs) Handles btn_LapBaoCaoTon.Click
+        Panel_LoadUC.Controls.Clear()
+        Panel_LoadUC.Controls.Add(New UC_LapBaoCaoTon())
     End Sub
 End Class

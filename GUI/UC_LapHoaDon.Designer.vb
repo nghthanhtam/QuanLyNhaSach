@@ -67,7 +67,7 @@ Partial Class UC_LapHoaDon
         Me.dgv_listSach.Location = New System.Drawing.Point(37, 175)
         Me.dgv_listSach.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgv_listSach.Name = "dgv_listSach"
-        Me.dgv_listSach.Size = New System.Drawing.Size(935, 405)
+        Me.dgv_listSach.Size = New System.Drawing.Size(906, 405)
         Me.dgv_listSach.TabIndex = 2
         '
         'btn_Nhap
@@ -77,7 +77,7 @@ Partial Class UC_LapHoaDon
         Me.btn_Nhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Nhap.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Nhap.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_Nhap.Location = New System.Drawing.Point(778, 605)
+        Me.btn_Nhap.Location = New System.Drawing.Point(751, 602)
         Me.btn_Nhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btn_Nhap.Name = "btn_Nhap"
         Me.btn_Nhap.Size = New System.Drawing.Size(165, 41)
@@ -149,7 +149,7 @@ Partial Class UC_LapHoaDon
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(32, 11)
+        Me.Label7.Location = New System.Drawing.Point(32, 16)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(206, 25)
         Me.Label7.TabIndex = 35
@@ -218,7 +218,7 @@ Partial Class UC_LapHoaDon
         Me.Controls.Add(Me.lnl_NhapNgay)
         Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "UC_LapHoaDon"
-        Me.Size = New System.Drawing.Size(1008, 670)
+        Me.Size = New System.Drawing.Size(980, 670)
         CType(Me.dgv_listSach, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
