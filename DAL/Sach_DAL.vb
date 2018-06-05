@@ -28,7 +28,6 @@ Public Class Sach_DAL
                     comm.ExecuteNonQuery()
 
                 Catch ex As Exception
-                    conn.Close()
                     Return New Result(False, Nothing, "Thêm sách mới thất bại!", ex.Message)
                 Finally
                     conn.Close()
@@ -64,7 +63,6 @@ Public Class Sach_DAL
                         End While
                     End If
                 Catch ex As Exception
-                    conn.Close()
                     Return New Result(False, Nothing, "Lấy mã sách dự định tạo thất bại!", ex.Message)
                 Finally
                     conn.Close()
@@ -160,7 +158,6 @@ Public Class Sach_DAL
                         End While
                     End If
                 Catch ex As Exception
-                    conn.Close()
                     Return New Result(False, Nothing, "Tìm kiếm thất bại!", ex.Message)
                 Finally
                     conn.Close()

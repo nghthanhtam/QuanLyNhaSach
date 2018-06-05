@@ -5,9 +5,9 @@ Imports Utility
 Public Class UC_LapBaoCaoTon
 
     Private res As Result
-    Private khachHangBUS As New KhachHang_BUS()
+    Private chiTietBaoCaoTonBUS As New ChiTietBaoCaoTon_BUS()
     Private listChiTietBaoCao As List(Of Object)
-
+    Private baoCaoTonBUS As New BaoCaoTon_BUS
 
 
 
@@ -17,12 +17,16 @@ Public Class UC_LapBaoCaoTon
         Me.AutoScroll = True
 
         InitDataGridViewBaoCaoTon()
+        btn_LuuBaoCao.Enabled = False
     End Sub
 
 
     Public Sub InitDataGridViewBaoCaoTon()
+        dgv_listBaoCaoTon.Columns.Clear()
+
         dgv_listBaoCaoTon.AutoGenerateColumns = False
 
+        dgv_listBaoCaoTon.DataSource = listChiTietBaoCao
 
         Dim clSTT = New DataGridViewTextBoxColumn()
         With clSTT
@@ -110,8 +114,50 @@ Public Class UC_LapBaoCaoTon
 
 
 
+        res = chiTietBaoCaoTonBUS.ThongKeBaoCaoTon(DateTimePicker_ThangBaoCao.Value.Month, DateTimePicker_ThangBaoCao.Value.Year)
+        If (res.FlagResult = False) Then
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+
+        listChiTietBaoCao = CType(res.Obj1, List(Of Object))
+
+        InitDataGridViewBaoCaoTon()
+
+        btn_LuuBaoCao.Enabled = True ' xem xong mới cho lưu
 
     End Sub
 
+    Private Sub DateTimePicker_ThangBaoCao_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker_ThangBaoCao.ValueChanged
 
+        btn_LuuBaoCao.Enabled = False
+
+    End Sub
+
+    Private Sub btn_LuuBaoCao_Click(sender As Object, e As EventArgs) Handles btn_LuuBaoCao.Click
+
+        res = baoCaoTonBUS.GetNextIncrement()
+        Dim MaBaoCaoTon As Integer = CType(res.Obj1, Integer)
+
+        res = baoCaoTonBUS.insert(New BaoCaoTon_DTO(DateTimePicker_ThangBaoCao.Value, DateTimePicker_NgayLap.Value))
+        If (res.FlagResult = False) Then
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
+
+
+        For Each chitiet As Object In listChiTietBaoCao
+
+            res = chiTietBaoCaoTonBUS.insert(New ChiTietBaoCaoTon_DTO(MaBaoCaoTon, chitiet.MaSach, chitiet.TonDau, chitiet.PhatSinh, chitiet.TonCuoi))
+            If (res.FlagResult = False) Then
+                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+        Next
+
+        btn_LuuBaoCao.Enabled = False
+        MessageBox.Show("Lưu báo cáo tồn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+    End Sub
 End Class
