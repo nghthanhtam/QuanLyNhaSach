@@ -170,7 +170,7 @@ Public Class UC_NhapSach
                     Return
                 End If
             End If
-            ' khi chưa nhập mã sách mà lại 
+            ' khi chưa nhập mã sách mà lại nhập số lượng
 
 
 #Region "Quy định"

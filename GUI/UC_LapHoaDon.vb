@@ -223,6 +223,7 @@ Public Class UC_LapHoaDon
 
                 If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
                     dgv_listSach.Rows.RemoveAt(e.RowIndex) ' nếu mã trống thì clear dòng
+                    dgv_listSach.Item("STT", e.RowIndex).Value = stt
                     Return
                 End If
 
@@ -231,6 +232,7 @@ Public Class UC_LapHoaDon
                 If (res.FlagResult = False) Then
                     dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = ""
                     MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
                     Return
                 End If
 
@@ -239,7 +241,7 @@ Public Class UC_LapHoaDon
                 If (res.FlagResult = False) Then
                     dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = ""
                     MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    dgv_listSach.Focus()
+
                     Return
                 End If
                 sach = CType(res.Obj1, Sach_DTO)
@@ -328,8 +330,6 @@ Public Class UC_LapHoaDon
             MessageBox.Show("Bạn chưa nhập thông tin khách hàng!" + Environment.NewLine + "Hoặc thông tin khách hàng không chính xác!", "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
-
-
 
 
 
@@ -443,9 +443,6 @@ Public Class UC_LapHoaDon
 
     End Sub
 
-    Private Sub btn_them_Click(sender As Object, e As EventArgs) Handles btn_them.Click
-
-    End Sub
 
     Private Sub dgv_listSach_Enter(sender As Object, e As EventArgs) Handles dgv_listSach.Enter
         If txt_SoTienNo.BackColor = Color.Red Then
