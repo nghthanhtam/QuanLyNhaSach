@@ -335,7 +335,7 @@ Public Class UC_LapHoaDon
 
         'insert vào hóa đơn
         With hoaDonDTO
-            .NgayLapHoaDon1 = DateTime.Parse(dtp_NgayLap.Text)
+            .NgayLapHoaDon1 = dtp_NgayLap.Value
             .MaKhachHang1 = CInt(txt_MaKH.Text)
         End With
 

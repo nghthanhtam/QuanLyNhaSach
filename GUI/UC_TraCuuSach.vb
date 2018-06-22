@@ -166,8 +166,6 @@ Public Class UC_TraCuuSach
 
 
 
-
-
         '        If (txt_TimKiem.Text = "") Then
         '            Reload_DataGridViewListSach()
         '            Return

@@ -146,6 +146,7 @@ Public Class UC_NhapSach
 
 
         Dim rong As Double = dgv_listSachNhap.Width
+        dgv_listSachNhap.Columns("MaSach").Width = rong * 0.11
         dgv_listSachNhap.Columns("DonGia").Width = rong * 0.1
         dgv_listSachNhap.Columns("SoLuongTon").Width = rong * 0.14
 
