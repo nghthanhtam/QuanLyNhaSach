@@ -38,9 +38,10 @@ Public Class UC_TraCuuSach
     End Sub
 
     Private Sub UC_TraCuuSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        lbl_XoaTimKiem.Visible = False
+
         ReloadTheLoai()
-
-
         Reload_DataGridViewListSach()
 
     End Sub
@@ -155,10 +156,15 @@ Public Class UC_TraCuuSach
         If txt_TimKiem.Text = "" Then
             txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..."
         End If
+        lbl_XoaTimKiem.Visible = False
     End Sub
 
     Private Sub txt_TimKiem_TextChanged(sender As Object, e As EventArgs) Handles txt_TimKiem.TextChanged
-
+        If txt_TimKiem.Text = "" Then
+            lbl_XoaTimKiem.Visible = False
+        Else
+            lbl_XoaTimKiem.Visible = True
+        End If
 
         Reload_DataGridViewListSach()
 
@@ -200,4 +206,18 @@ Public Class UC_TraCuuSach
         Reload_DataGridViewListSach()
 
     End Sub
+
+    Private Sub lbl_XoaTimKiem_Click(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.Click
+        txt_TimKiem.Text = ""
+        lbl_XoaTimKiem.Visible = False
+    End Sub
+
+    Private Sub lbl_XoaTimKiem_MouseHover(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.MouseHover
+        lbl_XoaTimKiem.BackColor = Color.WhiteSmoke
+    End Sub
+
+    Private Sub lbl_XoaTimKiem_MouseLeave(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.MouseLeave
+        lbl_XoaTimKiem.BackColor = Color.White
+    End Sub
+
 End Class

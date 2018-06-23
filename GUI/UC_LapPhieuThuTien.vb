@@ -44,7 +44,7 @@ Public Class UC_LapPhieuThuTien
         With phieuThuTienDTO
             .MaKhachHang1 = khachHangDTO.MaKH1
             .SoTienThu1 = Double.Parse(txt_SoTienThu.Text)
-            .NgayThuTien1 = DateTimePicker_NgayThuTien.Value
+            .NgayThuTien1 = dtp_NgayThuTien.Value
         End With
 
 #Region "Thêm phiếu thu tiền mới"
@@ -88,10 +88,7 @@ Public Class UC_LapPhieuThuTien
 
         dgv_ListKhachHang.Columns.Clear()
 
-
         dgv_ListKhachHang.AutoGenerateColumns = False
-
-
 
         dgv_ListKhachHang.DataSource = listKhachHang
 
@@ -243,7 +240,7 @@ Public Class UC_LapPhieuThuTien
         End With
     End Sub
 
-    Private Sub btn_LapPhieuVaInPhieu_Click(sender As Object, e As EventArgs) Handles btn_LapPhieuVaInPhieu.Click
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs)
 
     End Sub
 End Class

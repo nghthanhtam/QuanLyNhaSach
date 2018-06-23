@@ -9,7 +9,7 @@ Public Class ChiTietBaoCaoTon_DAL
         listChiTietBaoCao.Clear()
 
 
-        Dim query As String = "
+        Dim query As String ="
  SELECT  thongke.MaSach,sachfull.TenSach, thongke.TonDau, thongke.PhatSinh, thongke.TonCuoi
 FROM
 (
@@ -103,11 +103,9 @@ WHERE thongke.MaSach = sachfull.MaSach
             End Using
         End Using
 
-
-
-
-
     End Function
+
+
 
     Public Function insert(x As ChiTietBaoCaoTon_DTO) As Result
 
@@ -139,9 +137,7 @@ WHERE thongke.MaSach = sachfull.MaSach
         End Using
         Return New Result(True)
 
-
-
-
-
     End Function
+
+
 End Class

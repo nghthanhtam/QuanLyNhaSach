@@ -93,10 +93,6 @@
         Panel_LoadUC.Controls.Clear()
         Panel_LoadUC.Controls.Add(New UC_TraCuuSach())
 
-
-
-        '  New UC_TraCuuSach(
-
     End Sub
 
     Private Sub btn_LapPhieuNhapSach_Click(sender As Object, e As EventArgs) Handles btn_LapPhieuNhapSach.Click
@@ -143,4 +139,10 @@
         Panel_LoadUC.Controls.Clear()
         Panel_LoadUC.Controls.Add(New UC_LapBaoCaoTon())
     End Sub
+
+    Private Sub btn_LapBaoCaoCongNo_Click(sender As Object, e As EventArgs) Handles btn_LapBaoCaoCongNo.Click
+        Panel_LoadUC.Controls.Clear()
+        Panel_LoadUC.Controls.Add(New UC_LapBaoCaoCongNo())
+    End Sub
+
 End Class

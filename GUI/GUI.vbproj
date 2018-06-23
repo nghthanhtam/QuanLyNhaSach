@@ -129,6 +129,12 @@
     <Compile Include="ThanhTrangThaiTren.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UC_LapBaoCaoCongNo.Designer.vb">
+      <DependentUpon>UC_LapBaoCaoCongNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UC_LapBaoCaoCongNo.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UC_LapBaoCaoTon.Designer.vb">
       <DependentUpon>UC_LapBaoCaoTon.vb</DependentUpon>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThanhTrangThaiTren.resx">
       <DependentUpon>ThanhTrangThaiTren.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_LapBaoCaoCongNo.resx">
+      <DependentUpon>UC_LapBaoCaoCongNo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_LapBaoCaoTon.resx">
       <DependentUpon>UC_LapBaoCaoTon.vb</DependentUpon>

@@ -22,6 +22,7 @@ Public Class UC_LapBaoCaoTon
 
 
     Public Sub InitDataGridViewBaoCaoTon()
+
         dgv_listBaoCaoTon.Columns.Clear()
 
         dgv_listBaoCaoTon.AutoGenerateColumns = False
@@ -86,9 +87,6 @@ Public Class UC_LapBaoCaoTon
         dgv_listBaoCaoTon.Columns.Add(clTonCuoi)
 
 
-
-
-
         Dim rong As Double = dgv_listBaoCaoTon.Width
 
         dgv_listBaoCaoTon.Columns("STT").Width = rong * 0.1
@@ -110,26 +108,31 @@ Public Class UC_LapBaoCaoTon
     End Sub
 
 
+
     Private Sub btn_XemBaoCao_Click(sender As Object, e As EventArgs) Handles btn_XemBaoCao.Click
 
-
-
-        res = chiTietBaoCaoTonBUS.ThongKeBaoCaoTon(DateTimePicker_ThangBaoCao.Value.Month, DateTimePicker_ThangBaoCao.Value.Year)
+        res = chiTietBaoCaoTonBUS.ThongKeBaoCaoTon(dtp_ThangBaoCao.Value.Month, dtp_ThangBaoCao.Value.Year)
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
 
-
         listChiTietBaoCao = CType(res.Obj1, List(Of Object))
 
         InitDataGridViewBaoCaoTon()
 
-        btn_LuuBaoCao.Enabled = True ' xem xong mới cho lưu
+        If dgv_listBaoCaoTon.RowCount = 0 Then
+            MessageBox.Show("Tháng này không có sự thay đổi về tồn sách!")
+        Else
+
+            btn_LuuBaoCao.Enabled = True ' xem xong mới cho lưu
+        End If
 
     End Sub
 
-    Private Sub DateTimePicker_ThangBaoCao_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker_ThangBaoCao.ValueChanged
+
+
+    Private Sub DateTimePicker_ThangBaoCao_ValueChanged(sender As Object, e As EventArgs) Handles dtp_ThangBaoCao.ValueChanged
 
         btn_LuuBaoCao.Enabled = False
 
@@ -140,7 +143,7 @@ Public Class UC_LapBaoCaoTon
         res = baoCaoTonBUS.GetNextIncrement()
         Dim MaBaoCaoTon As Integer = CType(res.Obj1, Integer)
 
-        res = baoCaoTonBUS.insert(New BaoCaoTon_DTO(DateTimePicker_ThangBaoCao.Value, DateTimePicker_NgayLap.Value))
+        res = baoCaoTonBUS.insert(New BaoCaoTon_DTO(dtp_ThangBaoCao.Value, dtp_NgayLap.Value))
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return

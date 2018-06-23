@@ -319,7 +319,7 @@ Public Class UC_LapHoaDon
     End Sub
 
 
-    Private Sub btn_Nhap_Click(sender As Object, e As EventArgs) Handles btn_Nhap.Click
+    Private Sub btn_Nhap_Click(sender As Object, e As EventArgs) Handles btn_LapHoaDon.Click
 
         If txt_SoTienNo.BackColor = Color.Red Then
             MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -425,8 +425,6 @@ Public Class UC_LapHoaDon
 
 
 #End Region
-
-
 
             i = i + 1
 
