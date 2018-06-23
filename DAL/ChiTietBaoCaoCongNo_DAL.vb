@@ -73,11 +73,11 @@ Public Class ChiTietBaoCaoCongNo_DAL
                 With comm
                     .CommandType = CommandType.Text
                     .CommandText = query
-                    .Parameters.AddWithValue("@MaBaoCaoTon", x.MaBaoCaoTon1)
-                    .Parameters.AddWithValue("@MaSach", x.MaSach1)
-                    .Parameters.AddWithValue("@TonDau", x.NoDau1)
+                    .Parameters.AddWithValue("@MaBaoCaoCongNo", x.MaBaoCaoCongNo1)
+                    .Parameters.AddWithValue("@MaKhachHang", x.MaKhachHang1)
+                    .Parameters.AddWithValue("@NoDau", x.NoDau1)
                     .Parameters.AddWithValue("@PhatSinh", x.PhatSinh1)
-                    .Parameters.AddWithValue("@TonCuoi", x.NoCuoi1)
+                    .Parameters.AddWithValue("@NoCuoi", x.NoCuoi1)
                 End With
 
                 Try

@@ -1,14 +1,14 @@
 ﻿Public Class ChiTietBaoCaoCongNo_DTO
     Private MaChiTietBaoCaoCongNo As Integer
-    Private MaBaoCaoTon As Integer
-    Private MaSach As Integer
+    Private MaBaoCaoCongNo As Integer
+    Private MaKhachHang As Integer
     Private NoDau As Integer
     Private PhatSinh As Integer
     Private NoCuoi As Integer
 
-    Public Sub New(maBaoCaoCongNo As Integer, maSach As Integer, noDau As Integer, phatSinh As Integer, noCuoi As Integer)
-        Me.MaBaoCaoTon1 = MaBaoCaoTon1
-        Me.MaSach1 = maSach
+    Public Sub New(maBaoCaoCongNo As Integer, maKH As Integer, noDau As Integer, phatSinh As Integer, noCuoi As Integer)
+        Me.MaBaoCaoCongNo1 = maBaoCaoCongNo
+        Me.MaKhachHang1 = maKH
         Me.NoDau1 = noDau
         Me.PhatSinh1 = phatSinh
         Me.NoCuoi1 = noCuoi
@@ -23,23 +23,7 @@
         End Set
     End Property
 
-    Public Property MaBaoCaoTon1 As Integer
-        Get
-            Return MaBaoCaoTon
-        End Get
-        Set(value As Integer)
-            MaBaoCaoTon = value
-        End Set
-    End Property
 
-    Public Property MaSach1 As Integer
-        Get
-            Return MaSach
-        End Get
-        Set(value As Integer)
-            MaSach = value
-        End Set
-    End Property
 
     Public Property NoDau1 As Integer
         Get
@@ -68,4 +52,21 @@
         End Set
     End Property
 
+    Public Property MaBaoCaoCongNo1 As Integer
+        Get
+            Return MaBaoCaoCongNo
+        End Get
+        Set(value As Integer)
+            MaBaoCaoCongNo = value
+        End Set
+    End Property
+
+    Public Property MaKhachHang1 As Integer
+        Get
+            Return MaKhachHang
+        End Get
+        Set(value As Integer)
+            MaKhachHang = value
+        End Set
+    End Property
 End Class
