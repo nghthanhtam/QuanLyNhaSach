@@ -21,7 +21,8 @@ Public Class UC_LapHoaDon
 
     Private res, res1 As Result
     Private stt As Integer
-
+    Private count As Integer
+    Private rowTrungTen As Integer
     Private ThongBaoTienNoVuotQuyDinh As String = ""
 
     Public Sub New()
@@ -53,6 +54,17 @@ Public Class UC_LapHoaDon
     End Sub
 
 
+#Region "Đổi màu khi sai quy định hoẵ cú pháp"
+    Private Sub ChangeColor_SaiQuyDinh(rowIndex As Integer)
+        dgv_listSach.Rows(rowIndex).DefaultCellStyle.BackColor = Color.OrangeRed
+    End Sub
+    Private Sub ChangeColor_SaiCuPhap(rowIndex As Integer)
+        dgv_listSach.Rows(rowIndex).DefaultCellStyle.BackColor = Color.GreenYellow
+    End Sub
+    Private Sub Original_Color(rowIndex As Integer)
+        dgv_listSach.Rows(rowIndex).DefaultCellStyle.BackColor = Nothing
+    End Sub
+#End Region
 
     Private Sub UC_LapHoaDon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Dock = DockStyle.Fill
@@ -213,8 +225,6 @@ Public Class UC_LapHoaDon
 
         Try
 
-
-
             'If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
             '    Return
             'End If
@@ -228,13 +238,22 @@ Public Class UC_LapHoaDon
                     Return
                 End If
 
+                'kt mã sách có đc nhập 2 lần ko
+                For i As Integer = 0 To dgv_listSach.Rows.Count - 1
+                    If dgv_listSach.Rows(i).Cells(1).Value = dgv_listSach.Rows(e.RowIndex).Cells(1).Value And i <> e.RowIndex Then
+                        ChangeColor_SaiQuyDinh(e.RowIndex)
+                        Exit For
+                    Else
+                        Original_Color(e.RowIndex)
+                    End If
+                Next
+
                 'Kiểm tra nhập đúng định dạng không?
                 res = sachBUS.isValidMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
                     dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = ""
-                    MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-                    Return
+                    'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ChangeColor_SaiCuPhap(e.RowIndex)
                 End If
 
                 'lấy thông tin sách theo mã đã nhập
@@ -283,19 +302,24 @@ Public Class UC_LapHoaDon
                 ' kiểm tra nhập đúng cú pháp không?
                 res = chiTietHoaDonBUS.isValidSoLuongBan(dgv_listSach.Rows(e.RowIndex).Cells(4).Value.ToString())
                 If (res.FlagResult = False) Then
-                    MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ChangeColor_SaiCuPhap(e.RowIndex)
                     dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
                     dgv_listSach.Rows(e.RowIndex).Cells(4).Value = "" ' xóa ô số lượng nhập
                     Return
+                Else
+                    Original_Color(e.RowIndex)
                 End If
 
 
                 slton = sach.SoLuongTon1 - Integer.Parse(dgv_listSach.Rows(e.RowIndex).Cells(4).Value)
                 Dim res2 As Result = chiTietHoaDonBUS.isValidSoLuongSachTon(slton)
                 If (res2.FlagResult = False) Then
-                    dgv_listSach.Rows(e.RowIndex).Cells(4).Value = (sach.SoLuongTon1 - CInt(res2.Obj1)).ToString() 'SL có thể bán  = tồn sách - QĐ
-                    MessageBox.Show(res2.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    'MessageBox.Show(res2.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ChangeColor_SaiQuyDinh(e.RowIndex)
                     Return
+                Else
+                    Original_Color(e.RowIndex)
                 End If
 
 
@@ -321,6 +345,12 @@ Public Class UC_LapHoaDon
 
 
     Private Sub btn_Nhap_Click(sender As Object, e As EventArgs) Handles btn_LapHoaDon.Click
+        For j As Integer = 0 To dgv_listSach.Rows.Count - 1
+            If dgv_listSach.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSach.Rows(j).DefaultCellStyle.BackColor = Color.GreenYellow Then
+                MessageBox.Show("Một số dòng nhập liệu sai quy định. Vui lòng kiểm tra lại!")
+                Return
+            End If
+        Next
 
         If txt_SoTienNo.BackColor = Color.Red Then
             MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -331,7 +361,6 @@ Public Class UC_LapHoaDon
             MessageBox.Show("Bạn chưa nhập thông tin khách hàng!" + Environment.NewLine + "Hoặc thông tin khách hàng không chính xác!", "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
-
 
 
         'insert vào hóa đơn
@@ -442,12 +471,33 @@ Public Class UC_LapHoaDon
 
     End Sub
 
-
     Private Sub dgv_listSach_Enter(sender As Object, e As EventArgs) Handles dgv_listSach.Enter
         If txt_SoTienNo.BackColor = Color.Red Then
             MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
+
+
+    Private Sub dgv_listSach_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles dgv_listSach.UserDeletingRow
+        'kt mã sách có đc nhập 2 lần ko
+        count = 0
+        For i As Integer = 0 To dgv_listSach.Rows.Count - 1
+            If dgv_listSach.Rows(i).Cells(1).Value = dgv_listSach.Rows(e.Row.Index).Cells(1).Value And i <> e.Row.Index Then
+                count = count + 1
+                rowTrungTen = i 'lấy vị trí của dòng có mã sách trùng
+            End If
+        Next
+
+        If count = 1 Then
+            Original_Color(rowTrungTen)
+        End If
+
+        'Cập nhật lại stt khi 1 dòng bị xóa
+        For i As Integer = e.Row.Index To dgv_listSach.Rows.Count - 1
+            dgv_listSach.Rows(i).Cells(0).Value = dgv_listSach.Rows(i).Cells(0).Value - 1
+        Next
+    End Sub
+
 
 
 End Class

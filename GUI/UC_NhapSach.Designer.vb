@@ -29,6 +29,10 @@ Partial Class UC_NhapSach
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txt_MaPhieuNhap = New System.Windows.Forms.TextBox()
         Me.lblMaPhieuNhap = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txt_SLnhapToiThieu = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txt_SLtonToiDa = New System.Windows.Forms.TextBox()
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -37,16 +41,16 @@ Partial Class UC_NhapSach
         Me.dtp_NgayNhap.CustomFormat = "dd/MM/yyyy"
         Me.dtp_NgayNhap.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.dtp_NgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtp_NgayNhap.Location = New System.Drawing.Point(448, 54)
+        Me.dtp_NgayNhap.Location = New System.Drawing.Point(171, 74)
         Me.dtp_NgayNhap.Name = "dtp_NgayNhap"
-        Me.dtp_NgayNhap.Size = New System.Drawing.Size(200, 23)
+        Me.dtp_NgayNhap.Size = New System.Drawing.Size(113, 23)
         Me.dtp_NgayNhap.TabIndex = 0
         '
         'lbl_NgayNhap
         '
         Me.lbl_NgayNhap.AutoSize = True
         Me.lbl_NgayNhap.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.lbl_NgayNhap.Location = New System.Drawing.Point(360, 58)
+        Me.lbl_NgayNhap.Location = New System.Drawing.Point(62, 77)
         Me.lbl_NgayNhap.Name = "lbl_NgayNhap"
         Me.lbl_NgayNhap.Size = New System.Drawing.Size(81, 17)
         Me.lbl_NgayNhap.TabIndex = 1
@@ -56,7 +60,7 @@ Partial Class UC_NhapSach
         '
         Me.dgv_listSachNhap.BackgroundColor = System.Drawing.SystemColors.ButtonFace
         Me.dgv_listSachNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_listSachNhap.Location = New System.Drawing.Point(26, 101)
+        Me.dgv_listSachNhap.Location = New System.Drawing.Point(26, 105)
         Me.dgv_listSachNhap.Name = "dgv_listSachNhap"
         Me.dgv_listSachNhap.Size = New System.Drawing.Size(681, 389)
         Me.dgv_listSachNhap.TabIndex = 2
@@ -68,7 +72,7 @@ Partial Class UC_NhapSach
         Me.btn_NhapSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_NhapSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_NhapSach.ForeColor = System.Drawing.Color.White
-        Me.btn_NhapSach.Location = New System.Drawing.Point(100, 496)
+        Me.btn_NhapSach.Location = New System.Drawing.Point(92, 502)
         Me.btn_NhapSach.Name = "btn_NhapSach"
         Me.btn_NhapSach.Size = New System.Drawing.Size(90, 33)
         Me.btn_NhapSach.TabIndex = 3
@@ -90,29 +94,75 @@ Partial Class UC_NhapSach
         'txt_MaPhieuNhap
         '
         Me.txt_MaPhieuNhap.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_MaPhieuNhap.Location = New System.Drawing.Point(167, 54)
-        Me.txt_MaPhieuNhap.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_MaPhieuNhap.Location = New System.Drawing.Point(171, 44)
+        Me.txt_MaPhieuNhap.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_MaPhieuNhap.Name = "txt_MaPhieuNhap"
         Me.txt_MaPhieuNhap.ReadOnly = True
-        Me.txt_MaPhieuNhap.Size = New System.Drawing.Size(92, 23)
+        Me.txt_MaPhieuNhap.Size = New System.Drawing.Size(113, 23)
         Me.txt_MaPhieuNhap.TabIndex = 28
         '
         'lblMaPhieuNhap
         '
         Me.lblMaPhieuNhap.AutoSize = True
         Me.lblMaPhieuNhap.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMaPhieuNhap.Location = New System.Drawing.Point(62, 57)
+        Me.lblMaPhieuNhap.Location = New System.Drawing.Point(62, 47)
         Me.lblMaPhieuNhap.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblMaPhieuNhap.Name = "lblMaPhieuNhap"
-        Me.lblMaPhieuNhap.Size = New System.Drawing.Size(105, 17)
+        Me.lblMaPhieuNhap.Size = New System.Drawing.Size(109, 17)
         Me.lblMaPhieuNhap.TabIndex = 25
-        Me.lblMaPhieuNhap.Text = "Mã Phiếu Nhập"
+        Me.lblMaPhieuNhap.Text = "Mã Phiếu Nhập:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(403, 41)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(158, 17)
+        Me.Label1.TabIndex = 37
+        Me.Label1.Text = "Số lượng nhâp tối thiểu:"
+        '
+        'txt_SLnhapToiThieu
+        '
+        Me.txt_SLnhapToiThieu.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_SLnhapToiThieu.Location = New System.Drawing.Point(561, 39)
+        Me.txt_SLnhapToiThieu.Margin = New System.Windows.Forms.Padding(2)
+        Me.txt_SLnhapToiThieu.Name = "txt_SLnhapToiThieu"
+        Me.txt_SLnhapToiThieu.ReadOnly = True
+        Me.txt_SLnhapToiThieu.Size = New System.Drawing.Size(101, 23)
+        Me.txt_SLnhapToiThieu.TabIndex = 38
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(403, 74)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(131, 17)
+        Me.Label2.TabIndex = 39
+        Me.Label2.Text = "Số lượng tồn tối đa:"
+        '
+        'txt_SLtonToiDa
+        '
+        Me.txt_SLtonToiDa.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_SLtonToiDa.Location = New System.Drawing.Point(561, 72)
+        Me.txt_SLtonToiDa.Margin = New System.Windows.Forms.Padding(2)
+        Me.txt_SLtonToiDa.Name = "txt_SLtonToiDa"
+        Me.txt_SLtonToiDa.ReadOnly = True
+        Me.txt_SLtonToiDa.Size = New System.Drawing.Size(101, 23)
+        Me.txt_SLtonToiDa.TabIndex = 40
         '
         'UC_NhapSach
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Controls.Add(Me.txt_SLtonToiDa)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txt_SLnhapToiThieu)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblMaPhieuNhap)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.btn_NhapSach)
@@ -121,7 +171,7 @@ Partial Class UC_NhapSach
         Me.Controls.Add(Me.lbl_NgayNhap)
         Me.Controls.Add(Me.dtp_NgayNhap)
         Me.Name = "UC_NhapSach"
-        Me.Size = New System.Drawing.Size(734, 544)
+        Me.Size = New System.Drawing.Size(734, 548)
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -135,4 +185,8 @@ Partial Class UC_NhapSach
     Friend WithEvents Label7 As Label
     Friend WithEvents txt_MaPhieuNhap As TextBox
     Friend WithEvents lblMaPhieuNhap As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txt_SLnhapToiThieu As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txt_SLtonToiDa As TextBox
 End Class
