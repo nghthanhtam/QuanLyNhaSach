@@ -243,4 +243,8 @@ Public Class UC_LapPhieuThuTien
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub txt_SoTienThu_TextChanged(sender As Object, e As EventArgs) Handles txt_SoTienThu.TextChanged
+
+    End Sub
 End Class

@@ -16,7 +16,6 @@ Public Class frm_ThemSach
     End Sub
 
     Private Sub ReloadTheLoai()
-
         res = sachBUS.SelectALL_ListTheLoai()
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -47,7 +46,6 @@ Public Class frm_ThemSach
 
 
     Private Sub btn_Luu_Click(sender As Object, e As EventArgs) Handles btn_Luu.Click
-
 
 #Region "Kiểm Tra nhập Tên sách"
         res = sachBUS.isValidTenSach(txt_TenSach.Text)
@@ -125,5 +123,20 @@ Public Class frm_ThemSach
         Me.Close()
     End Sub
 
+
+    Private Sub txt_TenSach_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_TenSach.KeyDown, txt_TacGia.KeyDown, txt_DonGia.KeyDown, cbb_TheLoai.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            txt_TenSach.Text = ""
+            txt_TacGia.Text = ""
+            cbb_TheLoai.Text = ""
+            txt_DonGia.Text = ""
+            lbl_ThongBaoNhanEscape.Visible = False
+        End If
+
+    End Sub
+
+    Private Sub txt_TenSach_TextChanged(sender As Object, e As EventArgs) Handles txt_TenSach.TextChanged, txt_TacGia.TextChanged, txt_DonGia.TextChanged, cbb_TheLoai.TextChanged
+        lbl_ThongBaoNhanEscape.Visible = True
+    End Sub
 
 End Class

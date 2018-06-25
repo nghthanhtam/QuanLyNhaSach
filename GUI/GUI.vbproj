@@ -72,6 +72,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBSACHDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBSACHDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frm_CapNhatKhachHang.Designer.vb">
       <DependentUpon>frm_CapNhatKhachHang.vb</DependentUpon>
     </Compile>
@@ -100,6 +105,12 @@
       <DependentUpon>frm_ThemKhachHang.vb</DependentUpon>
     </Compile>
     <Compile Include="frm_ThemKhachHang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ThemNhieuSach.Designer.vb">
+      <DependentUpon>frm_ThemNhieuSach.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ThemNhieuSach.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_ThemSach.Designer.vb">
@@ -206,6 +217,9 @@
     <EmbeddedResource Include="frm_ThemKhachHang.resx">
       <DependentUpon>frm_ThemKhachHang.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_ThemNhieuSach.resx">
+      <DependentUpon>frm_ThemNhieuSach.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_ThemSach.resx">
       <DependentUpon>frm_ThemSach.vb</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +265,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DBSACHDataSet.xsc">
+      <DependentUpon>DBSACHDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBSACHDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBSACHDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBSACHDataSet.xss">
+      <DependentUpon>DBSACHDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

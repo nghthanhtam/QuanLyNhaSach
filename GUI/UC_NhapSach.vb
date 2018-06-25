@@ -158,7 +158,6 @@ Public Class UC_NhapSach
         End If
 
         Try
-
             If (e.ColumnIndex = 5) Then
 
                 If dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value.ToString = String.Empty Then
@@ -178,9 +177,18 @@ Public Class UC_NhapSach
             If (e.ColumnIndex = 0) Then
                 res = sachBUS.isValidMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
-                    MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
                     Return
                 End If
+
+                'kt mã sách có đc nhập 2 lần ko
+                For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
+                    If dgv_listSachNhap.Rows(i).Cells(0).Value = dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value And i <> e.RowIndex Then
+                        dgv_listSachNhap.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.OrangeRed
+                    End If
+                Next
+                ''''''''''''''''''''''''''''''''
 
                 res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
                 If (res.FlagResult = False) Then
@@ -195,7 +203,6 @@ Public Class UC_NhapSach
                     MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Return
                 End If
-
 
 
 
@@ -214,7 +221,7 @@ Public Class UC_NhapSach
                 res1 = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res1.FlagResult = False) Then
                     MessageBox.Show(res1.ApplicationMessage, "lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = thamSoDTO.SoLuongNhapToiThieu1
+                    dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = thamSoDTO.SoLuongNhapToiThieu1 'gán cho sl nhập thành mặc định nếu ng dùng nhập sai
                     Return
                 End If
             End If
@@ -225,28 +232,34 @@ Public Class UC_NhapSach
         Catch ex As Exception
 
         End Try
-
-
-
-
     End Sub
 
-    Private Sub btn_NhapSach_Click(sender As Object, e As EventArgs) Handles btn_NhapSach.Click
-#Region "Thêm thông tin phiếu nhập vào PHIEUNHAP"
-        With phieuNhapDTO
-            phieuNhapDTO.NgayNhap1 = dtp_NgayNhap.Value
-        End With
 
-        res = phieuNhapBUS.insertPhieuNhap(phieuNhapDTO)
-        If (res.FlagResult = False) Then
-            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
-        End If
+    Private Sub btn_NhapSach_Click(sender As Object, e As EventArgs) Handles btn_NhapSach.Click
+        For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
+            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Then
+                MessageBox.Show("Một số dòng nhập liệu sai quy định. Dữ liệu sẽ không được thêm vào!")
+                Return
+            End If
+        Next
+#Region "Thêm thông tin phiếu nhập vào PHIEUNHAP"
+
+        With phieuNhapDTO
+                phieuNhapDTO.NgayNhap1 = dtp_NgayNhap.Value
+            End With
+
+            res = phieuNhapBUS.insertPhieuNhap(phieuNhapDTO)
+            If (res.FlagResult = False) Then
+                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
 #End Region
 
-        Dim i As Integer
-        i = 0
+            Dim i As Integer
+            i = 0
         Do
+
             With chiTietPhieuNhapDTO
                 .MaPhieuNhap1 = Integer.Parse(txt_MaPhieuNhap.Text)
                 .MaSach1 = dgv_listSachNhap.Rows(i).Cells(0).Value
@@ -293,8 +306,10 @@ Public Class UC_NhapSach
         Loop Until (False) 'ko con` ma phieu nhap
 
         MessageBox.Show("Lập phiếu nhập sách thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        reloadMaPhieuNhap()
-        dgv_listSachNhap.Rows.Clear()
+            reloadMaPhieuNhap()
+            dgv_listSachNhap.Rows.Clear()
+
+
     End Sub
 
 

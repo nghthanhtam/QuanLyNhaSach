@@ -14,7 +14,7 @@ Public Class ChiTietBaoCaoCongNo_BUS
         Return chiTietBaoCaoCongNoDAL.ThongKeBaoCaoCongNo(Thang, Nam)
     End Function
 
-    Public Function insert(x As ChiTietBaoCaoTon_DTO) As Result
+    Public Function insert(x As ChiTietBaoCaoCongNo_DTO) As Result
         Return chiTietBaoCaoCongNoDAL.insert(x)
     End Function
 End Class

@@ -277,9 +277,14 @@ Public Class UC_QuanLiSach
 
         dgv_ListSach.DataSource = listSach
 
-
-
     End Sub
 
+
+    Private Sub btn_ThemNhieuSach_Click(sender As Object, e As EventArgs) Handles btn_ThemNhieuSach.Click
+        Dim f As New frm_ThemNhieuSach()
+        f.ShowDialog()
+
+        Reload_DataGridViewListSach() ' load lại dữ liệu
+    End Sub
 
 End Class

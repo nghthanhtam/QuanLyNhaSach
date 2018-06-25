@@ -108,6 +108,7 @@ Public Class UC_LapHoaDon
             .ReadOnly = True
             .DataPropertyName = "TheLoai1"
         End With
+
         dgv_listSach.Columns.Add(clTheLoai)
 
 

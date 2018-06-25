@@ -31,6 +31,9 @@ Public Class Sach_BUS
     End Function
 
     Public Function isValidTenSach(s As String) As Result
+        If (s = String.Empty) Then
+            Return New Result(False, Nothing, "Tên sách không được bỏ trống!")
+        End If
         If (s.Length < 1) Then
             Return New Result(False, Nothing, "Tên sách không được bỏ trống!")
         End If
