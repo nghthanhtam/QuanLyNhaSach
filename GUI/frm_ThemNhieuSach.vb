@@ -214,10 +214,11 @@ Public Class frm_ThemNhieuSach
 
 #Region "Cập nhật lại mã sách khi ng dùng xóa 1 dòng"
     Private Sub dgv_listSachNhap_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles dgv_listSachNhap.UserDeletingRow
-        'MessageBox.Show(e.Row.Index.ToString)
+
         For i As Integer = e.Row.Index To dgv_listSachNhap.Rows.Count - 1
             dgv_listSachNhap.Rows(i).Cells(0).Value = dgv_listSachNhap.Rows(i).Cells(0).Value - 1
         Next
+
     End Sub
 #End Region
 

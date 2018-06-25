@@ -20,7 +20,8 @@ Public Class UC_NhapSach
 
     Private res As Result
     Private res1 As Result
-
+    Private count As Integer
+    Private rowTrungTen As Integer
 
     Public Sub New()
         InitializeComponent()
@@ -53,16 +54,23 @@ Public Class UC_NhapSach
         txt_MaPhieuNhap.Text = CType(res.Obj1, Integer)
     End Sub
 
-    'Public Sub ReloadChiTietPhieuNhap()
-    '    res = chiTietPhieuNhapBUS.GetNextIncrement()
-    '    If (res.FlagResult = False) Then
-    '        MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '    End If
-    'End Sub
+#Region "Đổi màu khi sai quy định hoặc cú pháp"
+    Private Sub ChangeColor_SaiQuyDinh(rowIndex As Integer)
+        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Color.OrangeRed
+    End Sub
+    Private Sub ChangeColor_SaiCuPhap(rowIndex As Integer)
+        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Color.GreenYellow
+    End Sub
+    Private Sub Original_Color(rowIndex As Integer)
+        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Nothing
+    End Sub
+#End Region
 
     Private Sub UC_NhapSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         res = thamSoBUS.SelectAll_ThamSo()
         ts = CType(res.Obj1, ThamSo_DTO)
+        txt_SLnhapToiThieu.Text = ts.SoLuongNhapToiThieu1
+        txt_SLtonToiDa.Text = ts.SoLuongTonToiDa1
 
         Me.Dock = DockStyle.Fill
         Me.AutoScroll = True
@@ -70,8 +78,11 @@ Public Class UC_NhapSach
         InitColumnsDataGridViewListSach()
 
         'chỉnh màu cho các ô cho phép ng dùng nhập
-        dgv_listSachNhap.Columns(0).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
-        dgv_listSachNhap.Columns(5).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSachNhap.Columns(1).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSachNhap.Columns(2).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSachNhap.Columns(3).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSachNhap.Columns(4).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSachNhap.Columns(6).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
 
         reloadMaPhieuNhap()
 
@@ -152,6 +163,7 @@ Public Class UC_NhapSach
 
     End Sub
 
+
     Private Sub dgv_listSach_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_listSachNhap.CellValueChanged
         If (e.ColumnIndex <> 0 And e.ColumnIndex <> 5) Then
             Return
@@ -178,17 +190,22 @@ Public Class UC_NhapSach
                 res = sachBUS.isValidMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
                     'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+                    ChangeColor_SaiCuPhap(e.RowIndex)
                     Return
+                Else
+                    Original_Color(e.RowIndex)
                 End If
 
                 'kt mã sách có đc nhập 2 lần ko
                 For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
                     If dgv_listSachNhap.Rows(i).Cells(0).Value = dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value And i <> e.RowIndex Then
-                        dgv_listSachNhap.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.OrangeRed
+                        ChangeColor_SaiQuyDinh(e.RowIndex)
+                        Exit For
+                    Else
+                        Original_Color(e.RowIndex)
                     End If
                 Next
-                ''''''''''''''''''''''''''''''''
+
 
                 res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
                 If (res.FlagResult = False) Then
@@ -198,31 +215,34 @@ Public Class UC_NhapSach
                 End If
                 sach = CType(res.Obj1, Sach_DTO)
 
+
                 res = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1)
                 If (res.FlagResult = False) Then
-                    MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Return
+                    ChangeColor_SaiQuyDinh(e.RowIndex)
                 End If
 
 
 
                 'thêm dòng-cọt trong dtg
                 dgv_listSachNhap.Item("TenSach", e.RowIndex).Value = sach.TenSach1
-                dgv_listSachNhap.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
-                dgv_listSachNhap.Item("TacGia", e.RowIndex).Value = sach.TacGia1
-                dgv_listSachNhap.Item("SoLuongTon", e.RowIndex).Value = sach.SoLuongTon1
-                dgv_listSachNhap.Item("DonGia", e.RowIndex).Value = sach.DonGia1
+                    dgv_listSachNhap.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
+                    dgv_listSachNhap.Item("TacGia", e.RowIndex).Value = sach.TacGia1
+                    dgv_listSachNhap.Item("SoLuongTon", e.RowIndex).Value = sach.SoLuongTon1
+                    dgv_listSachNhap.Item("DonGia", e.RowIndex).Value = sach.DonGia1
 
 
-                Return
-            End If
+                    Return
+                End If
 
-            If (e.ColumnIndex = 5) Then 'nhập vào số lượng sách nhập
+                If (e.ColumnIndex = 5) Then 'nhập vào số lượng sách nhập
                 res1 = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res1.FlagResult = False) Then
-                    MessageBox.Show(res1.ApplicationMessage, "lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = thamSoDTO.SoLuongNhapToiThieu1 'gán cho sl nhập thành mặc định nếu ng dùng nhập sai
+                    'MessageBox.Show(res1.ApplicationMessage, "lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    'dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = thamSoDTO.SoLuongNhapToiThieu1 'gán cho sl nhập thành mặc định nếu ng dùng nhập sai
+                    ChangeColor_SaiQuyDinh(e.RowIndex)
                     Return
+                Else
+                    Original_Color(e.RowIndex)
                 End If
             End If
 #End Region
@@ -237,11 +257,12 @@ Public Class UC_NhapSach
 
     Private Sub btn_NhapSach_Click(sender As Object, e As EventArgs) Handles btn_NhapSach.Click
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
-            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Then
-                MessageBox.Show("Một số dòng nhập liệu sai quy định. Dữ liệu sẽ không được thêm vào!")
+            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.GreenYellow Then
+                MessageBox.Show("Một số dòng nhập liệu sai quy định. Vui lòng kiểm tra lại!")
                 Return
             End If
         Next
+
 #Region "Thêm thông tin phiếu nhập vào PHIEUNHAP"
 
         With phieuNhapDTO
@@ -310,6 +331,22 @@ Public Class UC_NhapSach
             dgv_listSachNhap.Rows.Clear()
 
 
+    End Sub
+
+
+    Private Sub dgv_listSachNhap_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles dgv_listSachNhap.UserDeletingRow
+        'kt mã sách có đc nhập 2 lần ko
+        count = 0
+        For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
+            If dgv_listSachNhap.Rows(i).Cells(0).Value = dgv_listSachNhap.Rows(e.Row.Index).Cells(0).Value And i <> e.Row.Index Then
+                count = count + 1
+                rowTrungTen = i 'lấy vị trí của dòng có mã sách trùng
+            End If
+        Next
+
+        If count = 1 Then
+            Original_Color(rowTrungTen)
+        End If
     End Sub
 
 
