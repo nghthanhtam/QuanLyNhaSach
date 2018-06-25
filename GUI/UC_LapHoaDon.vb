@@ -190,7 +190,7 @@ Public Class UC_LapHoaDon
         If (res.FlagResult = False) Then
             Return
         Else
-            txt_SoTienNo.Text = res.Obj1.ToString()
+            txt_SoTienNo.Text = CDbl(res.Obj1).ToString() 'res.Obj1.ToString()
         End If
 
         ' kiểm tra nợ so với QĐ
