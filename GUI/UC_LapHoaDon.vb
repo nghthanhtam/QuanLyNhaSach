@@ -169,52 +169,62 @@ Public Class UC_LapHoaDon
 
 
     Private Sub txt_MaKH_TextChanged(sender As Object, e As EventArgs) Handles txt_MaKH.TextChanged, txt_MaHoaDon.TextChanged
-        'Lấy tên kh theo mã kh
-        If (txt_MaKH.Text = "") Then
-            txt_MaKH.Focus()
-            txt_HoTenKH.Text = ""
-            txt_SoTienNo.Text = ""
-            txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
-            Return
-        End If
 
-        If (sachBUS.isValidMaSach(txt_MaKH.Text).FlagResult = False) Then
-            txt_HoTenKH.Text = ""
-            txt_SoTienNo.Text = ""
-            Return
-        End If
+        Try
 
+            'Lấy tên kh theo mã kh
+            If (txt_MaKH.Text = "") Then
+                txt_MaKH.Focus()
+                txt_HoTenKH.Text = ""
+                txt_SoTienNo.Text = ""
+                txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
+                Return
+            End If
 
-        res = khachHangBUS.selectTenKH_ByMaKH(CInt(txt_MaKH.Text))
-        If (res.FlagResult = False) Then
-            'MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            txt_HoTenKH.Text = ""
-            txt_SoTienNo.Text = ""
-            txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
-            Return
-        End If
-        txt_HoTenKH.Text = CType(res.Obj1, String)
-        'Lấy tên kh theo mã kh
+            If (sachBUS.isValidMaSach(txt_MaKH.Text).FlagResult = False) Then
+                txt_HoTenKH.Text = ""
+                txt_SoTienNo.Text = ""
+                Return
+            End If
 
 
-        ' lấy thông tin tiền kh đang nợ
-        res = khachHangBUS.selectTienNo_KhachHang(CInt(txt_MaKH.Text))
-        If (res.FlagResult = False) Then
-            Return
-        Else
-            txt_SoTienNo.Text = CDbl(res.Obj1).ToString() 'res.Obj1.ToString()
-        End If
 
-        ' kiểm tra nợ so với QĐ
-        Dim res2 As Result = khachHangBUS.KiemTraNo(CDbl(txt_SoTienNo.Text))
-        If (res2.FlagResult = False) Then
-            txt_SoTienNo.BackColor = Color.Red
-            ThongBaoTienNoVuotQuyDinh = res2.ApplicationMessage
-            Return
-        Else
-            txt_SoTienNo.Text = res.Obj1.ToString()
-            txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
-        End If
+
+
+            res = khachHangBUS.selectTenKH_ByMaKH(CInt(txt_MaKH.Text))
+            If (res.FlagResult = False) Then
+                'MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                txt_HoTenKH.Text = ""
+                txt_SoTienNo.Text = ""
+                txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
+                Return
+            End If
+            txt_HoTenKH.Text = CType(res.Obj1, String)
+            'Lấy tên kh theo mã kh
+
+
+            ' lấy thông tin tiền kh đang nợ
+            res = khachHangBUS.selectTienNo_KhachHang(CInt(txt_MaKH.Text))
+            If (res.FlagResult = False) Then
+                Return
+            Else
+                txt_SoTienNo.Text = CDbl(res.Obj1).ToString() 'res.Obj1.ToString()
+            End If
+
+            ' kiểm tra nợ so với QĐ
+            Dim res2 As Result = khachHangBUS.KiemTraNo(CDbl(txt_SoTienNo.Text))
+            If (res2.FlagResult = False) Then
+                txt_SoTienNo.BackColor = Color.Red
+                ThongBaoTienNoVuotQuyDinh = res2.ApplicationMessage
+                Return
+            Else
+                txt_SoTienNo.Text = res.Obj1.ToString()
+                txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
+            End If
+
+        Catch ex As Exception
+            Debug.WriteLine(ex.Message)
+        End Try
     End Sub
 
 
@@ -225,9 +235,6 @@ Public Class UC_LapHoaDon
 
         Try
 
-            'If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
-            '    Return
-            'End If
 
 #Region "Quy định"
             If (e.ColumnIndex = 1) Then
@@ -251,17 +258,14 @@ Public Class UC_LapHoaDon
                 'Kiểm tra nhập đúng định dạng không?
                 res = sachBUS.isValidMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
-                    dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = ""
-                    'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     ChangeColor_SaiCuPhap(e.RowIndex)
                 End If
+
 
                 'lấy thông tin sách theo mã đã nhập
                 res = sachBUS.selectSach_ByMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
-                    dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = ""
                     MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
                     Return
                 End If
                 sach = CType(res.Obj1, Sach_DTO)
