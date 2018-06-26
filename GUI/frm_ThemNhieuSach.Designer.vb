@@ -104,6 +104,7 @@ Partial Class frm_ThemNhieuSach
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.dgv_listSachNhap)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.KeyPreview = True
         Me.Name = "frm_ThemNhieuSach"
         Me.Text = "frm_ThemNhieuSach"
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).EndInit()

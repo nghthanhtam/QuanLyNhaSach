@@ -77,6 +77,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBSACHDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DBSACHDataSet.vb">
+      <DependentUpon>DBSACHDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frm_CapNhatKhachHang.Designer.vb">
       <DependentUpon>frm_CapNhatKhachHang.vb</DependentUpon>
     </Compile>

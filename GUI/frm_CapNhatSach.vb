@@ -147,4 +147,11 @@ Public Class frm_CapNhatSach
         btn_Luu.PerformClick()
         Me.Close()
     End Sub
+
+    Private Sub frm_CapNhatSach_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Me.Close()
+        End If
+    End Sub
+
 End Class

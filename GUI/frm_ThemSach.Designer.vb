@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frm_ThemSach
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frm_ThemSach
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btn_Luu = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -225,9 +225,9 @@ Partial Class frm_ThemSach
         Me.lbl_ThongBaoNhanEscape.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_ThongBaoNhanEscape.Location = New System.Drawing.Point(106, 322)
         Me.lbl_ThongBaoNhanEscape.Name = "lbl_ThongBaoNhanEscape"
-        Me.lbl_ThongBaoNhanEscape.Size = New System.Drawing.Size(211, 15)
+        Me.lbl_ThongBaoNhanEscape.Size = New System.Drawing.Size(144, 15)
         Me.lbl_ThongBaoNhanEscape.TabIndex = 6
-        Me.lbl_ThongBaoNhanEscape.Text = "Nhấn esc để xóa thông tin đang nhập"
+        Me.lbl_ThongBaoNhanEscape.Text = "Nhấn esc để thoát nhanh"
         Me.lbl_ThongBaoNhanEscape.Visible = False
         '
         'frm_ThemSach
@@ -253,6 +253,7 @@ Partial Class frm_ThemSach
         Me.Controls.Add(Me.btn_LuuVaThoat)
         Me.Controls.Add(Me.btn_Luu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frm_ThemSach"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

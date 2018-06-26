@@ -10,9 +10,9 @@ Public Class frm_ThemSach
 
     Private Sub frm_ThemSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Panel_ThanhTrangThaiTren.Controls.Add(New ThanhTrangThaiTren("Thêm sách"))
-
         ReloadMaSach()
         ReloadTheLoai()
+        lbl_ThongBaoNhanEscape.Visible = False
     End Sub
 
     Private Sub ReloadTheLoai()
@@ -124,19 +124,16 @@ Public Class frm_ThemSach
     End Sub
 
 
-    Private Sub txt_TenSach_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_TenSach.KeyDown, txt_TacGia.KeyDown, txt_DonGia.KeyDown, cbb_TheLoai.KeyDown
-        If e.KeyCode = Keys.Escape Then
-            txt_TenSach.Text = ""
-            txt_TacGia.Text = ""
-            cbb_TheLoai.Text = ""
-            txt_DonGia.Text = ""
-            lbl_ThongBaoNhanEscape.Visible = False
-        End If
-
-    End Sub
-
     Private Sub txt_TenSach_TextChanged(sender As Object, e As EventArgs) Handles txt_TenSach.TextChanged, txt_TacGia.TextChanged, txt_DonGia.TextChanged, cbb_TheLoai.TextChanged
         lbl_ThongBaoNhanEscape.Visible = True
     End Sub
+
+
+    Private Sub frm_ThemSach_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Me.Close()
+        End If
+    End Sub
+
 
 End Class
