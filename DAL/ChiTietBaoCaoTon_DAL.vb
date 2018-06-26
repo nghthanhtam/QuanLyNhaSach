@@ -61,10 +61,10 @@ FROM
 	) tontruoc
 	ON tonthang.MaSach = tontruoc.MaSach
 
-	ORDER BY ISNULL(tonthang.MaSach, tontruoc.MaSach) ASC
-) AS thongke, SACH as sachfull
+ ) AS thongke, SACH as sachfull
  
 WHERE thongke.MaSach = sachfull.MaSach
+ORDER BY sachfull.MaSach ASC
 "
 
         Dim demSTT As Integer = 0

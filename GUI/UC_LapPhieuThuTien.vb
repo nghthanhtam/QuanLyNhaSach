@@ -65,6 +65,7 @@ Public Class UC_LapPhieuThuTien
             Return
         End If
         dgv_ListKhachHang.Refresh()
+        txt_TienNo.Text = khachHangDTO.TienNo1.ToString()
 #End Region
 
         MessageBox.Show("Đã thêm phiếu thu tiền mới thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)

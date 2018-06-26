@@ -4,6 +4,11 @@
     Private Thang As DateTime
     Private NgayLap As DateTime
 
+    Public Sub New(thang1 As Date, ngayLap1 As Date)
+        Me.Thang1 = thang1
+        Me.NgayLap1 = ngayLap1
+    End Sub
+
     Public Property MaBaoCaoCongNo1 As Integer
         Get
             Return MaBaoCaoCongNo

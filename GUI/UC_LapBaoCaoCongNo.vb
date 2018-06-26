@@ -6,9 +6,9 @@ Public Class UC_LapBaoCaoCongNo
 
 
     Private res As Result
-    Private chiTietBaoCaoTonBUS As New ChiTietBaoCaoTon_BUS()
+    Private chiTietBaoCaoCongNoBUS As New ChiTietBaoCaoCongNo_BUS()
     Private listChiTietBaoCao As List(Of Object)
-    Private baoCaoTonBUS As New BaoCaoTon_BUS
+    Private baoCaoCongNoBUS As New BaoCaoCongNo_BUS
 
 
 
@@ -41,26 +41,26 @@ Public Class UC_LapBaoCaoCongNo
 
         Dim clMaSach = New DataGridViewTextBoxColumn()
         With clMaSach
-            .Name = "MaSach"
-            .DataPropertyName = "MaSach"
-            .HeaderText = "Mã sách"
+            .Name = "MaKhachHang"
+            .DataPropertyName = "MaKhachHang"
+            .HeaderText = "Mã khách hàng"
             .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội dung
         End With
         dgv_listBaoCaoCongNo.Columns.Add(clMaSach)
 
         Dim clTenSach = New DataGridViewTextBoxColumn()
         With clTenSach
-            .Name = "TenSach"
-            .DataPropertyName = "TenSach"
-            .HeaderText = "Tên sách"
+            .Name = "HoTenKhachHang"
+            .DataPropertyName = "HoTenKhachHang"
+            .HeaderText = "Tên khách hàng"
         End With
         dgv_listBaoCaoCongNo.Columns.Add(clTenSach)
 
         Dim clTonDau = New DataGridViewTextBoxColumn()
         With clTonDau
-            .Name = "TonDau"
-            .DataPropertyName = "TonDau"
-            .HeaderText = "Tồn đầu"
+            .Name = "NoDau"
+            .DataPropertyName = "NoDau"
+            .HeaderText = "Nợ đầu"
             .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội dung
 
         End With
@@ -80,9 +80,9 @@ Public Class UC_LapBaoCaoCongNo
 
         Dim clTonCuoi = New DataGridViewTextBoxColumn()
         With clTonCuoi
-            .Name = "TonCuoi"
-            .DataPropertyName = "TonCuoi"
-            .HeaderText = "Tồn cuối"
+            .Name = "NoCuoi"
+            .DataPropertyName = "NoCuoi"
+            .HeaderText = "Nợ cuối"
             .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter ' Căn giữa nội dung
         End With
         dgv_listBaoCaoCongNo.Columns.Add(clTonCuoi)
@@ -91,11 +91,11 @@ Public Class UC_LapBaoCaoCongNo
         Dim rong As Double = dgv_listBaoCaoCongNo.Width
 
         dgv_listBaoCaoCongNo.Columns("STT").Width = rong * 0.1
-        dgv_listBaoCaoCongNo.Columns("MaSach").Width = rong * 0.15
-        dgv_listBaoCaoCongNo.Columns("TenSach").Width = rong * 0.3 - 20
-        dgv_listBaoCaoCongNo.Columns("TonDau").Width = rong * 0.15
+        dgv_listBaoCaoCongNo.Columns("MaKhachHang").Width = rong * 0.15
+        dgv_listBaoCaoCongNo.Columns("HoTenKhachHang").Width = rong * 0.3 - 20
+        dgv_listBaoCaoCongNo.Columns("NoDau").Width = rong * 0.15
         dgv_listBaoCaoCongNo.Columns("PhatSinh").Width = rong * 0.15
-        dgv_listBaoCaoCongNo.Columns("TonCuoi").Width = rong * 0.15
+        dgv_listBaoCaoCongNo.Columns("NoCuoi").Width = rong * 0.15
 
 
 
@@ -112,7 +112,7 @@ Public Class UC_LapBaoCaoCongNo
 
     Private Sub btn_XemBaoCao_Click(sender As Object, e As EventArgs) Handles btn_XemBaoCao.Click
 
-        res = chiTietBaoCaoTonBUS.ThongKeBaoCaoTon(dtp_ThangBaoCao.Value.Month, dtp_ThangBaoCao.Value.Year)
+        res = chiTietBaoCaoCongNoBUS.ThongKeBaoCaoCongNo(dtp_ThangBaoCao.Value.Month, dtp_ThangBaoCao.Value.Year)
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -123,9 +123,8 @@ Public Class UC_LapBaoCaoCongNo
         InitDataGridViewBaoCaoCongNo()
 
         If dgv_listBaoCaoCongNo.RowCount = 0 Then
-            MessageBox.Show("Tháng này không có sự thay đổi về tồn sách!")
+            MessageBox.Show("Tháng này không có sự thay đổi về công nợ!")
         Else
-
             btn_LuuBaoCao.Enabled = True ' xem xong mới cho lưu
         End If
 
@@ -141,10 +140,10 @@ Public Class UC_LapBaoCaoCongNo
 
     Private Sub btn_LuuBaoCao_Click(sender As Object, e As EventArgs) Handles btn_LuuBaoCao.Click
 
-        res = baoCaoTonBUS.GetNextIncrement()
-        Dim MaBaoCaoTon As Integer = CType(res.Obj1, Integer)
+        res = baoCaoCongNoBUS.GetNextIncrement()
+        Dim MaBaoCaoCongNo As Integer = CType(res.Obj1, Integer)
 
-        res = baoCaoTonBUS.insert(New BaoCaoTon_DTO(dtp_ThangBaoCao.Value, dtp_NgayLap.Value))
+        res = baoCaoCongNoBUS.insert(New BaoCaoCongNo_DTO(dtp_ThangBaoCao.Value, dtp_NgayLap.Value))
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
@@ -153,7 +152,7 @@ Public Class UC_LapBaoCaoCongNo
 
         For Each chitiet As Object In listChiTietBaoCao
 
-            res = chiTietBaoCaoTonBUS.insert(New ChiTietBaoCaoTon_DTO(MaBaoCaoTon, chitiet.MaSach, chitiet.TonDau, chitiet.PhatSinh, chitiet.TonCuoi))
+            res = chiTietBaoCaoCongNoBUS.insert(New ChiTietBaoCaoCongNo_DTO(MaBaoCaoCongNo, chitiet.MaKhachHang, chitiet.NoDau, chitiet.PhatSinh, chitiet.NoCuoi))
             If (res.FlagResult = False) Then
                 MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
