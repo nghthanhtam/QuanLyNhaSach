@@ -1,0 +1,4 @@
+﻿<?xml version="1.0"?>
+<ConfigDB>
+  <ConnectionString>Data Source=DESKTOP-OR1GVR9;Initial Catalog=DBSACH;Integrated Security=True</ConnectionString>
+</ConfigDB>

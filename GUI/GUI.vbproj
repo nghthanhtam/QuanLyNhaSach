@@ -89,6 +89,12 @@
     <Compile Include="frm_DangNhap.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_LoadDB.Designer.vb">
+      <DependentUpon>frm_LoadDB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_LoadDB.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_Main.Designer.vb">
       <DependentUpon>frm_Main.vb</DependentUpon>
     </Compile>
@@ -208,6 +214,9 @@
     <EmbeddedResource Include="frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_LoadDB.resx">
+      <DependentUpon>frm_LoadDB.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Main.resx">
       <DependentUpon>frm_Main.vb</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +311,11 @@
       <Project>{7db65ba2-93f5-47e3-9caa-16ddb116fdeb}</Project>
       <Name>Utility</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConfigDB.xml" />
+    <None Include="Resources\loaddb.gif" />
+    <None Include="Resources\load.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
