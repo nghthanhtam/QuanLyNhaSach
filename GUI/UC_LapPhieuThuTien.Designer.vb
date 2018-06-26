@@ -22,8 +22,8 @@ Partial Class UC_LapPhieuThuTien
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgv_ListKhachHang = New System.Windows.Forms.DataGridView()
         Me.txt_TimKiem = New System.Windows.Forms.TextBox()
         Me.txt_HoTen = New System.Windows.Forms.TextBox()
@@ -43,6 +43,7 @@ Partial Class UC_LapPhieuThuTien
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txt_SoTienThu = New System.Windows.Forms.TextBox()
         Me.txt_MaPhieuThu = New System.Windows.Forms.TextBox()
+        Me.lbl_XoaTimKiem = New System.Windows.Forms.Label()
         CType(Me.dgv_ListKhachHang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -56,28 +57,28 @@ Partial Class UC_LapPhieuThuTien
         Me.dgv_ListKhachHang.AllowUserToResizeRows = False
         Me.dgv_ListKhachHang.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgv_ListKhachHang.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ListKhachHang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ListKhachHang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.dgv_ListKhachHang.EnableHeadersVisualStyles = False
         Me.dgv_ListKhachHang.Location = New System.Drawing.Point(56, 237)
         Me.dgv_ListKhachHang.Margin = New System.Windows.Forms.Padding(2)
         Me.dgv_ListKhachHang.MultiSelect = False
         Me.dgv_ListKhachHang.Name = "dgv_ListKhachHang"
         Me.dgv_ListKhachHang.ReadOnly = True
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ListKhachHang.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ListKhachHang.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.dgv_ListKhachHang.RowTemplate.Height = 24
         Me.dgv_ListKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv_ListKhachHang.Size = New System.Drawing.Size(645, 287)
@@ -89,7 +90,7 @@ Partial Class UC_LapPhieuThuTien
         Me.txt_TimKiem.Location = New System.Drawing.Point(61, 197)
         Me.txt_TimKiem.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_TimKiem.Name = "txt_TimKiem"
-        Me.txt_TimKiem.Size = New System.Drawing.Size(279, 23)
+        Me.txt_TimKiem.Size = New System.Drawing.Size(297, 23)
         Me.txt_TimKiem.TabIndex = 34
         Me.txt_TimKiem.Text = "Tìm kiếm bằng Mã KH, Họ tên hoặc SĐT..."
         '
@@ -300,11 +301,23 @@ Partial Class UC_LapPhieuThuTien
         Me.txt_MaPhieuThu.Size = New System.Drawing.Size(199, 23)
         Me.txt_MaPhieuThu.TabIndex = 28
         '
+        'lbl_XoaTimKiem
+        '
+        Me.lbl_XoaTimKiem.AutoSize = True
+        Me.lbl_XoaTimKiem.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.lbl_XoaTimKiem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_XoaTimKiem.Location = New System.Drawing.Point(339, 201)
+        Me.lbl_XoaTimKiem.Name = "lbl_XoaTimKiem"
+        Me.lbl_XoaTimKiem.Size = New System.Drawing.Size(15, 15)
+        Me.lbl_XoaTimKiem.TabIndex = 51
+        Me.lbl_XoaTimKiem.Text = "X"
+        '
         'UC_LapPhieuThuTien
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.Controls.Add(Me.lbl_XoaTimKiem)
         Me.Controls.Add(Me.btn_LapPhieu)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -343,4 +356,5 @@ Partial Class UC_LapPhieuThuTien
     Friend WithEvents txt_MaPhieuThu As TextBox
     Friend WithEvents dtp_NgayThuTien As DateTimePicker
     Friend WithEvents Label3 As Label
+    Friend WithEvents lbl_XoaTimKiem As Label
 End Class

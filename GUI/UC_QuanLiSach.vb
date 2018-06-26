@@ -29,6 +29,7 @@ Public Class UC_QuanLiSach
     End Sub
 
     Private Sub UC_QuanLiSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lbl_XoaTimKiem.Visible = False
         Me.Dock = DockStyle.Fill
         Me.AutoScroll = True
 
@@ -245,16 +246,21 @@ Public Class UC_QuanLiSach
     Private Sub txt_TimKiem_Leave(sender As Object, e As EventArgs) Handles txt_TimKiem.Leave
         If txt_TimKiem.Text = "" Then
             txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..."
+            lbl_XoaTimKiem.Visible = False
+        Else
+            lbl_XoaTimKiem.Visible = True
         End If
 
     End Sub
 
     Private Sub txt_TimKiem_TextChanged(sender As Object, e As EventArgs) Handles txt_TimKiem.TextChanged
 
-
         If (txt_TimKiem.Text = "") Then
+            lbl_XoaTimKiem.Visible = False
             Reload_DataGridViewListSach()
             Return
+        Else
+            lbl_XoaTimKiem.Visible = True
         End If
 
 
@@ -285,6 +291,20 @@ Public Class UC_QuanLiSach
         f.ShowDialog()
 
         Reload_DataGridViewListSach() ' load lại dữ liệu
+    End Sub
+
+
+    Private Sub lbl_XoaTimKiem_Click(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.Click
+        txt_TimKiem.Text = ""
+        lbl_XoaTimKiem.Visible = False
+    End Sub
+
+    Private Sub lbl_XoaTimKiem_MouseHover(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.MouseHover
+        lbl_XoaTimKiem.BackColor = Color.WhiteSmoke
+    End Sub
+
+    Private Sub lbl_XoaTimKiem_MouseLeave(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.MouseLeave
+        lbl_XoaTimKiem.BackColor = Color.White
     End Sub
 
 End Class

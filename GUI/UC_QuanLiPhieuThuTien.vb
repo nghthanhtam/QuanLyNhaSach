@@ -10,7 +10,7 @@ Public Class UC_QuanLiPhieuThuTien
     Private Sub UC_QuanLiPhieuThuTien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Dock = DockStyle.Fill
         Me.AutoScroll = True
-
+        lbl_XoaTimKiem.Visible = False
         Reload_DataGridViewPhieuThuTien()
 
     End Sub
@@ -24,8 +24,12 @@ Public Class UC_QuanLiPhieuThuTien
     Private Sub txt_TimKiem_TextChanged(sender As Object, e As EventArgs) Handles txt_TimKiem.TextChanged
 
         If (txt_TimKiem.Text = "") Then
+            lbl_XoaTimKiem.Visible = False
             Reload_DataGridViewPhieuThuTien()
             Return
+        Else
+            lbl_XoaTimKiem.Visible = True
+
         End If
 
 
@@ -51,17 +55,18 @@ Public Class UC_QuanLiPhieuThuTien
 
         End Try
 
-
-
-
-
         dgv_PhieuThuTien.DataSource = listPhieuThuTien
 
     End Sub
 
+
+
     Private Sub txt_TimKiem_Leave(sender As Object, e As EventArgs) Handles txt_TimKiem.Leave
         If (txt_TimKiem.Text = "") Then
             txt_TimKiem.Text = "Tìm kiếm bằng Mã Phiếu Thu"
+            lbl_XoaTimKiem.Visible = False
+        Else
+            lbl_XoaTimKiem.Visible = True
         End If
     End Sub
 
@@ -167,7 +172,7 @@ Public Class UC_QuanLiPhieuThuTien
         End If
 
         Dim Obj As Object
-       Try
+        Try
 
             Dim IdDongHienTai As Integer = dgv_PhieuThuTien.CurrentRow.Index
 
@@ -189,7 +194,20 @@ Public Class UC_QuanLiPhieuThuTien
 
 
         End Try
-
-
     End Sub
+
+
+    Private Sub lbl_XoaTimKiem_Click(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.Click
+        txt_TimKiem.Text = ""
+        lbl_XoaTimKiem.Visible = False
+    End Sub
+
+    Private Sub lbl_XoaTimKiem_MouseHover(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.MouseHover
+        lbl_XoaTimKiem.BackColor = Color.WhiteSmoke
+    End Sub
+
+    Private Sub lbl_XoaTimKiem_MouseLeave(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.MouseLeave
+        lbl_XoaTimKiem.BackColor = Color.White
+    End Sub
+
 End Class

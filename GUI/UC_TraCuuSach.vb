@@ -155,8 +155,13 @@ Public Class UC_TraCuuSach
     Private Sub txt_TimKiem_Leave(sender As Object, e As EventArgs) Handles txt_TimKiem.Leave
         If txt_TimKiem.Text = "" Then
             txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..."
+            lbl_XoaTimKiem.Visible = False
+        Else
+            lbl_XoaTimKiem.Visible = True
         End If
-        lbl_XoaTimKiem.Visible = False
+
+
+
     End Sub
 
     Private Sub txt_TimKiem_TextChanged(sender As Object, e As EventArgs) Handles txt_TimKiem.TextChanged
@@ -169,7 +174,6 @@ Public Class UC_TraCuuSach
         Reload_DataGridViewListSach()
 
         Return
-
 
 
         '        If (txt_TimKiem.Text = "") Then

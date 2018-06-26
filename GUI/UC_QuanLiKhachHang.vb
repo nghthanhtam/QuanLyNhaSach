@@ -32,7 +32,7 @@ Public Class UC_QuanLiKhachHang
     End Sub
 
     Private Sub UC_QuanLiKhachHang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        lbl_XoaTimKiem.Visible = False
         Me.Dock = DockStyle.Fill
         Me.AutoScroll = True
 
@@ -177,29 +177,37 @@ Public Class UC_QuanLiKhachHang
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
+
 
     Private Sub txt_TimKiem_Click(sender As Object, e As EventArgs) Handles txt_TimKiem.Click
         If txt_TimKiem.Text = "Tìm kiếm bằng Mã KH, Họ tên hoặc SĐT..." Then
             txt_TimKiem.Text = ""
-
         End If
 
     End Sub
+
 
     Private Sub txt_TimKiem_Leave(sender As Object, e As EventArgs) Handles txt_TimKiem.Leave
         If txt_TimKiem.Text = "" Then
             txt_TimKiem.Text = "Tìm kiếm bằng Mã KH, Họ tên hoặc SĐT..."
+            lbl_XoaTimKiem.Visible = False
+        Else
+            lbl_XoaTimKiem.Visible = True
         End If
     End Sub
+
 
     Private Sub txt_TimKiem_TextChanged(sender As Object, e As EventArgs) Handles txt_TimKiem.TextChanged
 
         If (txt_TimKiem.Text = "") Then
+            lbl_XoaTimKiem.Visible = False
             Reload_DataGridViewListKhachHang()
             Return
+        Else
+            lbl_XoaTimKiem.Visible = True
+
         End If
 
 
@@ -218,13 +226,10 @@ Public Class UC_QuanLiKhachHang
 
         listKhachHang = CType(res.Obj1, List(Of KhachHang_DTO))
 
-
-
-
-
         dgv_ListKhachHang.DataSource = listKhachHang
 
     End Sub
+
 
     Private Sub btn_Xoa_Click(sender As Object, e As EventArgs) Handles btn_Xoa.Click
 
@@ -245,9 +250,23 @@ Public Class UC_QuanLiKhachHang
 
             End If
 
-
-
         End If
 
     End Sub
+
+
+
+    Private Sub lbl_XoaTimKiem_Click(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.Click
+        txt_TimKiem.Text = ""
+        lbl_XoaTimKiem.Visible = False
+    End Sub
+
+    Private Sub lbl_XoaTimKiem_MouseHover(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.MouseHover
+        lbl_XoaTimKiem.BackColor = Color.WhiteSmoke
+    End Sub
+
+    Private Sub lbl_XoaTimKiem_MouseLeave(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.MouseLeave
+        lbl_XoaTimKiem.BackColor = Color.White
+    End Sub
+
 End Class

@@ -41,6 +41,9 @@ Public Class Sach_BUS
     End Function
 
     Public Function isValidTheLoai(s As String) As Result
+        If (s = String.Empty) Then
+            Return New Result(False, Nothing, "Bạn chưa nhập hoặc chọn thể loại sách!")
+        End If
         If (s.Length < 1) Then
             Return New Result(False, Nothing, "Bạn chưa nhập hoặc chọn thể loại sách!")
         End If
@@ -49,6 +52,9 @@ Public Class Sach_BUS
 
 
     Public Function isValidTacGia(text As String) As Result
+        If text = String.Empty Then
+            Return New Result(False, Nothing, "Tên tác giả không được bỏ trống!")
+        End If
         If (text.Length < 1) Then
             Return New Result(False, Nothing, "Tên tác giả không được bỏ trống!")
         End If
@@ -57,6 +63,9 @@ Public Class Sach_BUS
 
 
     Public Function isValidLuongTon(text As String) As Result
+        If text = String.Empty Then
+            Return New Result(False, Nothing, "Số lượng tồn không được bỏ trống!")
+        End If
         If (text.Length < 1) Then
             Return New Result(False, Nothing, "Số lượng tồn không được bỏ trống!")
         End If
@@ -72,6 +81,9 @@ Public Class Sach_BUS
     End Function
 
     Public Function isValidDonGia(text As String) As Result
+        If text = String.Empty Then
+            Return New Result(False, Nothing, "Đơn giá không được bỏ trống!")
+        End If
         If (text.Length < 1) Then
             Return New Result(False, Nothing, "Đơn giá không được bỏ trống!")
         End If

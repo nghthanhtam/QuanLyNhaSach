@@ -73,8 +73,10 @@ Public Class UC_LapHoaDon
         InitColumnsDataGridViewListSach()
 
         'chỉnh màu cho các ô cho phép ng dùng nhập
-        dgv_listSach.Columns(1).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
-        dgv_listSach.Columns(4).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSach.Columns(2).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSach.Columns(3).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSach.Columns(5).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSach.Columns(7).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
 
         dgv_listSach.Item("STT", 0).Value = 1
         stt = 1
@@ -170,8 +172,11 @@ Public Class UC_LapHoaDon
 
     Private Sub txt_MaKH_TextChanged(sender As Object, e As EventArgs) Handles txt_MaKH.TextChanged, txt_MaHoaDon.TextChanged
 
-        Try
+        dgv_listSach.Rows.Clear()
+        dgv_listSach.Item("STT", 0).Value = 1
+        stt = 1
 
+        Try
             'Lấy tên kh theo mã kh
             If (txt_MaKH.Text = "") Then
                 txt_MaKH.Focus()
@@ -214,7 +219,7 @@ Public Class UC_LapHoaDon
             ' kiểm tra nợ so với QĐ
             Dim res2 As Result = khachHangBUS.KiemTraNo(CDbl(txt_SoTienNo.Text))
             If (res2.FlagResult = False) Then
-                txt_SoTienNo.BackColor = Color.Red
+                txt_SoTienNo.BackColor = Color.OrangeRed
                 ThongBaoTienNoVuotQuyDinh = res2.ApplicationMessage
                 Return
             Else
@@ -327,7 +332,7 @@ Public Class UC_LapHoaDon
                 End If
 
 
-                dgv_listSach.Item("ThanhTien", e.RowIndex).Value = Double.Parse(sach.DonGia1) * Integer.Parse(dgv_listSach.Item("SoLuongNhap", e.RowIndex).Value)
+                dgv_listSach.Item("ThanhTien", e.RowIndex).Value = Double.Parse(dgv_listSach.Item("DonGia", e.RowIndex).Value) * Integer.Parse(dgv_listSach.Item("SoLuongNhap", e.RowIndex).Value)
 
 
 
@@ -336,19 +341,28 @@ Public Class UC_LapHoaDon
 #End Region
 
 
-
-
         Catch ex As Exception
 
         End Try
-
-
 
 
     End Sub
 
 
     Private Sub btn_Nhap_Click(sender As Object, e As EventArgs) Handles btn_LapHoaDon.Click
+
+        For j As Integer = 0 To dgv_listSach.Rows.Count - 1
+            'Những hàng điền chưa đủ thông tin sẽ báo lỗi
+            If dgv_listSach.Rows(j).Cells(1).Value <> "" Then
+                If dgv_listSach.Rows(j).Cells(4).Value Is Nothing Then
+                    ChangeColor_SaiCuPhap(j)
+                ElseIf dgv_listSach.Rows(j).Cells(6).Value Is Nothing Then
+                    ChangeColor_SaiCuPhap(j)
+                End If
+            End If
+        Next
+
+
         For j As Integer = 0 To dgv_listSach.Rows.Count - 1
             If dgv_listSach.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSach.Rows(j).DefaultCellStyle.BackColor = Color.GreenYellow Then
                 MessageBox.Show("Một số dòng nhập liệu sai quy định. Vui lòng kiểm tra lại!")
@@ -356,7 +370,7 @@ Public Class UC_LapHoaDon
             End If
         Next
 
-        If txt_SoTienNo.BackColor = Color.Red Then
+        If txt_SoTienNo.BackColor = Color.OrangeRed Then
             MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
@@ -475,8 +489,9 @@ Public Class UC_LapHoaDon
 
     End Sub
 
+
     Private Sub dgv_listSach_Enter(sender As Object, e As EventArgs) Handles dgv_listSach.Enter
-        If txt_SoTienNo.BackColor = Color.Red Then
+        If txt_SoTienNo.BackColor = Color.OrangeRed Then
             MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub

@@ -13,13 +13,14 @@ Public Class UC_LapPhieuThuTien
 
 
     Private Sub UC_LapPhieuThuTien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Me.Dock = DockStyle.Fill
         Me.AutoScroll = True
 
         Reload_MaPhieuThuTiepTheo()
 
         Reload_DataGridViewListKhachHang()
-
+        lbl_XoaTimKiem.Visible = False
     End Sub
 
     Private Sub Reload_MaPhieuThuTiepTheo()
@@ -33,7 +34,7 @@ Public Class UC_LapPhieuThuTien
     End Sub
 
     Private Sub btn_LapPhieu_Click(sender As Object, e As EventArgs) Handles btn_LapPhieu.Click
-
+        lbl_XoaTimKiem.Visible = False
         res = phieuThuTienBUS.IsValidSoTienThu(txt_SoTienThu.Text, Double.Parse(txt_TienNo.Text))
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -129,8 +130,6 @@ Public Class UC_LapPhieuThuTien
 
 
 
-
-
         Dim clEmail = New DataGridViewTextBoxColumn()
         With clEmail
             .Name = "Email1"
@@ -139,8 +138,6 @@ Public Class UC_LapPhieuThuTien
 
         End With
         dgv_ListKhachHang.Columns.Add(clEmail)
-
-
 
 
 
@@ -172,12 +169,13 @@ Public Class UC_LapPhieuThuTien
 
         dgv_ListKhachHang.RowHeadersVisible = False
 
-
     End Sub
+
 
     Private Sub txt_TimKiem_Click(sender As Object, e As EventArgs) Handles txt_TimKiem.Click
         If (txt_TimKiem.Text = "Tìm kiếm bằng Mã KH, Họ tên hoặc SĐT...") Then
             txt_TimKiem.Text = ""
+            lbl_XoaTimKiem.Visible = False
         End If
     End Sub
 
@@ -204,25 +202,32 @@ Public Class UC_LapPhieuThuTien
 
         dgv_ListKhachHang.DataSource = listKhachHang
 
-
-
-
     End Sub
+
 
     Private Sub txt_TimKiem_Leave(sender As Object, e As EventArgs) Handles txt_TimKiem.Leave
         If (txt_TimKiem.Text = "") Then
             txt_TimKiem.Text = "Tìm kiếm bằng Mã KH, Họ tên hoặc SĐT..."
+            lbl_XoaTimKiem.Visible = False
+        Else
+            lbl_XoaTimKiem.Visible = True
         End If
     End Sub
 
+
     Private Sub dgv_ListKhachHang_SelectionChanged(sender As Object, e As EventArgs) Handles dgv_ListKhachHang.SelectionChanged
         If listKhachHang.Count = 0 Then
-
             txt_MaKhachHang.Text = ""
             txt_HoTen.Text = ""
             txt_TienNo.Text = ""
+        Else
+            lbl_XoaTimKiem.Visible = True
+        End If
 
-            Return
+
+        If (txt_TimKiem.Text = "Tìm kiếm bằng Mã KH, Họ tên hoặc SĐT...") Then
+            lbl_XoaTimKiem.Visible = False
+            'Reload_DataGridViewListKhachHang()   
         End If
 
 
@@ -247,4 +252,19 @@ Public Class UC_LapPhieuThuTien
     Private Sub txt_SoTienThu_TextChanged(sender As Object, e As EventArgs) Handles txt_SoTienThu.TextChanged
 
     End Sub
+
+
+    Private Sub lbl_XoaTimKiem_MouseLeave_1(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.MouseLeave
+        lbl_XoaTimKiem.BackColor = Color.White
+    End Sub
+
+    Private Sub lbl_XoaTimKiem_MouseHover_1(sender As Object, e As EventArgs) Handles lbl_XoaTimKiem.MouseHover
+        lbl_XoaTimKiem.BackColor = Color.WhiteSmoke
+    End Sub
+
+    Private Sub lbl_XoaTimKiem_MouseClick(sender As Object, e As MouseEventArgs) Handles lbl_XoaTimKiem.MouseClick
+        txt_TimKiem.Text = ""
+        lbl_XoaTimKiem.Visible = False
+    End Sub
+
 End Class
