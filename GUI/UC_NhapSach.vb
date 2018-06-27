@@ -256,12 +256,29 @@ Public Class UC_NhapSach
 
 
     Private Sub btn_NhapSach_Click(sender As Object, e As EventArgs) Handles btn_NhapSach.Click
+
+#Region "Kiểm tra có ô nào chưa điền ko?"
+        For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
+            'Những hàng điền chưa đủ thông tin sẽ báo lỗi
+
+            If dgv_listSachNhap.Rows(j).Cells(0).Value = Nothing Then
+                ChangeColor_SaiCuPhap(j)
+                Exit For
+            ElseIf dgv_listSachNhap.Rows(j).Cells(5).Value = Nothing Then
+                ChangeColor_SaiCuPhap(j)
+                Exit For
+            End If
+        Next
+#End Region
+
+#Region "Kiểm tra dgv có tồn tại dòng nào có màu không?"
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
             If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.GreenYellow Then
                 MessageBox.Show("Một số dòng nhập liệu sai quy định. Vui lòng kiểm tra lại!")
                 Return
             End If
         Next
+#End Region
 
 #Region "Thêm thông tin phiếu nhập vào PHIEUNHAP"
 

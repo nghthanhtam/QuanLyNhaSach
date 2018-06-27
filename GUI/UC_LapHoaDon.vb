@@ -351,6 +351,7 @@ Public Class UC_LapHoaDon
 
     Private Sub btn_Nhap_Click(sender As Object, e As EventArgs) Handles btn_LapHoaDon.Click
 
+#Region "Kiểm tra có ô nào chưa điền ko?"
         For j As Integer = 0 To dgv_listSach.Rows.Count - 1
             'Những hàng điền chưa đủ thông tin sẽ báo lỗi
             If dgv_listSach.Rows(j).Cells(1).Value <> "" Then
@@ -361,7 +362,7 @@ Public Class UC_LapHoaDon
                 End If
             End If
         Next
-
+#End Region
 
         For j As Integer = 0 To dgv_listSach.Rows.Count - 1
             If dgv_listSach.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSach.Rows(j).DefaultCellStyle.BackColor = Color.GreenYellow Then

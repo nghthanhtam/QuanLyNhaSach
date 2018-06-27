@@ -33,6 +33,10 @@ Partial Class UC_NhapSach
         Me.txt_SLnhapToiThieu = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txt_SLtonToiDa = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -72,7 +76,7 @@ Partial Class UC_NhapSach
         Me.btn_NhapSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_NhapSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_NhapSach.ForeColor = System.Drawing.Color.White
-        Me.btn_NhapSach.Location = New System.Drawing.Point(92, 502)
+        Me.btn_NhapSach.Location = New System.Drawing.Point(498, 503)
         Me.btn_NhapSach.Name = "btn_NhapSach"
         Me.btn_NhapSach.Size = New System.Drawing.Size(90, 33)
         Me.btn_NhapSach.TabIndex = 3
@@ -154,11 +158,59 @@ Partial Class UC_NhapSach
         Me.txt_SLtonToiDa.Size = New System.Drawing.Size(101, 23)
         Me.txt_SLtonToiDa.TabIndex = 40
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(96, 505)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(149, 13)
+        Me.Label4.TabIndex = 59
+        Me.Label4.Text = "Người dùng nhập sai quy định"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(96, 526)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(288, 13)
+        Me.Label8.TabIndex = 57
+        Me.Label8.Text = "Người dùng nhập sai cú pháp hoặc chưa nhập đủ thông tin"
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.GreenYellow
+        Me.Button1.Enabled = False
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(54, 524)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(38, 15)
+        Me.Button1.TabIndex = 56
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.OrangeRed
+        Me.Button2.Enabled = False
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(54, 503)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(38, 15)
+        Me.Button2.TabIndex = 60
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'UC_NhapSach
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txt_SLtonToiDa)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txt_SLnhapToiThieu)
@@ -189,4 +241,8 @@ Partial Class UC_NhapSach
     Friend WithEvents txt_SLnhapToiThieu As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents txt_SLtonToiDa As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class

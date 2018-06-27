@@ -37,9 +37,9 @@ Partial Class UC_LapHoaDon
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txt_MaHoaDon = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_SaiCuPhap = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btn_SaiQuyDinh = New System.Windows.Forms.Button()
         CType(Me.dgv_listSach, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -201,16 +201,17 @@ Partial Class UC_LapHoaDon
         Me.Label8.TabIndex = 53
         Me.Label8.Text = "Người dùng nhập sai cú pháp hoặc chưa nhập đủ thông tin"
         '
-        'Button1
+        'btn_SaiCuPhap
         '
-        Me.Button1.BackColor = System.Drawing.Color.GreenYellow
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(35, 513)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(38, 15)
-        Me.Button1.TabIndex = 52
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btn_SaiCuPhap.BackColor = System.Drawing.Color.GreenYellow
+        Me.btn_SaiCuPhap.Enabled = False
+        Me.btn_SaiCuPhap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
+        Me.btn_SaiCuPhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_SaiCuPhap.Location = New System.Drawing.Point(35, 513)
+        Me.btn_SaiCuPhap.Name = "btn_SaiCuPhap"
+        Me.btn_SaiCuPhap.Size = New System.Drawing.Size(38, 15)
+        Me.btn_SaiCuPhap.TabIndex = 52
+        Me.btn_SaiCuPhap.UseVisualStyleBackColor = False
         '
         'Label4
         '
@@ -222,16 +223,17 @@ Partial Class UC_LapHoaDon
         Me.Label4.TabIndex = 55
         Me.Label4.Text = "Người dùng nhập sai quy định"
         '
-        'Button2
+        'btn_SaiQuyDinh
         '
-        Me.Button2.BackColor = System.Drawing.Color.OrangeRed
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(35, 492)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(38, 15)
-        Me.Button2.TabIndex = 54
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btn_SaiQuyDinh.BackColor = System.Drawing.Color.OrangeRed
+        Me.btn_SaiQuyDinh.Enabled = False
+        Me.btn_SaiQuyDinh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
+        Me.btn_SaiQuyDinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_SaiQuyDinh.Location = New System.Drawing.Point(35, 492)
+        Me.btn_SaiQuyDinh.Name = "btn_SaiQuyDinh"
+        Me.btn_SaiQuyDinh.Size = New System.Drawing.Size(38, 15)
+        Me.btn_SaiQuyDinh.TabIndex = 54
+        Me.btn_SaiQuyDinh.UseVisualStyleBackColor = False
         '
         'UC_LapHoaDon
         '
@@ -239,9 +241,9 @@ Partial Class UC_LapHoaDon
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btn_SaiQuyDinh)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn_SaiCuPhap)
         Me.Controls.Add(Me.btn_them)
         Me.Controls.Add(Me.txt_MaHoaDon)
         Me.Controls.Add(Me.Label3)
@@ -279,7 +281,7 @@ Partial Class UC_LapHoaDon
     Friend WithEvents Label3 As Label
     Friend WithEvents txt_MaHoaDon As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btn_SaiCuPhap As Button
     Friend WithEvents Label4 As Label
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btn_SaiQuyDinh As Button
 End Class

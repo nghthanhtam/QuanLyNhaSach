@@ -239,6 +239,7 @@ Public Class frm_ThemNhieuSach
 
     Private Sub btn_Luu_Click(sender As Object, e As EventArgs) Handles btn_Luu.Click
 
+#Region "Kiểm tra có ô nào chưa điền ko?"
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
             'Những hàng điền chưa đủ thông tin sẽ báo lỗi
             If dgv_listSachNhap.Rows(j).Cells(1).Value = Nothing And dgv_listSachNhap.Rows(j).Cells(2).Value = Nothing And dgv_listSachNhap.Rows(j).Cells(3).Value = Nothing And dgv_listSachNhap.Rows(j).Cells(5).Value = Nothing Then
@@ -256,9 +257,8 @@ Public Class frm_ThemNhieuSach
                 ChangeColor_SaiCuPhap(j)
                 Exit For
             End If
-
         Next
-
+#End Region
 
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
             If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.GreenYellow Then
@@ -306,20 +306,27 @@ Public Class frm_ThemNhieuSach
         Next
 
     End Sub
+#End Region
 
-
+#Region "Xử lí khi nhập 1 lần là có thể kích hoạt cbb TheLoai"
     Private Sub dgv_listSachNhap_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_listSachNhap.CellClick
         dgv_listSachNhap.BeginEdit(True)
-        If dgv_listSachNhap.Rows(e.RowIndex).Cells("TheLoai").Selected = True Then
+        'Try
+        If e.ColumnIndex = 2 And dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Selected = True Then
+
             DirectCast(dgv_listSachNhap.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
         End If
+        'Catch ex As Exception
+        '    Debug.WriteLine(ex.Message)
+        'End Try
     End Sub
+#End Region
 
     Private Sub frm_ThemNhieuSach_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.Escape Then
             Me.Close()
         End If
     End Sub
-#End Region
+
 
 End Class
