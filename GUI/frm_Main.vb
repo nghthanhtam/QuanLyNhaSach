@@ -97,7 +97,7 @@
 
     Private Sub btn_LapPhieuNhapSach_Click(sender As Object, e As EventArgs) Handles btn_LapPhieuNhapSach.Click
         Panel_LoadUC.Controls.Clear()
-        Panel_LoadUC.Controls.Add(New UC_NhapSach())
+        Panel_LoadUC.Controls.Add(New btn_XoaTatCaDongLoi())
     End Sub
 
     Private Sub btn_LapHoaDonBanSach_Click(sender As Object, e As EventArgs) Handles btn_LapHoaDonBanSach.Click

@@ -2,7 +2,7 @@
 Imports BUS
 Imports Utility
 
-Public Class UC_NhapSach
+Public Class btn_XoaTatCaDongLoi
 
     Private sachDTO As Sach_DTO
     Private sach As Sach_DTO
@@ -199,14 +199,12 @@ Public Class UC_NhapSach
                 'kt mã sách có đc nhập 2 lần ko
                 For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
                     If dgv_listSachNhap.Rows(i).Cells(0).Value = dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value And i <> e.RowIndex Then
-                        ChangeColor_SaiQuyDinh(e.RowIndex)
-                        Exit For
-                    Else
-                        Original_Color(e.RowIndex)
+                        MessageBox.Show("Mã sách vừa nhập đã tồn tại!")
+                        dgv_listSachNhap.Rows.Remove(dgv_listSachNhap.Rows(e.RowIndex))
                     End If
                 Next
 
-
+#Region "Kiểm tra số lượng tồn hợp lệ"
                 res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
                 If (res.FlagResult = False) Then
                     MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -215,38 +213,49 @@ Public Class UC_NhapSach
                 End If
                 sach = CType(res.Obj1, Sach_DTO)
 
-
+                'Kiểm tra số lượng tồn (<300)
                 res = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1)
                 If (res.FlagResult = False) Then
                     ChangeColor_SaiQuyDinh(e.RowIndex)
                 End If
-
+#End Region
 
 
                 'thêm dòng-cọt trong dtg
                 dgv_listSachNhap.Item("TenSach", e.RowIndex).Value = sach.TenSach1
-                    dgv_listSachNhap.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
-                    dgv_listSachNhap.Item("TacGia", e.RowIndex).Value = sach.TacGia1
-                    dgv_listSachNhap.Item("SoLuongTon", e.RowIndex).Value = sach.SoLuongTon1
-                    dgv_listSachNhap.Item("DonGia", e.RowIndex).Value = sach.DonGia1
+                dgv_listSachNhap.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
+                dgv_listSachNhap.Item("TacGia", e.RowIndex).Value = sach.TacGia1
+                dgv_listSachNhap.Item("SoLuongTon", e.RowIndex).Value = sach.SoLuongTon1
+                dgv_listSachNhap.Item("DonGia", e.RowIndex).Value = sach.DonGia1
 
+                Return
+            End If
 
-                    Return
-                End If
-
-                If (e.ColumnIndex = 5) Then 'nhập vào số lượng sách nhập
+            If (e.ColumnIndex = 5) Then 'nhập vào số lượng sách nhập
                 res1 = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res1.FlagResult = False) Then
                     'MessageBox.Show(res1.ApplicationMessage, "lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     'dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = thamSoDTO.SoLuongNhapToiThieu1 'gán cho sl nhập thành mặc định nếu ng dùng nhập sai
                     ChangeColor_SaiQuyDinh(e.RowIndex)
-                    Return
                 Else
-                    Original_Color(e.RowIndex)
+                    res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
+                    If (res.FlagResult = False) Then
+                        MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        dgv_listSachNhap.Focus()
+                        Return
+                    End If
+                    sach = CType(res.Obj1, Sach_DTO)
+
+                    'Kiểm tra số lượng tồn (<300)
+                    res = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1)
+                    If (res.FlagResult = False) Then
+                        ChangeColor_SaiQuyDinh(e.RowIndex)
+                    Else
+                        Original_Color(e.RowIndex)
+                    End If
                 End If
             End If
 #End Region
-
 
 
         Catch ex As Exception
@@ -255,14 +264,16 @@ Public Class UC_NhapSach
     End Sub
 
 
+
     Private Sub btn_NhapSach_Click(sender As Object, e As EventArgs) Handles btn_NhapSach.Click
 
 #Region "Kiểm tra có ô nào chưa điền ko?"
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
-            'Những hàng điền chưa đủ thông tin sẽ báo lỗi
-
+            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Then
+                Continue For
+            End If
             If dgv_listSachNhap.Rows(j).Cells(0).Value = Nothing Then
-                ChangeColor_SaiCuPhap(j)
+                Original_Color(j)
                 Exit For
             ElseIf dgv_listSachNhap.Rows(j).Cells(5).Value = Nothing Then
                 ChangeColor_SaiCuPhap(j)
@@ -283,19 +294,19 @@ Public Class UC_NhapSach
 #Region "Thêm thông tin phiếu nhập vào PHIEUNHAP"
 
         With phieuNhapDTO
-                phieuNhapDTO.NgayNhap1 = dtp_NgayNhap.Value
-            End With
+            phieuNhapDTO.NgayNhap1 = dtp_NgayNhap.Value
+        End With
 
-            res = phieuNhapBUS.insertPhieuNhap(phieuNhapDTO)
-            If (res.FlagResult = False) Then
-                MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
-            End If
+        res = phieuNhapBUS.insertPhieuNhap(phieuNhapDTO)
+        If (res.FlagResult = False) Then
+            MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End If
 
 #End Region
 
-            Dim i As Integer
-            i = 0
+        Dim i As Integer
+        i = 0
         Do
 
             With chiTietPhieuNhapDTO
@@ -344,8 +355,8 @@ Public Class UC_NhapSach
         Loop Until (False) 'ko con` ma phieu nhap
 
         MessageBox.Show("Lập phiếu nhập sách thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            reloadMaPhieuNhap()
-            dgv_listSachNhap.Rows.Clear()
+        reloadMaPhieuNhap()
+        dgv_listSachNhap.Rows.Clear()
 
 
     End Sub
@@ -364,6 +375,30 @@ Public Class UC_NhapSach
         If count = 1 Then
             Original_Color(rowTrungTen)
         End If
+    End Sub
+
+
+
+    Private Sub btn_XoaDongLoi_Click(sender As Object, e As EventArgs) Handles btn_XoaDongLoi.Click
+#Region "Kiểm tra dgv có tồn tại dòng nào có màu không?"
+        For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 2
+
+            If i <> 0 Then
+                i = i - 1
+            End If
+            MessageBox.Show(i)
+            If dgv_listSachNhap.Rows(i).Cells(0).Value Is Nothing Then
+                Exit For
+            End If
+
+            If dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.GreenYellow Then
+
+                dgv_listSachNhap.Rows.RemoveAt(i)
+            Else
+                i = i + 1
+            End If
+        Next
+#End Region
     End Sub
 
 

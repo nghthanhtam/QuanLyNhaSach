@@ -76,6 +76,7 @@ Public Class UC_LapHoaDon
         dgv_listSach.Columns(2).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSach.Columns(3).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSach.Columns(5).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSach.Columns(6).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSach.Columns(7).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
 
         dgv_listSach.Item("STT", 0).Value = 1
@@ -253,10 +254,9 @@ Public Class UC_LapHoaDon
                 'kt mã sách có đc nhập 2 lần ko
                 For i As Integer = 0 To dgv_listSach.Rows.Count - 1
                     If dgv_listSach.Rows(i).Cells(1).Value = dgv_listSach.Rows(e.RowIndex).Cells(1).Value And i <> e.RowIndex Then
-                        ChangeColor_SaiQuyDinh(e.RowIndex)
-                        Exit For
-                    Else
-                        Original_Color(e.RowIndex)
+                        MessageBox.Show("Mã sách vừa nhập đã tồn tại!")
+                        dgv_listSach.Rows.Remove(dgv_listSach.Rows(e.RowIndex))
+                        dgv_listSach.Rows(e.RowIndex).Cells(0).Value = dgv_listSach.Rows(e.RowIndex - 1).Cells(0).Value + 1
                     End If
                 Next
 
@@ -276,8 +276,7 @@ Public Class UC_LapHoaDon
                 sach = CType(res.Obj1, Sach_DTO)
 
 
-
-                If (e.ColumnIndex = 1 And dgv_listSach.Item("STT", e.RowIndex + 1).Value Is Nothing) Then
+                If (dgv_listSach.Item("STT", e.RowIndex + 1).Value Is Nothing) Then
                     'Load tự động stt
                     stt = stt + 1
                     dgv_listSach.Item("STT", e.RowIndex + 1).Value = stt
@@ -294,16 +293,21 @@ Public Class UC_LapHoaDon
             Dim slton
             If (e.ColumnIndex = 4) Then
 
-                ' nếu ô hiện tại trống thì bỏ qua
-                If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
-                    dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
+                ' khi chưa nhập mã sách mà lại nhập số lượng
+                If dgv_listSach.Rows(e.RowIndex).Cells(4).Value.ToString = String.Empty Then
                     Return
                 End If
 
-                'kiểm tra chưa nhập mã sách nhưng nhập số lượng bán
                 If (dgv_listSach.Rows(e.RowIndex).Cells(1).Value = String.Empty) Then
                     dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty
                     MessageBox.Show("Bạn chưa nhập mã sách", "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return
+                End If
+
+
+                ' nếu ô hiện tại trống thì bỏ qua
+                If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
+                    dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
                     Return
                 End If
 
@@ -314,7 +318,7 @@ Public Class UC_LapHoaDon
                     'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     ChangeColor_SaiCuPhap(e.RowIndex)
                     dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
-                    dgv_listSach.Rows(e.RowIndex).Cells(4).Value = "" ' xóa ô số lượng nhập
+                    'dgv_listSach.Rows(e.RowIndex).Cells(4).Value = "" ' xóa ô số lượng nhập
                     Return
                 Else
                     Original_Color(e.RowIndex)
@@ -333,7 +337,6 @@ Public Class UC_LapHoaDon
 
 
                 dgv_listSach.Item("ThanhTien", e.RowIndex).Value = Double.Parse(dgv_listSach.Item("DonGia", e.RowIndex).Value) * Integer.Parse(dgv_listSach.Item("SoLuongNhap", e.RowIndex).Value)
-
 
 
             End If
@@ -515,6 +518,7 @@ Public Class UC_LapHoaDon
         'Cập nhật lại stt khi 1 dòng bị xóa
         For i As Integer = e.Row.Index To dgv_listSach.Rows.Count - 1
             dgv_listSach.Rows(i).Cells(0).Value = dgv_listSach.Rows(i).Cells(0).Value - 1
+            stt = dgv_listSach.Rows(i).Cells(0).Value
         Next
     End Sub
 

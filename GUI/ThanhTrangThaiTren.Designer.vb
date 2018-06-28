@@ -38,9 +38,10 @@ Partial Class ThanhTrangThaiTren
         Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.btn_Minimize)
         Me.Panel2.Controls.Add(Me.btn_Thoat)
-        Me.Panel2.Location = New System.Drawing.Point(810, 0)
+        Me.Panel2.Location = New System.Drawing.Point(608, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(166, 38)
+        Me.Panel2.Size = New System.Drawing.Size(124, 31)
         Me.Panel2.TabIndex = 0
         '
         'Button1
@@ -52,9 +53,10 @@ Partial Class ThanhTrangThaiTren
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(51, -6)
+        Me.Button1.Location = New System.Drawing.Point(43, -3)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(57, 37)
+        Me.Button1.Size = New System.Drawing.Size(38, 30)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "□"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -69,9 +71,10 @@ Partial Class ThanhTrangThaiTren
         Me.btn_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Minimize.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.btn_Minimize.ForeColor = System.Drawing.Color.White
-        Me.btn_Minimize.Location = New System.Drawing.Point(-6, 0)
+        Me.btn_Minimize.Location = New System.Drawing.Point(2, 0)
+        Me.btn_Minimize.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_Minimize.Name = "btn_Minimize"
-        Me.btn_Minimize.Size = New System.Drawing.Size(57, 31)
+        Me.btn_Minimize.Size = New System.Drawing.Size(36, 25)
         Me.btn_Minimize.TabIndex = 2
         Me.btn_Minimize.Text = "–"
         Me.btn_Minimize.UseVisualStyleBackColor = False
@@ -85,9 +88,10 @@ Partial Class ThanhTrangThaiTren
         Me.btn_Thoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Thoat.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.btn_Thoat.ForeColor = System.Drawing.Color.White
-        Me.btn_Thoat.Location = New System.Drawing.Point(109, 0)
+        Me.btn_Thoat.Location = New System.Drawing.Point(84, 2)
+        Me.btn_Thoat.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_Thoat.Name = "btn_Thoat"
-        Me.btn_Thoat.Size = New System.Drawing.Size(57, 31)
+        Me.btn_Thoat.Size = New System.Drawing.Size(38, 23)
         Me.btn_Thoat.TabIndex = 2
         Me.btn_Thoat.Text = "X"
         Me.btn_Thoat.UseVisualStyleBackColor = False
@@ -99,8 +103,9 @@ Partial Class ThanhTrangThaiTren
         Me.Panel1.Controls.Add(Me.txt_Title)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(976, 50)
+        Me.Panel1.Size = New System.Drawing.Size(732, 41)
         Me.Panel1.TabIndex = 0
         '
         'txt_Title
@@ -108,21 +113,23 @@ Partial Class ThanhTrangThaiTren
         Me.txt_Title.AutoSize = True
         Me.txt_Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.txt_Title.ForeColor = System.Drawing.Color.White
-        Me.txt_Title.Location = New System.Drawing.Point(41, 13)
+        Me.txt_Title.Location = New System.Drawing.Point(31, 11)
+        Me.txt_Title.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.txt_Title.Name = "txt_Title"
-        Me.txt_Title.Size = New System.Drawing.Size(253, 25)
+        Me.txt_Title.Size = New System.Drawing.Size(204, 20)
         Me.txt_Title.TabIndex = 1
         Me.txt_Title.Text = "Phần mềm quản lí nhà sách"
         '
         'ThanhTrangThaiTren
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Controls.Add(Me.Panel1)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "ThanhTrangThaiTren"
-        Me.Size = New System.Drawing.Size(976, 50)
+        Me.Size = New System.Drawing.Size(732, 41)
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

@@ -55,7 +55,7 @@ Partial Class frm_ThemKhachHang
         'Panel_ThanhTrangThaiTren
         '
         Me.Panel_ThanhTrangThaiTren.Location = New System.Drawing.Point(0, 0)
-        Me.Panel_ThanhTrangThaiTren.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel_ThanhTrangThaiTren.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel_ThanhTrangThaiTren.Name = "Panel_ThanhTrangThaiTren"
         Me.Panel_ThanhTrangThaiTren.Size = New System.Drawing.Size(398, 41)
         Me.Panel_ThanhTrangThaiTren.TabIndex = 0
@@ -64,7 +64,7 @@ Partial Class frm_ThemKhachHang
         '
         Me.txt_Email.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.txt_Email.Location = New System.Drawing.Point(116, 257)
-        Me.txt_Email.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_Email.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_Email.Name = "txt_Email"
         Me.txt_Email.Size = New System.Drawing.Size(245, 23)
         Me.txt_Email.TabIndex = 11
@@ -73,7 +73,7 @@ Partial Class frm_ThemKhachHang
         '
         Me.txt_TienNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.txt_TienNo.Location = New System.Drawing.Point(116, 292)
-        Me.txt_TienNo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_TienNo.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_TienNo.Name = "txt_TienNo"
         Me.txt_TienNo.ReadOnly = True
         Me.txt_TienNo.Size = New System.Drawing.Size(245, 23)
@@ -84,7 +84,7 @@ Partial Class frm_ThemKhachHang
         '
         Me.txt_DienThoai.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.txt_DienThoai.Location = New System.Drawing.Point(116, 219)
-        Me.txt_DienThoai.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_DienThoai.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_DienThoai.Name = "txt_DienThoai"
         Me.txt_DienThoai.Size = New System.Drawing.Size(245, 23)
         Me.txt_DienThoai.TabIndex = 9
@@ -93,7 +93,7 @@ Partial Class frm_ThemKhachHang
         '
         Me.txt_MaKhachHang.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.txt_MaKhachHang.Location = New System.Drawing.Point(116, 104)
-        Me.txt_MaKhachHang.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_MaKhachHang.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_MaKhachHang.Name = "txt_MaKhachHang"
         Me.txt_MaKhachHang.ReadOnly = True
         Me.txt_MaKhachHang.Size = New System.Drawing.Size(245, 23)
@@ -114,7 +114,7 @@ Partial Class frm_ThemKhachHang
         '
         Me.txt_HoTen.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.txt_HoTen.Location = New System.Drawing.Point(116, 142)
-        Me.txt_HoTen.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_HoTen.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_HoTen.Name = "txt_HoTen"
         Me.txt_HoTen.Size = New System.Drawing.Size(245, 23)
         Me.txt_HoTen.TabIndex = 5
@@ -129,7 +129,7 @@ Partial Class frm_ThemKhachHang
         Me.btn_LuuVaThoat.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_LuuVaThoat.ForeColor = System.Drawing.Color.White
         Me.btn_LuuVaThoat.Location = New System.Drawing.Point(227, 338)
-        Me.btn_LuuVaThoat.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_LuuVaThoat.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_LuuVaThoat.Name = "btn_LuuVaThoat"
         Me.btn_LuuVaThoat.Size = New System.Drawing.Size(105, 41)
         Me.btn_LuuVaThoat.TabIndex = 15
@@ -146,7 +146,7 @@ Partial Class frm_ThemKhachHang
         Me.btn_Luu.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_Luu.ForeColor = System.Drawing.Color.White
         Me.btn_Luu.Location = New System.Drawing.Point(82, 338)
-        Me.btn_Luu.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_Luu.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_Luu.Name = "btn_Luu"
         Me.btn_Luu.Size = New System.Drawing.Size(105, 41)
         Me.btn_Luu.TabIndex = 14
@@ -179,7 +179,7 @@ Partial Class frm_ThemKhachHang
         '
         Me.txt_DiaChi.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.txt_DiaChi.Location = New System.Drawing.Point(116, 180)
-        Me.txt_DiaChi.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_DiaChi.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_DiaChi.Name = "txt_DiaChi"
         Me.txt_DiaChi.Size = New System.Drawing.Size(245, 23)
         Me.txt_DiaChi.TabIndex = 7
@@ -240,7 +240,7 @@ Partial Class frm_ThemKhachHang
         Me.Controls.Add(Me.btn_Luu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frm_ThemKhachHang"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "frm_ThemKhachHang"

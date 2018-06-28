@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class UC_NhapSach
+Partial Class btn_XoaTatCaDongLoi
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -37,6 +37,7 @@ Partial Class UC_NhapSach
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.btn_XoaDongLoi = New System.Windows.Forms.Button()
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -76,9 +77,9 @@ Partial Class UC_NhapSach
         Me.btn_NhapSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_NhapSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_NhapSach.ForeColor = System.Drawing.Color.White
-        Me.btn_NhapSach.Location = New System.Drawing.Point(498, 503)
+        Me.btn_NhapSach.Location = New System.Drawing.Point(596, 506)
         Me.btn_NhapSach.Name = "btn_NhapSach"
-        Me.btn_NhapSach.Size = New System.Drawing.Size(90, 33)
+        Me.btn_NhapSach.Size = New System.Drawing.Size(84, 33)
         Me.btn_NhapSach.TabIndex = 3
         Me.btn_NhapSach.Text = "Nhập sách"
         Me.btn_NhapSach.UseVisualStyleBackColor = False
@@ -162,7 +163,7 @@ Partial Class UC_NhapSach
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(96, 505)
+        Me.Label4.Location = New System.Drawing.Point(68, 505)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(149, 13)
         Me.Label4.TabIndex = 59
@@ -172,7 +173,7 @@ Partial Class UC_NhapSach
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(96, 526)
+        Me.Label8.Location = New System.Drawing.Point(68, 526)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(288, 13)
         Me.Label8.TabIndex = 57
@@ -184,7 +185,7 @@ Partial Class UC_NhapSach
         Me.Button1.Enabled = False
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(54, 524)
+        Me.Button1.Location = New System.Drawing.Point(26, 524)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(38, 15)
         Me.Button1.TabIndex = 56
@@ -196,17 +197,32 @@ Partial Class UC_NhapSach
         Me.Button2.Enabled = False
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(54, 503)
+        Me.Button2.Location = New System.Drawing.Point(26, 503)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(38, 15)
         Me.Button2.TabIndex = 60
         Me.Button2.UseVisualStyleBackColor = False
         '
-        'UC_NhapSach
+        'btn_XoaDongLoi
+        '
+        Me.btn_XoaDongLoi.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.btn_XoaDongLoi.FlatAppearance.BorderSize = 0
+        Me.btn_XoaDongLoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_XoaDongLoi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_XoaDongLoi.ForeColor = System.Drawing.Color.White
+        Me.btn_XoaDongLoi.Location = New System.Drawing.Point(432, 506)
+        Me.btn_XoaDongLoi.Name = "btn_XoaDongLoi"
+        Me.btn_XoaDongLoi.Size = New System.Drawing.Size(129, 33)
+        Me.btn_XoaDongLoi.TabIndex = 61
+        Me.btn_XoaDongLoi.Text = "Xóa tất cả dòng lỗi"
+        Me.btn_XoaDongLoi.UseVisualStyleBackColor = False
+        '
+        'btn_XoaTatCaDongLoi
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Controls.Add(Me.btn_XoaDongLoi)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label8)
@@ -222,7 +238,7 @@ Partial Class UC_NhapSach
         Me.Controls.Add(Me.txt_MaPhieuNhap)
         Me.Controls.Add(Me.lbl_NgayNhap)
         Me.Controls.Add(Me.dtp_NgayNhap)
-        Me.Name = "UC_NhapSach"
+        Me.Name = "btn_XoaTatCaDongLoi"
         Me.Size = New System.Drawing.Size(734, 548)
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -245,4 +261,5 @@ Partial Class UC_NhapSach
     Friend WithEvents Label8 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents btn_XoaDongLoi As Button
 End Class

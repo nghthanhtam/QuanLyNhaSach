@@ -92,6 +92,12 @@
     <Compile Include="frm_DangNhap.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm_DoiMatKhau.Designer.vb">
+      <DependentUpon>frm_DoiMatKhau.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm_DoiMatKhau.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_LoadDB.Designer.vb">
       <DependentUpon>frm_LoadDB.vb</DependentUpon>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_DangNhap.resx">
       <DependentUpon>frm_DangNhap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_DoiMatKhau.resx">
+      <DependentUpon>frm_DoiMatKhau.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_LoadDB.resx">
       <DependentUpon>frm_LoadDB.vb</DependentUpon>

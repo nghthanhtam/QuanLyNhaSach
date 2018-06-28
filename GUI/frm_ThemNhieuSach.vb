@@ -43,7 +43,6 @@ Public Class frm_ThemNhieuSach
     'End Sub
 
     Public Sub ReloadMaSach(rowIndex As Integer)
-        dgv_listSachNhap.Rows(rowIndex).Cells(4).Value = 0
         ' Hiển thị mã sách dự định
         res = sachBUS.GetNextIncrement()
 
@@ -55,6 +54,7 @@ Public Class frm_ThemNhieuSach
             dgv_listSachNhap.Rows(rowIndex).Cells(0).Value = CType(res.Obj1, Integer).ToString() + rowIndex
             'dgv_listSachNhap.Rows(rowIndex).Cells(0).Value = CType(res.Obj1, Integer).ToString()
         End If
+        dgv_listSachNhap.Rows(rowIndex).Cells(4).Value = 0
     End Sub
 
 
@@ -292,9 +292,10 @@ Public Class frm_ThemNhieuSach
         Loop Until (False) 'ko con` ma phieu nhap
         MessageBox.Show("Thêm sách thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-        InitColumnsDataGridViewListSach()
-        ReloadMaSach(i)
         dgv_listSachNhap.Rows.Clear()
+        InitColumnsDataGridViewListSach()
+        ReloadMaSach(0)
+
     End Sub
 
 
@@ -328,5 +329,11 @@ Public Class frm_ThemNhieuSach
         End If
     End Sub
 
-
+    Private Sub dgv_listSachNhap_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgv_listSachNhap.EditingControlShowing
+        If TypeOf e.Control Is DataGridViewComboBoxEditingControl Then
+            CType(e.Control, ComboBox).DropDownStyle = ComboBoxStyle.DropDown
+            CType(e.Control, ComboBox).AutoCompleteSource = AutoCompleteSource.ListItems
+            CType(e.Control, ComboBox).AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        End If
+    End Sub
 End Class

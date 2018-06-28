@@ -22,8 +22,8 @@ Partial Class UC_QuanLiSach
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_MaSach = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -44,8 +44,6 @@ Partial Class UC_QuanLiSach
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btn_ThemNhieuSach = New System.Windows.Forms.Button()
         Me.lbl_XoaTimKiem = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.dgv_ListSach, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -183,28 +181,28 @@ Partial Class UC_QuanLiSach
         Me.dgv_ListSach.AllowUserToResizeRows = False
         Me.dgv_ListSach.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgv_ListSach.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ListSach.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ListSach.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_ListSach.EnableHeadersVisualStyles = False
         Me.dgv_ListSach.Location = New System.Drawing.Point(43, 209)
         Me.dgv_ListSach.Margin = New System.Windows.Forms.Padding(2)
         Me.dgv_ListSach.MultiSelect = False
         Me.dgv_ListSach.Name = "dgv_ListSach"
         Me.dgv_ListSach.ReadOnly = True
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_ListSach.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_ListSach.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_ListSach.RowTemplate.Height = 24
         Me.dgv_ListSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv_ListSach.Size = New System.Drawing.Size(645, 295)
@@ -311,35 +309,12 @@ Partial Class UC_QuanLiSach
         Me.lbl_XoaTimKiem.TabIndex = 49
         Me.lbl_XoaTimKiem.Text = "X"
         '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.GreenYellow
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(44, 508)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(38, 15)
-        Me.Button1.TabIndex = 50
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(86, 508)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(288, 13)
-        Me.Label8.TabIndex = 51
-        Me.Label8.Text = "Người dùng nhập sai cú pháp hoặc chưa nhập đủ thông tin"
-        '
         'UC_QuanLiSach
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lbl_XoaTimKiem)
         Me.Controls.Add(Me.btn_ThemNhieuSach)
         Me.Controls.Add(Me.Label7)
@@ -388,6 +363,4 @@ Partial Class UC_QuanLiSach
     Friend WithEvents Label7 As Label
     Friend WithEvents btn_ThemNhieuSach As Button
     Friend WithEvents lbl_XoaTimKiem As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Label8 As Label
 End Class
