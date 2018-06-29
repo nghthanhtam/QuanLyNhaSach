@@ -28,8 +28,12 @@ Public Class ChiTIetPhieuNhap_BUS
         Return chiTietPhieuNhapDAL.select_MaPhieuNhap()
     End Function
 
-    Public Function isValidSoLuongNhapToiThieu(text As String) As Result
+    Public Function isValidSoLuongNhap(text As String) As Result
         If (text = String.Empty) Then
+            Return New Result(False, Nothing, "Số lượng nhập tối thiểu không được bỏ trống!")
+        End If
+
+        If (text = "") Then
             Return New Result(False, Nothing, "Số lượng nhập tối thiểu không được bỏ trống!")
         End If
 
@@ -41,6 +45,11 @@ Public Class ChiTIetPhieuNhap_BUS
             Return New Result(False, Nothing, "Số lượng nhập tối thiểu phải là số nguyên không âm!")
         End If
 
+        Return New Result(True)
+    End Function
+
+
+    Public Function isValidSoLuongNhapToiThieu(text As String) As Result
         If (CInt(text) < ts.SoLuongNhapToiThieu1) Then
             Return New Result(False, Nothing, "Số lượng nhập ít nhất là " + ts.SoLuongNhapToiThieu1.ToString)
         End If

@@ -26,9 +26,10 @@ Public Class Sach_BUS
         If (Regex.IsMatch(ms, "^[0-9]*$") = False) Then
             Return New Result(False, Nothing, "Mã sách chỉ chứa số!")
         End If
-
         Return New Result(True)
     End Function
+
+
 
     Public Function isValidTenSach(s As String) As Result
         If (s = String.Empty) Then
