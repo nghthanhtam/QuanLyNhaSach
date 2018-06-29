@@ -544,5 +544,31 @@ Public Class UC_LapHoaDon
     End Sub
 
 
+    Private Sub btn_XoaDongLoi_Click(sender As Object, e As EventArgs) Handles btn_XoaDongLoi.Click
+        For i As Integer = 0 To dgv_listSach.Rows.Count - 1
+
+            'Khi 1 dòng vừa bị xóa, các dòng đc đẩy lên để kiểm tra 
+            If i <> 0 Then
+                i = i - 1
+            End If
+
+            If dgv_listSach.Rows(i).Cells(1).Value Is Nothing And dgv_listSach.Rows(i).Cells(2).Value Is Nothing And dgv_listSach.Rows(i).Cells(3).Value Is Nothing And dgv_listSach.Rows(i).Cells(4).Value Is Nothing And dgv_listSach.Rows(i).Cells(5).Value Is Nothing And dgv_listSach.Rows(i).Cells(6).Value Is Nothing Then
+                Exit For
+            End If
+
+            If dgv_listSach.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSach.Rows(i).DefaultCellStyle.BackColor = Color.GreenYellow Then
+                dgv_listSach.Rows.RemoveAt(i)
+#Region "Cập nhật lại stt khi 1 dòng bị xóa"
+                For j As Integer = i To dgv_listSach.Rows.Count - 1
+                    dgv_listSach.Rows(j).Cells(0).Value = dgv_listSach.Rows(j).Cells(0).Value - 1
+                    stt = dgv_listSach.Rows(j).Cells(0).Value
+                Next
+#End Region
+            Else
+                i = i + 1
+            End If
+        Next
+    End Sub
+
 
 End Class

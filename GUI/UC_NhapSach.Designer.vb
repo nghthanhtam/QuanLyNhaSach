@@ -77,7 +77,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.btn_NhapSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_NhapSach.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_NhapSach.ForeColor = System.Drawing.Color.White
-        Me.btn_NhapSach.Location = New System.Drawing.Point(596, 506)
+        Me.btn_NhapSach.Location = New System.Drawing.Point(438, 506)
         Me.btn_NhapSach.Name = "btn_NhapSach"
         Me.btn_NhapSach.Size = New System.Drawing.Size(84, 33)
         Me.btn_NhapSach.TabIndex = 3
@@ -210,7 +210,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.btn_XoaDongLoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_XoaDongLoi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_XoaDongLoi.ForeColor = System.Drawing.Color.White
-        Me.btn_XoaDongLoi.Location = New System.Drawing.Point(432, 506)
+        Me.btn_XoaDongLoi.Location = New System.Drawing.Point(551, 505)
         Me.btn_XoaDongLoi.Name = "btn_XoaDongLoi"
         Me.btn_XoaDongLoi.Size = New System.Drawing.Size(129, 33)
         Me.btn_XoaDongLoi.TabIndex = 61

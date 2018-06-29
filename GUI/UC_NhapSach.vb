@@ -182,36 +182,36 @@ Public Class btn_XoaTatCaDongLoi
 
 
                 res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
-                    If (res.FlagResult = False) Then
+                If (res.FlagResult = False) Then
                     'MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     dgv_listSachNhap.Focus()
                     Return
                 End If
-                    sach = CType(res.Obj1, Sach_DTO)
-                    res1 = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1)
+                sach = CType(res.Obj1, Sach_DTO)
+                res1 = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1)
 
-                    If (res1.FlagResult = False) Then
-                        'MessageBox.Show(res1.ApplicationMessage, "lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)                   
-                        ChangeColor_SaiQuyDinh(e.RowIndex)
+                If (res1.FlagResult = False) Then
+                    'MessageBox.Show(res1.ApplicationMessage, "lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)                   
+                    ChangeColor_SaiQuyDinh(e.RowIndex)
+                Else
+                    res = chiTietPhieuNhapBUS.isValidSoLuongNhap(dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value + "")
+                    If (res.FlagResult = False) Then
+                        ChangeColor_SaiCuPhap(e.RowIndex)
                     Else
-                        res = chiTietPhieuNhapBUS.isValidSoLuongNhap(dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value + "")
+                        res = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value)
                         If (res.FlagResult = False) Then
-                            ChangeColor_SaiCuPhap(e.RowIndex)
+                            ChangeColor_SaiQuyDinh(e.RowIndex)
                         Else
-                            res = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value)
-                            If (res.FlagResult = False) Then
-                                ChangeColor_SaiQuyDinh(e.RowIndex)
-                            Else
-                                Original_Color(e.RowIndex)
-                            End If
+                            Original_Color(e.RowIndex)
                         End If
                     End If
                 End If
-                ' khi chưa nhập mã sách mà lại nhập số lượng
+            End If
+            ' khi chưa nhập mã sách mà lại nhập số lượng
 
 
 #Region "Quy định"
-                If (e.ColumnIndex = 0) Then
+            If (e.ColumnIndex = 0) Then
                 'kt mã sách có đc nhập 2 lần ko
                 For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 2
                     If dgv_listSachNhap.Rows(i).Cells(0).Value = dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value And dgv_listSachNhap.Rows(i).Cells(0).Value <> "" And i <> e.RowIndex Then
@@ -394,8 +394,9 @@ Public Class btn_XoaTatCaDongLoi
 
     Private Sub btn_XoaDongLoi_Click(sender As Object, e As EventArgs) Handles btn_XoaDongLoi.Click
 #Region "Kiểm tra dgv có tồn tại dòng nào có màu không?"
-        For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 2
+        For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
 
+            'Khi 1 dòng vừa bị xóa, các dòng đc đẩy lên để kiểm tra 
             If i <> 0 Then
                 i = i - 1
             End If
