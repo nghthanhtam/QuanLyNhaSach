@@ -55,6 +55,7 @@ Public Class frm_ThemNhieuSach
             .Name = "MaSach"
             .HeaderText = "Mã sách"
             .ReadOnly = True
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSachNhap.Columns.Add(txtMaSach)
 
@@ -64,6 +65,7 @@ Public Class frm_ThemNhieuSach
             .Name = "TenSach"
             .HeaderText = "Tên sách"
             .DataPropertyName = "TenSach1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSachNhap.Columns.Add(clTenSach)
 
@@ -86,6 +88,7 @@ Public Class frm_ThemNhieuSach
             .DataPropertyName = "TheLoai1"
             .DataSource = ListTheLoai
             .FlatStyle = FlatStyle.Flat
+            .SortMode = DataGridViewColumnSortMode.NotSortable
 
         End With
 
@@ -97,6 +100,8 @@ Public Class frm_ThemNhieuSach
             .Name = "TacGia"
             .HeaderText = "Tác giả"
             .DataPropertyName = "TacGia1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
+
         End With
         dgv_listSachNhap.Columns.Add(clTacGia)
 
@@ -106,6 +111,8 @@ Public Class frm_ThemNhieuSach
             .Name = "SoLuongTon"
             .HeaderText = "Lượng tồn"
             .ReadOnly = True
+            .SortMode = DataGridViewColumnSortMode.NotSortable
+
         End With
         dgv_listSachNhap.Columns.Add(clSoLuongTon)
 
@@ -115,6 +122,7 @@ Public Class frm_ThemNhieuSach
             .Name = "DonGia"
             .HeaderText = "Đơn giá"
             .DataPropertyName = "DonGia1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
 
         End With
         dgv_listSachNhap.Columns.Add(clDonGia)

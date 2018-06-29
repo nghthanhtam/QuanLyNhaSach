@@ -85,6 +85,9 @@ Public Class UC_LapHoaDon
 
         ReloadMaHoaDon()
 
+        'init
+        dgv_listSach.Item("STT", 0).Value = 1
+        stt = 1
 
     End Sub
 
@@ -96,6 +99,7 @@ Public Class UC_LapHoaDon
             .Name = "STT"
             .HeaderText = "STT"
             .ReadOnly = True
+            .SortMode = DataGridViewColumnSortMode.NotSortable
 
         End With
         dgv_listSach.Columns.Add(stt)
@@ -104,6 +108,7 @@ Public Class UC_LapHoaDon
         With txtMaSach
             .Name = "MaSach"
             .HeaderText = "Mã sách"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSach.Columns.Add(txtMaSach)
 
@@ -113,6 +118,7 @@ Public Class UC_LapHoaDon
             .HeaderText = "Tên sách"
             .ReadOnly = True
             .DataPropertyName = "TenSach1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSach.Columns.Add(clTenSach)
 
@@ -123,6 +129,7 @@ Public Class UC_LapHoaDon
             .HeaderText = "Thể loại"
             .ReadOnly = True
             .DataPropertyName = "TheLoai1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
 
         dgv_listSach.Columns.Add(clTheLoai)
@@ -132,6 +139,7 @@ Public Class UC_LapHoaDon
         With clSoLuongNhap
             .Name = "SoLuongNhap"
             .HeaderText = "Số lượng bán"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSach.Columns.Add(clSoLuongNhap)
 
@@ -141,6 +149,7 @@ Public Class UC_LapHoaDon
             .HeaderText = "Tác giả"
             .ReadOnly = True
             .DataPropertyName = "TacGia1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSach.Columns.Add(clTacGia)
 
@@ -150,6 +159,7 @@ Public Class UC_LapHoaDon
             .HeaderText = "Đơn giá"
             .ReadOnly = True
             .DataPropertyName = "DonGia1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSach.Columns.Add(clDonGia)
 
@@ -158,6 +168,7 @@ Public Class UC_LapHoaDon
             .Name = "ThanhTien"
             .HeaderText = "Thành tiền"
             .ReadOnly = True
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSach.Columns.Add(clThanhTien)
 
@@ -179,9 +190,6 @@ Public Class UC_LapHoaDon
 
     Private Sub txt_MaKH_TextChanged(sender As Object, e As EventArgs) Handles txt_MaKH.TextChanged, txt_MaHoaDon.TextChanged
 
-        dgv_listSach.Rows.Clear()
-        dgv_listSach.Item("STT", 0).Value = 1
-        stt = 1
 
         Try
             'Lấy tên kh theo mã kh
@@ -538,8 +546,10 @@ Public Class UC_LapHoaDon
 
         MessageBox.Show("Lập hóa đơn thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         ReloadMaHoaDon()
-        dgv_listSach.Rows.Clear()
 
+        dgv_listSach.Rows.Clear()
+        dgv_listSach.Item("STT", 0).Value = 1
+        stt = 1
     End Sub
 
 

@@ -94,6 +94,7 @@ Public Class btn_XoaTatCaDongLoi
         With txtMaSach
             .Name = "MaSach"
             .HeaderText = "Mã sách"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSachNhap.Columns.Add(txtMaSach)
 
@@ -104,6 +105,7 @@ Public Class btn_XoaTatCaDongLoi
             .HeaderText = "Tên sách"
             .ReadOnly = True
             .DataPropertyName = "TenSach1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSachNhap.Columns.Add(clTenSach)
 
@@ -114,6 +116,7 @@ Public Class btn_XoaTatCaDongLoi
             .HeaderText = "Thể loại"
             .ReadOnly = True
             .DataPropertyName = "TheLoai1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSachNhap.Columns.Add(clTheLoai)
 
@@ -124,6 +127,7 @@ Public Class btn_XoaTatCaDongLoi
             .HeaderText = "Tác giả"
             .ReadOnly = True
             .DataPropertyName = "TacGia1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSachNhap.Columns.Add(clTacGia)
 
@@ -134,6 +138,7 @@ Public Class btn_XoaTatCaDongLoi
             .HeaderText = "Số lượng tồn"
             .ReadOnly = True
             .DataPropertyName = "SoLuongTon1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSachNhap.Columns.Add(clSoLuongTon)
 
@@ -142,6 +147,7 @@ Public Class btn_XoaTatCaDongLoi
         With clSoLuongNhap
             .Name = "SoLuongNhap"
             .HeaderText = "Số lượng nhập"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSachNhap.Columns.Add(clSoLuongNhap)
 
@@ -152,6 +158,7 @@ Public Class btn_XoaTatCaDongLoi
             .HeaderText = "Đơn giá"
             .ReadOnly = True
             .DataPropertyName = "DonGia1"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
         End With
         dgv_listSachNhap.Columns.Add(clDonGia)
 
