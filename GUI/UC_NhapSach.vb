@@ -394,23 +394,20 @@ Public Class btn_XoaTatCaDongLoi
 
     Private Sub btn_XoaDongLoi_Click(sender As Object, e As EventArgs) Handles btn_XoaDongLoi.Click
 #Region "Kiểm tra dgv có tồn tại dòng nào có màu không?"
-        For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 2
-
-            If i <> 0 Then
-                i = i - 1
+        Dim DemDongLoi As Integer = 0
+        Dim Count_dgv_listSachNhap_BanDau = dgv_listSachNhap.Rows.Count
+        Dim i As Integer = 0
+        While (True)
+            If (i > dgv_listSachNhap.Rows.Count - 1) Then
+                Exit While
             End If
-
-            If dgv_listSachNhap.Rows(i).Cells(0).Value Is Nothing Then
-                Exit For
-            End If
-
             If dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.GreenYellow Then
-
                 dgv_listSachNhap.Rows.RemoveAt(i)
-            Else
-                i = i + 1
+                i = i - 1
+                DemDongLoi = DemDongLoi + 1
             End If
-        Next
+            i = i + 1
+        End While
 #End Region
     End Sub
 
