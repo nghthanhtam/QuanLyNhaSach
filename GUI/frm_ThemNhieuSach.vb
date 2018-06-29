@@ -282,6 +282,8 @@ Public Class frm_ThemNhieuSach
             dgv_listSachNhap.Rows(i).Cells(0).Value = dgv_listSachNhap.Rows(i).Cells(0).Value - 1
         Next
 
+        MaSachAuto = dgv_listSachNhap.Rows(dgv_listSachNhap.Rows.Count() - 1).Cells(0).Value ' Cập nhật lại mã sách tự động khi ng dùng xóa 1 hoặc nhiều dòng
+
     End Sub
 #End Region
 
