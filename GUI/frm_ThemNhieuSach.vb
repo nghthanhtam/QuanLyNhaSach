@@ -235,6 +235,20 @@ Public Class frm_ThemNhieuSach
 
     Private Sub btn_Luu_Click(sender As Object, e As EventArgs) Handles btn_Luu.Click
 
+
+        For j As Integer = 0 To Math.Max(dgv_listSachNhap.Rows.Count - 2, 0)
+            If dgv_listSachNhap.Rows(j).Cells(1).Value = Nothing And dgv_listSachNhap.Rows(j).Cells(2).Value = Nothing And dgv_listSachNhap.Rows(j).Cells(3).Value = Nothing And dgv_listSachNhap.Rows(j).Cells(5).Value = Nothing Then
+                ChangeColor_SaiCuPhap(j)
+            End If
+        Next
+
+
+        'If dgv_listSachNhap.Rows(0).Cells(1).Value = Nothing Then ' Kiểm tra ô mã sách của dòng đầu tiên có nhập gì chưa?
+        '    ' Nếu chưa nhập gì thì...
+        '    MessageBox.Show("Bạn chưa nhập thông tin đầu sách nào." + Environment.NewLine + "Vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '    Return
+        'End If
+
 #Region "Kiểm tra có ô nào chưa điền ko?"
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
             'Những hàng điền chưa đủ thông tin sẽ báo lỗi
