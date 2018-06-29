@@ -8,11 +8,14 @@ Public Class frm_ThemNhieuSach
     Private sachBUS As New Sach_BUS()
     Private res As Result ' Biến nhận kết quả của kiểm tra nhập
     Private rowIndex As Integer
+    Private MaSachAuto As Integer
+
 
     Private Sub frm_ThemNhieuSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Panel_ThanhTrangThaiTren.Controls.Add(New ThanhTrangThaiTren("Thêm nhiều sách"))
         InitColumnsDataGridViewListSach()
-        ReloadMaSach(0)
+        MaSachAuto = GetMaSachTuDong() - 1
+        ReloadMaSach_LuongTon(0)
     End Sub
 
 
@@ -26,34 +29,21 @@ Public Class frm_ThemNhieuSach
     End Sub
 #End Region
 
-
-    'Private Sub ReloadTheLoai()
-    '    res = sachBUS.SelectALL_ListTheLoai()
-    '    If (res.FlagResult = False) Then
-    '        MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-    '        Me.Close() 'Đóng form nếu load thất bại
-    '    End If
-
-    '    Dim ListTheLoai As List(Of String)
-    '    ListTheLoai = CType(res.Obj1, List(Of String))
-
-    '    cbb_TheLoai.DataSource = ListTheLoai
-    '    cbb_TheLoai.DisplayMember = "TheLoai"
-    '    cbb_TheLoai.Text = ""
-    'End Sub
-
-    Public Sub ReloadMaSach(rowIndex As Integer)
-        ' Hiển thị mã sách dự định
+    Public Function GetMaSachTuDong() As Integer
+        ' lấy mã sách dự định
         res = sachBUS.GetNextIncrement()
-
         If (res.FlagResult = False) Then
             MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return -1
+        Else
+            Return CInt(res.Obj1)
         End If
-        ' MessageBox.Show(res.Obj1.ToString())
-        If (res.Obj1 <> Nothing) Then
-            dgv_listSachNhap.Rows(rowIndex).Cells(0).Value = CType(res.Obj1, Integer).ToString() + rowIndex
-            'dgv_listSachNhap.Rows(rowIndex).Cells(0).Value = CType(res.Obj1, Integer).ToString()
-        End If
+    End Function
+
+
+    Public Sub ReloadMaSach_LuongTon(rowIndex As Integer)
+        MaSachAuto = MaSachAuto + 1
+        dgv_listSachNhap.Rows(rowIndex).Cells(0).Value = MaSachAuto
         dgv_listSachNhap.Rows(rowIndex).Cells(4).Value = 0
     End Sub
 
@@ -116,7 +106,6 @@ Public Class frm_ThemNhieuSach
             .Name = "SoLuongTon"
             .HeaderText = "Số lượng tồn"
             .ReadOnly = True
-            '.DataPropertyName = "SoLuongTon1"
         End With
         dgv_listSachNhap.Columns.Add(clSoLuongTon)
 
@@ -147,27 +136,27 @@ Public Class frm_ThemNhieuSach
 
 #Region "Lấy mã sách tiếp theo"
         If (e.ColumnIndex = 1) Then
-            If dgv_listSachNhap.Item("TenSach", e.RowIndex + 1).Value Is Nothing Then
-                ReloadMaSach(e.RowIndex + 1)
+            If dgv_listSachNhap.Item("MaSach", e.RowIndex + 1).Value Is Nothing Then
+                ReloadMaSach_LuongTon(e.RowIndex + 1)
                 Original_Color(e.RowIndex + 1)
             End If
         End If
 
         If (e.ColumnIndex = 2) Then
-            If dgv_listSachNhap.Item("TheLoai", e.RowIndex + 1).Value Is Nothing Then
-                ReloadMaSach(e.RowIndex + 1)
+            If dgv_listSachNhap.Item("MaSach", e.RowIndex + 1).Value Is Nothing Then
+                ReloadMaSach_LuongTon(e.RowIndex + 1)
             End If
         End If
 
         If (e.ColumnIndex = 3) Then
-            If dgv_listSachNhap.Item("TacGia", e.RowIndex + 1).Value Is Nothing Then
-                ReloadMaSach(e.RowIndex + 1)
+            If dgv_listSachNhap.Item("MaSach", e.RowIndex + 1).Value Is Nothing Then
+                ReloadMaSach_LuongTon(e.RowIndex + 1)
             End If
         End If
 
         If (e.ColumnIndex = 5) Then
-            If dgv_listSachNhap.Item("DonGia", e.RowIndex + 1).Value Is Nothing Then
-                ReloadMaSach(e.RowIndex + 1)
+            If dgv_listSachNhap.Item("MaSach", e.RowIndex + 1).Value Is Nothing Then
+                ReloadMaSach_LuongTon(e.RowIndex + 1)
             End If
         End If
 #End Region
@@ -183,51 +172,35 @@ Public Class frm_ThemNhieuSach
 #Region "Kiểm Tra nhập Tên sách"
         res = sachBUS.isValidTenSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(1).Value)
         If (res.FlagResult = False) Then
-            'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)         
             ChangeColor_SaiCuPhap(e.RowIndex)
             Return
-        Else
-            Original_Color(e.RowIndex)
         End If
 #End Region
 
 #Region "Kiểm Tra input Thể Loại"
         res = sachBUS.isValidTheLoai(dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Value)
         If (res.FlagResult = False) Then
-            'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            'dgv_listSachNhap.Focus()
             ChangeColor_SaiCuPhap(e.RowIndex)
             Return
-
-        Else
-            Original_Color(e.RowIndex)
         End If
 #End Region
 
 #Region "Kiểm Tra Tên tác giả"
         res = sachBUS.isValidTacGia(dgv_listSachNhap.Rows(e.RowIndex).Cells(3).Value)
         If (res.FlagResult = False) Then
-            'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
             ChangeColor_SaiCuPhap(e.RowIndex)
             Return
-
-        Else
-            Original_Color(e.RowIndex)
         End If
 #End Region
 
 #Region "Kiểm Tra Đơn giá"
         res = sachBUS.isValidDonGia(dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value)
         If (res.FlagResult = False) Then
-            'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            'dgv_listSachNhap.Focus()
             ChangeColor_SaiCuPhap(e.RowIndex)
             Return
-
-        Else
-            Original_Color(e.RowIndex)
         End If
 #End Region
+        Original_Color(e.RowIndex)
 
     End Sub
 
@@ -241,13 +214,6 @@ Public Class frm_ThemNhieuSach
                 ChangeColor_SaiCuPhap(j)
             End If
         Next
-
-
-        'If dgv_listSachNhap.Rows(0).Cells(1).Value = Nothing Then ' Kiểm tra ô mã sách của dòng đầu tiên có nhập gì chưa?
-        '    ' Nếu chưa nhập gì thì...
-        '    MessageBox.Show("Bạn chưa nhập thông tin đầu sách nào." + Environment.NewLine + "Vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '    Return
-        'End If
 
 #Region "Kiểm tra có ô nào chưa điền ko?"
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
@@ -304,7 +270,7 @@ Public Class frm_ThemNhieuSach
 
         dgv_listSachNhap.Rows.Clear()
         InitColumnsDataGridViewListSach()
-        ReloadMaSach(0)
+        ReloadMaSach_LuongTon(0)
 
     End Sub
 
@@ -349,8 +315,10 @@ Public Class frm_ThemNhieuSach
 
 
     Private Sub btn_XoaDongLoi_Click(sender As Object, e As EventArgs) Handles btn_XoaDongLoi.Click
-#Region "Kiểm tra dgv có tồn tại dòng nào có màu không?"
 
+        Dim STT_BanDau As Integer = dgv_listSachNhap.Rows(0).Cells(0).Value
+
+#Region "Kiểm tra dgv có tồn tại dòng nào có màu không?"
         Dim i As Integer = 0
         While (True)
             If (i > dgv_listSachNhap.Rows.Count - 1) Then
@@ -359,21 +327,18 @@ Public Class frm_ThemNhieuSach
             If dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.GreenYellow Then
                 dgv_listSachNhap.Rows.RemoveAt(i)
                 i = i - 1
-
-                '
-                'For ii As Integer = i To dgv_listSachNhap.Rows.Count - 1
-                '    If (ii = -1) Then
-                '        MessageBox.Show(ii)
-                '        ReloadMaSach(0)
-                '    Else
-                '        ReloadMaSach(ii - 1)
-                '    End If
-
-                'Next
-
             End If
             i = i + 1
         End While
+
+        i = 0
+        While (i < dgv_listSachNhap.Rows.Count)
+            dgv_listSachNhap.Rows(i).Cells(0).Value = STT_BanDau
+            STT_BanDau = STT_BanDau + 1
+            i = i + 1
+        End While
+        MaSachAuto = STT_BanDau - 1
+
 #End Region
     End Sub
 
