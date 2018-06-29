@@ -73,6 +73,7 @@ Public Class UC_LapHoaDon
         InitColumnsDataGridViewListSach()
 
         'chỉnh màu cho các ô cho phép ng dùng nhập
+        dgv_listSach.Columns(0).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSach.Columns(2).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSach.Columns(3).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSach.Columns(5).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
@@ -247,7 +248,11 @@ Public Class UC_LapHoaDon
 
                 If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
                     dgv_listSach.Rows.RemoveAt(e.RowIndex) ' nếu mã trống thì clear dòng
-                    dgv_listSach.Item("STT", e.RowIndex).Value = stt
+                    'Cập nhật lại stt khi 1 dòng bị xóa
+                    For i As Integer = e.RowIndex To dgv_listSach.Rows.Count - 1
+                        dgv_listSach.Rows(i).Cells(0).Value = dgv_listSach.Rows(i).Cells(0).Value - 1
+                        stt = dgv_listSach.Rows(i).Cells(0).Value
+                    Next
                     Return
                 End If
 
@@ -257,6 +262,10 @@ Public Class UC_LapHoaDon
                         MessageBox.Show("Mã sách vừa nhập đã tồn tại!")
                         dgv_listSach.Rows.Remove(dgv_listSach.Rows(e.RowIndex))
                         dgv_listSach.Rows(e.RowIndex).Cells(0).Value = dgv_listSach.Rows(e.RowIndex - 1).Cells(0).Value + 1
+                        'For j As Integer = e.RowIndex To dgv_listSach.Rows.Count - 1
+                        '    dgv_listSach.Rows(j).Cells(0).Value = dgv_listSach.Rows(j).Cells(0).Value - 1
+                        '    stt = dgv_listSach.Rows(j).Cells(0).Value
+                        'Next
                     End If
                 Next
 
@@ -270,8 +279,18 @@ Public Class UC_LapHoaDon
                 'lấy thông tin sách theo mã đã nhập
                 res = sachBUS.selectSach_ByMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
-                    MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Return
+                    'MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    ChangeColor_SaiCuPhap(e.RowIndex)
+#Region "Xóa dữ liệu của dòng"
+                    dgv_listSach.Rows(e.RowIndex).Cells(2).Value = String.Empty
+                    dgv_listSach.Rows(e.RowIndex).Cells(3).Value = String.Empty
+                    dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty
+                    dgv_listSach.Rows(e.RowIndex).Cells(5).Value = String.Empty
+                    dgv_listSach.Rows(e.RowIndex).Cells(6).Value = String.Empty
+#End Region
+                    'Return
+                Else
+                    Original_Color(e.RowIndex)
                 End If
                 sach = CType(res.Obj1, Sach_DTO)
 
@@ -348,7 +367,6 @@ Public Class UC_LapHoaDon
 
         End Try
 
-
     End Sub
 
 
@@ -356,12 +374,15 @@ Public Class UC_LapHoaDon
 
 #Region "Kiểm tra có ô nào chưa điền ko?"
         For j As Integer = 0 To dgv_listSach.Rows.Count - 1
-            'Những hàng điền chưa đủ thông tin sẽ báo lỗi
-            If dgv_listSach.Rows(j).Cells(1).Value <> "" Then
-                If dgv_listSach.Rows(j).Cells(4).Value Is Nothing Then
-                    ChangeColor_SaiCuPhap(j)
-                ElseIf dgv_listSach.Rows(j).Cells(6).Value Is Nothing Then
-                    ChangeColor_SaiCuPhap(j)
+            If dgv_listSach.Rows(j).Cells(1).Value = Nothing And dgv_listSach.Rows(j).Cells(4).Value = Nothing Then
+                Continue For
+            Else
+                If dgv_listSach.Rows(j).Cells(1).Value <> "" Then
+                    If dgv_listSach.Rows(j).Cells(4).Value Is Nothing Then
+                        ChangeColor_SaiCuPhap(j)
+                    ElseIf dgv_listSach.Rows(j).Cells(6).Value Is Nothing Then
+                        ChangeColor_SaiCuPhap(j)
+                    End If
                 End If
             End If
         Next
