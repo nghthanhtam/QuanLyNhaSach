@@ -149,6 +149,7 @@ Public Class frm_ThemNhieuSach
         If (e.ColumnIndex = 1) Then
             If dgv_listSachNhap.Item("TenSach", e.RowIndex + 1).Value Is Nothing Then
                 ReloadMaSach(e.RowIndex + 1)
+                Original_Color(e.RowIndex + 1)
             End If
         End If
 
@@ -171,67 +172,62 @@ Public Class frm_ThemNhieuSach
         End If
 #End Region
 
+
+
+
         If dgv_listSachNhap.Rows(e.RowIndex).Cells(1).Value = Nothing And dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Value = Nothing And dgv_listSachNhap.Rows(e.RowIndex).Cells(3).Value = Nothing And dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value = Nothing Then
             Original_Color(e.RowIndex)
-            'Return
+            Return
         End If
 
-        If e.ColumnIndex = 1 Then
 #Region "Kiểm Tra nhập Tên sách"
-            res = sachBUS.isValidTenSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(1).Value)
-            If (res.FlagResult = False) Then
-                'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)         
-                ChangeColor_SaiCuPhap(e.RowIndex)
-                'Return
-            Else
-                Original_Color(e.RowIndex)
-            End If
-#End Region
+        res = sachBUS.isValidTenSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(1).Value)
+        If (res.FlagResult = False) Then
+            'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)         
+            ChangeColor_SaiCuPhap(e.RowIndex)
+            Return
+        Else
+            Original_Color(e.RowIndex)
         End If
+#End Region
 
-        If e.ColumnIndex = 2 Then
 #Region "Kiểm Tra input Thể Loại"
-            res = sachBUS.isValidTheLoai(dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Value)
-            If (res.FlagResult = False) Then
-                'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                'dgv_listSachNhap.Focus()
-                ChangeColor_SaiCuPhap(e.RowIndex)
-                'Return
+        res = sachBUS.isValidTheLoai(dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Value)
+        If (res.FlagResult = False) Then
+            'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'dgv_listSachNhap.Focus()
+            ChangeColor_SaiCuPhap(e.RowIndex)
+            Return
 
-            Else
-                Original_Color(e.RowIndex)
-            End If
-#End Region
+        Else
+            Original_Color(e.RowIndex)
         End If
+#End Region
 
-        If e.ColumnIndex = 3 Then
 #Region "Kiểm Tra Tên tác giả"
-            res = sachBUS.isValidTacGia(dgv_listSachNhap.Rows(e.RowIndex).Cells(3).Value)
-            If (res.FlagResult = False) Then
-                'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                ChangeColor_SaiCuPhap(e.RowIndex)
-                'Return
+        res = sachBUS.isValidTacGia(dgv_listSachNhap.Rows(e.RowIndex).Cells(3).Value)
+        If (res.FlagResult = False) Then
+            'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ChangeColor_SaiCuPhap(e.RowIndex)
+            Return
 
-            Else
-                Original_Color(e.RowIndex)
-            End If
-#End Region
+        Else
+            Original_Color(e.RowIndex)
         End If
+#End Region
 
-        If e.ColumnIndex = 5 Then
 #Region "Kiểm Tra Đơn giá"
-            res = sachBUS.isValidDonGia(dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value)
-            If (res.FlagResult = False) Then
-                'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                'dgv_listSachNhap.Focus()
-                ChangeColor_SaiCuPhap(e.RowIndex)
-                'Return
+        res = sachBUS.isValidDonGia(dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value)
+        If (res.FlagResult = False) Then
+            'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'dgv_listSachNhap.Focus()
+            ChangeColor_SaiCuPhap(e.RowIndex)
+            Return
 
-            Else
-                Original_Color(e.RowIndex)
-            End If
-#End Region
+        Else
+            Original_Color(e.RowIndex)
         End If
+#End Region
 
     End Sub
 
@@ -312,14 +308,14 @@ Public Class frm_ThemNhieuSach
 #Region "Xử lí khi nhập 1 lần là có thể kích hoạt cbb TheLoai"
     Private Sub dgv_listSachNhap_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_listSachNhap.CellClick
         dgv_listSachNhap.BeginEdit(True)
-        'Try
-        If e.ColumnIndex = 2 And dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Selected = True Then
+        Try
+            If e.ColumnIndex = 2 And dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Selected = True Then
 
-            DirectCast(dgv_listSachNhap.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
-        End If
-        'Catch ex As Exception
-        '    Debug.WriteLine(ex.Message)
-        'End Try
+                DirectCast(dgv_listSachNhap.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
+            End If
+        Catch ex As Exception
+            Debug.WriteLine(ex.Message)
+        End Try
     End Sub
 #End Region
 
