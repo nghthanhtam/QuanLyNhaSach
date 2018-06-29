@@ -166,8 +166,13 @@ Public Class UC_LapHoaDon
         dgv_listSach.Columns("MaSach").Width = rong * 0.11
         dgv_listSach.Columns("DonGia").Width = rong * 0.11
         dgv_listSach.Columns("TacGia").Width = rong * 0.1
-        dgv_listSach.Columns("SoLuongNhap").Width = rong * 0.14
+        dgv_listSach.Columns("SoLuongNhap").Width = rong * 0.14 - 5
         dgv_listSach.Columns("ThanhTien").Width = rong * 0.13
+
+
+
+        dgv_listSach.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 62, 80)
+        dgv_listSach.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
 
     End Sub
 

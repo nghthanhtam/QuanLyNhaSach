@@ -161,6 +161,12 @@ Public Class btn_XoaTatCaDongLoi
         dgv_listSachNhap.Columns("DonGia").Width = rong * 0.1
         dgv_listSachNhap.Columns("SoLuongTon").Width = rong * 0.14
 
+        dgv_listSachNhap.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 62, 80)
+        dgv_listSachNhap.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+
+
+
+
     End Sub
 
 

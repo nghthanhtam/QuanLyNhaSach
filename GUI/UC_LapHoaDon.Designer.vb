@@ -22,6 +22,8 @@ Partial Class UC_LapHoaDon
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lnl_NhapNgay = New System.Windows.Forms.Label()
         Me.dtp_NgayLap = New System.Windows.Forms.DateTimePicker()
         Me.btn_LapHoaDon = New System.Windows.Forms.Button()
@@ -239,13 +241,31 @@ Partial Class UC_LapHoaDon
         '
         'dgv_listSach
         '
+        Me.dgv_listSach.AllowUserToResizeRows = False
         Me.dgv_listSach.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.dgv_listSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_listSach.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_listSach.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgv_listSach.EnableHeadersVisualStyles = False
         Me.dgv_listSach.Location = New System.Drawing.Point(37, 175)
         Me.dgv_listSach.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv_listSach.Name = "dgv_listSach"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_listSach.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_listSach.Size = New System.Drawing.Size(907, 405)
-        Me.dgv_listSach.TabIndex = 2
+        Me.dgv_listSach.TabIndex = 17
         '
         'UC_LapHoaDon
         '

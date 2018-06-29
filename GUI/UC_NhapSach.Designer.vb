@@ -22,6 +22,8 @@ Partial Class btn_XoaTatCaDongLoi
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dtp_NgayNhap = New System.Windows.Forms.DateTimePicker()
         Me.lbl_NgayNhap = New System.Windows.Forms.Label()
         Me.dgv_listSachNhap = New System.Windows.Forms.DataGridView()
@@ -47,7 +49,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.dtp_NgayNhap.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.dtp_NgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtp_NgayNhap.Location = New System.Drawing.Point(228, 91)
-        Me.dtp_NgayNhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtp_NgayNhap.Margin = New System.Windows.Forms.Padding(4)
         Me.dtp_NgayNhap.Name = "dtp_NgayNhap"
         Me.dtp_NgayNhap.Size = New System.Drawing.Size(149, 27)
         Me.dtp_NgayNhap.TabIndex = 0
@@ -65,15 +67,32 @@ Partial Class btn_XoaTatCaDongLoi
         '
         'dgv_listSachNhap
         '
-        Me.dgv_listSachNhap.AllowUserToOrderColumns = True
         Me.dgv_listSachNhap.AllowUserToResizeRows = False
-        Me.dgv_listSachNhap.BackgroundColor = System.Drawing.SystemColors.ButtonFace
-        Me.dgv_listSachNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_listSachNhap.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgv_listSachNhap.BorderStyle = System.Windows.Forms.BorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_listSachNhap.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgv_listSachNhap.EnableHeadersVisualStyles = False
         Me.dgv_listSachNhap.Location = New System.Drawing.Point(33, 129)
-        Me.dgv_listSachNhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgv_listSachNhap.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv_listSachNhap.Name = "dgv_listSachNhap"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_listSachNhap.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.dgv_listSachNhap.RowTemplate.Height = 24
         Me.dgv_listSachNhap.Size = New System.Drawing.Size(908, 468)
-        Me.dgv_listSachNhap.TabIndex = 2
+        Me.dgv_listSachNhap.TabIndex = 17
         '
         'btn_NhapSach
         '
@@ -190,7 +209,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Location = New System.Drawing.Point(39, 636)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(51, 18)
         Me.Button1.TabIndex = 56
@@ -203,7 +222,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Location = New System.Drawing.Point(39, 610)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(51, 18)
         Me.Button2.TabIndex = 60
@@ -245,7 +264,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.Controls.Add(Me.txt_MaPhieuNhap)
         Me.Controls.Add(Me.lbl_NgayNhap)
         Me.Controls.Add(Me.dtp_NgayNhap)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "btn_XoaTatCaDongLoi"
         Me.Size = New System.Drawing.Size(972, 690)
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).EndInit()
