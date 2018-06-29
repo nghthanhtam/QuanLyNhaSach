@@ -172,10 +172,6 @@ Public Class btn_XoaTatCaDongLoi
         Try
             If (e.ColumnIndex = 5) Then
 
-                'If dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value.ToString = "" Then
-                '    ChangeColor_SaiCuPhap(e.RowIndex)
-                '    Return
-                'End If     
                 If dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value <> "" Then
                     If (dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value = String.Empty) Then
                         dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value = ""
@@ -224,6 +220,8 @@ Public Class btn_XoaTatCaDongLoi
                         Return
                     End If
                 Next
+
+
 
                 res = sachBUS.isValidMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
@@ -279,15 +277,20 @@ Public Class btn_XoaTatCaDongLoi
 
 #Region "Kiểm tra có ô nào chưa điền ko?"
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
-            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Then
+            If dgv_listSachNhap.Rows(j).Cells(0).Value = Nothing And dgv_listSachNhap.Rows(j).Cells(5).Value = Nothing Then
                 Continue For
-            End If
-            If dgv_listSachNhap.Rows(j).Cells(0).Value = Nothing Then
-                Original_Color(j)
-                Exit For
-            ElseIf dgv_listSachNhap.Rows(j).Cells(5).Value = Nothing Then
-                ChangeColor_SaiCuPhap(j)
-                Exit For
+            Else
+                If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Then
+                    Continue For
+                End If
+                If dgv_listSachNhap.Rows(j).Cells(0).Value = Nothing Then
+                    ChangeColor_SaiCuPhap(j)
+                    Continue For
+                End If
+                If dgv_listSachNhap.Rows(j).Cells(5).Value = Nothing Then
+                    ChangeColor_SaiCuPhap(j)
+                    Continue For
+                End If
             End If
         Next
 #End Region
