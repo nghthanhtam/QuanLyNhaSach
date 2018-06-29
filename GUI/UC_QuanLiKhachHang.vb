@@ -269,4 +269,11 @@ Public Class UC_QuanLiKhachHang
         lbl_XoaTimKiem.BackColor = Color.White
     End Sub
 
+    Private Sub txt_TimKiem_KeyDown(sender As Object, e As KeyEventArgs) Handles txt_TimKiem.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            txt_TimKiem.Text = ""
+            dgv_ListKhachHang.Focus()
+        End If
+    End Sub
+
 End Class
