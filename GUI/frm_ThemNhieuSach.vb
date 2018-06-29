@@ -104,7 +104,7 @@ Public Class frm_ThemNhieuSach
         Dim clSoLuongTon = New DataGridViewTextBoxColumn()
         With clSoLuongTon
             .Name = "SoLuongTon"
-            .HeaderText = "Số lượng tồn"
+            .HeaderText = "Lượng tồn"
             .ReadOnly = True
         End With
         dgv_listSachNhap.Columns.Add(clSoLuongTon)
@@ -125,9 +125,16 @@ Public Class frm_ThemNhieuSach
         dgv_listSachNhap.Columns("DonGia").Width = rong * 0.15
         dgv_listSachNhap.Columns("TheLoai").Width = rong * 0.15
         dgv_listSachNhap.Columns("TenSach").Width = rong * 0.15
+        dgv_listSachNhap.Columns("SoLuongTon").Width = rong * 0.25 - 60
+
         dgv_listSachNhap.Columns("TacGia").Width = rong * 0.15
+
         dgv_listSachNhap.Columns(0).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSachNhap.Columns(4).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+
+        dgv_listSachNhap.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 62, 80)
+        dgv_listSachNhap.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+
 
     End Sub
 
@@ -269,7 +276,6 @@ Public Class frm_ThemNhieuSach
         MessageBox.Show("Thêm sách thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         dgv_listSachNhap.Rows.Clear()
-        InitColumnsDataGridViewListSach()
         ReloadMaSach_LuongTon(0)
 
     End Sub
