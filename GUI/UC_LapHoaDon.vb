@@ -195,9 +195,6 @@ Public Class UC_LapHoaDon
             End If
 
 
-
-
-
             res = khachHangBUS.selectTenKH_ByMaKH(CInt(txt_MaKH.Text))
             If (res.FlagResult = False) Then
                 'MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -243,16 +240,35 @@ Public Class UC_LapHoaDon
         Try
 
 
-#Region "Quy định"
-            If (e.ColumnIndex = 1) Then
+            'If dgv_listSach.Rows(e.RowIndex).Cells(1).Value = Nothing And dgv_listSach.Rows(e.RowIndex).Cells(4).Value = Nothing Then
+            '    Original_Color(e.RowIndex)
+            '    Return
+            'End If
 
-                If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
+
+
+
+#Region "Quy định"
+            If (e.ColumnIndex = 1) Then 'kiểm tra mã sách hơp lệ chưa?
+
+
+                dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty ' Khi thay đổi cột mã sách thì clear cột số lượng
+
+
+                If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then ' Kiểm tra giá trị ô mã sách
                     dgv_listSach.Rows.RemoveAt(e.RowIndex) ' nếu mã trống thì clear dòng
-                    'Cập nhật lại stt khi 1 dòng bị xóa
+
+                    'Cập nhật lại STT khi 1 dòng bị xóa
                     For i As Integer = e.RowIndex To dgv_listSach.Rows.Count - 1
-                        dgv_listSach.Rows(i).Cells(0).Value = dgv_listSach.Rows(i).Cells(0).Value - 1
+                        If (i - 1 = -1) Then
+                            dgv_listSach.Rows(i).Cells(0).Value = 1
+                        Else
+                            dgv_listSach.Rows(i).Cells(0).Value = dgv_listSach.Rows(i - 1).Cells(0).Value + 1
+                        End If
                         stt = dgv_listSach.Rows(i).Cells(0).Value
                     Next
+                    'Cập nhật lại STT khi 1 dòng bị xóa
+
                     Return
                 End If
 
@@ -261,11 +277,19 @@ Public Class UC_LapHoaDon
                     If dgv_listSach.Rows(i).Cells(1).Value = dgv_listSach.Rows(e.RowIndex).Cells(1).Value And i <> e.RowIndex Then
                         MessageBox.Show("Mã sách vừa nhập đã tồn tại!")
                         dgv_listSach.Rows.Remove(dgv_listSach.Rows(e.RowIndex))
-                        dgv_listSach.Rows(e.RowIndex).Cells(0).Value = dgv_listSach.Rows(e.RowIndex - 1).Cells(0).Value + 1
-                        'For j As Integer = e.RowIndex To dgv_listSach.Rows.Count - 1
-                        '    dgv_listSach.Rows(j).Cells(0).Value = dgv_listSach.Rows(j).Cells(0).Value - 1
-                        '    stt = dgv_listSach.Rows(j).Cells(0).Value
-                        'Next
+
+                        'Cập nhật lại STT khi 1 dòng bị xóa
+                        For ii As Integer = e.RowIndex To dgv_listSach.Rows.Count - 1
+                            If (ii - 1 = -1) Then
+                                dgv_listSach.Rows(ii).Cells(0).Value = 1
+                            Else
+                                dgv_listSach.Rows(ii).Cells(0).Value = dgv_listSach.Rows(ii - 1).Cells(0).Value + 1
+                            End If
+                            stt = dgv_listSach.Rows(ii).Cells(0).Value
+                        Next
+                        'Cập nhật lại STT khi 1 dòng bị xóa
+
+                        Return
                     End If
                 Next
 
@@ -273,13 +297,13 @@ Public Class UC_LapHoaDon
                 res = sachBUS.isValidMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
                     ChangeColor_SaiCuPhap(e.RowIndex)
+                    Return
                 End If
 
 
                 'lấy thông tin sách theo mã đã nhập
                 res = sachBUS.selectSach_ByMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
-                    'MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     ChangeColor_SaiCuPhap(e.RowIndex)
 #Region "Xóa dữ liệu của dòng"
                     dgv_listSach.Rows(e.RowIndex).Cells(2).Value = String.Empty
@@ -290,10 +314,9 @@ Public Class UC_LapHoaDon
 #End Region
                     'Return
                 Else
-                    Original_Color(e.RowIndex)
+                    'Original_Color(e.RowIndex)
                 End If
                 sach = CType(res.Obj1, Sach_DTO)
-
 
                 If (dgv_listSach.Item("STT", e.RowIndex + 1).Value Is Nothing) Then
                     'Load tự động stt
@@ -301,6 +324,7 @@ Public Class UC_LapHoaDon
                     dgv_listSach.Item("STT", e.RowIndex + 1).Value = stt
                 End If
                 'thêm dòng-cọt trong dtg
+
                 dgv_listSach.Item("TenSach", e.RowIndex).Value = sach.TenSach1
                 dgv_listSach.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
                 dgv_listSach.Item("TacGia", e.RowIndex).Value = sach.TacGia1
@@ -313,7 +337,9 @@ Public Class UC_LapHoaDon
             If (e.ColumnIndex = 4) Then
 
                 ' khi chưa nhập mã sách mà lại nhập số lượng
-                If dgv_listSach.Rows(e.RowIndex).Cells(4).Value.ToString = String.Empty Then
+                If dgv_listSach.Rows(e.RowIndex).Cells(4).Value = Nothing Then
+                    ChangeColor_SaiCuPhap(e.RowIndex) ' ĐỔi màu báo hiệu chưa hoàn thành
+                    dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
                     Return
                 End If
 
@@ -325,38 +351,40 @@ Public Class UC_LapHoaDon
 
 
                 ' nếu ô hiện tại trống thì bỏ qua
-                If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then
+                'If (dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty) Then
+                '    dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
+                '    Return
+                'End If
+
+#Region "Kiểm tra số lượng tồn theo quy định"
+                ' kiểm tra nhập đúng cú pháp không?
+                res = chiTietHoaDonBUS.isValidSoLuongBan(dgv_listSach.Rows(e.RowIndex).Cells(4).Value.ToString())
+                If (res.FlagResult = False) Then
+                    ChangeColor_SaiCuPhap(e.RowIndex)
                     dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
                     Return
                 End If
 
 
-                ' kiểm tra nhập đúng cú pháp không?
-                res = chiTietHoaDonBUS.isValidSoLuongBan(dgv_listSach.Rows(e.RowIndex).Cells(4).Value.ToString())
+                res = sachBUS.selectSach_ByMaSach(dgv_listSach.Rows(e.RowIndex).Cells(1).Value)
                 If (res.FlagResult = False) Then
-                    'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    ChangeColor_SaiCuPhap(e.RowIndex)
-                    dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
-                    'dgv_listSach.Rows(e.RowIndex).Cells(4).Value = "" ' xóa ô số lượng nhập
+                    ChangeColor_SaiQuyDinh(e.RowIndex)
                     Return
                 Else
-                    Original_Color(e.RowIndex)
+                    sach = CType(res.Obj1, Sach_DTO)
                 End If
 
 
                 slton = sach.SoLuongTon1 - Integer.Parse(dgv_listSach.Rows(e.RowIndex).Cells(4).Value)
                 Dim res2 As Result = chiTietHoaDonBUS.isValidSoLuongSachTon(slton)
                 If (res2.FlagResult = False) Then
-                    'MessageBox.Show(res2.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     ChangeColor_SaiQuyDinh(e.RowIndex)
                     Return
-                Else
-                    Original_Color(e.RowIndex)
                 End If
-
+                Original_Color(e.RowIndex) ' Set màu xác nhận đúng
+#End Region
 
                 dgv_listSach.Item("ThanhTien", e.RowIndex).Value = Double.Parse(dgv_listSach.Item("DonGia", e.RowIndex).Value) * Integer.Parse(dgv_listSach.Item("SoLuongNhap", e.RowIndex).Value)
-
 
             End If
 
@@ -371,6 +399,25 @@ Public Class UC_LapHoaDon
 
 
     Private Sub btn_Nhap_Click(sender As Object, e As EventArgs) Handles btn_LapHoaDon.Click
+
+
+        If txt_SoTienNo.BackColor = Color.OrangeRed Then
+            MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        If txt_HoTenKH.Text = String.Empty Then
+            MessageBox.Show("Bạn chưa nhập thông tin khách hàng!" + Environment.NewLine + "Hoặc thông tin khách hàng không chính xác!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+        If dgv_listSach.Rows(0).Cells(1).Value Is Nothing Then ' kiểm tra cột mã của dòng đầu đã được ghi gì chưa, nếu chưa đồng nghĩa với việc chưa nhập gì mà bấm submit
+            MessageBox.Show("Vui lòng nhập thông tin các chi tiết hóa đơn!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Return
+        End If
+
+
+
 
 #Region "Kiểm tra có ô nào chưa điền ko?"
         For j As Integer = 0 To dgv_listSach.Rows.Count - 1
@@ -394,16 +441,6 @@ Public Class UC_LapHoaDon
                 Return
             End If
         Next
-
-        If txt_SoTienNo.BackColor = Color.OrangeRed Then
-            MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Return
-        End If
-
-        If txt_HoTenKH.Text = String.Empty Then
-            MessageBox.Show("Bạn chưa nhập thông tin khách hàng!" + Environment.NewLine + "Hoặc thông tin khách hàng không chính xác!", "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Return
-        End If
 
 
         'insert vào hóa đơn
