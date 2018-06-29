@@ -360,7 +360,7 @@ Public Class frm_ThemNhieuSach
                 dgv_listSachNhap.Rows.RemoveAt(i)
                 i = i - 1
 
-
+                '
                 'For ii As Integer = i To dgv_listSachNhap.Rows.Count - 1
                 '    If (ii = -1) Then
                 '        MessageBox.Show(ii)
