@@ -47,9 +47,10 @@ Partial Class UC_LapHoaDon
         '
         Me.lnl_NhapNgay.AutoSize = True
         Me.lnl_NhapNgay.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnl_NhapNgay.Location = New System.Drawing.Point(48, 73)
+        Me.lnl_NhapNgay.Location = New System.Drawing.Point(64, 90)
+        Me.lnl_NhapNgay.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lnl_NhapNgay.Name = "lnl_NhapNgay"
-        Me.lnl_NhapNgay.Size = New System.Drawing.Size(77, 16)
+        Me.lnl_NhapNgay.Size = New System.Drawing.Size(93, 20)
         Me.lnl_NhapNgay.TabIndex = 0
         Me.lnl_NhapNgay.Text = "Ngày nhập:"
         '
@@ -58,18 +59,20 @@ Partial Class UC_LapHoaDon
         Me.dtp_NgayLap.CustomFormat = "dd/MM/yyyy"
         Me.dtp_NgayLap.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.dtp_NgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtp_NgayLap.Location = New System.Drawing.Point(176, 69)
+        Me.dtp_NgayLap.Location = New System.Drawing.Point(235, 85)
+        Me.dtp_NgayLap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dtp_NgayLap.Name = "dtp_NgayLap"
-        Me.dtp_NgayLap.Size = New System.Drawing.Size(116, 23)
+        Me.dtp_NgayLap.Size = New System.Drawing.Size(153, 27)
         Me.dtp_NgayLap.TabIndex = 1
         '
         'dgv_listSach
         '
         Me.dgv_listSach.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgv_listSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_listSach.Location = New System.Drawing.Point(28, 142)
+        Me.dgv_listSach.Location = New System.Drawing.Point(37, 175)
+        Me.dgv_listSach.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgv_listSach.Name = "dgv_listSach"
-        Me.dgv_listSach.Size = New System.Drawing.Size(680, 329)
+        Me.dgv_listSach.Size = New System.Drawing.Size(907, 405)
         Me.dgv_listSach.TabIndex = 2
         '
         'btn_LapHoaDon
@@ -77,11 +80,12 @@ Partial Class UC_LapHoaDon
         Me.btn_LapHoaDon.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(133, Byte), Integer))
         Me.btn_LapHoaDon.FlatAppearance.BorderSize = 0
         Me.btn_LapHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_LapHoaDon.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_LapHoaDon.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_LapHoaDon.ForeColor = System.Drawing.SystemColors.Control
-        Me.btn_LapHoaDon.Location = New System.Drawing.Point(416, 486)
+        Me.btn_LapHoaDon.Location = New System.Drawing.Point(779, 608)
+        Me.btn_LapHoaDon.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btn_LapHoaDon.Name = "btn_LapHoaDon"
-        Me.btn_LapHoaDon.Size = New System.Drawing.Size(124, 33)
+        Me.btn_LapHoaDon.Size = New System.Drawing.Size(165, 40)
         Me.btn_LapHoaDon.TabIndex = 3
         Me.btn_LapHoaDon.Text = "Lập hóa đơn"
         Me.btn_LapHoaDon.UseVisualStyleBackColor = False
@@ -90,37 +94,41 @@ Partial Class UC_LapHoaDon
         '
         Me.lbl_HoTenKH.AutoSize = True
         Me.lbl_HoTenKH.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.lbl_HoTenKH.Location = New System.Drawing.Point(394, 71)
+        Me.lbl_HoTenKH.Location = New System.Drawing.Point(525, 87)
+        Me.lbl_HoTenKH.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_HoTenKH.Name = "lbl_HoTenKH"
-        Me.lbl_HoTenKH.Size = New System.Drawing.Size(132, 17)
+        Me.lbl_HoTenKH.Size = New System.Drawing.Size(154, 20)
         Me.lbl_HoTenKH.TabIndex = 4
         Me.lbl_HoTenKH.Text = "Họ tên khách hàng:"
         '
         'txt_HoTenKH
         '
         Me.txt_HoTenKH.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.txt_HoTenKH.Location = New System.Drawing.Point(522, 69)
+        Me.txt_HoTenKH.Location = New System.Drawing.Point(696, 85)
+        Me.txt_HoTenKH.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_HoTenKH.Name = "txt_HoTenKH"
         Me.txt_HoTenKH.ReadOnly = True
-        Me.txt_HoTenKH.Size = New System.Drawing.Size(165, 23)
+        Me.txt_HoTenKH.Size = New System.Drawing.Size(219, 27)
         Me.txt_HoTenKH.TabIndex = 5
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.Label1.Location = New System.Drawing.Point(394, 39)
+        Me.Label1.Location = New System.Drawing.Point(525, 48)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(109, 17)
+        Me.Label1.Size = New System.Drawing.Size(127, 20)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Mã khách hàng:"
         '
         'txt_MaKH
         '
         Me.txt_MaKH.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_MaKH.Location = New System.Drawing.Point(522, 37)
+        Me.txt_MaKH.Location = New System.Drawing.Point(696, 46)
+        Me.txt_MaKH.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_MaKH.Name = "txt_MaKH"
-        Me.txt_MaKH.Size = New System.Drawing.Size(165, 23)
+        Me.txt_MaKH.Size = New System.Drawing.Size(219, 27)
         Me.txt_MaKH.TabIndex = 7
         '
         'Label7
@@ -128,10 +136,9 @@ Partial Class UC_LapHoaDon
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(24, 13)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label7.Location = New System.Drawing.Point(32, 16)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(167, 20)
+        Me.Label7.Size = New System.Drawing.Size(206, 25)
         Me.Label7.TabIndex = 35
         Me.Label7.Text = "Lập hóa đơn bán sách"
         '
@@ -139,47 +146,52 @@ Partial Class UC_LapHoaDon
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.Label2.Location = New System.Drawing.Point(394, 101)
+        Me.Label2.Location = New System.Drawing.Point(525, 124)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(72, 17)
+        Me.Label2.Size = New System.Drawing.Size(84, 20)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Số tiền nợ"
         '
         'txt_SoTienNo
         '
         Me.txt_SoTienNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.txt_SoTienNo.Location = New System.Drawing.Point(522, 99)
+        Me.txt_SoTienNo.Location = New System.Drawing.Point(696, 122)
+        Me.txt_SoTienNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_SoTienNo.Name = "txt_SoTienNo"
         Me.txt_SoTienNo.ReadOnly = True
-        Me.txt_SoTienNo.Size = New System.Drawing.Size(165, 23)
+        Me.txt_SoTienNo.Size = New System.Drawing.Size(219, 27)
         Me.txt_SoTienNo.TabIndex = 5
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.Label3.Location = New System.Drawing.Point(48, 41)
+        Me.Label3.Location = New System.Drawing.Point(64, 50)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(87, 17)
+        Me.Label3.Size = New System.Drawing.Size(101, 20)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Mã hóa đơn:"
         '
         'txt_MaHoaDon
         '
         Me.txt_MaHoaDon.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_MaHoaDon.Location = New System.Drawing.Point(176, 39)
+        Me.txt_MaHoaDon.Location = New System.Drawing.Point(235, 48)
+        Me.txt_MaHoaDon.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_MaHoaDon.Name = "txt_MaHoaDon"
         Me.txt_MaHoaDon.ReadOnly = True
-        Me.txt_MaHoaDon.Size = New System.Drawing.Size(114, 23)
+        Me.txt_MaHoaDon.Size = New System.Drawing.Size(151, 27)
         Me.txt_MaHoaDon.TabIndex = 7
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(77, 515)
+        Me.Label8.Location = New System.Drawing.Point(103, 634)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(288, 13)
+        Me.Label8.Size = New System.Drawing.Size(379, 17)
         Me.Label8.TabIndex = 53
         Me.Label8.Text = "Người dùng nhập sai cú pháp hoặc chưa nhập đủ thông tin"
         '
@@ -189,9 +201,10 @@ Partial Class UC_LapHoaDon
         Me.btn_SaiCuPhap.Enabled = False
         Me.btn_SaiCuPhap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
         Me.btn_SaiCuPhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_SaiCuPhap.Location = New System.Drawing.Point(35, 513)
+        Me.btn_SaiCuPhap.Location = New System.Drawing.Point(47, 631)
+        Me.btn_SaiCuPhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btn_SaiCuPhap.Name = "btn_SaiCuPhap"
-        Me.btn_SaiCuPhap.Size = New System.Drawing.Size(38, 15)
+        Me.btn_SaiCuPhap.Size = New System.Drawing.Size(51, 18)
         Me.btn_SaiCuPhap.TabIndex = 52
         Me.btn_SaiCuPhap.UseVisualStyleBackColor = False
         '
@@ -199,9 +212,10 @@ Partial Class UC_LapHoaDon
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(77, 494)
+        Me.Label4.Location = New System.Drawing.Point(103, 608)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(149, 13)
+        Me.Label4.Size = New System.Drawing.Size(197, 17)
         Me.Label4.TabIndex = 55
         Me.Label4.Text = "Người dùng nhập sai quy định"
         '
@@ -211,9 +225,10 @@ Partial Class UC_LapHoaDon
         Me.btn_SaiQuyDinh.Enabled = False
         Me.btn_SaiQuyDinh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
         Me.btn_SaiQuyDinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_SaiQuyDinh.Location = New System.Drawing.Point(35, 492)
+        Me.btn_SaiQuyDinh.Location = New System.Drawing.Point(47, 606)
+        Me.btn_SaiQuyDinh.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btn_SaiQuyDinh.Name = "btn_SaiQuyDinh"
-        Me.btn_SaiQuyDinh.Size = New System.Drawing.Size(38, 15)
+        Me.btn_SaiQuyDinh.Size = New System.Drawing.Size(51, 18)
         Me.btn_SaiQuyDinh.TabIndex = 54
         Me.btn_SaiQuyDinh.UseVisualStyleBackColor = False
         '
@@ -222,18 +237,19 @@ Partial Class UC_LapHoaDon
         Me.btn_XoaDongLoi.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(133, Byte), Integer))
         Me.btn_XoaDongLoi.FlatAppearance.BorderSize = 0
         Me.btn_XoaDongLoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_XoaDongLoi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_XoaDongLoi.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_XoaDongLoi.ForeColor = System.Drawing.Color.White
-        Me.btn_XoaDongLoi.Location = New System.Drawing.Point(560, 486)
+        Me.btn_XoaDongLoi.Location = New System.Drawing.Point(574, 609)
+        Me.btn_XoaDongLoi.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btn_XoaDongLoi.Name = "btn_XoaDongLoi"
-        Me.btn_XoaDongLoi.Size = New System.Drawing.Size(129, 33)
+        Me.btn_XoaDongLoi.Size = New System.Drawing.Size(172, 40)
         Me.btn_XoaDongLoi.TabIndex = 63
         Me.btn_XoaDongLoi.Text = "Xóa tất cả dòng lỗi"
         Me.btn_XoaDongLoi.UseVisualStyleBackColor = False
         '
         'UC_LapHoaDon
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Controls.Add(Me.btn_XoaDongLoi)
@@ -254,8 +270,9 @@ Partial Class UC_LapHoaDon
         Me.Controls.Add(Me.dgv_listSach)
         Me.Controls.Add(Me.dtp_NgayLap)
         Me.Controls.Add(Me.lnl_NhapNgay)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "UC_LapHoaDon"
-        Me.Size = New System.Drawing.Size(757, 544)
+        Me.Size = New System.Drawing.Size(1009, 670)
         CType(Me.dgv_listSach, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
