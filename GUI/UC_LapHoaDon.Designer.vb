@@ -24,7 +24,6 @@ Partial Class UC_LapHoaDon
     Private Sub InitializeComponent()
         Me.lnl_NhapNgay = New System.Windows.Forms.Label()
         Me.dtp_NgayLap = New System.Windows.Forms.DateTimePicker()
-        Me.dgv_listSach = New System.Windows.Forms.DataGridView()
         Me.btn_LapHoaDon = New System.Windows.Forms.Button()
         Me.lbl_HoTenKH = New System.Windows.Forms.Label()
         Me.txt_HoTenKH = New System.Windows.Forms.TextBox()
@@ -40,6 +39,7 @@ Partial Class UC_LapHoaDon
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btn_SaiQuyDinh = New System.Windows.Forms.Button()
         Me.btn_XoaDongLoi = New System.Windows.Forms.Button()
+        Me.dgv_listSach = New System.Windows.Forms.DataGridView()
         CType(Me.dgv_listSach, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -60,20 +60,10 @@ Partial Class UC_LapHoaDon
         Me.dtp_NgayLap.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.dtp_NgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtp_NgayLap.Location = New System.Drawing.Point(235, 85)
-        Me.dtp_NgayLap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtp_NgayLap.Margin = New System.Windows.Forms.Padding(4)
         Me.dtp_NgayLap.Name = "dtp_NgayLap"
         Me.dtp_NgayLap.Size = New System.Drawing.Size(153, 27)
         Me.dtp_NgayLap.TabIndex = 1
-        '
-        'dgv_listSach
-        '
-        Me.dgv_listSach.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.dgv_listSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_listSach.Location = New System.Drawing.Point(37, 175)
-        Me.dgv_listSach.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.dgv_listSach.Name = "dgv_listSach"
-        Me.dgv_listSach.Size = New System.Drawing.Size(907, 405)
-        Me.dgv_listSach.TabIndex = 2
         '
         'btn_LapHoaDon
         '
@@ -83,7 +73,7 @@ Partial Class UC_LapHoaDon
         Me.btn_LapHoaDon.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_LapHoaDon.ForeColor = System.Drawing.SystemColors.Control
         Me.btn_LapHoaDon.Location = New System.Drawing.Point(779, 608)
-        Me.btn_LapHoaDon.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_LapHoaDon.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_LapHoaDon.Name = "btn_LapHoaDon"
         Me.btn_LapHoaDon.Size = New System.Drawing.Size(165, 40)
         Me.btn_LapHoaDon.TabIndex = 3
@@ -105,7 +95,7 @@ Partial Class UC_LapHoaDon
         '
         Me.txt_HoTenKH.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.txt_HoTenKH.Location = New System.Drawing.Point(696, 85)
-        Me.txt_HoTenKH.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_HoTenKH.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_HoTenKH.Name = "txt_HoTenKH"
         Me.txt_HoTenKH.ReadOnly = True
         Me.txt_HoTenKH.Size = New System.Drawing.Size(219, 27)
@@ -126,7 +116,7 @@ Partial Class UC_LapHoaDon
         '
         Me.txt_MaKH.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_MaKH.Location = New System.Drawing.Point(696, 46)
-        Me.txt_MaKH.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_MaKH.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_MaKH.Name = "txt_MaKH"
         Me.txt_MaKH.Size = New System.Drawing.Size(219, 27)
         Me.txt_MaKH.TabIndex = 7
@@ -157,7 +147,7 @@ Partial Class UC_LapHoaDon
         '
         Me.txt_SoTienNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.txt_SoTienNo.Location = New System.Drawing.Point(696, 122)
-        Me.txt_SoTienNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_SoTienNo.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_SoTienNo.Name = "txt_SoTienNo"
         Me.txt_SoTienNo.ReadOnly = True
         Me.txt_SoTienNo.Size = New System.Drawing.Size(219, 27)
@@ -178,7 +168,7 @@ Partial Class UC_LapHoaDon
         '
         Me.txt_MaHoaDon.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_MaHoaDon.Location = New System.Drawing.Point(235, 48)
-        Me.txt_MaHoaDon.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_MaHoaDon.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_MaHoaDon.Name = "txt_MaHoaDon"
         Me.txt_MaHoaDon.ReadOnly = True
         Me.txt_MaHoaDon.Size = New System.Drawing.Size(151, 27)
@@ -202,7 +192,7 @@ Partial Class UC_LapHoaDon
         Me.btn_SaiCuPhap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
         Me.btn_SaiCuPhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_SaiCuPhap.Location = New System.Drawing.Point(47, 631)
-        Me.btn_SaiCuPhap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_SaiCuPhap.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_SaiCuPhap.Name = "btn_SaiCuPhap"
         Me.btn_SaiCuPhap.Size = New System.Drawing.Size(51, 18)
         Me.btn_SaiCuPhap.TabIndex = 52
@@ -226,7 +216,7 @@ Partial Class UC_LapHoaDon
         Me.btn_SaiQuyDinh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
         Me.btn_SaiQuyDinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_SaiQuyDinh.Location = New System.Drawing.Point(47, 606)
-        Me.btn_SaiQuyDinh.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_SaiQuyDinh.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_SaiQuyDinh.Name = "btn_SaiQuyDinh"
         Me.btn_SaiQuyDinh.Size = New System.Drawing.Size(51, 18)
         Me.btn_SaiQuyDinh.TabIndex = 54
@@ -240,12 +230,22 @@ Partial Class UC_LapHoaDon
         Me.btn_XoaDongLoi.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_XoaDongLoi.ForeColor = System.Drawing.Color.White
         Me.btn_XoaDongLoi.Location = New System.Drawing.Point(574, 609)
-        Me.btn_XoaDongLoi.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_XoaDongLoi.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_XoaDongLoi.Name = "btn_XoaDongLoi"
         Me.btn_XoaDongLoi.Size = New System.Drawing.Size(172, 40)
         Me.btn_XoaDongLoi.TabIndex = 63
         Me.btn_XoaDongLoi.Text = "Xóa tất cả dòng lỗi"
         Me.btn_XoaDongLoi.UseVisualStyleBackColor = False
+        '
+        'dgv_listSach
+        '
+        Me.dgv_listSach.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgv_listSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_listSach.Location = New System.Drawing.Point(37, 175)
+        Me.dgv_listSach.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgv_listSach.Name = "dgv_listSach"
+        Me.dgv_listSach.Size = New System.Drawing.Size(907, 405)
+        Me.dgv_listSach.TabIndex = 2
         '
         'UC_LapHoaDon
         '
@@ -270,7 +270,7 @@ Partial Class UC_LapHoaDon
         Me.Controls.Add(Me.dgv_listSach)
         Me.Controls.Add(Me.dtp_NgayLap)
         Me.Controls.Add(Me.lnl_NhapNgay)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "UC_LapHoaDon"
         Me.Size = New System.Drawing.Size(1009, 670)
         CType(Me.dgv_listSach, System.ComponentModel.ISupportInitialize).EndInit()
@@ -281,7 +281,6 @@ Partial Class UC_LapHoaDon
 
     Friend WithEvents lnl_NhapNgay As Label
     Friend WithEvents dtp_NgayLap As DateTimePicker
-    Friend WithEvents dgv_listSach As DataGridView
     Friend WithEvents btn_LapHoaDon As Button
     Friend WithEvents lbl_HoTenKH As Label
     Friend WithEvents txt_HoTenKH As TextBox
@@ -297,4 +296,5 @@ Partial Class UC_LapHoaDon
     Friend WithEvents Label4 As Label
     Friend WithEvents btn_SaiQuyDinh As Button
     Friend WithEvents btn_XoaDongLoi As Button
+    Friend WithEvents dgv_listSach As DataGridView
 End Class

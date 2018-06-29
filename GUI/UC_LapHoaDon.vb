@@ -237,15 +237,14 @@ Public Class UC_LapHoaDon
             Return
         End If
 
+
         Try
 
-
-            'If dgv_listSach.Rows(e.RowIndex).Cells(1).Value = Nothing And dgv_listSach.Rows(e.RowIndex).Cells(4).Value = Nothing Then
-            '    Original_Color(e.RowIndex)
-            '    Return
-            'End If
-
-
+            'Load tự động stt 
+            If (dgv_listSach.Item("STT", e.RowIndex + 1).Value Is Nothing) Then
+                stt = stt + 1
+                dgv_listSach.Item("STT", e.RowIndex + 1).Value = stt
+            End If
 
 
 #Region "Quy định"
@@ -312,18 +311,11 @@ Public Class UC_LapHoaDon
                     dgv_listSach.Rows(e.RowIndex).Cells(5).Value = String.Empty
                     dgv_listSach.Rows(e.RowIndex).Cells(6).Value = String.Empty
 #End Region
-                    'Return
-                Else
-                    'Original_Color(e.RowIndex)
+                    'Return 
                 End If
                 sach = CType(res.Obj1, Sach_DTO)
 
-                If (dgv_listSach.Item("STT", e.RowIndex + 1).Value Is Nothing) Then
-                    'Load tự động stt
-                    stt = stt + 1
-                    dgv_listSach.Item("STT", e.RowIndex + 1).Value = stt
-                End If
-                'thêm dòng-cọt trong dtg
+
 
                 dgv_listSach.Item("TenSach", e.RowIndex).Value = sach.TenSach1
                 dgv_listSach.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
@@ -349,12 +341,6 @@ Public Class UC_LapHoaDon
                     Return
                 End If
 
-
-                ' nếu ô hiện tại trống thì bỏ qua
-                'If (dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty) Then
-                '    dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
-                '    Return
-                'End If
 
 #Region "Kiểm tra số lượng tồn theo quy định"
                 ' kiểm tra nhập đúng cú pháp không?
