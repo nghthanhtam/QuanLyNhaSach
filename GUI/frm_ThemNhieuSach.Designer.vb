@@ -22,37 +22,38 @@ Partial Class frm_ThemNhieuSach
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgv_listSachNhap = New System.Windows.Forms.DataGridView()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel_ThanhTrangThaiTren = New System.Windows.Forms.Panel()
         Me.btn_Luu = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_XoaDongLoi = New System.Windows.Forms.Button()
         CType(Me.dgv_listSachNhap, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgv_listSachNhap
         '
         Me.dgv_listSachNhap.BackgroundColor = System.Drawing.SystemColors.ButtonFace
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_listSachNhap.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_listSachNhap.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_listSachNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgv_listSachNhap.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgv_listSachNhap.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_listSachNhap.Location = New System.Drawing.Point(22, 89)
         Me.dgv_listSachNhap.Name = "dgv_listSachNhap"
         Me.dgv_listSachNhap.Size = New System.Drawing.Size(585, 315)
@@ -87,7 +88,7 @@ Partial Class frm_ThemNhieuSach
         Me.btn_Luu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Luu.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_Luu.ForeColor = System.Drawing.Color.White
-        Me.btn_Luu.Location = New System.Drawing.Point(394, 420)
+        Me.btn_Luu.Location = New System.Drawing.Point(386, 420)
         Me.btn_Luu.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_Luu.Name = "btn_Luu"
         Me.btn_Luu.Size = New System.Drawing.Size(78, 31)
@@ -116,12 +117,28 @@ Partial Class frm_ThemNhieuSach
         Me.Button1.TabIndex = 52
         Me.Button1.UseVisualStyleBackColor = False
         '
+        'btn_XoaDongLoi
+        '
+        Me.btn_XoaDongLoi.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(133, Byte), Integer))
+        Me.btn_XoaDongLoi.FlatAppearance.BorderSize = 0
+        Me.btn_XoaDongLoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_XoaDongLoi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_XoaDongLoi.ForeColor = System.Drawing.Color.White
+        Me.btn_XoaDongLoi.Location = New System.Drawing.Point(477, 418)
+        Me.btn_XoaDongLoi.Margin = New System.Windows.Forms.Padding(2)
+        Me.btn_XoaDongLoi.Name = "btn_XoaDongLoi"
+        Me.btn_XoaDongLoi.Size = New System.Drawing.Size(129, 33)
+        Me.btn_XoaDongLoi.TabIndex = 62
+        Me.btn_XoaDongLoi.Text = "Xóa tất cả dòng lỗi"
+        Me.btn_XoaDongLoi.UseVisualStyleBackColor = False
+        '
         'frm_ThemNhieuSach
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(630, 462)
+        Me.Controls.Add(Me.btn_XoaDongLoi)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btn_Luu)
@@ -144,4 +161,5 @@ Partial Class frm_ThemNhieuSach
     Friend WithEvents btn_Luu As Button
     Friend WithEvents Label8 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents btn_XoaDongLoi As Button
 End Class

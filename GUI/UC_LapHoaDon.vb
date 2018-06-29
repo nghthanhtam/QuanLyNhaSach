@@ -305,7 +305,7 @@ Public Class UC_LapHoaDon
                 res = sachBUS.selectSach_ByMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
                     ChangeColor_SaiCuPhap(e.RowIndex)
-#Region "Xóa dữ liệu của dòng"
+#Region "Xóa dữ liệu của dòng khi mã sách ko đúng"
                     dgv_listSach.Rows(e.RowIndex).Cells(2).Value = String.Empty
                     dgv_listSach.Rows(e.RowIndex).Cells(3).Value = String.Empty
                     dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty
