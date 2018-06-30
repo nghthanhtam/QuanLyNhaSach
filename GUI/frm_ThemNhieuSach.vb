@@ -80,7 +80,6 @@ Public Class frm_ThemNhieuSach
         ListTheLoai = CType(res.Obj1, List(Of String))
 
         Dim clTheLoai = New DataGridViewComboBoxColumn()
-        ListTheLoai.Insert(0, "--Chọn--")
 
         With clTheLoai
             .Name = "TheLoai"
