@@ -24,6 +24,8 @@ Public Class UC_LapHoaDon
     Private count As Integer
     Private rowTrungTen As Integer
     Private ThongBaoTienNoVuotQuyDinh As String = ""
+    Private tongTien As Integer
+    Private soLuongCu As Integer
 
     Public Sub New()
 
@@ -53,8 +55,27 @@ Public Class UC_LapHoaDon
         txt_MaHoaDon.Text = CInt(res.Obj1)
     End Sub
 
+    Private Sub CapNhatTongTien()
+        tongTien = 0
 
-#Region "Đổi màu khi sai quy định hoẵ cú pháp"
+        For i As Integer = 0 To dgv_listSach.Rows.Count - 1
+            MessageBox.Show(i)
+            If dgv_listSach.Rows(i).Cells(1).Value Is Nothing And dgv_listSach.Rows(i).Cells(2).Value Is Nothing And dgv_listSach.Rows(i).Cells(3).Value Is Nothing And dgv_listSach.Rows(i).Cells(4).Value Is Nothing And dgv_listSach.Rows(i).Cells(5).Value Is Nothing And dgv_listSach.Rows(i).Cells(6).Value Is Nothing Then
+                Exit For
+            End If
+
+            If (dgv_listSach.Rows(i).Cells(4).Value = String.Empty) Then
+                Continue For
+            Else
+                tongTien = tongTien + dgv_listSach.Rows(i).Cells(7).Value
+                txt_TongTien.Text = tongTien
+            End If
+
+        Next
+    End Sub
+
+
+#Region "Đổi màu khi sai quy định hoặc cú pháp"
     Private Sub ChangeColor_SaiQuyDinh(rowIndex As Integer)
         dgv_listSach.Rows(rowIndex).DefaultCellStyle.BackColor = Color.OrangeRed
     End Sub
@@ -345,13 +366,14 @@ Public Class UC_LapHoaDon
             Dim slton
             If (e.ColumnIndex = 4) Then
 
-                ' khi chưa nhập mã sách mà lại nhập số lượng
+                'Khi xóa sl - ô sl trống
                 If dgv_listSach.Rows(e.RowIndex).Cells(4).Value = Nothing Then
                     ChangeColor_SaiCuPhap(e.RowIndex) ' ĐỔi màu báo hiệu chưa hoàn thành
                     dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
                     Return
                 End If
 
+                ' khi chưa nhập mã sách mà lại nhập số lượng
                 If (dgv_listSach.Rows(e.RowIndex).Cells(1).Value = String.Empty) Then
                     dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty
                     MessageBox.Show("Bạn chưa nhập mã sách", "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -389,6 +411,7 @@ Public Class UC_LapHoaDon
 
                 dgv_listSach.Item("ThanhTien", e.RowIndex).Value = Double.Parse(dgv_listSach.Item("DonGia", e.RowIndex).Value) * Integer.Parse(dgv_listSach.Item("SoLuongNhap", e.RowIndex).Value)
 
+                CapNhatTongTien()
             End If
 
 #End Region
@@ -565,6 +588,7 @@ Public Class UC_LapHoaDon
 
 
     Private Sub dgv_listSach_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles dgv_listSach.UserDeletingRow
+
         'kt mã sách có đc nhập 2 lần ko
         count = 0
         For i As Integer = 0 To dgv_listSach.Rows.Count - 1
@@ -583,6 +607,12 @@ Public Class UC_LapHoaDon
             dgv_listSach.Rows(i).Cells(0).Value = dgv_listSach.Rows(i).Cells(0).Value - 1
             stt = dgv_listSach.Rows(i).Cells(0).Value
         Next
+
+    End Sub
+
+
+    Private Sub dgv_listSach_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles dgv_listSach.UserDeletedRow
+        CapNhatTongTien()
     End Sub
 
 

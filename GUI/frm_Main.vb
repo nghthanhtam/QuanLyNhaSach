@@ -145,4 +145,5 @@
         Panel_LoadUC.Controls.Add(New UC_LapBaoCaoCongNo())
     End Sub
 
+
 End Class
