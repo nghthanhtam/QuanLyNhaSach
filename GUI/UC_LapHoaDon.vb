@@ -59,7 +59,7 @@ Public Class UC_LapHoaDon
         tongTien = 0
 
         For i As Integer = 0 To dgv_listSach.Rows.Count - 1
-            MessageBox.Show(i)
+
             If dgv_listSach.Rows(i).Cells(1).Value Is Nothing And dgv_listSach.Rows(i).Cells(2).Value Is Nothing And dgv_listSach.Rows(i).Cells(3).Value Is Nothing And dgv_listSach.Rows(i).Cells(4).Value Is Nothing And dgv_listSach.Rows(i).Cells(5).Value Is Nothing And dgv_listSach.Rows(i).Cells(6).Value Is Nothing Then
                 Exit For
             End If
@@ -370,6 +370,7 @@ Public Class UC_LapHoaDon
                 If dgv_listSach.Rows(e.RowIndex).Cells(4).Value = Nothing Then
                     ChangeColor_SaiCuPhap(e.RowIndex) ' ĐỔi màu báo hiệu chưa hoàn thành
                     dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
+                    CapNhatTongTien()
                     Return
                 End If
 
