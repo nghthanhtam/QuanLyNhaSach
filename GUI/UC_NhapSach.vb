@@ -135,7 +135,7 @@ Public Class btn_XoaTatCaDongLoi
         Dim clSoLuongTon = New DataGridViewTextBoxColumn()
         With clSoLuongTon
             .Name = "SoLuongTon"
-            .HeaderText = "Số lượng tồn"
+            .HeaderText = "Lượng tồn"
             .ReadOnly = True
             .DataPropertyName = "SoLuongTon1"
             .SortMode = DataGridViewColumnSortMode.NotSortable
@@ -165,8 +165,19 @@ Public Class btn_XoaTatCaDongLoi
 
         Dim rong As Double = dgv_listSachNhap.Width
         dgv_listSachNhap.Columns("MaSach").Width = rong * 0.11
+
+        dgv_listSachNhap.Columns("TenSach").Width = rong * 0.22 - 55
+
+        dgv_listSachNhap.Columns("TheLoai").Width = rong * 0.15 - 3
+
+        dgv_listSachNhap.Columns("TacGia").Width = rong * 0.15
+
+        dgv_listSachNhap.Columns("SoLuongTon").Width = rong * 0.12
+
+        dgv_listSachNhap.Columns("SoLuongNhap").Width = rong * 0.15
+
+
         dgv_listSachNhap.Columns("DonGia").Width = rong * 0.1
-        dgv_listSachNhap.Columns("SoLuongTon").Width = rong * 0.14
 
         dgv_listSachNhap.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 62, 80)
         dgv_listSachNhap.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
