@@ -80,14 +80,13 @@ Public Class UC_LapHoaDon
         dgv_listSach.Columns(6).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSach.Columns(7).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
 
+        'init
         dgv_listSach.Item("STT", 0).Value = 1
         stt = 1
 
         ReloadMaHoaDon()
 
-        'init
-        dgv_listSach.Item("STT", 0).Value = 1
-        stt = 1
+
 
     End Sub
 
@@ -175,9 +174,14 @@ Public Class UC_LapHoaDon
         Dim rong As Double = dgv_listSach.Width
         dgv_listSach.Columns("STT").Width = rong * 0.06
         dgv_listSach.Columns("MaSach").Width = rong * 0.11
-        dgv_listSach.Columns("DonGia").Width = rong * 0.11
+        dgv_listSach.Columns("TenSach").Width = rong * 0.25 - 55
+        dgv_listSach.Columns("TheLoai").Width = rong * 0.1
+
         dgv_listSach.Columns("TacGia").Width = rong * 0.1
         dgv_listSach.Columns("SoLuongNhap").Width = rong * 0.14 - 5
+
+        dgv_listSach.Columns("DonGia").Width = rong * 0.11
+
         dgv_listSach.Columns("ThanhTien").Width = rong * 0.13
 
 
