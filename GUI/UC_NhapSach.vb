@@ -22,6 +22,7 @@ Public Class btn_XoaTatCaDongLoi
     Private res1 As Result
     Private count As Integer
     Private rowTrungTen As Integer
+    Private STT As Integer
 
     Public Sub New()
         InitializeComponent()
@@ -37,7 +38,6 @@ Public Class btn_XoaTatCaDongLoi
         Else
             thamSoDTO = CType(res.Obj1, ThamSo_DTO)
         End If
-
     End Sub
 
     Public Sub reload_GUI()
@@ -78,23 +78,40 @@ Public Class btn_XoaTatCaDongLoi
         InitColumnsDataGridViewListSach()
 
         'chỉnh màu cho các ô cho phép ng dùng nhập
-        dgv_listSachNhap.Columns(1).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSachNhap.Columns(0).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSachNhap.Columns(2).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSachNhap.Columns(3).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
         dgv_listSachNhap.Columns(4).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
-        dgv_listSachNhap.Columns(6).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSachNhap.Columns(5).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
+        dgv_listSachNhap.Columns(7).DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240)
 
         reloadMaPhieuNhap()
 
+        dgv_listSachNhap.Item("STT", 0).Value = 1
+        STT = 1
     End Sub
 
     Private Sub InitColumnsDataGridViewListSach()
+
+
+        Dim txtSTT = New DataGridViewTextBoxColumn()
+        With txtSTT
+            .Name = "STT"
+            .HeaderText = "STT"
+            .SortMode = DataGridViewColumnSortMode.NotSortable
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .ReadOnly = True
+        End With
+        dgv_listSachNhap.Columns.Add(txtSTT)
+
+
 
         Dim txtMaSach = New DataGridViewTextBoxColumn()
         With txtMaSach
             .Name = "MaSach"
             .HeaderText = "Mã sách"
             .SortMode = DataGridViewColumnSortMode.NotSortable
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
         End With
         dgv_listSachNhap.Columns.Add(txtMaSach)
 
@@ -139,6 +156,7 @@ Public Class btn_XoaTatCaDongLoi
             .ReadOnly = True
             .DataPropertyName = "SoLuongTon1"
             .SortMode = DataGridViewColumnSortMode.NotSortable
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
         End With
         dgv_listSachNhap.Columns.Add(clSoLuongTon)
 
@@ -146,8 +164,9 @@ Public Class btn_XoaTatCaDongLoi
         Dim clSoLuongNhap = New DataGridViewTextBoxColumn()
         With clSoLuongNhap
             .Name = "SoLuongNhap"
-            .HeaderText = "Số lượng nhập"
+            .HeaderText = "Lượng nhập"
             .SortMode = DataGridViewColumnSortMode.NotSortable
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
         End With
         dgv_listSachNhap.Columns.Add(clSoLuongNhap)
 
@@ -159,22 +178,26 @@ Public Class btn_XoaTatCaDongLoi
             .ReadOnly = True
             .DataPropertyName = "DonGia1"
             .SortMode = DataGridViewColumnSortMode.NotSortable
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         End With
         dgv_listSachNhap.Columns.Add(clDonGia)
 
 
         Dim rong As Double = dgv_listSachNhap.Width
-        dgv_listSachNhap.Columns("MaSach").Width = rong * 0.11
+
+        dgv_listSachNhap.Columns("STT").Width = rong * 0.08
+
+        dgv_listSachNhap.Columns("MaSach").Width = rong * 0.1
 
         dgv_listSachNhap.Columns("TenSach").Width = rong * 0.22 - 55
 
-        dgv_listSachNhap.Columns("TheLoai").Width = rong * 0.15 - 3
+        dgv_listSachNhap.Columns("TheLoai").Width = rong * 0.1 - 3
 
-        dgv_listSachNhap.Columns("TacGia").Width = rong * 0.15
+        dgv_listSachNhap.Columns("TacGia").Width = rong * 0.14
 
         dgv_listSachNhap.Columns("SoLuongTon").Width = rong * 0.12
 
-        dgv_listSachNhap.Columns("SoLuongNhap").Width = rong * 0.15
+        dgv_listSachNhap.Columns("SoLuongNhap").Width = rong * 0.14
 
 
         dgv_listSachNhap.Columns("DonGia").Width = rong * 0.1
@@ -189,82 +212,62 @@ Public Class btn_XoaTatCaDongLoi
 
 
     Private Sub dgv_listSach_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_listSachNhap.CellValueChanged
-        If (e.ColumnIndex <> 0 And e.ColumnIndex <> 5) Then
+        If (e.ColumnIndex <> 1 And e.ColumnIndex <> 6) Then
             Return
         End If
 
+
+        'Load tự động stt 
+        If (dgv_listSachNhap.Item("STT", e.RowIndex + 1).Value Is Nothing) Then
+            STT = STT + 1
+            dgv_listSachNhap.Item("STT", e.RowIndex + 1).Value = STT
+        End If
+
         Try
-            If (e.ColumnIndex = 5) Then
 
-                If dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value <> "" Then
-                    If (dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value = String.Empty) Then
-                        dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value = ""
-                        MessageBox.Show("Bạn chưa nhập mã sách", "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        Return
-                    End If
-                End If
+            If (e.ColumnIndex = 1) Then
 
-
-                res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
-                If (res.FlagResult = False) Then
-                    'MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    dgv_listSachNhap.Focus()
-                    Return
-                End If
-                sach = CType(res.Obj1, Sach_DTO)
-                res1 = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1)
-
-                If (res1.FlagResult = False) Then
-                    'MessageBox.Show(res1.ApplicationMessage, "lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)                   
-                    ChangeColor_SaiQuyDinh(e.RowIndex)
-                Else
-                    res = chiTietPhieuNhapBUS.isValidSoLuongNhap(dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value + "")
-                    If (res.FlagResult = False) Then
-                        ChangeColor_SaiCuPhap(e.RowIndex)
-                    Else
-                        res = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value)
-                        If (res.FlagResult = False) Then
-                            ChangeColor_SaiQuyDinh(e.RowIndex)
-                        Else
-                            Original_Color(e.RowIndex)
-                        End If
-                    End If
-                End If
-            End If
-            ' khi chưa nhập mã sách mà lại nhập số lượng
+                dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Value = ""
+                dgv_listSachNhap.Rows(e.RowIndex).Cells(3).Value = ""
+                dgv_listSachNhap.Rows(e.RowIndex).Cells(4).Value = ""
+                dgv_listSachNhap.Rows(e.RowIndex).Cells(5).Value = ""
+                dgv_listSachNhap.Rows(e.RowIndex).Cells(6).Value = ""
+                dgv_listSachNhap.Rows(e.RowIndex).Cells(7).Value = ""
 
 
-#Region "Quy định"
-            If (e.ColumnIndex = 0) Then
 
-                If (dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then ' Kiểm tra giá trị ô mã sách
-                    dgv_listSachNhap.Rows.RemoveAt(e.RowIndex) ' nếu mã trống thì clear dòng
+
+                If (dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then ' Nếu ô mã sách rỗng
+                    dgv_listSachNhap.Rows.RemoveAt(e.RowIndex) ' clear dòng
+                    CapNhatLaiSTT(e.RowIndex) 'Cập nhật STT
                     Return
                 End If
 
-                'kt mã sách có đc nhập 2 lần ko
-                For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 2
-                    If dgv_listSachNhap.Rows(i).Cells(0).Value = dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value And dgv_listSachNhap.Rows(i).Cells(0).Value <> "" And i <> e.RowIndex Then
+                'kt mã sách có đc nhập trước đó ko
+                For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
+                    If dgv_listSachNhap.Rows(i).Cells(1).Value = dgv_listSachNhap.Rows(e.RowIndex).Cells(1).Value And i <> e.RowIndex Then
                         MessageBox.Show("Mã sách vừa nhập đã tồn tại!")
-                        dgv_listSachNhap.Rows.Remove(dgv_listSachNhap.Rows(e.RowIndex))
+                        dgv_listSachNhap.Rows.Remove(dgv_listSachNhap.Rows(e.RowIndex)) ' clear dòng
+                        'Cập nhật lại STT khi 1 dòng bị xóa
+                        CapNhatLaiSTT(e.RowIndex)
+                        'Cập nhật lại STT khi 1 dòng bị xóa                        
                         Return
                     End If
                 Next
+                'kt mã sách có đc nhập trước đó ko
 
 
 
-                res = sachBUS.isValidMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
+                res = sachBUS.isValidMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value) ' kiểm tra mã sách nhập hợp lệ ko?
                 If (res.FlagResult = False) Then
-                    'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     ChangeColor_SaiCuPhap(e.RowIndex)
                     Return
-                Else
-                    Original_Color(e.RowIndex)
+                    ' Else
+                    ' Original_Color(e.RowIndex)
                 End If
 
-                res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(0).Value)
+                res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(1).Value) ' lấy thông tin từ mã sách
                 If (res.FlagResult = False) Then
-                    'MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     ChangeColor_SaiCuPhap(e.RowIndex)
                 End If
                 sach = CType(res.Obj1, Sach_DTO)
@@ -277,24 +280,53 @@ Public Class btn_XoaTatCaDongLoi
 
                 res1 = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1)
                 If (res1.FlagResult = False) Then
-                    'MessageBox.Show(res1.ApplicationMessage, "lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)                   
                     ChangeColor_SaiQuyDinh(e.RowIndex)
-                Else
-                    res = sachBUS.isValidMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
-                    If (res.FlagResult = False) Then
-                        'MessageBox.Show(res.ApplicationMessage, "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        ChangeColor_SaiCuPhap(e.RowIndex)
-                        Return
-                    Else
-                        Original_Color(e.RowIndex)
-                    End If
                 End If
-
                 Return
             End If
 
-#End Region
 
+            If (e.ColumnIndex = 6) Then
+
+                If dgv_listSachNhap.Rows(e.RowIndex).Cells(6).Value <> "" Then ' Nhập số lượng
+                    If (dgv_listSachNhap.Rows(e.RowIndex).Cells(1).Value = String.Empty) Then ' Chưa nhập mã sách
+                        dgv_listSachNhap.Rows(e.RowIndex).Cells(6).Value = ""
+                        MessageBox.Show("Bạn chưa nhập mã sách", "Lỗi nhập liệu!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Return
+                    End If
+                Else ' chưa nhập số lượng
+                    ChangeColor_SaiCuPhap(e.RowIndex)
+                    Return
+                End If
+
+
+                res = sachBUS.selectSach_ByMaSach(dgv_listSachNhap.Rows(e.RowIndex).Cells(1).Value) ' lấy thông tin sách
+                If (res.FlagResult = False) Then ' tìm ko có sách hoặc lỗi sql
+                    dgv_listSachNhap.Focus()
+                    ChangeColor_SaiCuPhap(e.RowIndex)
+                    Return
+                End If
+
+                sach = CType(res.Obj1, Sach_DTO)
+                res1 = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1) 'Kiểm tra QĐ về số lượng tồn
+                If (res1.FlagResult = False) Then
+                    ChangeColor_SaiQuyDinh(e.RowIndex)
+                    Return
+                End If
+
+                res = chiTietPhieuNhapBUS.isValidSoLuongNhap(dgv_listSachNhap.Rows(e.RowIndex).Cells(6).Value.ToString()) ' kiểm tra số lượng nhập đúng cú pháp ko?
+                If (res.FlagResult = False) Then
+                    ChangeColor_SaiCuPhap(e.RowIndex)
+                    Return
+                End If
+
+                res = chiTietPhieuNhapBUS.isValidSoLuongNhapToiThieu(dgv_listSachNhap.Rows(e.RowIndex).Cells(6).Value) ' Kiểm tra QĐ về số lượng nhập tối thiểu
+                If (res.FlagResult = False) Then
+                    ChangeColor_SaiQuyDinh(e.RowIndex)
+                    Return
+                End If
+                Original_Color(e.RowIndex) ' ĐÚng hết thì set màu bình thường
+            End If
 
         Catch ex As Exception
 
@@ -305,24 +337,24 @@ Public Class btn_XoaTatCaDongLoi
 
     Private Sub btn_NhapSach_Click(sender As Object, e As EventArgs) Handles btn_NhapSach.Click
 
-        If dgv_listSachNhap.Rows(0).Cells(0).Value Is Nothing Then ' kiểm tra cột mã của dòng đầu đã được ghi gì chưa, nếu chưa nghĩa là chưa nhập gì mà submit
+        If dgv_listSachNhap.Rows(0).Cells(1).Value Is Nothing Then ' kiểm tra cột mã của dòng đầu đã được ghi gì chưa, nếu chưa nghĩa là chưa nhập gì mà submit
             MessageBox.Show("Vui lòng nhập thông tin của phiếu nhập!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
 
 #Region "Kiểm tra có ô nào chưa điền ko?"
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
-            If dgv_listSachNhap.Rows(j).Cells(0).Value = Nothing And dgv_listSachNhap.Rows(j).Cells(5).Value = Nothing Then
+            If dgv_listSachNhap.Rows(j).Cells(1).Value = Nothing And dgv_listSachNhap.Rows(j).Cells(6).Value = Nothing Then
                 Continue For
             Else
                 If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Then
                     Continue For
                 End If
-                If dgv_listSachNhap.Rows(j).Cells(0).Value = Nothing Then
+                If dgv_listSachNhap.Rows(j).Cells(1).Value = Nothing Then
                     ChangeColor_SaiCuPhap(j)
                     Continue For
                 End If
-                If dgv_listSachNhap.Rows(j).Cells(5).Value = Nothing Then
+                If dgv_listSachNhap.Rows(j).Cells(6).Value = Nothing Then
                     ChangeColor_SaiCuPhap(j)
                     Continue For
                 End If
@@ -359,8 +391,8 @@ Public Class btn_XoaTatCaDongLoi
 
             With chiTietPhieuNhapDTO
                 .MaPhieuNhap1 = Integer.Parse(txt_MaPhieuNhap.Text)
-                .MaSach1 = dgv_listSachNhap.Rows(i).Cells(0).Value
-                .SoLuongNhap1 = dgv_listSachNhap.Rows(i).Cells(5).Value
+                .MaSach1 = dgv_listSachNhap.Rows(i).Cells(1).Value
+                .SoLuongNhap1 = dgv_listSachNhap.Rows(i).Cells(6).Value
             End With
 
 #Region "Thêm từng dòng vào CHITIETPHIEUNHAP"
@@ -397,7 +429,7 @@ Public Class btn_XoaTatCaDongLoi
 #End Region
 
             i = i + 1
-            If (dgv_listSachNhap.Rows(i).Cells(0).Value Is Nothing) Then
+            If (dgv_listSachNhap.Rows(i).Cells(1).Value Is Nothing) Then
                 Exit Do
             End If
         Loop Until (False) 'ko con` ma phieu nhap
@@ -407,29 +439,30 @@ Public Class btn_XoaTatCaDongLoi
         dgv_listSachNhap.Rows.Clear()
 
 
+        dgv_listSachNhap.Item("STT", 0).Value = 1
+        STT = 1
+
     End Sub
 
 
     Private Sub dgv_listSachNhap_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles dgv_listSachNhap.UserDeletingRow
-        'kt mã sách có đc nhập 2 lần ko
-        count = 0
-        For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
-            If dgv_listSachNhap.Rows(i).Cells(0).Value = dgv_listSachNhap.Rows(e.Row.Index).Cells(0).Value And i <> e.Row.Index Then
-                count = count + 1
-                rowTrungTen = i 'lấy vị trí của dòng có mã sách trùng
-            End If
-        Next
+        ''kt mã sách có đc nhập 2 lần ko
+        'count = 0
+        'For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
+        '    If dgv_listSachNhap.Rows(i).Cells(1).Value = dgv_listSachNhap.Rows(e.Row.Index).Cells(1).Value And i <> e.Row.Index Then
+        '        count = count + 1
+        '        rowTrungTen = i 'lấy vị trí của dòng có mã sách trùng
+        '    End If
+        'Next
 
-        If count = 1 Then
-            Original_Color(rowTrungTen)
-        End If
+        'If count = 1 Then
+        '    Original_Color(rowTrungTen)
+        'End If
     End Sub
 
 
 
     Private Sub btn_XoaDongLoi_Click(sender As Object, e As EventArgs) Handles btn_XoaDongLoi.Click
-#Region "Kiểm tra dgv có tồn tại dòng nào có màu không?"
-
         Dim i As Integer = 0
         While (True)
             If (i > dgv_listSachNhap.Rows.Count - 1) Then
@@ -438,12 +471,26 @@ Public Class btn_XoaTatCaDongLoi
             If dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.GreenYellow Then
                 dgv_listSachNhap.Rows.RemoveAt(i)
                 i = i - 1
-
             End If
             i = i + 1
         End While
-#End Region
+
+        CapNhatLaiSTT(0)
     End Sub
 
 
+    Private Sub CapNhatLaiSTT(x As Integer)
+        For i As Integer = x To dgv_listSachNhap.Rows.Count - 1
+            If (i - 1 = -1) Then
+                dgv_listSachNhap.Rows(i).Cells(0).Value = 1
+            Else
+                dgv_listSachNhap.Rows(i).Cells(0).Value = dgv_listSachNhap.Rows(i - 1).Cells(0).Value + 1
+            End If
+            STT = dgv_listSachNhap.Rows(i).Cells(0).Value
+        Next
+    End Sub
+
+    Private Sub dgv_listSachNhap_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles dgv_listSachNhap.UserDeletedRow
+        CapNhatLaiSTT(0) ' cập nhật lại STT tất cả
+    End Sub
 End Class

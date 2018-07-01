@@ -41,9 +41,6 @@ Public Class UC_LapHoaDon
 
     End Sub
 
-
-
-
     Public Sub ReloadMaHoaDon()
         'Lấy mã hóa đơn
         res = hoaDonBUS.GetNextIncrement()
