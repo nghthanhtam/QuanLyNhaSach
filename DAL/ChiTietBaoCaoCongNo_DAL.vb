@@ -100,7 +100,7 @@ ORDER BY KHACHHANG.MaKhachHang ASC"
 
                             demSTT += 1
 
-                            Dim x As Object = New With {.STT = demSTT, .MaKhachHang = Integer.Parse(reader("MaKhachHang")), .HoTenKhachHang = reader("HoTenKhachHang"), .NoDau = Integer.Parse(reader("NoDau")), .PhatSinh = Integer.Parse(reader("PhatSinh")), .NoCuoi = Integer.Parse(reader("NoCuoi"))}
+                            Dim x As Object = New With {.STT = demSTT, .MaKhachHang = Integer.Parse(reader("MaKhachHang")), .HoTenKhachHang = reader("HoTenKhachHang"), .NoDau = Double.Parse(reader("NoDau")), .PhatSinh = Double.Parse(reader("PhatSinh")), .NoCuoi = Double.Parse(reader("NoCuoi"))}
 
                             listChiTietBaoCao.Add(x)
 
