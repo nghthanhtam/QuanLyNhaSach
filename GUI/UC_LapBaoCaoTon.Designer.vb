@@ -43,7 +43,7 @@ Partial Class UC_LapBaoCaoTon
         Me.Label7.Location = New System.Drawing.Point(40, 25)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(152, 25)
-        Me.Label7.TabIndex = 36
+        Me.Label7.TabIndex = 0
         Me.Label7.Text = "Lập báo cáo tồn"
         '
         'btn_LuuBaoCao
@@ -55,10 +55,10 @@ Partial Class UC_LapBaoCaoTon
         Me.btn_LuuBaoCao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_LuuBaoCao.ForeColor = System.Drawing.Color.White
         Me.btn_LuuBaoCao.Location = New System.Drawing.Point(505, 123)
-        Me.btn_LuuBaoCao.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_LuuBaoCao.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_LuuBaoCao.Name = "btn_LuuBaoCao"
         Me.btn_LuuBaoCao.Size = New System.Drawing.Size(103, 34)
-        Me.btn_LuuBaoCao.TabIndex = 38
+        Me.btn_LuuBaoCao.TabIndex = 6
         Me.btn_LuuBaoCao.Text = "Lưu"
         Me.btn_LuuBaoCao.UseVisualStyleBackColor = False
         '
@@ -71,7 +71,7 @@ Partial Class UC_LapBaoCaoTon
         Me.dtp_NgayLap.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dtp_NgayLap.Name = "dtp_NgayLap"
         Me.dtp_NgayLap.Size = New System.Drawing.Size(129, 22)
-        Me.dtp_NgayLap.TabIndex = 41
+        Me.dtp_NgayLap.TabIndex = 4
         '
         'Label1
         '
@@ -80,7 +80,7 @@ Partial Class UC_LapBaoCaoTon
         Me.Label1.Location = New System.Drawing.Point(348, 81)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(143, 20)
-        Me.Label1.TabIndex = 40
+        Me.Label1.TabIndex = 3
         Me.Label1.Text = "Ngày lập báo cáo:"
         '
         'Label2
@@ -90,7 +90,7 @@ Partial Class UC_LapBaoCaoTon
         Me.Label2.Location = New System.Drawing.Point(348, 49)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(60, 20)
-        Me.Label2.TabIndex = 40
+        Me.Label2.TabIndex = 1
         Me.Label2.Text = "Tháng:"
         '
         'dtp_ThangBaoCao
@@ -104,7 +104,7 @@ Partial Class UC_LapBaoCaoTon
         Me.dtp_ThangBaoCao.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.dtp_ThangBaoCao.ShowUpDown = True
         Me.dtp_ThangBaoCao.Size = New System.Drawing.Size(129, 22)
-        Me.dtp_ThangBaoCao.TabIndex = 42
+        Me.dtp_ThangBaoCao.TabIndex = 2
         '
         'btn_XemBaoCao
         '
@@ -114,10 +114,10 @@ Partial Class UC_LapBaoCaoTon
         Me.btn_XemBaoCao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_XemBaoCao.ForeColor = System.Drawing.Color.White
         Me.btn_XemBaoCao.Location = New System.Drawing.Point(382, 123)
-        Me.btn_XemBaoCao.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_XemBaoCao.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_XemBaoCao.Name = "btn_XemBaoCao"
         Me.btn_XemBaoCao.Size = New System.Drawing.Size(103, 34)
-        Me.btn_XemBaoCao.TabIndex = 38
+        Me.btn_XemBaoCao.TabIndex = 5
         Me.btn_XemBaoCao.Text = "Xem"
         Me.btn_XemBaoCao.UseVisualStyleBackColor = False
         '
@@ -154,7 +154,7 @@ Partial Class UC_LapBaoCaoTon
         Me.dgv_listBaoCaoTon.RowTemplate.Height = 24
         Me.dgv_listBaoCaoTon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv_listBaoCaoTon.Size = New System.Drawing.Size(884, 449)
-        Me.dgv_listBaoCaoTon.TabIndex = 43
+        Me.dgv_listBaoCaoTon.TabIndex = 7
         '
         'UC_LapBaoCaoTon
         '

@@ -67,7 +67,7 @@ Partial Class UC_TraCuuSach
         Me.dgv_ListSach.RowTemplate.Height = 24
         Me.dgv_ListSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv_ListSach.Size = New System.Drawing.Size(860, 514)
-        Me.dgv_ListSach.TabIndex = 17
+        Me.dgv_ListSach.TabIndex = 6
         '
         'Label2
         '
@@ -77,7 +77,7 @@ Partial Class UC_TraCuuSach
         Me.Label2.Location = New System.Drawing.Point(41, 25)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(126, 25)
-        Me.Label2.TabIndex = 19
+        Me.Label2.TabIndex = 0
         Me.Label2.Text = "Tra cứu sách"
         '
         'cbb_TheLoai
@@ -88,7 +88,7 @@ Partial Class UC_TraCuuSach
         Me.cbb_TheLoai.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbb_TheLoai.Name = "cbb_TheLoai"
         Me.cbb_TheLoai.Size = New System.Drawing.Size(137, 24)
-        Me.cbb_TheLoai.TabIndex = 20
+        Me.cbb_TheLoai.TabIndex = 5
         '
         'Label1
         '
@@ -96,7 +96,7 @@ Partial Class UC_TraCuuSach
         Me.Label1.Location = New System.Drawing.Point(625, 81)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(63, 17)
-        Me.Label1.TabIndex = 21
+        Me.Label1.TabIndex = 4
         Me.Label1.Text = "Thể loại:"
         '
         'Label3
@@ -105,7 +105,7 @@ Partial Class UC_TraCuuSach
         Me.Label3.Location = New System.Drawing.Point(69, 81)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 17)
-        Me.Label3.TabIndex = 21
+        Me.Label3.TabIndex = 1
         Me.Label3.Text = "Tìm kiếm:"
         '
         'txt_TimKiem
@@ -115,7 +115,7 @@ Partial Class UC_TraCuuSach
         Me.txt_TimKiem.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TimKiem.Name = "txt_TimKiem"
         Me.txt_TimKiem.Size = New System.Drawing.Size(389, 27)
-        Me.txt_TimKiem.TabIndex = 22
+        Me.txt_TimKiem.TabIndex = 2
         Me.txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách..."
         '
         'lbl_XoaTimKiem
@@ -127,7 +127,7 @@ Partial Class UC_TraCuuSach
         Me.lbl_XoaTimKiem.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_XoaTimKiem.Name = "lbl_XoaTimKiem"
         Me.lbl_XoaTimKiem.Size = New System.Drawing.Size(18, 18)
-        Me.lbl_XoaTimKiem.TabIndex = 23
+        Me.lbl_XoaTimKiem.TabIndex = 3
         Me.lbl_XoaTimKiem.Text = "X"
         '
         'UC_TraCuuSach

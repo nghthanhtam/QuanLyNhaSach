@@ -54,7 +54,7 @@ Partial Class frm_ThemSach
         Me.btn_Luu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Luu.Name = "btn_Luu"
         Me.btn_Luu.Size = New System.Drawing.Size(101, 37)
-        Me.btn_Luu.TabIndex = 0
+        Me.btn_Luu.TabIndex = 15
         Me.btn_Luu.Text = "Lưu"
         Me.btn_Luu.UseVisualStyleBackColor = False
         '
@@ -65,7 +65,7 @@ Partial Class frm_ThemSach
         Me.Label1.Location = New System.Drawing.Point(49, 174)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(83, 20)
-        Me.Label1.TabIndex = 1
+        Me.Label1.TabIndex = 4
         Me.Label1.Text = "Tên sách:"
         '
         'txt_TenSach
@@ -75,7 +75,7 @@ Partial Class frm_ThemSach
         Me.txt_TenSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TenSach.Name = "txt_TenSach"
         Me.txt_TenSach.Size = New System.Drawing.Size(332, 27)
-        Me.txt_TenSach.TabIndex = 2
+        Me.txt_TenSach.TabIndex = 5
         '
         'Label2
         '
@@ -84,7 +84,7 @@ Partial Class frm_ThemSach
         Me.Label2.Location = New System.Drawing.Point(49, 268)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 20)
-        Me.Label2.TabIndex = 1
+        Me.Label2.TabIndex = 8
         Me.Label2.Text = "Tác giả:"
         '
         'Label3
@@ -94,7 +94,7 @@ Partial Class frm_ThemSach
         Me.Label3.Location = New System.Drawing.Point(49, 222)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(73, 20)
-        Me.Label3.TabIndex = 1
+        Me.Label3.TabIndex = 6
         Me.Label3.Text = "Thể loại:"
         '
         'txt_TacGia
@@ -104,7 +104,7 @@ Partial Class frm_ThemSach
         Me.txt_TacGia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TacGia.Name = "txt_TacGia"
         Me.txt_TacGia.Size = New System.Drawing.Size(332, 27)
-        Me.txt_TacGia.TabIndex = 2
+        Me.txt_TacGia.TabIndex = 9
         '
         'Label4
         '
@@ -113,7 +113,7 @@ Partial Class frm_ThemSach
         Me.Label4.Location = New System.Drawing.Point(49, 315)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(88, 20)
-        Me.Label4.TabIndex = 1
+        Me.Label4.TabIndex = 10
         Me.Label4.Text = "Lượng tồn:"
         '
         'txt_SoLuongTon
@@ -124,7 +124,7 @@ Partial Class frm_ThemSach
         Me.txt_SoLuongTon.Name = "txt_SoLuongTon"
         Me.txt_SoLuongTon.ReadOnly = True
         Me.txt_SoLuongTon.Size = New System.Drawing.Size(332, 27)
-        Me.txt_SoLuongTon.TabIndex = 2
+        Me.txt_SoLuongTon.TabIndex = 11
         Me.txt_SoLuongTon.Text = "0"
         '
         'Label5
@@ -134,7 +134,7 @@ Partial Class frm_ThemSach
         Me.Label5.Location = New System.Drawing.Point(49, 362)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(71, 20)
-        Me.Label5.TabIndex = 1
+        Me.Label5.TabIndex = 12
         Me.Label5.Text = "Đơn giá:"
         '
         'txt_DonGia
@@ -144,7 +144,7 @@ Partial Class frm_ThemSach
         Me.txt_DonGia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_DonGia.Name = "txt_DonGia"
         Me.txt_DonGia.Size = New System.Drawing.Size(332, 27)
-        Me.txt_DonGia.TabIndex = 2
+        Me.txt_DonGia.TabIndex = 13
         '
         'cbb_TheLoai
         '
@@ -154,7 +154,7 @@ Partial Class frm_ThemSach
         Me.cbb_TheLoai.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbb_TheLoai.Name = "cbb_TheLoai"
         Me.cbb_TheLoai.Size = New System.Drawing.Size(332, 28)
-        Me.cbb_TheLoai.TabIndex = 3
+        Me.cbb_TheLoai.TabIndex = 7
         '
         'Panel_ThanhTrangThaiTren
         '
@@ -162,7 +162,7 @@ Partial Class frm_ThemSach
         Me.Panel_ThanhTrangThaiTren.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel_ThanhTrangThaiTren.Name = "Panel_ThanhTrangThaiTren"
         Me.Panel_ThanhTrangThaiTren.Size = New System.Drawing.Size(531, 50)
-        Me.Panel_ThanhTrangThaiTren.TabIndex = 4
+        Me.Panel_ThanhTrangThaiTren.TabIndex = 0
         '
         'Label6
         '
@@ -171,7 +171,7 @@ Partial Class frm_ThemSach
         Me.Label6.Location = New System.Drawing.Point(49, 130)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(78, 20)
-        Me.Label6.TabIndex = 1
+        Me.Label6.TabIndex = 2
         Me.Label6.Text = "Mã sách:"
         '
         'txt_MaSach
@@ -182,7 +182,7 @@ Partial Class frm_ThemSach
         Me.txt_MaSach.Name = "txt_MaSach"
         Me.txt_MaSach.ReadOnly = True
         Me.txt_MaSach.Size = New System.Drawing.Size(332, 27)
-        Me.txt_MaSach.TabIndex = 2
+        Me.txt_MaSach.TabIndex = 3
         '
         'Label7
         '
@@ -194,7 +194,7 @@ Partial Class frm_ThemSach
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(191, 29)
-        Me.Label7.TabIndex = 5
+        Me.Label7.TabIndex = 1
         Me.Label7.Text = "Thêm sách mới"
         '
         'btn_LuuVaThoat
@@ -210,7 +210,7 @@ Partial Class frm_ThemSach
         Me.btn_LuuVaThoat.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_LuuVaThoat.Name = "btn_LuuVaThoat"
         Me.btn_LuuVaThoat.Size = New System.Drawing.Size(135, 37)
-        Me.btn_LuuVaThoat.TabIndex = 0
+        Me.btn_LuuVaThoat.TabIndex = 16
         Me.btn_LuuVaThoat.Text = "Lưu và thoát"
         Me.btn_LuuVaThoat.UseVisualStyleBackColor = False
         '
@@ -222,7 +222,7 @@ Partial Class frm_ThemSach
         Me.lbl_ThongBaoNhanEscape.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_ThongBaoNhanEscape.Name = "lbl_ThongBaoNhanEscape"
         Me.lbl_ThongBaoNhanEscape.Size = New System.Drawing.Size(172, 18)
-        Me.lbl_ThongBaoNhanEscape.TabIndex = 6
+        Me.lbl_ThongBaoNhanEscape.TabIndex = 14
         Me.lbl_ThongBaoNhanEscape.Text = "Nhấn esc để thoát nhanh"
         Me.lbl_ThongBaoNhanEscape.Visible = False
         '

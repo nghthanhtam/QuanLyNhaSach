@@ -62,7 +62,7 @@ Partial Class UC_ThayDoiQuyDinh
         Me.Label2.Location = New System.Drawing.Point(52, 22)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(167, 25)
-        Me.Label2.TabIndex = 2
+        Me.Label2.TabIndex = 0
         Me.Label2.Text = "Thay đổi quy định"
         '
         'GroupBox1
@@ -74,7 +74,7 @@ Partial Class UC_ThayDoiQuyDinh
         Me.GroupBox1.Location = New System.Drawing.Point(236, 91)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(513, 142)
-        Me.GroupBox1.TabIndex = 3
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Thay đổi quy định 1"
         '
@@ -94,7 +94,7 @@ Partial Class UC_ThayDoiQuyDinh
         Me.Label3.Location = New System.Drawing.Point(54, 45)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(184, 20)
-        Me.Label3.TabIndex = 2
+        Me.Label3.TabIndex = 0
         Me.Label3.Text = "Số lượng nhập tối thiểu:"
         '
         'txt_SoLuongTonToiDa
@@ -103,7 +103,7 @@ Partial Class UC_ThayDoiQuyDinh
         Me.txt_SoLuongTonToiDa.Location = New System.Drawing.Point(342, 88)
         Me.txt_SoLuongTonToiDa.Name = "txt_SoLuongTonToiDa"
         Me.txt_SoLuongTonToiDa.Size = New System.Drawing.Size(120, 27)
-        Me.txt_SoLuongTonToiDa.TabIndex = 1
+        Me.txt_SoLuongTonToiDa.TabIndex = 3
         '
         'txt_SoLuongNhapToiThieu
         '
@@ -122,7 +122,7 @@ Partial Class UC_ThayDoiQuyDinh
         Me.GroupBox2.Location = New System.Drawing.Point(236, 264)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(513, 128)
-        Me.GroupBox2.TabIndex = 3
+        Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Thay đổi quy định 2"
         '
@@ -143,7 +143,7 @@ Partial Class UC_ThayDoiQuyDinh
         Me.Label6.Location = New System.Drawing.Point(54, 36)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(208, 20)
-        Me.Label6.TabIndex = 2
+        Me.Label6.TabIndex = 0
         Me.Label6.Text = "Số tiền nợ cho phép tối đa:"
         '
         'txt_SoLuongTonToiThieu
@@ -152,7 +152,7 @@ Partial Class UC_ThayDoiQuyDinh
         Me.txt_SoLuongTonToiThieu.Location = New System.Drawing.Point(342, 76)
         Me.txt_SoLuongTonToiThieu.Name = "txt_SoLuongTonToiThieu"
         Me.txt_SoLuongTonToiThieu.Size = New System.Drawing.Size(120, 27)
-        Me.txt_SoLuongTonToiThieu.TabIndex = 1
+        Me.txt_SoLuongTonToiThieu.TabIndex = 3
         '
         'txt_SoTienNoToiDa
         '
@@ -200,7 +200,7 @@ Partial Class UC_ThayDoiQuyDinh
         Me.btn_KhoiPhucMacDinh.Location = New System.Drawing.Point(518, 571)
         Me.btn_KhoiPhucMacDinh.Name = "btn_KhoiPhucMacDinh"
         Me.btn_KhoiPhucMacDinh.Size = New System.Drawing.Size(130, 50)
-        Me.btn_KhoiPhucMacDinh.TabIndex = 4
+        Me.btn_KhoiPhucMacDinh.TabIndex = 5
         Me.btn_KhoiPhucMacDinh.Text = "Mặc định"
         Me.btn_KhoiPhucMacDinh.UseVisualStyleBackColor = False
         '

@@ -56,7 +56,8 @@ Partial Class frm_ThemNhieuSach
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgv_listSachNhap.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_listSachNhap.EnableHeadersVisualStyles = False
-        Me.dgv_listSachNhap.Location = New System.Drawing.Point(22, 89)
+        Me.dgv_listSachNhap.Location = New System.Drawing.Point(29, 110)
+        Me.dgv_listSachNhap.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv_listSachNhap.Name = "dgv_listSachNhap"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
@@ -66,8 +67,8 @@ Partial Class frm_ThemNhieuSach
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_listSachNhap.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgv_listSachNhap.Size = New System.Drawing.Size(585, 315)
-        Me.dgv_listSachNhap.TabIndex = 17
+        Me.dgv_listSachNhap.Size = New System.Drawing.Size(780, 388)
+        Me.dgv_listSachNhap.TabIndex = 2
         '
         'Label7
         '
@@ -75,19 +76,20 @@ Partial Class frm_ThemNhieuSach
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(252, 51)
+        Me.Label7.Location = New System.Drawing.Point(336, 63)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(154, 24)
-        Me.Label7.TabIndex = 6
+        Me.Label7.Size = New System.Drawing.Size(191, 29)
+        Me.Label7.TabIndex = 1
         Me.Label7.Text = "Thêm sách mới"
         '
         'Panel_ThanhTrangThaiTren
         '
         Me.Panel_ThanhTrangThaiTren.Location = New System.Drawing.Point(0, 0)
-        Me.Panel_ThanhTrangThaiTren.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel_ThanhTrangThaiTren.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel_ThanhTrangThaiTren.Name = "Panel_ThanhTrangThaiTren"
-        Me.Panel_ThanhTrangThaiTren.Size = New System.Drawing.Size(631, 41)
-        Me.Panel_ThanhTrangThaiTren.TabIndex = 7
+        Me.Panel_ThanhTrangThaiTren.Size = New System.Drawing.Size(841, 50)
+        Me.Panel_ThanhTrangThaiTren.TabIndex = 0
         '
         'btn_Luu
         '
@@ -98,11 +100,11 @@ Partial Class frm_ThemNhieuSach
         Me.btn_Luu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Luu.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_Luu.ForeColor = System.Drawing.Color.White
-        Me.btn_Luu.Location = New System.Drawing.Point(520, 421)
-        Me.btn_Luu.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_Luu.Location = New System.Drawing.Point(694, 518)
+        Me.btn_Luu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Luu.Name = "btn_Luu"
-        Me.btn_Luu.Size = New System.Drawing.Size(78, 32)
-        Me.btn_Luu.TabIndex = 8
+        Me.btn_Luu.Size = New System.Drawing.Size(104, 40)
+        Me.btn_Luu.TabIndex = 6
         Me.btn_Luu.Text = "Lưu"
         Me.btn_Luu.UseVisualStyleBackColor = False
         '
@@ -110,21 +112,23 @@ Partial Class frm_ThemNhieuSach
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(65, 430)
+        Me.Label8.Location = New System.Drawing.Point(87, 529)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(288, 13)
-        Me.Label8.TabIndex = 53
+        Me.Label8.Size = New System.Drawing.Size(379, 17)
+        Me.Label8.TabIndex = 4
         Me.Label8.Text = "Người dùng nhập sai cú pháp hoặc chưa nhập đủ thông tin"
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.Button1.BackColor = System.Drawing.Color.GreenYellow
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GreenYellow
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(23, 430)
+        Me.Button1.Location = New System.Drawing.Point(31, 529)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(38, 15)
-        Me.Button1.TabIndex = 52
+        Me.Button1.Size = New System.Drawing.Size(51, 18)
+        Me.Button1.TabIndex = 3
         Me.Button1.UseVisualStyleBackColor = False
         '
         'btn_XoaDongLoi
@@ -134,20 +138,20 @@ Partial Class frm_ThemNhieuSach
         Me.btn_XoaDongLoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_XoaDongLoi.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_XoaDongLoi.ForeColor = System.Drawing.Color.White
-        Me.btn_XoaDongLoi.Location = New System.Drawing.Point(374, 420)
-        Me.btn_XoaDongLoi.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_XoaDongLoi.Location = New System.Drawing.Point(498, 517)
+        Me.btn_XoaDongLoi.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_XoaDongLoi.Name = "btn_XoaDongLoi"
-        Me.btn_XoaDongLoi.Size = New System.Drawing.Size(129, 32)
-        Me.btn_XoaDongLoi.TabIndex = 62
+        Me.btn_XoaDongLoi.Size = New System.Drawing.Size(172, 40)
+        Me.btn_XoaDongLoi.TabIndex = 5
         Me.btn_XoaDongLoi.Text = "Xóa tất cả dòng lỗi"
         Me.btn_XoaDongLoi.UseVisualStyleBackColor = False
         '
         'frm_ThemNhieuSach
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(630, 462)
+        Me.ClientSize = New System.Drawing.Size(840, 569)
         Me.Controls.Add(Me.btn_XoaDongLoi)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Button1)
@@ -157,6 +161,7 @@ Partial Class frm_ThemNhieuSach
         Me.Controls.Add(Me.dgv_listSachNhap)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frm_ThemNhieuSach"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "frm_ThemNhieuSach"

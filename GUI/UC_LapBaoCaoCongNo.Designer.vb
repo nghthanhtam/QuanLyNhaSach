@@ -22,8 +22,8 @@ Partial Class UC_LapBaoCaoCongNo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgv_listBaoCaoCongNo = New System.Windows.Forms.DataGridView()
         Me.dtp_ThangBaoCao = New System.Windows.Forms.DateTimePicker()
@@ -55,32 +55,32 @@ Partial Class UC_LapBaoCaoCongNo
         Me.dgv_listBaoCaoCongNo.AllowUserToResizeRows = False
         Me.dgv_listBaoCaoCongNo.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgv_listBaoCaoCongNo.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_listBaoCaoCongNo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_listBaoCaoCongNo.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_listBaoCaoCongNo.EnableHeadersVisualStyles = False
         Me.dgv_listBaoCaoCongNo.Location = New System.Drawing.Point(48, 178)
         Me.dgv_listBaoCaoCongNo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dgv_listBaoCaoCongNo.MultiSelect = False
         Me.dgv_listBaoCaoCongNo.Name = "dgv_listBaoCaoCongNo"
         Me.dgv_listBaoCaoCongNo.ReadOnly = True
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_listBaoCaoCongNo.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_listBaoCaoCongNo.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_listBaoCaoCongNo.RowTemplate.Height = 24
         Me.dgv_listBaoCaoCongNo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv_listBaoCaoCongNo.Size = New System.Drawing.Size(884, 449)
-        Me.dgv_listBaoCaoCongNo.TabIndex = 50
+        Me.dgv_listBaoCaoCongNo.TabIndex = 7
         '
         'dtp_ThangBaoCao
         '
@@ -93,7 +93,7 @@ Partial Class UC_LapBaoCaoCongNo
         Me.dtp_ThangBaoCao.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.dtp_ThangBaoCao.ShowUpDown = True
         Me.dtp_ThangBaoCao.Size = New System.Drawing.Size(129, 22)
-        Me.dtp_ThangBaoCao.TabIndex = 49
+        Me.dtp_ThangBaoCao.TabIndex = 2
         '
         'dtp_NgayLap
         '
@@ -104,7 +104,7 @@ Partial Class UC_LapBaoCaoCongNo
         Me.dtp_NgayLap.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dtp_NgayLap.Name = "dtp_NgayLap"
         Me.dtp_NgayLap.Size = New System.Drawing.Size(129, 22)
-        Me.dtp_NgayLap.TabIndex = 48
+        Me.dtp_NgayLap.TabIndex = 4
         '
         'Label2
         '
@@ -113,7 +113,7 @@ Partial Class UC_LapBaoCaoCongNo
         Me.Label2.Location = New System.Drawing.Point(348, 81)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(143, 20)
-        Me.Label2.TabIndex = 46
+        Me.Label2.TabIndex = 3
         Me.Label2.Text = "Ngày lập báo cáo:"
         '
         'Label3
@@ -123,7 +123,7 @@ Partial Class UC_LapBaoCaoCongNo
         Me.Label3.Location = New System.Drawing.Point(348, 49)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 20)
-        Me.Label3.TabIndex = 47
+        Me.Label3.TabIndex = 1
         Me.Label3.Text = "Tháng:"
         '
         'btn_XemBaoCao
@@ -134,10 +134,10 @@ Partial Class UC_LapBaoCaoCongNo
         Me.btn_XemBaoCao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_XemBaoCao.ForeColor = System.Drawing.Color.White
         Me.btn_XemBaoCao.Location = New System.Drawing.Point(383, 123)
-        Me.btn_XemBaoCao.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_XemBaoCao.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_XemBaoCao.Name = "btn_XemBaoCao"
         Me.btn_XemBaoCao.Size = New System.Drawing.Size(103, 34)
-        Me.btn_XemBaoCao.TabIndex = 44
+        Me.btn_XemBaoCao.TabIndex = 5
         Me.btn_XemBaoCao.Text = "Xem"
         Me.btn_XemBaoCao.UseVisualStyleBackColor = False
         '
@@ -150,10 +150,10 @@ Partial Class UC_LapBaoCaoCongNo
         Me.btn_LuuBaoCao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_LuuBaoCao.ForeColor = System.Drawing.Color.White
         Me.btn_LuuBaoCao.Location = New System.Drawing.Point(505, 123)
-        Me.btn_LuuBaoCao.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btn_LuuBaoCao.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_LuuBaoCao.Name = "btn_LuuBaoCao"
         Me.btn_LuuBaoCao.Size = New System.Drawing.Size(103, 34)
-        Me.btn_LuuBaoCao.TabIndex = 45
+        Me.btn_LuuBaoCao.TabIndex = 6
         Me.btn_LuuBaoCao.Text = "Lưu"
         Me.btn_LuuBaoCao.UseVisualStyleBackColor = False
         '
@@ -170,7 +170,7 @@ Partial Class UC_LapBaoCaoCongNo
         Me.Controls.Add(Me.btn_XemBaoCao)
         Me.Controls.Add(Me.btn_LuuBaoCao)
         Me.Controls.Add(Me.Label1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "UC_LapBaoCaoCongNo"
         Me.Size = New System.Drawing.Size(980, 670)
         CType(Me.dgv_listBaoCaoCongNo, System.ComponentModel.ISupportInitialize).EndInit()
