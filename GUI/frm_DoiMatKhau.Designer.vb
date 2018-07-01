@@ -53,9 +53,9 @@ Partial Class frm_DoiMatKhau
         Me.Label1.Location = New System.Drawing.Point(57, 165)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(145, 20)
+        Me.Label1.Size = New System.Drawing.Size(185, 20)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Nhập mật hiện tại:"
+        Me.Label1.Text = "Nhập mật khẩu hiện tại:"
         '
         'Label2
         '
@@ -106,9 +106,9 @@ Partial Class frm_DoiMatKhau
         Me.Label4.Location = New System.Drawing.Point(57, 124)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(119, 20)
+        Me.Label4.Size = New System.Drawing.Size(124, 20)
         Me.Label4.TabIndex = 2
-        Me.Label4.Text = "Tên đăng nhập"
+        Me.Label4.Text = "Tên đăng nhập:"
         '
         'txt_TenDangNhap
         '
@@ -172,7 +172,7 @@ Partial Class frm_DoiMatKhau
         Me.ThanhTrangThaiTren1.Location = New System.Drawing.Point(0, 0)
         Me.ThanhTrangThaiTren1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ThanhTrangThaiTren1.Name = "ThanhTrangThaiTren1"
-        Me.ThanhTrangThaiTren1.Size = New System.Drawing.Size(504, 50)
+        Me.ThanhTrangThaiTren1.Size = New System.Drawing.Size(522, 50)
         Me.ThanhTrangThaiTren1.TabIndex = 0
         '
         'frm_DoiMatKhau
