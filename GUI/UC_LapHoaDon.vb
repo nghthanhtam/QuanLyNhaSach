@@ -24,8 +24,6 @@ Public Class UC_LapHoaDon
     Private count As Integer
     Private rowTrungTen As Integer
     Private ThongBaoTienNoVuotQuyDinh As String = ""
-    Private tongTien As Integer
-    Private soLuongCu As Integer
 
     Public Sub New()
 
@@ -58,24 +56,17 @@ Public Class UC_LapHoaDon
 
 
     Private Sub CapNhatTongTien()
-        tongTien = 0
 
-        For i As Integer = 0 To dgv_listSach.Rows.Count - 1
-
-            If dgv_listSach.Rows(i).Cells(1).Value Is Nothing And dgv_listSach.Rows(i).Cells(2).Value Is Nothing And dgv_listSach.Rows(i).Cells(3).Value Is Nothing And dgv_listSach.Rows(i).Cells(4).Value Is Nothing And dgv_listSach.Rows(i).Cells(5).Value Is Nothing And dgv_listSach.Rows(i).Cells(6).Value Is Nothing Then
-                Exit For
+        Dim i As Integer = 0
+        Dim tongTien As Double = 0
+        Dim temp As Double
+        While (i < dgv_listSach.Rows.Count - 1)
+            If (Double.TryParse(dgv_listSach.Rows(i).Cells(7).Value, temp)) Then
+                tongTien = tongTien + temp
             End If
-
-            If (dgv_listSach.Rows(i).Cells(4).Value = String.Empty) Then
-                tongTien = tongTien + 0
-                txt_TongTien.Text = tongTien
-                Continue For
-            Else
-                tongTien = tongTien + dgv_listSach.Rows(i).Cells(7).Value
-                txt_TongTien.Text = tongTien
-            End If
-
-        Next
+            i = i + 1
+        End While
+        txt_TongTien.Text = tongTien
     End Sub
 
 
@@ -111,6 +102,7 @@ Public Class UC_LapHoaDon
 
         ReloadMaHoaDon()
 
+        txt_TongTien.Text = 0
 
 
     End Sub
@@ -275,10 +267,9 @@ Public Class UC_LapHoaDon
 
 
     Private Sub dgv_listSach_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_listSach.CellValueChanged
-        If (e.ColumnIndex <> 1 And e.ColumnIndex <> 4) Then
+        If (e.ColumnIndex <> 1 And e.ColumnIndex <> 4 And e.ColumnIndex <> 7) Then
             Return
         End If
-
 
         Try
 
@@ -292,45 +283,32 @@ Public Class UC_LapHoaDon
 #Region "Quy định"
             If (e.ColumnIndex = 1) Then 'kiểm tra mã sách hơp lệ chưa?
 
-
-                dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty ' Khi thay đổi cột mã sách thì clear cột số lượng
-
+                dgv_listSach.Rows(e.RowIndex).Cells(2).Value = String.Empty
+                dgv_listSach.Rows(e.RowIndex).Cells(3).Value = String.Empty
+                dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty
+                dgv_listSach.Rows(e.RowIndex).Cells(5).Value = String.Empty
+                dgv_listSach.Rows(e.RowIndex).Cells(6).Value = String.Empty
+                dgv_listSach.Rows(e.RowIndex).Cells(7).Value = String.Empty
 
                 If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then ' Kiểm tra giá trị ô mã sách
-                    CapNhatTongTien()
+                    ' KHi ô mã sách bị xóa rỗng
                     dgv_listSach.Rows.RemoveAt(e.RowIndex) ' nếu mã trống thì clear dòng
 
+                    CapNhatTongTien()
                     'Cập nhật lại STT khi 1 dòng bị xóa
-                    For i As Integer = e.RowIndex To dgv_listSach.Rows.Count - 1
-                        If (i - 1 = -1) Then
-                            dgv_listSach.Rows(i).Cells(0).Value = 1
-                        Else
-                            dgv_listSach.Rows(i).Cells(0).Value = dgv_listSach.Rows(i - 1).Cells(0).Value + 1
-                        End If
-                        stt = dgv_listSach.Rows(i).Cells(0).Value
-                    Next
+                    CapNhatLaiSTT(e.RowIndex)
                     'Cập nhật lại STT khi 1 dòng bị xóa
-
                     Return
                 End If
 
-                'kt mã sách có đc nhập 2 lần ko
+                'kt mã sách có đc nhập trước đó ko
                 For i As Integer = 0 To dgv_listSach.Rows.Count - 1
                     If dgv_listSach.Rows(i).Cells(1).Value = dgv_listSach.Rows(e.RowIndex).Cells(1).Value And i <> e.RowIndex Then
                         MessageBox.Show("Mã sách vừa nhập đã tồn tại!")
                         dgv_listSach.Rows.Remove(dgv_listSach.Rows(e.RowIndex))
-
                         'Cập nhật lại STT khi 1 dòng bị xóa
-                        For ii As Integer = e.RowIndex To dgv_listSach.Rows.Count - 1
-                            If (ii - 1 = -1) Then
-                                dgv_listSach.Rows(ii).Cells(0).Value = 1
-                            Else
-                                dgv_listSach.Rows(ii).Cells(0).Value = dgv_listSach.Rows(ii - 1).Cells(0).Value + 1
-                            End If
-                            stt = dgv_listSach.Rows(ii).Cells(0).Value
-                        Next
+                        CapNhatLaiSTT(e.RowIndex)
                         'Cập nhật lại STT khi 1 dòng bị xóa
-
                         Return
                     End If
                 Next
@@ -347,19 +325,9 @@ Public Class UC_LapHoaDon
                 res = sachBUS.selectSach_ByMaSach(dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value)
                 If (res.FlagResult = False) Then
                     ChangeColor_SaiCuPhap(e.RowIndex)
-#Region "Xóa dữ liệu của dòng khi mã sách ko đúng"
-                    dgv_listSach.Rows(e.RowIndex).Cells(2).Value = String.Empty
-                    dgv_listSach.Rows(e.RowIndex).Cells(3).Value = String.Empty
-                    dgv_listSach.Rows(e.RowIndex).Cells(4).Value = String.Empty
-                    dgv_listSach.Rows(e.RowIndex).Cells(5).Value = String.Empty
-                    dgv_listSach.Rows(e.RowIndex).Cells(6).Value = String.Empty
-#End Region
-                    'Return 
+                    Return
                 End If
                 sach = CType(res.Obj1, Sach_DTO)
-
-
-
                 dgv_listSach.Item("TenSach", e.RowIndex).Value = sach.TenSach1
                 dgv_listSach.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
                 dgv_listSach.Item("TacGia", e.RowIndex).Value = sach.TacGia1
@@ -368,14 +336,16 @@ Public Class UC_LapHoaDon
             End If
 
             'Khi nhập/thay đổi số lượng bán
-            Dim slton
             If (e.ColumnIndex = 4) Then
+
+                dgv_listSach.Item("ThanhTien", e.RowIndex).Value = String.Empty
+                ' CapNhatTongTien()
 
                 'Khi xóa sl - ô sl trống
                 If dgv_listSach.Rows(e.RowIndex).Cells(4).Value = Nothing Then
                     ChangeColor_SaiCuPhap(e.RowIndex) ' ĐỔi màu báo hiệu chưa hoàn thành
                     dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
-                    CapNhatTongTien()
+                    'CapNhatTongTien()
                     Return
                 End If
 
@@ -390,33 +360,31 @@ Public Class UC_LapHoaDon
 #Region "Kiểm tra số lượng tồn theo quy định"
                 ' kiểm tra nhập đúng cú pháp không?
                 res = chiTietHoaDonBUS.isValidSoLuongBan(dgv_listSach.Rows(e.RowIndex).Cells(4).Value.ToString())
-                If (res.FlagResult = False) Then
+                If (res.FlagResult = False) Then ' Nếu nhập sai cú pháp
                     ChangeColor_SaiCuPhap(e.RowIndex)
-                    dgv_listSach.Rows(e.RowIndex).Cells(7).Value = "" ' xóa ô thành tiền
                     Return
                 End If
 
-
                 res = sachBUS.selectSach_ByMaSach(dgv_listSach.Rows(e.RowIndex).Cells(1).Value)
-                If (res.FlagResult = False) Then
+                If (res.FlagResult = False) Then ' Nếu tìm sách nhưng không có hoặc xảy ra lỗi
                     ChangeColor_SaiQuyDinh(e.RowIndex)
                     Return
                 Else
                     sach = CType(res.Obj1, Sach_DTO)
                 End If
 
-
-                slton = sach.SoLuongTon1 - Integer.Parse(dgv_listSach.Rows(e.RowIndex).Cells(4).Value)
+                Dim slton As Integer = sach.SoLuongTon1 - Integer.Parse(dgv_listSach.Rows(e.RowIndex).Cells(4).Value)
                 Dim res2 As Result = chiTietHoaDonBUS.isValidSoLuongSachTon(slton)
-                If (res2.FlagResult = False) Then
+                If (res2.FlagResult = False) Then ' Nếu sai cú pháp số lượng nhập 
                     ChangeColor_SaiQuyDinh(e.RowIndex)
                     Return
                 End If
-                Original_Color(e.RowIndex) ' Set màu xác nhận đúng
 #End Region
-
+                Original_Color(e.RowIndex) ' Set màu xác nhận đúng
                 dgv_listSach.Item("ThanhTien", e.RowIndex).Value = Double.Parse(dgv_listSach.Item("DonGia", e.RowIndex).Value) * Integer.Parse(dgv_listSach.Item("SoLuongNhap", e.RowIndex).Value)
+            End If
 
+            If (e.ColumnIndex = 7) Then
                 CapNhatTongTien()
             End If
 
@@ -583,6 +551,7 @@ Public Class UC_LapHoaDon
         dgv_listSach.Rows.Clear()
         dgv_listSach.Item("STT", 0).Value = 1
         stt = 1
+        txt_TongTien.Text = 0
     End Sub
 
 
@@ -595,29 +564,25 @@ Public Class UC_LapHoaDon
 
     Private Sub dgv_listSach_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles dgv_listSach.UserDeletingRow
 
-        'kt mã sách có đc nhập 2 lần ko
-        count = 0
-        For i As Integer = 0 To dgv_listSach.Rows.Count - 1
-            If dgv_listSach.Rows(i).Cells(1).Value = dgv_listSach.Rows(e.Row.Index).Cells(1).Value And i <> e.Row.Index Then
-                count = count + 1
-                rowTrungTen = i 'lấy vị trí của dòng có mã sách trùng
-            End If
-        Next
-
-        If count = 1 Then
-            Original_Color(rowTrungTen)
-        End If
-
-        'Cập nhật lại stt khi 1 dòng bị xóa
-        For i As Integer = e.Row.Index To dgv_listSach.Rows.Count - 1
-            dgv_listSach.Rows(i).Cells(0).Value = dgv_listSach.Rows(i).Cells(0).Value - 1
-            stt = dgv_listSach.Rows(i).Cells(0).Value
-        Next
-
     End Sub
 
+    ''' <summary>
+    ''' Cập nhật lại STT của bảng bắt đầu tại vị trí X
+    ''' </summary>
+    ''' <param name="x">vị trí dong bắt đầu cập nhật</param>
+    Private Sub CapNhatLaiSTT(x As Integer)
+        For i As Integer = x To dgv_listSach.Rows.Count - 1
+            If (i - 1 = -1) Then
+                dgv_listSach.Rows(i).Cells(0).Value = 1
+            Else
+                dgv_listSach.Rows(i).Cells(0).Value = dgv_listSach.Rows(i - 1).Cells(0).Value + 1
+            End If
+            stt = dgv_listSach.Rows(i).Cells(0).Value
+        Next
+    End Sub
 
     Private Sub dgv_listSach_UserDeletedRow(sender As Object, e As DataGridViewRowEventArgs) Handles dgv_listSach.UserDeletedRow
+        CapNhatLaiSTT(0) ' cập nhật lại STT tất cả
         CapNhatTongTien()
     End Sub
 
