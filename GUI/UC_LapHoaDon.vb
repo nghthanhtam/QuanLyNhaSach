@@ -65,6 +65,8 @@ Public Class UC_LapHoaDon
             End If
 
             If (dgv_listSach.Rows(i).Cells(4).Value = String.Empty) Then
+                tongTien = tongTien + 0
+                txt_TongTien.Text = tongTien
                 Continue For
             Else
                 tongTien = tongTien + dgv_listSach.Rows(i).Cells(7).Value
@@ -293,6 +295,7 @@ Public Class UC_LapHoaDon
 
 
                 If (dgv_listSach.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = String.Empty) Then ' Kiểm tra giá trị ô mã sách
+                    CapNhatTongTien()
                     dgv_listSach.Rows.RemoveAt(e.RowIndex) ' nếu mã trống thì clear dòng
 
                     'Cập nhật lại STT khi 1 dòng bị xóa

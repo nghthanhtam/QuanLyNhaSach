@@ -43,6 +43,7 @@ Partial Class UC_LapHoaDon
         Me.btn_XoaDongLoi = New System.Windows.Forms.Button()
         Me.dgv_listSach = New System.Windows.Forms.DataGridView()
         Me.txt_TongTien = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.dgv_listSach, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -266,11 +267,22 @@ Partial Class UC_LapHoaDon
         Me.txt_TongTien.Size = New System.Drawing.Size(116, 23)
         Me.txt_TongTien.TabIndex = 64
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(51, 110)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(64, 16)
+        Me.Label5.TabIndex = 65
+        Me.Label5.Text = "Tổng tiền"
+        '
         'UC_LapHoaDon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txt_TongTien)
         Me.Controls.Add(Me.btn_XoaDongLoi)
         Me.Controls.Add(Me.Label4)
@@ -317,4 +329,5 @@ Partial Class UC_LapHoaDon
     Friend WithEvents btn_XoaDongLoi As Button
     Friend WithEvents dgv_listSach As DataGridView
     Friend WithEvents txt_TongTien As TextBox
+    Friend WithEvents Label5 As Label
 End Class
