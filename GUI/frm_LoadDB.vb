@@ -24,53 +24,53 @@ Public Class frm_LoadDB
 
         Timer.Stop()
 
-        Debug.WriteLine("van con chay timer")
-
-            Dim ConnectionString As String = ""
-            If ((File.Exists("ConfigDB.xml"))) Then
-                Dim objXmlTextReader As XmlTextReader = New XmlTextReader("ConfigDB.xml")
-                Dim sName As String = ""
-                While (objXmlTextReader.Read())
-                    Select Case objXmlTextReader.NodeType
-                        Case XmlNodeType.Element
-                            sName = objXmlTextReader.Name
-                        Case XmlNodeType.Text
-                            If (sName = "ConnectionString") Then
-                                ConnectionString = objXmlTextReader.Value
-                            End If
-                    End Select
+        Dim ConnectionString As String = ""
+        If ((File.Exists("ConfigDB.xml"))) Then
+            Dim objXmlTextReader As XmlTextReader = New XmlTextReader("ConfigDB.xml")
+            Dim sName As String = ""
+            While (objXmlTextReader.Read())
+                Select Case objXmlTextReader.NodeType
+                    Case XmlNodeType.Element
+                        sName = objXmlTextReader.Name
+                    Case XmlNodeType.Text
+                        If (sName = "ConnectionString") Then
+                            ConnectionString = objXmlTextReader.Value
+                        End If
+                End Select
             End While
             objXmlTextReader.Close()
         End If
 
-            ConnectDB.ConnectionStringConnectDB = ConnectionString
+        ConnectDB.ConnectionStringConnectDB = ConnectionString
 
-            If (ConnectionString = "") Then
-                Panel_Nhap.Visible = True
-                PictureBox_load.Visible = False
-                Debug.WriteLine("Empty config")
+        If (ConnectionString = "") Then
+            Panel_Nhap.Visible = True
+            PictureBox_load.Visible = False
+            Debug.WriteLine("Empty config")
+        Else
+
+            Dim kqCheckConnect As Boolean
+            kqCheckConnect = ConnectDB.CheckConnectionDB()
+
+            If (kqCheckConnect = False) Then
+                Panel_Nhap.Invoke(
+                Sub()
+                    Panel_Nhap.Visible = True
+                End Sub)
+
+                PictureBox_load.Invoke(
+                Sub()
+                    PictureBox_load.Visible = False
+                End Sub)
+                Debug.WriteLine("Sai config")
             Else
-
-                Dim kqCheckConnect As Boolean
-                kqCheckConnect = ConnectDB.CheckConnectionDB()
-
-                If (kqCheckConnect = False) Then
-                    Panel_Nhap.Invoke(
-                    Sub()
-                        Panel_Nhap.Visible = True
-                    End Sub)
-
-                    PictureBox_load.Invoke(
-                    Sub()
-                        PictureBox_load.Visible = False
-                    End Sub)
-                    Debug.WriteLine("Sai config")
-                Else
-                    Dim frmMain As New frm_Main
-                    frmMain.Show()
-                    Me.Close()
-                End If
+                'Dim frmMain As New frm_Main
+                'frmMain.Show()
+                Dim frmLogin As New frm_DangNhap
+                frmLogin.Show()
+                Me.Close()
             End If
+        End If
     End Sub
 
 

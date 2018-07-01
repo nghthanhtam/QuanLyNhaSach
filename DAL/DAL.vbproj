@@ -70,6 +70,7 @@
     <Compile Include="ChiTietBaoCaoTon_DAL.vb" />
     <Compile Include="ChiTietHoaDon_DAL.vb" />
     <Compile Include="ChiTietPhieuNhap_DAL.vb" />
+    <Compile Include="DangNhap_DAL.vb" />
     <Compile Include="HoaDon_DAL.vb" />
     <Compile Include="KhachHang_DAL.vb" />
     <Compile Include="PhieuNhapSach_DAL.vb" />

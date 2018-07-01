@@ -69,6 +69,7 @@
     <Compile Include="ChiTietBaoCaoTon_DTO.vb" />
     <Compile Include="ChiTietHoaDon_DTO.vb" />
     <Compile Include="ChiTietPhieuNhap_DTO.vb" />
+    <Compile Include="DangNhap_DTO.vb" />
     <Compile Include="HoaDon_DTO.vb" />
     <Compile Include="KhachHang_DTO.vb" />
     <Compile Include="PhieuNhapSach_DTO.vb" />
