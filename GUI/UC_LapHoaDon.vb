@@ -409,6 +409,7 @@ Public Class UC_LapHoaDon
                 slton = sach.SoLuongTon1 - Integer.Parse(dgv_listSach.Rows(e.RowIndex).Cells(4).Value)
                 Dim res2 As Result = chiTietHoaDonBUS.isValidSoLuongSachTon(slton)
                 If (res2.FlagResult = False) Then
+                    dgv_listSach.Rows(e.RowIndex).Cells(7).Value = 0
                     ChangeColor_SaiQuyDinh(e.RowIndex)
                     Return
                 End If
