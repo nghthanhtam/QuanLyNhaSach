@@ -94,6 +94,12 @@ Public Class frm_ThemKhachHang
         ReloadMaKH()
 
 
+        txt_DiaChi.Text = ""
+        txt_DienThoai.Text = ""
+        txt_Email.Text = ""
+        txt_HoTen.Text = ""
+
+
     End Sub
 
     Private Sub btn_LuuVaThoat_Click(sender As Object, e As EventArgs) Handles btn_LuuVaThoat.Click
