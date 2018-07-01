@@ -246,7 +246,7 @@ Partial Class UC_LapHoaDon
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_listSach.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgv_listSach.EnableHeadersVisualStyles = False
-        Me.dgv_listSach.Location = New System.Drawing.Point(34, 142)
+        Me.dgv_listSach.Location = New System.Drawing.Point(34, 138)
         Me.dgv_listSach.Name = "dgv_listSach"
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
@@ -256,13 +256,13 @@ Partial Class UC_LapHoaDon
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_listSach.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgv_listSach.Size = New System.Drawing.Size(680, 329)
+        Me.dgv_listSach.Size = New System.Drawing.Size(680, 304)
         Me.dgv_listSach.TabIndex = 17
         '
         'txt_TongTien
         '
         Me.txt_TongTien.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_TongTien.Location = New System.Drawing.Point(176, 101)
+        Me.txt_TongTien.Location = New System.Drawing.Point(571, 450)
         Me.txt_TongTien.Name = "txt_TongTien"
         Me.txt_TongTien.Size = New System.Drawing.Size(116, 23)
         Me.txt_TongTien.TabIndex = 64
@@ -271,7 +271,7 @@ Partial Class UC_LapHoaDon
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(51, 110)
+        Me.Label5.Location = New System.Drawing.Point(495, 454)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(64, 16)
         Me.Label5.TabIndex = 65

@@ -26,7 +26,7 @@ Public Class ChiTietHoaDon_BUS
 
 
     ''' <summary>
-    '''  trả về false, và object là "số lượng tồn tối thiểu", nếu vi phạm QĐ
+    '''  trả về false, và object là "số lượng tồn tối thiểu", nếu vi phạm quy định
     ''' </summary>
     ''' <param name="SLSauTon"></param>
     ''' <returns></returns>
