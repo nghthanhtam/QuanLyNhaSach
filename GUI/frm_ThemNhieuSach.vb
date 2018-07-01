@@ -21,8 +21,8 @@ Public Class frm_ThemNhieuSach
 
 #Region "Đổi màu khi sai cú pháp"
     Private Sub ChangeColor_SaiCuPhap(rowIndex As Integer)
-        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Color.GreenYellow
-        'dgv_listSachNhap.Rows(rowIndex).Cells(2).Style.BackColor = Color.GreenYellow
+        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51)
+        'dgv_listSachNhap.Rows(rowIndex).Cells(2).Style.BackColor = Color.FromArgb(255, 193, 51)
     End Sub
     Private Sub Original_Color(rowIndex As Integer)
         dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Nothing
@@ -253,7 +253,7 @@ Public Class frm_ThemNhieuSach
 #End Region
 
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
-            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.GreenYellow Then
+            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51) Then
                 MessageBox.Show("Một số dòng nhập liệu sai quy định. Vui lòng kiểm tra lại!")
                 Return
             End If
@@ -322,6 +322,7 @@ Public Class frm_ThemNhieuSach
         End If
     End Sub
 
+
     Private Sub dgv_listSachNhap_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgv_listSachNhap.EditingControlShowing
         If TypeOf e.Control Is DataGridViewComboBoxEditingControl Then
             CType(e.Control, ComboBox).DropDownStyle = ComboBoxStyle.DropDown
@@ -341,7 +342,7 @@ Public Class frm_ThemNhieuSach
             If (i > dgv_listSachNhap.Rows.Count - 1) Then
                 Exit While
             End If
-            If dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.GreenYellow Then
+            If dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51) Then
                 dgv_listSachNhap.Rows.RemoveAt(i)
                 i = i - 1
             End If

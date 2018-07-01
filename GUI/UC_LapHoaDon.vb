@@ -69,10 +69,10 @@ Public Class UC_LapHoaDon
 
 #Region "Đổi màu khi sai quy định hoặc cú pháp"
     Private Sub ChangeColor_SaiQuyDinh(rowIndex As Integer)
-        dgv_listSach.Rows(rowIndex).DefaultCellStyle.BackColor = Color.OrangeRed
+        dgv_listSach.Rows(rowIndex).DefaultCellStyle.BackColor = Color.Red
     End Sub
     Private Sub ChangeColor_SaiCuPhap(rowIndex As Integer)
-        dgv_listSach.Rows(rowIndex).DefaultCellStyle.BackColor = Color.GreenYellow
+        dgv_listSach.Rows(rowIndex).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51)
     End Sub
     Private Sub Original_Color(rowIndex As Integer)
         dgv_listSach.Rows(rowIndex).DefaultCellStyle.BackColor = Nothing
@@ -252,7 +252,7 @@ Public Class UC_LapHoaDon
             ' kiểm tra nợ so với QĐ
             Dim res2 As Result = khachHangBUS.KiemTraNo(CDbl(txt_SoTienNo.Text))
             If (res2.FlagResult = False) Then
-                txt_SoTienNo.BackColor = Color.OrangeRed
+                txt_SoTienNo.BackColor = Color.Red
                 ThongBaoTienNoVuotQuyDinh = res2.ApplicationMessage
                 Return
             End If
@@ -400,7 +400,7 @@ Public Class UC_LapHoaDon
     Private Sub btn_Nhap_Click(sender As Object, e As EventArgs) Handles btn_LapHoaDon.Click
 
 
-        If txt_SoTienNo.BackColor = Color.OrangeRed Then
+        If txt_SoTienNo.BackColor = Color.Red Then
             MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
@@ -435,7 +435,7 @@ Public Class UC_LapHoaDon
 #End Region
 
         For j As Integer = 0 To dgv_listSach.Rows.Count - 1
-            If dgv_listSach.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSach.Rows(j).DefaultCellStyle.BackColor = Color.GreenYellow Then
+            If dgv_listSach.Rows(j).DefaultCellStyle.BackColor = Color.Red Or dgv_listSach.Rows(j).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51) Then
                 MessageBox.Show("Một số dòng nhập liệu sai quy định. Vui lòng kiểm tra lại!")
                 Return
             End If
@@ -556,7 +556,7 @@ Public Class UC_LapHoaDon
 
 
     Private Sub dgv_listSach_Enter(sender As Object, e As EventArgs) Handles dgv_listSach.Enter
-        If txt_SoTienNo.BackColor = Color.OrangeRed Then
+        If txt_SoTienNo.BackColor = Color.Red Then
             MessageBox.Show(ThongBaoTienNoVuotQuyDinh, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
@@ -593,7 +593,7 @@ Public Class UC_LapHoaDon
             If (i > dgv_listSach.Rows.Count - 1) Then
                 Exit While
             End If
-            If dgv_listSach.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSach.Rows(i).DefaultCellStyle.BackColor = Color.GreenYellow Then
+            If dgv_listSach.Rows(i).DefaultCellStyle.BackColor = Color.Red Or dgv_listSach.Rows(i).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51) Then
                 dgv_listSach.Rows.RemoveAt(i)
                 i = i - 1
             End If
