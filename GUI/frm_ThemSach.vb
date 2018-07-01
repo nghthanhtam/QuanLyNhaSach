@@ -114,6 +114,10 @@ Public Class frm_ThemSach
         ReloadMaSach()
         ReloadTheLoai()
 
+        txt_DonGia.Text = ""
+        txt_TacGia.Text = ""
+        txt_TenSach.Text = ""
+
 
     End Sub
 
