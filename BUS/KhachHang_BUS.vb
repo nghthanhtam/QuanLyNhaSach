@@ -89,7 +89,7 @@ Public Class KhachHang_BUS
             If v <= thamsoDTO.SoTienNoToiDa1 Then
                 Return New Result(True)
             Else
-                Return New Result(False, Nothing, "Khách hàng này đang nợ hơn " + thamsoDTO.SoTienNoToiDa1.ToString)
+                Return New Result(False, Nothing, "Khách hàng này đang nợ hơn " + Math.Round(thamsoDTO.SoTienNoToiDa1, 3).ToString)
             End If
         Else
             Return New Result(False, Nothing, "Get số tiền nợ tối đa thất bại")

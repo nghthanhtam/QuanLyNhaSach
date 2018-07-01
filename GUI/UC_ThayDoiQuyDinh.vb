@@ -112,7 +112,7 @@ Public Class UC_ThayDoiQuyDinh
                 txt_SoLuongNhapToiThieu.Text = .SoLuongNhapToiThieu1.ToString
                 txt_SoLuongTonToiDa.Text = .SoLuongTonToiDa1.ToString
                 txt_SoLuongTonToiThieu.Text = .SoLuongTonToiThieu1.ToString
-                txt_SoTienNoToiDa.Text = .SoTienNoToiDa1.ToString()
+                txt_SoTienNoToiDa.Text = Math.Round(.SoTienNoToiDa1, 3)
                 cb_SuDungQD4.Checked = .SuDungQD41
             End With
         End If
@@ -145,7 +145,7 @@ Public Class UC_ThayDoiQuyDinh
             txt_SoLuongNhapToiThieu.Text = .SoLuongNhapToiThieu1.ToString
             txt_SoLuongTonToiDa.Text = .SoLuongTonToiDa1.ToString
             txt_SoLuongTonToiThieu.Text = .SoLuongTonToiThieu1.ToString
-            txt_SoTienNoToiDa.Text = .SoTienNoToiDa1.ToString()
+            txt_SoTienNoToiDa.Text = Math.Round(.SoTienNoToiDa1, 3)
             cb_SuDungQD4.Checked = .SuDungQD41
         End With
 

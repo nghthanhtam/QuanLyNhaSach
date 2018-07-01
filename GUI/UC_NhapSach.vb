@@ -276,7 +276,7 @@ Public Class btn_XoaTatCaDongLoi
                 dgv_listSachNhap.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
                 dgv_listSachNhap.Item("TacGia", e.RowIndex).Value = sach.TacGia1
                 dgv_listSachNhap.Item("SoLuongTon", e.RowIndex).Value = sach.SoLuongTon1
-                dgv_listSachNhap.Item("DonGia", e.RowIndex).Value = sach.DonGia1
+                dgv_listSachNhap.Item("DonGia", e.RowIndex).Value = Math.Round(sach.DonGia1, 3)
 
                 res1 = chiTietPhieuNhapBUS.isValidSoLuongTonToiDa(sach.SoLuongTon1)
                 If (res1.FlagResult = False) Then
@@ -446,18 +446,7 @@ Public Class btn_XoaTatCaDongLoi
 
 
     Private Sub dgv_listSachNhap_UserDeletingRow(sender As Object, e As DataGridViewRowCancelEventArgs) Handles dgv_listSachNhap.UserDeletingRow
-        ''kt mã sách có đc nhập 2 lần ko
-        'count = 0
-        'For i As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
-        '    If dgv_listSachNhap.Rows(i).Cells(1).Value = dgv_listSachNhap.Rows(e.Row.Index).Cells(1).Value And i <> e.Row.Index Then
-        '        count = count + 1
-        '        rowTrungTen = i 'lấy vị trí của dòng có mã sách trùng
-        '    End If
-        'Next
 
-        'If count = 1 Then
-        '    Original_Color(rowTrungTen)
-        'End If
     End Sub
 
 
