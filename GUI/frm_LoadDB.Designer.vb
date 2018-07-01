@@ -41,7 +41,7 @@ Partial Class frm_LoadDB
         Me.Panel_ThanhTrangThaiTren.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel_ThanhTrangThaiTren.Name = "Panel_ThanhTrangThaiTren"
         Me.Panel_ThanhTrangThaiTren.Size = New System.Drawing.Size(650, 50)
-        Me.Panel_ThanhTrangThaiTren.TabIndex = 1
+        Me.Panel_ThanhTrangThaiTren.TabIndex = 0
         '
         'Label_Fail
         '
@@ -51,7 +51,7 @@ Partial Class frm_LoadDB
         Me.Label_Fail.Location = New System.Drawing.Point(34, 39)
         Me.Label_Fail.Name = "Label_Fail"
         Me.Label_Fail.Size = New System.Drawing.Size(297, 40)
-        Me.Label_Fail.TabIndex = 2
+        Me.Label_Fail.TabIndex = 0
         Me.Label_Fail.Text = "*Kết nối cơ sở dữ liệu thất bại!" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Vui lòng thử nhập lại ConnectionString."
         '
         'Label1
@@ -61,7 +61,7 @@ Partial Class frm_LoadDB
         Me.Label1.Location = New System.Drawing.Point(46, 99)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(152, 20)
-        Me.Label1.TabIndex = 3
+        Me.Label1.TabIndex = 1
         Me.Label1.Text = "Connection String: "
         '
         'txt_ConnectionString
@@ -70,7 +70,7 @@ Partial Class frm_LoadDB
         Me.txt_ConnectionString.Location = New System.Drawing.Point(222, 96)
         Me.txt_ConnectionString.Name = "txt_ConnectionString"
         Me.txt_ConnectionString.Size = New System.Drawing.Size(385, 27)
-        Me.txt_ConnectionString.TabIndex = 4
+        Me.txt_ConnectionString.TabIndex = 2
         '
         'btn_KetNoiCSDL
         '
@@ -85,7 +85,7 @@ Partial Class frm_LoadDB
         Me.btn_KetNoiCSDL.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_KetNoiCSDL.Name = "btn_KetNoiCSDL"
         Me.btn_KetNoiCSDL.Size = New System.Drawing.Size(140, 50)
-        Me.btn_KetNoiCSDL.TabIndex = 15
+        Me.btn_KetNoiCSDL.TabIndex = 3
         Me.btn_KetNoiCSDL.Text = "Kết nối CSDL"
         Me.btn_KetNoiCSDL.UseVisualStyleBackColor = False
         '
@@ -102,7 +102,7 @@ Partial Class frm_LoadDB
         Me.Panel_Nhap.Location = New System.Drawing.Point(0, 55)
         Me.Panel_Nhap.Name = "Panel_Nhap"
         Me.Panel_Nhap.Size = New System.Drawing.Size(650, 232)
-        Me.Panel_Nhap.TabIndex = 16
+        Me.Panel_Nhap.TabIndex = 1
         Me.Panel_Nhap.Visible = False
         '
         'PictureBox_load

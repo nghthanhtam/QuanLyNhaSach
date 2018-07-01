@@ -52,7 +52,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.dtp_NgayNhap.Margin = New System.Windows.Forms.Padding(4)
         Me.dtp_NgayNhap.Name = "dtp_NgayNhap"
         Me.dtp_NgayNhap.Size = New System.Drawing.Size(149, 27)
-        Me.dtp_NgayNhap.TabIndex = 0
+        Me.dtp_NgayNhap.TabIndex = 4
         '
         'lbl_NgayNhap
         '
@@ -62,7 +62,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.lbl_NgayNhap.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_NgayNhap.Name = "lbl_NgayNhap"
         Me.lbl_NgayNhap.Size = New System.Drawing.Size(93, 20)
-        Me.lbl_NgayNhap.TabIndex = 1
+        Me.lbl_NgayNhap.TabIndex = 3
         Me.lbl_NgayNhap.Text = "Ngày nhập:"
         '
         'dgv_listSachNhap
@@ -92,7 +92,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.dgv_listSachNhap.RowHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgv_listSachNhap.RowTemplate.Height = 24
         Me.dgv_listSachNhap.Size = New System.Drawing.Size(908, 468)
-        Me.dgv_listSachNhap.TabIndex = 17
+        Me.dgv_listSachNhap.TabIndex = 9
         '
         'btn_NhapSach
         '
@@ -105,7 +105,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.btn_NhapSach.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_NhapSach.Name = "btn_NhapSach"
         Me.btn_NhapSach.Size = New System.Drawing.Size(112, 40)
-        Me.btn_NhapSach.TabIndex = 3
+        Me.btn_NhapSach.TabIndex = 15
         Me.btn_NhapSach.Text = "Nhập sách"
         Me.btn_NhapSach.UseVisualStyleBackColor = False
         '
@@ -117,7 +117,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.Label7.Location = New System.Drawing.Point(29, 23)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(194, 25)
-        Me.Label7.TabIndex = 36
+        Me.Label7.TabIndex = 0
         Me.Label7.Text = "Lập phiếu nhập sách"
         '
         'txt_MaPhieuNhap
@@ -128,7 +128,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.txt_MaPhieuNhap.Name = "txt_MaPhieuNhap"
         Me.txt_MaPhieuNhap.ReadOnly = True
         Me.txt_MaPhieuNhap.Size = New System.Drawing.Size(149, 27)
-        Me.txt_MaPhieuNhap.TabIndex = 28
+        Me.txt_MaPhieuNhap.TabIndex = 2
         '
         'lblMaPhieuNhap
         '
@@ -137,7 +137,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.lblMaPhieuNhap.Location = New System.Drawing.Point(83, 58)
         Me.lblMaPhieuNhap.Name = "lblMaPhieuNhap"
         Me.lblMaPhieuNhap.Size = New System.Drawing.Size(128, 20)
-        Me.lblMaPhieuNhap.TabIndex = 25
+        Me.lblMaPhieuNhap.TabIndex = 1
         Me.lblMaPhieuNhap.Text = "Mã Phiếu Nhập:"
         '
         'Label1
@@ -147,7 +147,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.Label1.Location = New System.Drawing.Point(537, 50)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(184, 20)
-        Me.Label1.TabIndex = 37
+        Me.Label1.TabIndex = 5
         Me.Label1.Text = "Số lượng nhâp tối thiểu:"
         '
         'txt_SLnhapToiThieu
@@ -158,7 +158,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.txt_SLnhapToiThieu.Name = "txt_SLnhapToiThieu"
         Me.txt_SLnhapToiThieu.ReadOnly = True
         Me.txt_SLnhapToiThieu.Size = New System.Drawing.Size(133, 27)
-        Me.txt_SLnhapToiThieu.TabIndex = 38
+        Me.txt_SLnhapToiThieu.TabIndex = 6
         '
         'Label2
         '
@@ -167,7 +167,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.Label2.Location = New System.Drawing.Point(537, 91)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(153, 20)
-        Me.Label2.TabIndex = 39
+        Me.Label2.TabIndex = 7
         Me.Label2.Text = "Số lượng tồn tối đa:"
         '
         'txt_SLtonToiDa
@@ -178,7 +178,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.txt_SLtonToiDa.Name = "txt_SLtonToiDa"
         Me.txt_SLtonToiDa.ReadOnly = True
         Me.txt_SLtonToiDa.Size = New System.Drawing.Size(133, 27)
-        Me.txt_SLtonToiDa.TabIndex = 40
+        Me.txt_SLtonToiDa.TabIndex = 8
         '
         'Label4
         '
@@ -188,7 +188,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(117, 17)
-        Me.Label4.TabIndex = 59
+        Me.Label4.TabIndex = 11
         Me.Label4.Text = "Vi phạm quy định"
         '
         'Label8
@@ -199,7 +199,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(379, 17)
-        Me.Label8.TabIndex = 57
+        Me.Label8.TabIndex = 13
         Me.Label8.Text = "Người dùng nhập sai cú pháp hoặc chưa nhập đủ thông tin"
         '
         'Button1
@@ -212,7 +212,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(51, 18)
-        Me.Button1.TabIndex = 56
+        Me.Button1.TabIndex = 12
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Button2
@@ -225,7 +225,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(51, 18)
-        Me.Button2.TabIndex = 60
+        Me.Button2.TabIndex = 10
         Me.Button2.UseVisualStyleBackColor = False
         '
         'btn_XoaDongLoi
@@ -239,7 +239,7 @@ Partial Class btn_XoaTatCaDongLoi
         Me.btn_XoaDongLoi.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_XoaDongLoi.Name = "btn_XoaDongLoi"
         Me.btn_XoaDongLoi.Size = New System.Drawing.Size(172, 40)
-        Me.btn_XoaDongLoi.TabIndex = 61
+        Me.btn_XoaDongLoi.TabIndex = 14
         Me.btn_XoaDongLoi.Text = "Xóa tất cả dòng lỗi"
         Me.btn_XoaDongLoi.UseVisualStyleBackColor = False
         '

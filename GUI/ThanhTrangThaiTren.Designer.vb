@@ -58,7 +58,7 @@ Partial Class ThanhTrangThaiTren
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(50, 38)
-        Me.Button1.TabIndex = 2
+        Me.Button1.TabIndex = 1
         Me.Button1.Text = "□"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button1.UseVisualStyleBackColor = False
@@ -76,7 +76,7 @@ Partial Class ThanhTrangThaiTren
         Me.btn_Minimize.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Minimize.Name = "btn_Minimize"
         Me.btn_Minimize.Size = New System.Drawing.Size(50, 32)
-        Me.btn_Minimize.TabIndex = 2
+        Me.btn_Minimize.TabIndex = 0
         Me.btn_Minimize.Text = "–"
         Me.btn_Minimize.UseVisualStyleBackColor = False
         '
@@ -117,7 +117,7 @@ Partial Class ThanhTrangThaiTren
         Me.txt_Title.Location = New System.Drawing.Point(41, 14)
         Me.txt_Title.Name = "txt_Title"
         Me.txt_Title.Size = New System.Drawing.Size(253, 25)
-        Me.txt_Title.TabIndex = 1
+        Me.txt_Title.TabIndex = 0
         Me.txt_Title.Text = "Phần mềm quản lí nhà sách"
         '
         'ThanhTrangThaiTren

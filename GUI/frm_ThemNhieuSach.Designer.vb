@@ -68,7 +68,7 @@ Partial Class frm_ThemNhieuSach
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgv_listSachNhap.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgv_listSachNhap.Size = New System.Drawing.Size(780, 388)
-        Me.dgv_listSachNhap.TabIndex = 17
+        Me.dgv_listSachNhap.TabIndex = 2
         '
         'Label7
         '
@@ -80,7 +80,7 @@ Partial Class frm_ThemNhieuSach
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(191, 29)
-        Me.Label7.TabIndex = 6
+        Me.Label7.TabIndex = 1
         Me.Label7.Text = "Thêm sách mới"
         '
         'Panel_ThanhTrangThaiTren
@@ -89,7 +89,7 @@ Partial Class frm_ThemNhieuSach
         Me.Panel_ThanhTrangThaiTren.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel_ThanhTrangThaiTren.Name = "Panel_ThanhTrangThaiTren"
         Me.Panel_ThanhTrangThaiTren.Size = New System.Drawing.Size(841, 50)
-        Me.Panel_ThanhTrangThaiTren.TabIndex = 7
+        Me.Panel_ThanhTrangThaiTren.TabIndex = 0
         '
         'btn_Luu
         '
@@ -104,7 +104,7 @@ Partial Class frm_ThemNhieuSach
         Me.btn_Luu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Luu.Name = "btn_Luu"
         Me.btn_Luu.Size = New System.Drawing.Size(104, 40)
-        Me.btn_Luu.TabIndex = 8
+        Me.btn_Luu.TabIndex = 6
         Me.btn_Luu.Text = "Lưu"
         Me.btn_Luu.UseVisualStyleBackColor = False
         '
@@ -116,7 +116,7 @@ Partial Class frm_ThemNhieuSach
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(379, 17)
-        Me.Label8.TabIndex = 53
+        Me.Label8.TabIndex = 4
         Me.Label8.Text = "Người dùng nhập sai cú pháp hoặc chưa nhập đủ thông tin"
         '
         'Button1
@@ -128,7 +128,7 @@ Partial Class frm_ThemNhieuSach
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(51, 18)
-        Me.Button1.TabIndex = 52
+        Me.Button1.TabIndex = 3
         Me.Button1.UseVisualStyleBackColor = False
         '
         'btn_XoaDongLoi
@@ -142,7 +142,7 @@ Partial Class frm_ThemNhieuSach
         Me.btn_XoaDongLoi.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_XoaDongLoi.Name = "btn_XoaDongLoi"
         Me.btn_XoaDongLoi.Size = New System.Drawing.Size(172, 40)
-        Me.btn_XoaDongLoi.TabIndex = 62
+        Me.btn_XoaDongLoi.TabIndex = 5
         Me.btn_XoaDongLoi.Text = "Xóa tất cả dòng lỗi"
         Me.btn_XoaDongLoi.UseVisualStyleBackColor = False
         '

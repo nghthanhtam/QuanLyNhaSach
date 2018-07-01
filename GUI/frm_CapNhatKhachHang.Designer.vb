@@ -44,55 +44,50 @@ Partial Class frm_CapNhatKhachHang
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(38, 297)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label8.Location = New System.Drawing.Point(51, 366)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(60, 17)
-        Me.Label8.TabIndex = 28
+        Me.Label8.Size = New System.Drawing.Size(69, 20)
+        Me.Label8.TabIndex = 12
         Me.Label8.Text = "Tiền nợ:"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(38, 259)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label9.Location = New System.Drawing.Point(51, 319)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(46, 17)
-        Me.Label9.TabIndex = 26
+        Me.Label9.Size = New System.Drawing.Size(56, 20)
+        Me.Label9.TabIndex = 10
         Me.Label9.Text = "Email:"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(38, 221)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label10.Location = New System.Drawing.Point(51, 272)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(76, 17)
-        Me.Label10.TabIndex = 24
+        Me.Label10.Size = New System.Drawing.Size(89, 20)
+        Me.Label10.TabIndex = 8
         Me.Label10.Text = "Điện thoại:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(38, 183)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label3.Location = New System.Drawing.Point(51, 225)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(55, 17)
-        Me.Label3.TabIndex = 22
+        Me.Label3.Size = New System.Drawing.Size(66, 20)
+        Me.Label3.TabIndex = 6
         Me.Label3.Text = "Địa chỉ:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(38, 145)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(51, 178)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(54, 17)
-        Me.Label1.TabIndex = 20
+        Me.Label1.Size = New System.Drawing.Size(64, 20)
+        Me.Label1.TabIndex = 4
         Me.Label1.Text = "Họ tên:"
         '
         'Label7
@@ -101,87 +96,87 @@ Partial Class frm_CapNhatKhachHang
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(61, 56)
+        Me.Label7.Location = New System.Drawing.Point(81, 69)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(295, 24)
-        Me.Label7.TabIndex = 17
+        Me.Label7.Size = New System.Drawing.Size(362, 29)
+        Me.Label7.TabIndex = 1
         Me.Label7.Text = "Cập nhật thông tin khách hàng"
         '
         'Panel_ThanhTrangThaiTren
         '
         Me.Panel_ThanhTrangThaiTren.Location = New System.Drawing.Point(0, 0)
-        Me.Panel_ThanhTrangThaiTren.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel_ThanhTrangThaiTren.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel_ThanhTrangThaiTren.Name = "Panel_ThanhTrangThaiTren"
-        Me.Panel_ThanhTrangThaiTren.Size = New System.Drawing.Size(398, 41)
-        Me.Panel_ThanhTrangThaiTren.TabIndex = 16
+        Me.Panel_ThanhTrangThaiTren.Size = New System.Drawing.Size(531, 50)
+        Me.Panel_ThanhTrangThaiTren.TabIndex = 0
         '
         'txt_Email
         '
         Me.txt_Email.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.txt_Email.Location = New System.Drawing.Point(116, 257)
-        Me.txt_Email.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_Email.Location = New System.Drawing.Point(155, 316)
+        Me.txt_Email.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_Email.Name = "txt_Email"
-        Me.txt_Email.Size = New System.Drawing.Size(245, 23)
-        Me.txt_Email.TabIndex = 27
+        Me.txt_Email.Size = New System.Drawing.Size(325, 27)
+        Me.txt_Email.TabIndex = 11
         '
         'txt_TienNo
         '
         Me.txt_TienNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.txt_TienNo.Location = New System.Drawing.Point(116, 292)
-        Me.txt_TienNo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_TienNo.Location = New System.Drawing.Point(155, 359)
+        Me.txt_TienNo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TienNo.Name = "txt_TienNo"
         Me.txt_TienNo.ReadOnly = True
-        Me.txt_TienNo.Size = New System.Drawing.Size(245, 23)
-        Me.txt_TienNo.TabIndex = 29
+        Me.txt_TienNo.Size = New System.Drawing.Size(325, 27)
+        Me.txt_TienNo.TabIndex = 13
         Me.txt_TienNo.Text = "0"
         '
         'txt_DienThoai
         '
         Me.txt_DienThoai.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.txt_DienThoai.Location = New System.Drawing.Point(116, 219)
-        Me.txt_DienThoai.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_DienThoai.Location = New System.Drawing.Point(155, 270)
+        Me.txt_DienThoai.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_DienThoai.Name = "txt_DienThoai"
-        Me.txt_DienThoai.Size = New System.Drawing.Size(245, 23)
-        Me.txt_DienThoai.TabIndex = 25
+        Me.txt_DienThoai.Size = New System.Drawing.Size(325, 27)
+        Me.txt_DienThoai.TabIndex = 9
         '
         'txt_MaKhachHang
         '
         Me.txt_MaKhachHang.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.txt_MaKhachHang.Location = New System.Drawing.Point(116, 104)
-        Me.txt_MaKhachHang.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_MaKhachHang.Location = New System.Drawing.Point(155, 128)
+        Me.txt_MaKhachHang.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_MaKhachHang.Name = "txt_MaKhachHang"
         Me.txt_MaKhachHang.ReadOnly = True
-        Me.txt_MaKhachHang.Size = New System.Drawing.Size(245, 23)
-        Me.txt_MaKhachHang.TabIndex = 19
+        Me.txt_MaKhachHang.Size = New System.Drawing.Size(325, 27)
+        Me.txt_MaKhachHang.TabIndex = 3
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.Label6.Location = New System.Drawing.Point(38, 106)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Location = New System.Drawing.Point(51, 130)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(54, 17)
-        Me.Label6.TabIndex = 18
+        Me.Label6.Size = New System.Drawing.Size(66, 20)
+        Me.Label6.TabIndex = 2
         Me.Label6.Text = "Mã KH:"
         '
         'txt_DiaChi
         '
         Me.txt_DiaChi.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.txt_DiaChi.Location = New System.Drawing.Point(116, 180)
-        Me.txt_DiaChi.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_DiaChi.Location = New System.Drawing.Point(155, 222)
+        Me.txt_DiaChi.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_DiaChi.Name = "txt_DiaChi"
-        Me.txt_DiaChi.Size = New System.Drawing.Size(245, 23)
-        Me.txt_DiaChi.TabIndex = 23
+        Me.txt_DiaChi.Size = New System.Drawing.Size(325, 27)
+        Me.txt_DiaChi.TabIndex = 7
         '
         'txt_HoTen
         '
         Me.txt_HoTen.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
-        Me.txt_HoTen.Location = New System.Drawing.Point(116, 142)
-        Me.txt_HoTen.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txt_HoTen.Location = New System.Drawing.Point(155, 175)
+        Me.txt_HoTen.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_HoTen.Name = "txt_HoTen"
-        Me.txt_HoTen.Size = New System.Drawing.Size(245, 23)
-        Me.txt_HoTen.TabIndex = 21
+        Me.txt_HoTen.Size = New System.Drawing.Size(325, 27)
+        Me.txt_HoTen.TabIndex = 5
         '
         'btn_LuuVaThoat
         '
@@ -192,11 +187,11 @@ Partial Class frm_CapNhatKhachHang
         Me.btn_LuuVaThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_LuuVaThoat.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_LuuVaThoat.ForeColor = System.Drawing.Color.White
-        Me.btn_LuuVaThoat.Location = New System.Drawing.Point(232, 347)
-        Me.btn_LuuVaThoat.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_LuuVaThoat.Location = New System.Drawing.Point(309, 427)
+        Me.btn_LuuVaThoat.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_LuuVaThoat.Name = "btn_LuuVaThoat"
-        Me.btn_LuuVaThoat.Size = New System.Drawing.Size(100, 32)
-        Me.btn_LuuVaThoat.TabIndex = 31
+        Me.btn_LuuVaThoat.Size = New System.Drawing.Size(133, 39)
+        Me.btn_LuuVaThoat.TabIndex = 15
         Me.btn_LuuVaThoat.Text = "Lưu và thoát"
         Me.btn_LuuVaThoat.UseVisualStyleBackColor = False
         '
@@ -209,19 +204,19 @@ Partial Class frm_CapNhatKhachHang
         Me.btn_Luu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_Luu.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!)
         Me.btn_Luu.ForeColor = System.Drawing.Color.White
-        Me.btn_Luu.Location = New System.Drawing.Point(89, 347)
-        Me.btn_Luu.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_Luu.Location = New System.Drawing.Point(119, 427)
+        Me.btn_Luu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Luu.Name = "btn_Luu"
-        Me.btn_Luu.Size = New System.Drawing.Size(90, 32)
-        Me.btn_Luu.TabIndex = 30
+        Me.btn_Luu.Size = New System.Drawing.Size(120, 39)
+        Me.btn_Luu.TabIndex = 14
         Me.btn_Luu.Text = "Lưu"
         Me.btn_Luu.UseVisualStyleBackColor = False
         '
         'frm_CapNhatKhachHang
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(398, 402)
+        Me.ClientSize = New System.Drawing.Size(531, 495)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label10)
@@ -240,7 +235,7 @@ Partial Class frm_CapNhatKhachHang
         Me.Controls.Add(Me.btn_Luu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "frm_CapNhatKhachHang"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "frm_CapNhatKhachHang"

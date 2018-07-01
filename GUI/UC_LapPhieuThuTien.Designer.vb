@@ -81,7 +81,7 @@ Partial Class UC_LapPhieuThuTien
         Me.dgv_ListKhachHang.RowTemplate.Height = 24
         Me.dgv_ListKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgv_ListKhachHang.Size = New System.Drawing.Size(860, 353)
-        Me.dgv_ListKhachHang.TabIndex = 23
+        Me.dgv_ListKhachHang.TabIndex = 6
         '
         'txt_TimKiem
         '
@@ -90,7 +90,7 @@ Partial Class UC_LapPhieuThuTien
         Me.txt_TimKiem.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_TimKiem.Name = "txt_TimKiem"
         Me.txt_TimKiem.Size = New System.Drawing.Size(395, 27)
-        Me.txt_TimKiem.TabIndex = 34
+        Me.txt_TimKiem.TabIndex = 3
         Me.txt_TimKiem.Text = "Tìm kiếm bằng Mã KH, Họ tên hoặc SĐT..."
         '
         'txt_HoTen
@@ -101,7 +101,7 @@ Partial Class UC_LapPhieuThuTien
         Me.txt_HoTen.Name = "txt_HoTen"
         Me.txt_HoTen.ReadOnly = True
         Me.txt_HoTen.Size = New System.Drawing.Size(287, 27)
-        Me.txt_HoTen.TabIndex = 29
+        Me.txt_HoTen.TabIndex = 3
         '
         'Label1
         '
@@ -110,7 +110,7 @@ Partial Class UC_LapPhieuThuTien
         Me.Label1.Location = New System.Drawing.Point(19, 26)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 20)
-        Me.Label1.TabIndex = 25
+        Me.Label1.TabIndex = 0
         Me.Label1.Text = "Mã KH:"
         '
         'txt_MaKhachHang
@@ -121,7 +121,7 @@ Partial Class UC_LapPhieuThuTien
         Me.txt_MaKhachHang.Name = "txt_MaKhachHang"
         Me.txt_MaKhachHang.ReadOnly = True
         Me.txt_MaKhachHang.Size = New System.Drawing.Size(287, 27)
-        Me.txt_MaKhachHang.TabIndex = 28
+        Me.txt_MaKhachHang.TabIndex = 1
         '
         'Label2
         '
@@ -130,7 +130,7 @@ Partial Class UC_LapPhieuThuTien
         Me.Label2.Location = New System.Drawing.Point(20, 68)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(64, 20)
-        Me.Label2.TabIndex = 27
+        Me.Label2.TabIndex = 2
         Me.Label2.Text = "Họ tên:"
         '
         'Label7
@@ -141,7 +141,7 @@ Partial Class UC_LapPhieuThuTien
         Me.Label7.Location = New System.Drawing.Point(45, 21)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(166, 25)
-        Me.Label7.TabIndex = 35
+        Me.Label7.TabIndex = 0
         Me.Label7.Text = "Lập phiếu thu tiền"
         '
         'GroupBox1
@@ -157,7 +157,7 @@ Partial Class UC_LapPhieuThuTien
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Size = New System.Drawing.Size(435, 134)
-        Me.GroupBox1.TabIndex = 37
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Thông tin khách hàng"
         '
@@ -169,7 +169,7 @@ Partial Class UC_LapPhieuThuTien
         Me.txt_TienNo.Name = "txt_TienNo"
         Me.txt_TienNo.ReadOnly = True
         Me.txt_TienNo.Size = New System.Drawing.Size(287, 27)
-        Me.txt_TienNo.TabIndex = 33
+        Me.txt_TienNo.TabIndex = 5
         '
         'Label6
         '
@@ -178,7 +178,7 @@ Partial Class UC_LapPhieuThuTien
         Me.Label6.Location = New System.Drawing.Point(20, 106)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(69, 20)
-        Me.Label6.TabIndex = 26
+        Me.Label6.TabIndex = 4
         Me.Label6.Text = "Tiền nợ:"
         '
         'btn_LapPhieu
@@ -194,7 +194,7 @@ Partial Class UC_LapPhieuThuTien
         Me.btn_LapPhieu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_LapPhieu.Name = "btn_LapPhieu"
         Me.btn_LapPhieu.Size = New System.Drawing.Size(116, 41)
-        Me.btn_LapPhieu.TabIndex = 41
+        Me.btn_LapPhieu.TabIndex = 5
         Me.btn_LapPhieu.Text = "Lập phiếu"
         Me.btn_LapPhieu.UseVisualStyleBackColor = False
         '
@@ -211,7 +211,7 @@ Partial Class UC_LapPhieuThuTien
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Size = New System.Drawing.Size(435, 134)
-        Me.GroupBox2.TabIndex = 40
+        Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Thông tin phiếu thu tiền"
         '
@@ -224,7 +224,7 @@ Partial Class UC_LapPhieuThuTien
         Me.dtp_NgayThuTien.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dtp_NgayThuTien.Name = "dtp_NgayThuTien"
         Me.dtp_NgayThuTien.Size = New System.Drawing.Size(264, 27)
-        Me.dtp_NgayThuTien.TabIndex = 37
+        Me.dtp_NgayThuTien.TabIndex = 5
         '
         'Label9
         '
@@ -233,7 +233,7 @@ Partial Class UC_LapPhieuThuTien
         Me.Label9.Location = New System.Drawing.Point(19, 28)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(110, 20)
-        Me.Label9.TabIndex = 25
+        Me.Label9.TabIndex = 0
         Me.Label9.Text = "Mã phiếu thu:"
         '
         'Label3
@@ -243,7 +243,7 @@ Partial Class UC_LapPhieuThuTien
         Me.Label3.Location = New System.Drawing.Point(19, 103)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(112, 20)
-        Me.Label3.TabIndex = 21
+        Me.Label3.TabIndex = 4
         Me.Label3.Text = "Ngày thu tiền:"
         '
         'Label8
@@ -253,7 +253,7 @@ Partial Class UC_LapPhieuThuTien
         Me.Label8.Location = New System.Drawing.Point(19, 64)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(94, 20)
-        Me.Label8.TabIndex = 21
+        Me.Label8.TabIndex = 2
         Me.Label8.Text = "Số tiền thu:"
         '
         'txt_SoTienThu
@@ -263,7 +263,7 @@ Partial Class UC_LapPhieuThuTien
         Me.txt_SoTienThu.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_SoTienThu.Name = "txt_SoTienThu"
         Me.txt_SoTienThu.Size = New System.Drawing.Size(264, 27)
-        Me.txt_SoTienThu.TabIndex = 36
+        Me.txt_SoTienThu.TabIndex = 3
         '
         'txt_MaPhieuThu
         '
@@ -273,7 +273,7 @@ Partial Class UC_LapPhieuThuTien
         Me.txt_MaPhieuThu.Name = "txt_MaPhieuThu"
         Me.txt_MaPhieuThu.ReadOnly = True
         Me.txt_MaPhieuThu.Size = New System.Drawing.Size(264, 27)
-        Me.txt_MaPhieuThu.TabIndex = 28
+        Me.txt_MaPhieuThu.TabIndex = 1
         '
         'lbl_XoaTimKiem
         '
@@ -284,7 +284,7 @@ Partial Class UC_LapPhieuThuTien
         Me.lbl_XoaTimKiem.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_XoaTimKiem.Name = "lbl_XoaTimKiem"
         Me.lbl_XoaTimKiem.Size = New System.Drawing.Size(18, 18)
-        Me.lbl_XoaTimKiem.TabIndex = 51
+        Me.lbl_XoaTimKiem.TabIndex = 4
         Me.lbl_XoaTimKiem.Text = "X"
         '
         'UC_LapPhieuThuTien
