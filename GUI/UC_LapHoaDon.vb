@@ -55,6 +55,8 @@ Public Class UC_LapHoaDon
         txt_MaHoaDon.Text = CInt(res.Obj1)
     End Sub
 
+
+
     Private Sub CapNhatTongTien()
         tongTien = 0
 
@@ -365,7 +367,7 @@ Public Class UC_LapHoaDon
 
             End If
 
-
+            'Khi nhập/thay đổi số lượng bán
             Dim slton
             If (e.ColumnIndex = 4) Then
 
@@ -644,6 +646,8 @@ Public Class UC_LapHoaDon
                 i = i + 1
             End If
         Next
+
+        CapNhatTongTien()
     End Sub
 
 
