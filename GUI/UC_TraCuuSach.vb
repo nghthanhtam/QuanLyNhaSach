@@ -49,9 +49,6 @@ Public Class UC_TraCuuSach
 
     Private Sub Reload_DataGridViewListSach()
 
-        'If cbb_TheLoai.Text = "" Then
-        '    Return
-        'End If
 
         Dim textTimKiem As String = ""
         If (txt_TimKiem.Text = "Tìm kiếm bằng Mã Sách hoặc Tên sách...") Then

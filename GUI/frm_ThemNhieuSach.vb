@@ -56,6 +56,7 @@ Public Class frm_ThemNhieuSach
             .HeaderText = "Mã sách"
             .ReadOnly = True
             .SortMode = DataGridViewColumnSortMode.NotSortable
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
         End With
         dgv_listSachNhap.Columns.Add(txtMaSach)
 
@@ -111,6 +112,7 @@ Public Class frm_ThemNhieuSach
             .HeaderText = "Lượng tồn"
             .ReadOnly = True
             .SortMode = DataGridViewColumnSortMode.NotSortable
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 
         End With
         dgv_listSachNhap.Columns.Add(clSoLuongTon)
@@ -122,7 +124,7 @@ Public Class frm_ThemNhieuSach
             .HeaderText = "Đơn giá"
             .DataPropertyName = "DonGia1"
             .SortMode = DataGridViewColumnSortMode.NotSortable
-
+            .DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         End With
         dgv_listSachNhap.Columns.Add(clDonGia)
 
