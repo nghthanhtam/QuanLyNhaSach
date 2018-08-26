@@ -306,11 +306,9 @@ Public Class frm_ThemNhieuSach
     Private Sub dgv_listSachNhap_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_listSachNhap.CellClick
         dgv_listSachNhap.BeginEdit(True)
         Try
-            If e.ColumnIndex = 2 Then
-                If dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Selected = True Then
-                    DirectCast(dgv_listSachNhap.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
+            If e.ColumnIndex = 2 And dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Selected = True Then
 
-                End If
+                DirectCast(dgv_listSachNhap.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
             End If
         Catch ex As Exception
             Debug.WriteLine(ex.Message)
