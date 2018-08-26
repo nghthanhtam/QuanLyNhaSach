@@ -193,7 +193,7 @@ Public Class UC_QuanLiSach
                 txt_TacGia.Text = .TacGia1
                 txt_TheLoai.Text = .TheLoai1
                 txt_SoLuongTon.Text = .SoLuongTon1
-                txt_DonGia.Text = .DonGia1
+                txt_DonGia.Text = Math.Round(.DonGia1, 3)
             End With
         Catch ex As Exception
 

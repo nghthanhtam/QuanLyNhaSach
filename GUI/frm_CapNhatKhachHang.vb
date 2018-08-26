@@ -33,7 +33,7 @@ Public Class frm_CapNhatKhachHang
             txt_DiaChi.Text = .DiaChi1
             txt_DienThoai.Text = .DienThoai1
             txt_Email.Text = .Email1
-            txt_TienNo.Text = .TienNo1
+            txt_TienNo.Text = Math.Round(.TienNo1, 3)
         End With
 
 
