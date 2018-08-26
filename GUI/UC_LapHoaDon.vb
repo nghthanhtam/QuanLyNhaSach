@@ -462,7 +462,6 @@ Public Class UC_LapHoaDon
                 .MaHoaDon1 = CInt(txt_MaHoaDon.Text)
                 .MaSach1 = CInt(dgv_listSach.Rows(i).Cells(1).Value)
                 .SoLuongban1 = CInt(dgv_listSach.Rows(i).Cells(4).Value)
-                .DonGiaBan1 = CDbl(dgv_listSach.Rows(i).Cells(6).Value)
             End With
 
 

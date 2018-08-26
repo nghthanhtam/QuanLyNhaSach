@@ -25,9 +25,9 @@ FROM
 			FROM
 			(
 				/*Tính thành tiền của các hóa đơn mà khách hàng mua trong tháng*/
-				SELECT MaKhachHang, SoLuongBan*DonGiaBan ThanhTien
-				FROM CHITIETHOADON, HOADON
-				WHERE HOADON.MaHoaDon = CHITIETHOADON.MaHoaDon AND MONTH(HOADON.NgayLapHoaDon) = @Thang AND YEAR(HOADON.NgayLapHoaDon) = @Nam
+				SELECT MaKhachHang, SoLuongBan*DonGia ThanhTien
+				FROM CHITIETHOADON, SACH, HOADON
+				WHERE SACH.MaSach = CHITIETHOADON.MaSach AND HOADON.MaHoaDon = CHITIETHOADON.MaHoaDon AND MONTH(HOADON.NgayLapHoaDon) = @Thang AND YEAR(HOADON.NgayLapHoaDon) = @Nam
 			) HDThanhTien
 			GROUP BY HDThanhTien.MaKhachHang
 		 ) ctmua
@@ -54,9 +54,9 @@ FROM
 			FROM
 			(
 				/*Tính thành tiền của các hóa đơn mà khách hàng mua trong tháng*/
-				SELECT MaKhachHang, SoLuongBan*DonGiaBan ThanhTien
-				FROM CHITIETHOADON, HOADON
-				WHERE  HOADON.MaHoaDon = CHITIETHOADON.MaHoaDon AND
+				SELECT MaKhachHang, SoLuongBan*DonGia ThanhTien
+				FROM CHITIETHOADON, SACH, HOADON
+				WHERE SACH.MaSach = CHITIETHOADON.MaSach AND HOADON.MaHoaDon = CHITIETHOADON.MaHoaDon AND
 				((YEAR(HOADON.NgayLapHoaDon) < @Nam) OR (YEAR(HOADON.NgayLapHoaDon) = @Nam	AND	MONTH(HOADON.NgayLapHoaDon) <@Thang))
 			) HDThanhTien
 			GROUP BY HDThanhTien.MaKhachHang

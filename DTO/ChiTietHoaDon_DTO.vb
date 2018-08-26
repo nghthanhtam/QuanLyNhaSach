@@ -4,7 +4,6 @@
     Private MaHoaDon As Integer
     Private MaSach As Integer
     Private SoLuongban As Integer
-    Private DonGiaBan As Double
 
     Public Sub New()
     End Sub
@@ -52,12 +51,4 @@
         End Set
     End Property
 
-    Public Property DonGiaBan1 As Double
-        Get
-            Return DonGiaBan
-        End Get
-        Set(value As Double)
-            DonGiaBan = value
-        End Set
-    End Property
 End Class

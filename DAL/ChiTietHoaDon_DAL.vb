@@ -5,7 +5,7 @@ Imports Utility
 Public Class ChiTietHoaDon_DAL
 
     Public Function insertChiTietHoaDon(x As ChiTietHoaDon_DTO) As Result
-        Dim query As String = "INSERT INTO [CHITIETHOADON] ([MaHoaDon], [MaSach], [SoLuongban], [DonGiaBan]) VALUES (@MaHoaDon, @MaSach, @SoLuongBan, @DonGiaBan)"
+        Dim query As String = "INSERT INTO [CHITIETHOADON] ([MaHoaDon], [MaSach], [SoLuongban]) VALUES (@MaHoaDon, @MaSach, @SoLuongBan)"
 
         Using conn As SqlConnection = ConnectDB.GetConnectionDB()
             Using comm As SqlCommand = conn.CreateCommand()
@@ -17,8 +17,6 @@ Public Class ChiTietHoaDon_DAL
                     .Parameters.AddWithValue("@MaHoaDon", x.MaHoaDon1)
                     .Parameters.AddWithValue("@MaSach", x.MaSach1)
                     .Parameters.AddWithValue("@SoLuongban", x.SoLuongban1)
-                    .Parameters.AddWithValue("@DonGiaBan", x.DonGiaBan1)
-
                 End With
 
                 Try
