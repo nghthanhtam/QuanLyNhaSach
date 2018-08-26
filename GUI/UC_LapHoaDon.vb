@@ -63,7 +63,7 @@ Public Class UC_LapHoaDon
             End If
             i = i + 1
         End While
-        txt_TongTien.Text = Math.Round(tongTien, 3)
+        txt_TongTien.Text = tongTien
     End Sub
 
 
@@ -232,6 +232,7 @@ Public Class UC_LapHoaDon
 
             res = khachHangBUS.selectTenKH_ByMaKH(CInt(txt_MaKH.Text))
             If (res.FlagResult = False) Then
+                'MessageBox.Show(res.ApplicationMessage + Environment.NewLine + res.SystemMessage, "Xảy ra lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 txt_HoTenKH.Text = ""
                 txt_SoTienNo.Text = ""
                 txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
@@ -246,7 +247,7 @@ Public Class UC_LapHoaDon
             If (res.FlagResult = False) Then
                 Return
             Else
-                txt_SoTienNo.Text = Math.Round(CDbl(res.Obj1), 3)
+                txt_SoTienNo.Text = CDbl(res.Obj1).ToString() 'res.Obj1.ToString()
             End If
 
             ' kiểm tra nợ so với QĐ
@@ -255,9 +256,10 @@ Public Class UC_LapHoaDon
                 txt_SoTienNo.BackColor = Color.Red
                 ThongBaoTienNoVuotQuyDinh = res2.ApplicationMessage
                 Return
+            Else
+                txt_SoTienNo.Text = res.Obj1.ToString()
+                txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240)
             End If
-
-            txt_SoTienNo.BackColor = Color.FromArgb(240, 240, 240) ' gán lại màu bình thường
 
         Catch ex As Exception
             Debug.WriteLine(ex.Message)
@@ -330,7 +332,7 @@ Public Class UC_LapHoaDon
                 dgv_listSach.Item("TenSach", e.RowIndex).Value = sach.TenSach1
                 dgv_listSach.Item("TheLoai", e.RowIndex).Value = sach.TheLoai1
                 dgv_listSach.Item("TacGia", e.RowIndex).Value = sach.TacGia1
-                dgv_listSach.Item("DonGia", e.RowIndex).Value = Math.Round(sach.DonGia1, 3)
+                dgv_listSach.Item("DonGia", e.RowIndex).Value = sach.DonGia1
 
             End If
 

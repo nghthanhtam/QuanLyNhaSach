@@ -24,7 +24,7 @@ Public Class frm_CapNhatSach
             cbb_TheLoai.Text = .TheLoai1
             txt_TacGia.Text = .TacGia1
             txt_SoLuongTon.Text = .SoLuongTon1
-            txt_DonGia.Text = Math.Round(.DonGia1, 3)
+            txt_DonGia.Text = .DonGia1
         End With
 
 
