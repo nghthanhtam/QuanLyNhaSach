@@ -21,8 +21,8 @@ Public Class frm_ThemNhieuSach
 
 #Region "Đổi màu khi sai cú pháp"
     Private Sub ChangeColor_SaiCuPhap(rowIndex As Integer)
-        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51)
-        'dgv_listSachNhap.Rows(rowIndex).Cells(2).Style.BackColor = Color.FromArgb(255, 193, 51)
+        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Color.GreenYellow
+        'dgv_listSachNhap.Rows(rowIndex).Cells(2).Style.BackColor = Color.GreenYellow
     End Sub
     Private Sub Original_Color(rowIndex As Integer)
         dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Nothing
@@ -253,7 +253,7 @@ Public Class frm_ThemNhieuSach
 #End Region
 
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
-            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51) Then
+            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.GreenYellow Then
                 MessageBox.Show("Một số dòng nhập liệu sai quy định. Vui lòng kiểm tra lại!")
                 Return
             End If
@@ -306,9 +306,11 @@ Public Class frm_ThemNhieuSach
     Private Sub dgv_listSachNhap_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_listSachNhap.CellClick
         dgv_listSachNhap.BeginEdit(True)
         Try
-            If e.ColumnIndex = 2 And dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Selected = True Then
+            If e.ColumnIndex = 2 Then
+                If dgv_listSachNhap.Rows(e.RowIndex).Cells(2).Selected = True Then
+                    DirectCast(dgv_listSachNhap.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
 
-                DirectCast(dgv_listSachNhap.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
+                End If
             End If
         Catch ex As Exception
             Debug.WriteLine(ex.Message)
@@ -321,7 +323,6 @@ Public Class frm_ThemNhieuSach
             Me.Close()
         End If
     End Sub
-
 
     Private Sub dgv_listSachNhap_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgv_listSachNhap.EditingControlShowing
         If TypeOf e.Control Is DataGridViewComboBoxEditingControl Then
@@ -342,7 +343,7 @@ Public Class frm_ThemNhieuSach
             If (i > dgv_listSachNhap.Rows.Count - 1) Then
                 Exit While
             End If
-            If dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51) Then
+            If dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.GreenYellow Then
                 dgv_listSachNhap.Rows.RemoveAt(i)
                 i = i - 1
             End If

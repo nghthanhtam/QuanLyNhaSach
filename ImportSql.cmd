@@ -1,0 +1,1 @@
+SQLCMD -S DESKTOP-OR1GVR9 -E -i DBSACH-final.sql

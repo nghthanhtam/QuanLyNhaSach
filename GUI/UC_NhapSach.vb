@@ -56,10 +56,10 @@ Public Class btn_XoaTatCaDongLoi
 
 #Region "Đổi màu khi sai quy định hoặc cú pháp"
     Private Sub ChangeColor_SaiQuyDinh(rowIndex As Integer)
-        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Color.Red
+        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Color.OrangeRed
     End Sub
     Private Sub ChangeColor_SaiCuPhap(rowIndex As Integer)
-        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51)
+        dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Color.GreenYellow
     End Sub
     Private Sub Original_Color(rowIndex As Integer)
         dgv_listSachNhap.Rows(rowIndex).DefaultCellStyle.BackColor = Nothing
@@ -347,7 +347,7 @@ Public Class btn_XoaTatCaDongLoi
             If dgv_listSachNhap.Rows(j).Cells(1).Value = Nothing And dgv_listSachNhap.Rows(j).Cells(6).Value = Nothing Then
                 Continue For
             Else
-                If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.Red Then
+                If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Then
                     Continue For
                 End If
                 If dgv_listSachNhap.Rows(j).Cells(1).Value = Nothing Then
@@ -364,7 +364,7 @@ Public Class btn_XoaTatCaDongLoi
 
 #Region "Kiểm tra dgv có tồn tại dòng nào có màu không?"
         For j As Integer = 0 To dgv_listSachNhap.Rows.Count - 1
-            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.Red Or dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51) Then
+            If dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(j).DefaultCellStyle.BackColor = Color.GreenYellow Then
                 MessageBox.Show("Một số dòng nhập liệu sai quy định. Vui lòng kiểm tra lại!")
                 Return
             End If
@@ -457,7 +457,7 @@ Public Class btn_XoaTatCaDongLoi
             If (i > dgv_listSachNhap.Rows.Count - 1) Then
                 Exit While
             End If
-            If dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.Red Or dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.FromArgb(255, 193, 51) Then
+            If dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.OrangeRed Or dgv_listSachNhap.Rows(i).DefaultCellStyle.BackColor = Color.GreenYellow Then
                 dgv_listSachNhap.Rows.RemoveAt(i)
                 i = i - 1
             End If
